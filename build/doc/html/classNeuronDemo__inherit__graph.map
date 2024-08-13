@@ -1,0 +1,5 @@
+<map id="NeuronDemo" name="NeuronDemo">
+<area shape="rect" id="node1" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi..." alt="" coords="9,1160,247,1433"/>
+<area shape="rect" id="node2" href="$classscGenComp__PU__Bio.html" title="Implements a general biological&#45;type computing PU. Defaults to variable execution time,..." alt="" coords="5,775,251,1112"/>
+<area shape="rect" id="node3" href="$classscGenComp__PU__Abstract.html" title="Class to deal with operations of an abstract processing unit (PU), implementing a single&#45;shot element..." alt="" coords="9,5,247,727"/>
+</map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['physics_20behind_20neuronal_20operation_238',['PHYSICS behind neuronal operation',['../group__PHYSICS.html',1,'']]],
-  ['physics_20notions_20and_20terms_239',['PHYSICS notions and terms',['../group__PHYSICS__NOTIONS.html',1,'']]]
+  ['neuron_27s_20physics_242',['Neuron&apos;s physics',['../group__MODELING__SINGLE__PHYSICAL.html',1,'']]]
 ];

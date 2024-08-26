@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuRipes V0.0.3 @ 2024.08.07: scGenComp_PU_Abstract Class Reference</title>
+<title>Abstract Neuron Dynamics V0.0.4 @ 2024.08.24: scGenComp_PU_Abstract Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,7 +37,6 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="TAC_navtree_hacks.js"></script>
 </head>
 <body>
-<div style="background:#FFDDDD;font-size:120%;text-align:center;margin:0;padding:5px">Please, help us to better know about our user community by answering the following short survey:  <a href="https://forms.gle/wpyrxWi18ox9Z5ae9">https://forms.gle/wpyrxWi18ox9Z5ae9</a></div>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -45,7 +44,7 @@ MathJax.Hub.Config({
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="TAC_Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href="https://jvegh@bitbucket.org/jvegh/timeawarecomputingsimulator">NeuRipes V0.0.3 @ 2024.08.07</a>
+   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.4 @ 2024.08.24</a>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -112,11 +111,11 @@ $(document).ready(function(){initNavTree('classscGenComp__PU__Abstract.html','')
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">scGenComp_PU_Abstract Class Reference<div class="ingroups"><a class="el" href="group__GENCOMP__MODULE__PROCESS.html">Modules for general computing</a></div></div>  </div>
+<div class="title">scGenComp_PU_Abstract Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class to deal with operations of an abstract processing unit (<a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a>), implementing a single-shot elementary computation in the sense of the General Computing Paradigm <a class="el" href="citelist.html#CITEREF_VeghRevisingClassicComputing:2021">[40]</a>. The stages of operation are marked by event pairs (or single events) in the sense as the SystemC <a class="el" href="citelist.html#CITEREF_SystemCBook:2010">[5]</a> programming engine uses that notion. Using those events and SystemC's internal time scale, <em>the class isolates the simulated time and the clock time the <a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a> needs to simulate the processing</em>. The code of this base class is a bit complex, in order to enable simple derived <a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a>s: the complex event handling mechanism is confined in this class; the derived classes are free from any SystemC specific programming (for and example see <a class="el" href="classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi...">NeuronDemo</a>). The <a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a> has correspondingly the stages 'Computing', 'Delivering' and 'Relaxing' as the minimum necessary basic states. The module implements a single-shot normal operating mode, that is, the operation is automatic between the corresponding xxxBegin and xxxEnd events, and at the end of the xxxEnd events the corresponding next xxxBegin event is issued. A distinguished (compared to other simulators) feature of the class is handling time faithfully. </p>
+<div class="textblock"><p>Class to deal with operations of an abstract processing unit (<a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a>), implementing a single-shot elementary computation in the sense of the General Computing Paradigm <a class="el" href="citelist.html#CITEREF_VeghRevisingClassicComputing:2021">[53]</a>. The stages of operation are marked by event pairs (or single events) in the sense as the SystemC <a class="el" href="citelist.html#CITEREF_SystemCBook:2010">[7]</a> programming engine uses that notion. Using those events and SystemC's internal time scale, <em>the class isolates the simulated time and the clock time the <a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a> needs to simulate the processing</em>. The code of this base class is a bit complex, in order to enable simple derived <a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a>s: the complex event handling mechanism is confined in this class; the derived classes are free from any SystemC specific programming (for and example see <a class="el" href="classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi...">NeuronDemo</a>). The <a class="el" href="GLOSSARY.html#GLOSSARY_PU">PU</a> has correspondingly the stages 'Computing', 'Delivering' and 'Relaxing' as the minimum necessary basic states. The module implements a single-shot normal operating mode, that is, the operation is automatic between the corresponding xxxBegin and xxxEnd events, and at the end of the xxxEnd events the corresponding next xxxBegin event is issued. A distinguished (compared to other simulators) feature of the class is handling time faithfully. </p>
 <p>Biology measures time with some activity (such as changing neural membrane's potential). In that case <a class="el" href="classscGenComp__PU__Abstract.html#a0fd72a2b7c76176e533f18edc4c522b2" title="mFixedComputingTime,mFixedDeliveringTime">scGenComp_PU_Abstract::mFixedComputingTime</a> and scGenComp_PU_Abstract::mFixedDeliveringTime are set to zero, and the scGenComp_PU_Abstract::Heartbeat_method() checks periodically if the recent operating stage finished using stage-specific methods XXX_stop(). (This is the operating mode for biology, including neuronal simulation.) For details, see <a class="el" href="classscGenComp__PU__Bio.html" title="Implements a general biological-type computing PU. Defaults to variable execution time,...">scGenComp_PU_Bio</a> and <a class="el" href="classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi...">NeuronDemo</a>.</p>
 <p>In technical systems, the usual method is to use central-clock driven synchronized PUs. If <a class="el" href="classscGenComp__PU__Abstract.html#ad186e82d86f339001ff9db119ab93296">scGenComp_PU_Abstract::mCentralClockMode</a> is set to true, methods scGenComp_PU_Abstract::scClockUp_method() and scGenComp_PU_Abstract::scClockDown_method() trigger the required events, i.e., the unit uses entirely external timing. (This is the central clock driven mode)</p>
 <p>If <a class="el" href="classscGenComp__PU__Abstract.html#ad186e82d86f339001ff9db119ab93296">scGenComp_PU_Abstract::mCentralClockMode</a> is set to false, the PU sets <a class="el" href="classscGenComp__PU__Abstract.html#a0fd72a2b7c76176e533f18edc4c522b2" title="mFixedComputingTime,mFixedDeliveringTime">scGenComp_PU_Abstract::mFixedComputingTime</a> and scGenComp_PU_Abstract::mFixedDeliveringTime and the corresponding XXX_Begin() routines schedule the corresponding XXX_End() events compared to the input's arrival. For details, see <a class="el" href="classscGenComp__PU__Tech.html" title="Implements a general biological-type computing PU.">scGenComp_PU_Tech</a>. (This is an asynchron mode.)</p>
@@ -131,11 +130,11 @@ $(document).ready(function(){initNavTree('classscGenComp__PU__Abstract.html','')
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classscGenComp__PU__Abstract__inherit__graph.png" border="0" usemap="#ascGenComp__PU__Abstract_inherit__map" alt="Inheritance graph"/></div>
 <map name="ascGenComp__PU__Abstract_inherit__map" id="ascGenComp__PU__Abstract_inherit__map">
-<area shape="rect" title="Class to deal with operations of an abstract processing unit (PU), implementing a single&#45;shot element..." alt="" coords="269,5,508,727"/>
-<area shape="rect" href="classscGenComp__PU__Bio.html" title="Implements a general biological&#45;type computing PU. Defaults to variable execution time,..." alt="" coords="133,775,378,1112"/>
-<area shape="rect" href="classscGenComp__PU__Tech.html" title="Implements a general biological&#45;type computing PU." alt="" coords="403,815,641,1072"/>
-<area shape="rect" href="classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi..." alt="" coords="5,1232,244,1505"/>
-<area shape="rect" href="classNeuronPhysical.html" title="Implements a general physical&#45;type neuron." alt="" coords="268,1160,507,1577"/>
+<area shape="rect" title="Class to deal with operations of an abstract processing unit (PU), implementing a single&#45;shot element..." alt="" coords="280,5,519,663"/>
+<area shape="rect" href="classscGenComp__PU__Bio.html" title="Implements a general biological&#45;type computing PU. Defaults to variable execution time,..." alt="" coords="143,711,389,1048"/>
+<area shape="rect" href="classscGenComp__PU__Tech.html" title="Implements a general biological&#45;type computing PU." alt="" coords="413,751,652,1008"/>
+<area shape="rect" href="classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi..." alt="" coords="5,1224,244,1497"/>
+<area shape="rect" href="classNeuronPhysical.html" title="Implements a general physical&#45;type neuron." alt="" coords="268,1096,547,1625"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -169,13 +168,13 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a81d1c32b732fc5063d0b8acff9e83b92">InputReceived_Do</a> (void)</td></tr>
 <tr class="memdesc:a81d1c32b732fc5063d0b8acff9e83b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code to overload actual input processing Called from InputReceived_method() <br /></td></tr>
 <tr class="separator:a81d1c32b732fc5063d0b8acff9e83b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c2c7ebb19204b62dfd6685bf9e8aa6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a7c2c7ebb19204b62dfd6685bf9e8aa6b">ObserverNotify</a> (<a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a> ObservedBit)</td></tr>
+<tr class="memitem:a7c2c7ebb19204b62dfd6685bf9e8aa6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a7c2c7ebb19204b62dfd6685bf9e8aa6b">ObserverNotify</a> (<a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a> ObservedBit)</td></tr>
 <tr class="memdesc:a7c2c7ebb19204b62dfd6685bf9e8aa6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify the observer about some important change.  <a href="classscGenComp__PU__Abstract.html#a7c2c7ebb19204b62dfd6685bf9e8aa6b">More...</a><br /></td></tr>
 <tr class="separator:a7c2c7ebb19204b62dfd6685bf9e8aa6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab90c619a3f1590de412951f7779eb3f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#ab90c619a3f1590de412951f7779eb3f7">ObservingBit_Get</a> (<a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a> B)</td></tr>
+<tr class="memitem:ab90c619a3f1590de412951f7779eb3f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#ab90c619a3f1590de412951f7779eb3f7">ObservingBit_Get</a> (<a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a> B)</td></tr>
 <tr class="memdesc:ab90c619a3f1590de412951f7779eb3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an observing bit for this <a class="el" href="classscGenComp__PU__Abstract.html" title="Class to deal with operations of an abstract processing unit (PU), implementing a single-shot element...">scGenComp_PU_Abstract</a>.  <a href="classscGenComp__PU__Abstract.html#ab90c619a3f1590de412951f7779eb3f7">More...</a><br /></td></tr>
 <tr class="separator:ab90c619a3f1590de412951f7779eb3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b67be264aac20b2b9ff16ba1d240f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a41b67be264aac20b2b9ff16ba1d240f1">ObservingBit_Set</a> (<a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a> B, bool V)</td></tr>
+<tr class="memitem:a41b67be264aac20b2b9ff16ba1d240f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a41b67be264aac20b2b9ff16ba1d240f1">ObservingBit_Set</a> (<a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a> B, bool V)</td></tr>
 <tr class="memdesc:a41b67be264aac20b2b9ff16ba1d240f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an observing bit for this <a class="el" href="classscGenComp__PU__Abstract.html" title="Class to deal with operations of an abstract processing unit (PU), implementing a single-shot element...">scGenComp_PU_Abstract</a>.  <a href="classscGenComp__PU__Abstract.html#a41b67be264aac20b2b9ff16ba1d240f1">More...</a><br /></td></tr>
 <tr class="separator:a41b67be264aac20b2b9ff16ba1d240f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399d6568bedd90fcbf4f71f9a06b3418"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a399d6568bedd90fcbf4f71f9a06b3418">OperationCounter_Get</a> (void)</td></tr>
@@ -232,7 +231,7 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a9ded4eb17e053cfc1ba5be715d6b4e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a9ded4eb17e053cfc1ba5be715d6b4e18">scLocalTimeBase_Set</a> (sc_core::sc_time T)</td></tr>
 <tr class="memdesc:a9ded4eb17e053cfc1ba5be715d6b4e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">scLocalTimeBase_Set  <a href="classscGenComp__PU__Abstract.html#a9ded4eb17e053cfc1ba5be715d6b4e18">More...</a><br /></td></tr>
 <tr class="separator:a9ded4eb17e053cfc1ba5be715d6b4e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26ef4fdb89b0785c80ed62ca8252e0b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a26ef4fdb89b0785c80ed62ca8252e0b5">StageFlag_Set</a> (<a class="el" href="group__GENCOMP__MODULE__PROCESS.html#ga2a131f305e5c73c0b10623b703c5861f">GenCompStageMachineType_t</a> S)</td></tr>
+<tr class="memitem:a26ef4fdb89b0785c80ed62ca8252e0b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscGenComp__PU__Abstract.html#a26ef4fdb89b0785c80ed62ca8252e0b5">StageFlag_Set</a> (<a class="el" href="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861f">GenCompStageMachineType_t</a> S)</td></tr>
 <tr class="separator:a26ef4fdb89b0785c80ed62ca8252e0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -511,7 +510,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void scGenComp_PU_Abstract::ObserverNotify </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a>&#160;</td>
           <td class="paramname"><em>ObservedBit</em></td><td>)</td>
           <td></td>
         </tr>
@@ -540,7 +539,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool scGenComp_PU_Abstract::ObservingBit_Get </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a>&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -575,7 +574,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void scGenComp_PU_Abstract::ObservingBit_Set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9">GenCompPUObservingBits_t</a>&#160;</td>
           <td class="paramname"><em>B</em>, </td>
         </tr>
         <tr>
@@ -849,7 +848,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void scGenComp_PU_Abstract::StageFlag_Set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__GENCOMP__MODULE__PROCESS.html#ga2a131f305e5c73c0b10623b703c5861f">GenCompStageMachineType_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861f">GenCompStageMachineType_t</a>&#160;</td>
           <td class="paramname"><em>S</em></td><td>)</td>
           <td></td>
         </tr>
@@ -961,7 +960,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Store here which events the unit wants to be observed</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__GENCOMP__MODULE__PROCESS.html#gace4ff5493a619c88d5cbc1407e5a96f9" title="the names of the bits in the bitset describing which signals in scGenComp_PU_Abstract are monitored b...">GenCompPUObservingBits_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9" title="the names of the bits in the bitset describing which signals in scGenComp_PU_Abstract are monitored b...">GenCompPUObservingBits_t</a> </dd></dl>
 
 </div>
 </div>

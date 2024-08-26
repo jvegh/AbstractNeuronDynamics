@@ -11,5 +11,5 @@ var classNeuronPhysical =
     [ "Heartbeat_Relaxing_Stop", "classNeuronPhysical.html#a535cedb66c2d5f7da379f007ee0774de", null ],
     [ "Initialize_Do", "classNeuronPhysical.html#a1ff47ab959c01f24b977de58887dfa19", null ],
     [ "InputReceived_Do", "classNeuronPhysical.html#ad806dc719dded5aad7e2890cc533c7e3", null ],
-    [ "MembraneTimeDerivative_Get", "classNeuronPhysical.html#a7042c6a81082390f51b7034670e632f6", null ]
+    [ "MembraneRushinTimeDerivative_Get", "classNeuronPhysical.html#a66d025a8f935cf02a765b871c947ff64", null ]
 ];

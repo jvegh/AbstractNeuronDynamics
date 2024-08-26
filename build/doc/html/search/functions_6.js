@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['membranetimederivative_5fget_158',['MembraneTimeDerivative_Get',['../classNeuronPhysical.html#a7042c6a81082390f51b7034670e632f6',1,'NeuronPhysical']]]
+  ['membranerushintimederivative_5fget_160',['MembraneRushinTimeDerivative_Get',['../classNeuronPhysical.html#a66d025a8f935cf02a765b871c947ff64',1,'NeuronPhysical']]]
 ];

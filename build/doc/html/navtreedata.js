@@ -24,9 +24,9 @@
 */
 var NAVTREE =
 [
-  [ "NeuRipes V0.0.3 @ 2024.08.07", "index.html", [
+  [ "Abstract Neuron Dynamics V0.0.4 @ 2024.08.24", "index.html", [
     [ "Overview", "index.html", null ],
-    [ "Getting started", "@ref GettingStarted", null ],
+    [ "Getting started", "GettingStarted.html", null ],
     [ "Chapters", "modules.html", "modules" ],
     [ "Class List", "annotated.html", "annotated" ],
     [ "Cited references", "citelist.html", null ],
@@ -37,7 +37,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"@ref GettingStarted"
+"GLOSSARY.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

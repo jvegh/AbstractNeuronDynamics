@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuRipes V0.0.3 @ 2024.08.07: Axon</title>
+<title>Abstract Neuron Dynamics V0.0.4 @ 2024.08.24: Axon</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,7 +37,6 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="TAC_navtree_hacks.js"></script>
 </head>
 <body>
-<div style="background:#FFDDDD;font-size:120%;text-align:center;margin:0;padding:5px">Please, help us to better know about our user community by answering the following short survey:  <a href="https://forms.gle/wpyrxWi18ox9Z5ae9">https://forms.gle/wpyrxWi18ox9Z5ae9</a></div>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -45,7 +44,7 @@ MathJax.Hub.Config({
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="TAC_Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href="https://jvegh@bitbucket.org/jvegh/timeawarecomputingsimulator">NeuRipes V0.0.3 @ 2024.08.07</a>
+   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.4 @ 2024.08.24</a>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -110,11 +109,46 @@ $(document).ready(function(){initNavTree('group__MODELING__SINGLE__AXON.html',''
 <div class="title">Axon<div class="ingroups"><a class="el" href="group__MODELING.html">MODELING abstract neurons</a> &raquo; <a class="el" href="group__MODELING__SINGLE.html">MODELING single abstract neuron</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+<p>Back: <a class="el" href="group__MODELING__SINGLE__MEMBRANE.html#MODELING_SINGLE_MEMBRANE">MODELING membrane </a> Continue: <a class="el" href="group__MODELING__SINGLE__MEMBRANE.html#MODELING_SINGLE_MEMBRANE">MODELING membrane </a> Up: <a class="el" href="group__MODELING.html">MODELING </a></p>
 <h1><a class="anchor" id="MODELING_SINGLE_AXON"></a>
 Modeling axon</h1>
-<p>The axon</p>
+<p>The axon is modeled as a long electrolyte tube comprising cylindrical layers of thickness \(dx\) along its axes, and we apply an external potential \(V_{clamp}\) to the end of the tube. The little thin cylinders deliver ions of a specific chemical nature with an electrical charge.</p>
+<p>also AIS</p>
+<p>also clamping</p>
+<h2><a class="anchor" id="MODELING_SINGLE_AXON_PSP"></a>
+Post-synaptic potential</h2>
+<p><a class="anchor" id="fig_Post-synaptic_potential_lin"></a></p><div class="image">
+<img src="MasonPSPlin.png" alt="" width="400px"/>
+<div class="caption">
+The post-synaptic potential</div></div>
+<p></p>
+<p>(Notice in Figure <a class="el" href="group__MODELING__SINGLE.html#fig_NeuronElectricOperationSummary">fig_NeuronElectricOperationSummary</a> that although the <a class="el" href="GLOSSARY.html#GLOSSARY_AP">AP</a> with its hyperpolarization arrives to the synapse, the <a class="el" href="GLOSSARY.html#GLOSSARY_PSP">PSP</a> is not hyperpolarized.)</p>
+<p>The axons are open except the 'Delivering' stage.</p>
+<ul>
+<li>Twice, the axonal arbors stop emitting ions into the membrane. (The collected charge will not change any more, and so will their collection time: the computational result is ready.) The ions need to propagate against membrane's electric repulsion and they cannot enter the membrane anymore until its potential decreases below the threshold level again (this period is known as the 'absolute refractory' period); the rest of the spike remains in 'pending' state.</li>
+</ul>
+<p>The ion rush-in into the mebrane continues for a while, and the membrane's potential increases. The increasing potential drives a current through <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a> that decrases membrane's potential (because of the finite speed of ions, they appear with a delay both on the mebrane and on the <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a>).</p>
+<ul>
+<li>Another famous point is when the the membrane potential decreases below the threshold potential. At that point, the synaptic inputs can contribute again: the neuron is in phase 'Relaxing' again. This period is mistakenly identied as 'relative refractory' period. Actually, this state is not a 'refractory'; it is 'Relaxing' starting with an elevated membrane potential. It begins earlier than the first output appears on the <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a>. The slow axonal currents from the re-opened arbors must reach <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a>, so they appear there with a delay (from different distances at different times), creating the <em>illusion that inputs are re-enabled only when the membrane voltage is about its hyperpolarized voltage value</em>. Given that the neuron is actually in a 'Relaxing' state, &ndash; due to re-opening the axonal inputs &ndash; the pending inputs can contribute again, this time to the 'next' spike. In this period the neuronal potential differs from its resting value: it implements a short-term (time-dependent) <em>neuronal memory</em>. The pending contribution is the larger the closer was the time of closing the arboral gates to the arrival of the synaptic input; a plausible explanation of Hebb's observation.</li>
+</ul>
+<p>With introducing the idea of 'slow current', we arrive at a clear interpretation of the observed refractory period. The synaptic inputs are closed when membrane's potential is above the threshold potential, and they are open below that value. This distinction may be important in the presence of 'artificial' currents (clamping and patching): the current adds a potential offset to the voltage level; furthermore, the patching current may arrive through a 'valved' axon. If that offset becomes higher than the threshold, no synaptic input can be received. Actually, the refractory period reflects an 'all or nothing' feature of the synapses: they are either open or closed, without a third state.</p>
 <h1><a class="anchor" id="AXONAL_CHARGE_DELIVERY"></a>
 Axonal-charge-delivery</h1>
+<p><a class="el" href="group__MODELING__SINGLE__AXON.html#AXONAL_CHARGE_DELIVERY">Clamping sets up an artificial working regime</a> for the ion channels: the permanent electric field on the outer surface keeps the ion channels open (in a stationary state) and enables ions to enter the inner surface where formerly no ions (and no potential) existed. The rushed-in ions will flow away from the place of clamping, and a slow current toward the membrane can start. As discussed in section <a class="el" href="group__MODELING__SINGLE__MEMBRANE.html#MODELING_SINGLE_MEMBRANE_TRUE_CURRENT">The true membrane current</a>, when the membrane's potential reaches its threshold potential, after a similar rush-in over the membrane's surface, the ions can only leave through the <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a>.</p>
+<h2><a class="anchor" id="MODELING_SINGLE_ELECTRIC_PSP"></a>
+The Post-Synaptic Potential</h2>
+<p>Some schematic figures (for example See <a href="https://neuronaldynamics.epfl.ch/online/x2.png">showing signal transmission from a presynaptic neuron to a postsynaptic neuron</a>) miss the point that at the synapse the action potential appears as a different shape, furthermore mis-identifies the length of <a class="el" href="GLOSSARY.html#GLOSSARY_AP">AP</a> to essentially between the beginning of charge-up to the end of reaching the hyperpolarization peak voltage. Our discussion shows that the long tail after hyperpolarization is a vital part of <a class="el" href="GLOSSARY.html#GLOSSARY_AP">AP</a> (amond others, provides short-term neuronal memory for neuronal cooperation).</p>
+<p>As the figure about <a href="https://www.ncbi.nlm.nih.gov/books/NBK26910/bin/ch11f39.gif">signal transmission from a presynaptic neuron to a postsynaptic neuron</a> depicts, the arriving presynaptic charge packages sum up and correspondingly produce a signal that corresponds to the spatially and temporally summed voltgae change of the</p>
+<p>The textbook <a class="el" href="citelist.html#CITEREF_MolecularBiology:2002">[2]</a> mistakenly attributes the role of encoding the magnite of <a class="el" href="GLOSSARY.html#GLOSSARY_PSP">PSP</a> to the ion channels today known as <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a>. 'For long-distance transmission, the magnitude of the <a class="el" href="GLOSSARY.html#GLOSSARY_PSP">PSP</a> is therefore translated, or encoded, into the frequency of firing of action potentials. This encoding is achieved by a special set of gated ion channels that are present at high density at the base of the axon.' The <a class="el" href="group__MODELING__SINGLE__AP.html#MODELING_ACTION_POTENTIAL">encoding</a> is performed by the interplay of neuron's finite size and the finite speed of the ion current. The fact that the amplitudes are summed spatially and temporally, demonstrates the <a class="el" href="group__PHYSICS__SPATIOTEMPORAL.html#PHYSICS_SPATIOTEMPORAL">spatiotemporal behavior</a>.</p>
+<p>The 'artificial' inputs (patching and clamping) mostly add a constant current, that produces a zero time derivate on the membrane and result in a constant output voltage. Given that the amount of current through the current drain is limited by the resistivity \(R\) of <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a>, and it depends on the actual membrane voltage, introducing too high currents may lead to unnatural effects. If the external current integrated for a neuronal operating cycle exceeds the similary integrated maximum current the <a class="el" href="GLOSSARY.html#GLOSSARY_AIS">AIS</a> can transmit, the neuron "overflows": the extra charge leaves to the extracellular space and the neuronal cyle stops working. Any external current moves the work point where the 'native' inputs get effective again and the neuron can enter the 'Refractory' phase; after some point the neuron stops emitting <a class="el" href="GLOSSARY.html#GLOSSARY_AP">AP</a>s.</p>
+<p>The membrane's potential around the threshold value acts as a dual-circuit switch:</p><ul>
+<li>When 'artificial currents' (or too frequent incoming spikes) increase membrane's voltage permanently to be around the threshold level, the ion channels in membrane's wall will be in ill-defined state. Being very close to the threshold, small transients of the membrane's voltage may cause apparently unexpected</li>
+</ul>
+<p><a class="anchor" id="HodgkinHuxleyStepFunction"></a></p><div class="image">
+<img src="HodgkinHuxleyStepFunction.png" alt="" width="600px"/>
+<div class="caption">
+The measured response function of a clamped neuron</div></div>
+<p> </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['simulation_20principles_20and_20technology_240',['SIMULATION principles and technology',['../group__SIMULATION.html',1,'']]],
-  ['slow_20current_241',['Slow current',['../group__PHYSICS__SLOW__CURRENT.html',1,'']]],
-  ['speed_20dependence_242',['Speed dependence',['../group__PHYSICS__SPEED__DEPENDENCE.html',1,'']]],
-  ['speeds_243',['Speeds',['../group__PHYSICS__SPEEDS.html',1,'']]],
-  ['systemc_244',['SystemC',['../group__SIMULATION__SYSTEMC.html',1,'']]]
+  ['physics_20behind_20neuronal_20operation_243',['PHYSICS behind neuronal operation',['../group__PHYSICS.html',1,'']]],
+  ['physics_20notions_20and_20terms_244',['PHYSICS notions and terms',['../group__PHYSICS__NOTIONS.html',1,'']]]
 ];

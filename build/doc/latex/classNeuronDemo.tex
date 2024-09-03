@@ -1,0 +1,139 @@
+\doxysection{Neuron\+Demo Class Reference}
+\label{classNeuronDemo}\index{NeuronDemo@{NeuronDemo}}
+
+
+\doxysubsection{Detailed Description}
+A simple demo class to implement the operation of an abstract biological neuron. The operating principle of neuronal processing, and programming details\+: 
+
+The class adjusts member sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio\+::m\+\_\+\+Membrane\+\_\+V (the membrane potential). Actually, it implements the \doxyref{AP}{p.}{GLOSSARY_GLOSSARY_AP} creation as shown in Figure \doxyref{fig\+\_\+\+AP\+\_\+\+Conceptual}{p.}{group__MODELING__SINGLE__AP_fig_AP_Conceptual}.
+
+Given that the membrane\textquotesingle{}s potential rather than time of instruction count defines processing phases, method sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract\+::\+Heartbeat\+\_\+method() is called periodically, with HEARTBEAT\+\_\+\+TIME\+\_\+\+DEFAULT (simulated) time (presently set to $10\ \mu s$). That function internally calls one of its state-\/dependent Heartbeat\+\_\+\+XXX\+\_\+\+Do() methods.
+
+\doxyref{Input\+Received\+\_\+\+Do()}{p.}{classNeuronDemo_a6b1fa359d1a0d044e2d53e688af5a28f} imitates chargeup\+: membranes voltage increases promptly by $6\ mV$ after receiving a synaptic input
+
+\doxyref{Heartbeat\+\_\+\+Computing\+\_\+\+Do()}{p.}{classNeuronDemo_a968f505fae12f7408930e79b117e61d2} imitates membrane\textquotesingle{}s discharge by decreasing its voltage by $1\ mV$
+
+\doxyref{Heartbeat\+\_\+\+Delivering\+\_\+\+Do()}{p.}{classNeuronDemo_a7b536da8e59b248fb2c9b8cd7ec6cfa7} imitates creating a sawtooth-\/like \doxyref{AP}{p.}{GLOSSARY_GLOSSARY_AP} on the membrane
+
+\doxyref{Heartbeat\+\_\+\+Relaxing\+\_\+\+Do()}{p.}{classNeuronDemo_a233a6008741bddf772d89a6211854329} imitates restoring potential to Resting\+Membrane\+Potential by changing its value by by $\pm 1\ mV$
+
+The states of the neuronal state machine are controlled by methods Heartbeat\+\_\+\+XXX\+\_\+\+Stop()
+
+\doxyref{Heartbeat\+\_\+\+Computing\+\_\+\+Stop()}{p.}{classNeuronDemo_aab4c43c084329cbc1de7975eed5c992f} passes to phase \textquotesingle{}Delivering\textquotesingle{} if membrane\textquotesingle{}s voltage exceeds the Threshold\+Potential or passes to phase \textquotesingle{}Relaxing\textquotesingle{} if it falls below Resting\+Membrane\+Potential (calls sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract\+::\+Failed\+\_\+method() )
+
+\doxyref{Heartbeat\+\_\+\+Delivering\+\_\+\+Stop()}{p.}{classNeuronDemo_a679dac13f103ce4140dc46b058f2fb82} passes to phase \char`\"{}\+Relaxing\char`\"{}, practically at a constant time. It increases membrane\textquotesingle{}s voltage until $\approx 150\ mV$ reached, then decreases in somewhat lower pace until Threshold\+Potential reached (imitate hyperpolarization)
+
+\doxyref{Heartbeat\+\_\+\+Relaxing\+\_\+\+Stop()}{p.}{classNeuronDemo_a2d7f92be89e33e11e63bcab6f7e0760d} decreases membrane potential until -\/Threshold\+Potential reached, then restores Resting\+Membrane\+Potential reached
+
+The class needs (empty) constructor and destructor. \doxyref{Initialize\+\_\+\+Do()}{p.}{classNeuronDemo_ad115de52a3a36b827e4f5cbc639b2016} is only called in constructor (preserves voltage between spikes)
+
+\label{classNeuronDemo_fig_AP_ConceptualDemo}%
+
+
+The conceptual schematics is implemented by the Neuron demo\+:  
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/AP_ConceptualDemo.pdf}
+\caption{The conceptual schematic Action Potential produced by NeuronDemo}
+\label{fig_AP_ConceptualDemo}
+\end{figure}
+ 
+
+Inheritance diagram for Neuron\+Demo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classNeuronDemo__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classNeuronDemo_a968f505fae12f7408930e79b117e61d2}} 
+virtual void \textbf{ Heartbeat\+\_\+\+Computing\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Heartbeat processing in \textquotesingle{}Computing\textquotesingle{}. \end{DoxyCompactList}\item 
+virtual bool \textbf{ Heartbeat\+\_\+\+Computing\+\_\+\+Stop} ()
+\item 
+\mbox{\label{classNeuronDemo_a7b536da8e59b248fb2c9b8cd7ec6cfa7}} 
+virtual void \textbf{ Heartbeat\+\_\+\+Delivering\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Heartbeat processing in \textquotesingle{}Delivering\textquotesingle{}. \end{DoxyCompactList}\item 
+virtual bool \textbf{ Heartbeat\+\_\+\+Delivering\+\_\+\+Stop} ()
+\item 
+\mbox{\label{classNeuronDemo_a233a6008741bddf772d89a6211854329}} 
+virtual void \textbf{ Heartbeat\+\_\+\+Relaxing\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Heartbeat processing in \textquotesingle{}Relaxing\textquotesingle{}. \end{DoxyCompactList}\item 
+virtual bool \textbf{ Heartbeat\+\_\+\+Relaxing\+\_\+\+Stop} ()
+\item 
+\mbox{\label{classNeuronDemo_ad115de52a3a36b827e4f5cbc639b2016}} 
+virtual void \textbf{ Initialize\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Activity for intializing the unit. \end{DoxyCompactList}\item 
+\mbox{\label{classNeuronDemo_a6b1fa359d1a0d044e2d53e688af5a28f}} 
+virtual void \textbf{ Input\+Received\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Activity to imitate an input. \end{DoxyCompactList}\item 
+\textbf{ Neuron\+Demo} (sc\+\_\+core\+::sc\+\_\+module\+\_\+name nm)
+\begin{DoxyCompactList}\small\item\em Creates a demo-\/purpose neuron unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classNeuronDemo_abac2ed1cc582eadad03d0c2db364e5d9}} 
+\index{NeuronDemo@{NeuronDemo}!NeuronDemo@{NeuronDemo}}
+\index{NeuronDemo@{NeuronDemo}!NeuronDemo@{NeuronDemo}}
+\doxysubsubsection{NeuronDemo()}
+{\footnotesize\ttfamily Neuron\+Demo\+::\+Neuron\+Demo (\begin{DoxyParamCaption}\item[{sc\+\_\+core\+::sc\+\_\+module\+\_\+name}]{nm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a demo-\/purpose neuron unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & the SystemC name of the module \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classNeuronDemo_aab4c43c084329cbc1de7975eed5c992f}} 
+\index{NeuronDemo@{NeuronDemo}!Heartbeat\_Computing\_Stop@{Heartbeat\_Computing\_Stop}}
+\index{Heartbeat\_Computing\_Stop@{Heartbeat\_Computing\_Stop}!NeuronDemo@{NeuronDemo}}
+\doxysubsubsection{Heartbeat\_Computing\_Stop()}
+{\footnotesize\ttfamily virtual bool Neuron\+Demo\+::\+Heartbeat\+\_\+\+Computing\+\_\+\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if threshold exceeded 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_a75a0b61f9272fd7bf14413ecfdd9bbcb}.
+
+\mbox{\label{classNeuronDemo_a679dac13f103ce4140dc46b058f2fb82}} 
+\index{NeuronDemo@{NeuronDemo}!Heartbeat\_Delivering\_Stop@{Heartbeat\_Delivering\_Stop}}
+\index{Heartbeat\_Delivering\_Stop@{Heartbeat\_Delivering\_Stop}!NeuronDemo@{NeuronDemo}}
+\doxysubsubsection{Heartbeat\_Delivering\_Stop()}
+{\footnotesize\ttfamily virtual bool Neuron\+Demo\+::\+Heartbeat\+\_\+\+Delivering\+\_\+\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if delivering potential is below threshold 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_abfae7ba4b9ea1f5aacab5ad7cb770bc7}.
+
+\mbox{\label{classNeuronDemo_a2d7f92be89e33e11e63bcab6f7e0760d}} 
+\index{NeuronDemo@{NeuronDemo}!Heartbeat\_Relaxing\_Stop@{Heartbeat\_Relaxing\_Stop}}
+\index{Heartbeat\_Relaxing\_Stop@{Heartbeat\_Relaxing\_Stop}!NeuronDemo@{NeuronDemo}}
+\doxysubsubsection{Heartbeat\_Relaxing\_Stop()}
+{\footnotesize\ttfamily virtual bool Neuron\+Demo\+::\+Heartbeat\+\_\+\+Relaxing\+\_\+\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if to stop heartbeats if resting potential sufficiently approached 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_a5b5b64cf2b49a9f7246a2e92d550b42a}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Neuron\+Demo.\+h}\end{DoxyCompactItemize}

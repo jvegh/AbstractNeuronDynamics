@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Abstract Neuron Dynamics V0.0.4 @ 2024.08.24", "index.html", [
+  [ "Abstract Neuron Dynamics V0.0.5 @ 2024.09.04", "index.html", [
     [ "Overview", "index.html", null ],
     [ "Getting started", "GettingStarted.html", null ],
     [ "Chapters", "modules.html", "modules" ],

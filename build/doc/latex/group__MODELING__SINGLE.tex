@@ -1,0 +1,52 @@
+\doxysection{MODELING single abstract neuron}
+\label{group__MODELING__SINGLE}\index{MODELING single abstract neuron@{MODELING single abstract neuron}}
+
+
+\doxysubsection{Detailed Description}
+back\+: \doxyref{PHYSICS }{p.}{group__PHYSICS} Continue\+: \doxyref{Neuron\textquotesingle{}s physics }{p.}{group__MODELING__SINGLE__PHYSICAL_MODELING_SINGLE_PHYSICAL} Up\+: \doxyref{MODELING }{p.}{group__MODELING}
+
+{\texttt{ The size of presynaptic terminals}} is about two orders of magnitude smaller than the cell body and its dendrites \cite{MolecularBiology:2002}, chapter 11. In other words, the \textquotesingle{}dendritic trees can be quite large, containing up to 98 \% of the entire neuronal surface area\textquotesingle{} \cite{BiologicalConservationLaw:2017}. \textquotesingle{}Because the cell body is small compared with the dendritic tree, its membrane potential is roughly uniform\textquotesingle{} \cite{MolecularBiology:2002}; that is we assume that the membrane itself is equipotential. However, that potential \textquotesingle{}is a composite of the effects of all the signals impinging on the cell, weighted according to the distances of the synapses from the cell body\textquotesingle{}. \textquotesingle{}Temporal and spatial summation together provide the means by which ... many presynaptic neurons jointly control the membrane potential.\textquotesingle{} \textquotesingle{}Each incoming signal is reflected in a local \doxyref{PSP}{p.}{GLOSSARY_GLOSSARY_PSP} of graded magnitude, which decreases with distance from the site of the synapse\textquotesingle{} \cite{MolecularBiology:2002}. This latter sentence should read that {\itshape its measurable effect (their potential) decreases}, compared to the one at the presynaptic terminals. As the surface over which it extends during its journey through the dendrites, the charge density decreases, but the total charge conserves until the cell body reached.
+
+These statements mean (assuming that those signals travel with the same speed in the dendrites) that the presence of a \doxyref{\textquotesingle{}slow current\textquotesingle{} of ions}{p.}{group__PHYSICS__SLOW__CURRENT_PHYSICS_SLOW_CURRENT} is experimentally underpinned, althought the notion is not introduced (mainly because its mathematical handling is not solved). Assuming that the dendrites\textquotesingle{} size is about $0.1\ mm$ and the synaptic signals appear at the \doxyref{AIS}{p.}{GLOSSARY_GLOSSARY_AIS} $0.2\ ms$ after their arrival to their presynaptic terminals, we can estimate the speed of \textquotesingle{}slow current\textquotesingle{} as $0.5\ m/s$ (see our discussion on the signals appearing in the \textquotesingle{}relative refractory\textquotesingle{} period). This result is in line with our result derived from the \textquotesingle{}ghost image\textquotesingle{} (see Fig. \doxyref{fig\+\_\+\+The-\/ghost-\/image\+\_\+\+AP}{p.}{group__MODELING__SINGLE__ELECTRIC_fig_The-ghost-image_AP}) $2\ m/s$, the speed value $1\ cm/s$ \cite{ActionPotentialGenerationNatrium:2008} measured within a cell body and the axonal speed 20 m/s \cite{HodgkinHuxley:1952}.\doxysubsection{Modeling a single neuron}\label{group__MODELING__SINGLE_MODELING_SINGLE_MAIN}
+In this section -- in the spirit of Johnston and Wu \cite{JohstonWuNeurophysiology:1995} -- we review how the relevant major components of a single neuron follow the \textquotesingle{}basic principles\textquotesingle{}. We use the physiological notions and terms only in a general sense, going into details only to the absolutely necessary depth. However, we cite the corresponding research papers describing the details. When discussing the underlying physical laws, we go back to the very basic physical notions instead of taking over \doxyref{the approximations and abstractions}{p.}{group__PHYSICS__ABSTRACTION_PHYSICS_ABSTRACTIONS} used in the {\itshape classic physics for non-\/biological media} and less complex (strictly pair-\/wise, single type, finite interaction speed in homogenous isotropic medium) interactions. We attempt to provide a \doxyref{summary picture}{p.}{group__MODELING__SINGLE__PHYSICAL_MODELING_SINGLE_PHYSICAL}, from physical point of view, which physical components cooperate. The detailed discussion is given in the individual subsections, where the physical and physiological phenomena are discussed, and finally their \doxyref{electric features}{p.}{group__MODELING__SINGLE__ELECTRIC_MODELING_SINGLE_ELECTRIC} are summarized, furthermore how the components are put together to form the \doxyref{action potential}{p.}{group__MODELING__SINGLE__AP_MODELING_SINGLE_AP_CONCEPTUAL} we experience.
+
+Textbook models, such as {\texttt{ \char`\"{}\+Neuronal dynamics\char`\"{}}} and \cite{KochBiophysics:1999} usually skip the question {\itshape how} the neuron, a piece of living material, is modeled. (Hodgkin and Huxley seem to be one of the rare exceptions, but as they admit the \textquotesingle{}{\itshape interpretation given is unlikely to provide a correct picture of the membrane}\textquotesingle{}, furthermore that \textquotesingle{}{\itshape a physical theory of this kind does not lead to satisfactory functions ... without further ad hoc assumptions}\textquotesingle{} \cite{HodgkinHuxley:1952}.) Instead, they use the model introduced by science for non-\/living materials\+: for describing electric circuits. That latter model assumes that the circuits comprise point-\/like ideal {\itshape discrete elements} such as condensers and resistances, which are connected by conducting (metallic) ideal wires and their interaction speed is infinitely high (the Newtonian \textquotesingle{}instant interaction\textquotesingle{}). Using that abstract model they can use the well-\/known classic equations, named after Ohm, Kirchoff, Coulomb, Maxwell and others. However, those abstractions have severe limitations.
+
+As Figure \doxyref{fig\+\_\+\+Neuron\+Electric\+Operation\+Summary}{p.}{group__MODELING__SINGLE_fig_NeuronElectricOperationSummary} (Fig. 1.\+2 from \cite{JohstonWuNeurophysiology:1995}) summarizes\+: \textquotesingle{}Electrical signals travel from the cell body of a neuron (left) to its axon terminal in the form of action potentials. Action potentials trigger the secretion of neurotransmitters from synaptic terminals (upper insert). Neurotransmitters bind to postsynaptic receptors and cause electric signals (synaptic potential) in the postsynaptic neuron (right). Synaptic potentials trigger action potentials, which propagate to the axon terminal and trigger secretion of neurotransmitters to the next neuron.\textquotesingle{} Notice that at that time it was not yet recognized that the electric signals propagate with a finite speed also in the dendrites, not only on the axons.
+
+\label{group__MODELING__SINGLE_fig_NeuronElectricOperationSummary}%
+
+
+ 
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/JohnstonSummaryFigure1_2.png}
+\caption{Summary of conveying information by electric and chemical signals}
+\label{fig_NeuronElectricOperationSummary}
+\end{figure}
+
+
+As we mentioned above, experimental evidence shows that the electric signals have a finite speed in axons, dendrites and cell body, and that within the cell, the overwhelming majority of propagation time is spent in the dendrites. The mathematical handling of finite speeds is not simple, especially within a biological cell, so we separate the cell into two regions and make the approximation that within the cell body the interaction is instant (that is, the Laws of electricity are valid), but outside the cell, in the dendrites the finite interaction speed leads to observable effects that significantly influence cell\textquotesingle{}s operation. {\itshape We set up a hybrid model\+: the cell body is equipotential (aka\+: can be described by a \textquotesingle{}fast current\textquotesingle{}), but the dendrites (and they contribute the overwhelming majority of the signal path within the cell) are non-\/equipotential and they must be described by approximations based on the notion of a \textquotesingle{}slow current\textquotesingle{}.} With that model, we explain the up to now not understood features of neuronal charge processing, furthermore, why is that \textquotesingle{}the interplay between the synaptic and neuronal dynamics, when the network is near a critical point, both recurrent spontaneous and stimulated phase transitions enable the phase-\/dependent processes to replace each other\textquotesingle{} \cite{BiologicalConservationLaw:2017}.
+
+{\itshape In our abstract model, we consider that neurotransmitters, receptors and specialized membrane proteins} (for their detailed discussion see {\texttt{ the textbook on Neuronal Dynamics}}) {\itshape only implement a kind of (time and energy consuming) chemical/enzimatic decoupling of the electric signal transmission}. The idea resembles opto-\/coupling in electronics\+: makes {\itshape the signal transmission independent from the local potential value}. If neurons would use galvanic coupling, when the resting potential of one of the neurons gets equal to that of the extracellular space, the resting potential of all connected neurons gets equal to that of the extracellular space. That is, without this decoupling, the death of one neuron would lead immediately to the death of the entire neural network. \doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Neuron\textquotesingle{}s physics}
+\item 
+\textbf{ Ion channel}
+\item 
+\textbf{ Membrane}
+\item 
+\textbf{ Axon}
+\item 
+\textbf{ Electric operation}
+\item 
+\textbf{ Action potential}
+\item 
+\textbf{ Artificial operating modes}
+\item 
+\textbf{ Fallacies}
+\item 
+\textbf{ Comparing to other models}
+\item 
+\textbf{ Computing aspects}
+\end{DoxyCompactItemize}

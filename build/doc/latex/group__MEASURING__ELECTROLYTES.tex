@@ -1,0 +1,64 @@
+\doxysection{Electrolytes}
+\label{group__MEASURING__ELECTROLYTES}\index{Electrolytes@{Electrolytes}}
+Back\+: \doxyref{Delayed current }{p.}{group__PHYSICS__MEASURING__DELAY} Up\+: \doxyref{Electric measurements }{p.}{group__PHYSICS__MEASURING} Continue\+: \doxyref{Conductance }{p.}{group__MEASURING__CONDUCTANCE_MEASURING_CONDUCTANCE}\doxysubsection{Electrolytes\+: a case study}\label{group__MEASURING__ELECTROLYTES_MEASURING_ELECTROLITES}
+Cellular electrodiffusion phenomena are very complex, and it is a complex task to choose which physical/chemical effects can be omitted so that their omission does not prevent explaining physiological phenomena. We focus mainly on the commonly used fundamental omission that the \doxyref{speed of ionic movement}{p.}{group__PHYSICS__SLOW__CURRENT_PHYSICS_SLOW_CURRENT} cannot play a role in describing neuronal operations. Still, we must also discuss other (related) fallacies, such as that \doxyref{conductance }{p.}{group__MEASURING__CONDUCTANCE_MEASURING_CONDUCTANCE} is a primary electric entity or that the structured biological objects behave as metals do under the effect of electric forces.
+
+\doxyref{Axons}{p.}{group__MODELING__SINGLE__AXON_MODELING_SINGLE_AXON} not only passively follow the potential\textquotesingle{}s time course, but they mediate the changes in their intracellular volume by using an ion pool available in their extracellular volume. A \char`\"{}longitudinal current\char`\"{} (forwarding charged particles in the direction of the apparent current) decays exponentially, so biology uses different methods for transferring information using charged particle carriers. Using \char`\"{}transversal current\char`\"{} (perpendicular to the apparent charge transfer on the surface of a membrane or inside an axon tube) or \char`\"{}circular current\char`\"{} (repolarization inside the Ranvier cells) enables transferring charge to large distances.
+
+Despite this, biology extensively uses the \char`\"{}telegrapher\textquotesingle{}s equation\char`\"{} that assumes longitudinal current. Eq.$\sim$(2.\+8) in \cite{KochBiophysics:1999} mistakenly assumes that the axon is a passive cable with specific resistance; furthermore, that it necessarily contains movable charge carriers, and the current is not saturating as the voltage increases. Although the speed of the macroscopic current is in the dozens of m/s region for both a metallic wire and an axonal tube, the underlying mechanisms are different. Telegrapher\textquotesingle{}s equations can describe the passive metallic wire, but only Stokes\textquotesingle{}s Law can describe an active neuronal cable provided the effect of its active wall added; see section \doxyref{Axonal-\/charge-\/delivery}{p.}{group__MODELING__SINGLE__AXON_AXONAL_CHARGE_DELIVERY}.
+
+In biology, the electrolyte solutions do not surely satisfy our conditions. The number of charged objects (the ion concentration) may change in time, and a chemical driving force may also move the object independently from the electric field. When measuring only the macroscopic electric parameters voltage and current (measuring current believing we measure directly \doxyref{conductance}{p.}{group__MEASURING__CONDUCTANCE_MEASURING_CONDUCTANCE}; in addition, measuring it in a wrong way), {\itshape we attribute the injected charge carriers\textquotesingle{} low propagation speed to the medium} when describing the phenomenon that \char`\"{}the conductance changes\char`\"{} in the function of voltage \cite{KochVoltageDependentConductance:1999}. The changing voltage injects a different amount of charge carriers into the membrane and they move with \doxyref{voltage-\/dependent speed}{p.}{group__MEASURING__CURRENT_MEASURING_CURRENT}, so one measures higher current. Biologists are \char`\"{}resetting the time\char`\"{}. (BTW\+: conductance is a \char`\"{}steady-\/state\char`\"{} notion; see its definition above and that in section A.\+3.\+12 in \cite{JohstonWuNeurophysiology:1995} "{}the input impedance measured {\itshape after the voltage has reached a steady state} following a step change in injected current is defined as input resistance\char`\"{}, or \char`\"{}the input resistance ... obtained by dividing the {\itshape steady-\/state} voltage change by the current using it"{} \cite{KochBiophysics:1999}.) The measurement must be fixed\+: the tacit assumptions above must be fulfilled. Notice that even the meticulous and accurate book by Johnston and Wu missed that \char`\"{}slow currents\char`\"{} exist and decisively affect understanding cellular neurophysiology.
+
+The conductance (per definitionem) does not change; only the (maybe\+: foreign) charge carriers may need time to deliver the current\+: {\itshape we calculate the conductance from non-\/matching value pairs} (or not-\/steady state). Wording that biological systems show \char`\"{}non-\/ohmic behavior\char`\"{} means that they are not metals\+: we abstracted the notion of conductance for metals. Physics describes biological operations perfectly. Electric operation is also ohmic in biology, but one has to use the correct (time-\/aware, i.\+e., considering the speed of the charged carrier) interaction speed. {\itshape Using Newtonian instant interaction as the drift speed of charged ions or the macroscopic speed of their current is a catastrophic hypothesis and contradicts all our phenomena}.
+
+The ohmic behavior means that voltage and current relate to each other, as we learned in college, only when the electrostatic interaction speed is very high (in the mathematical/physical description, the interaction is immediate). In biological systems, it is not necessarily the case\+: the drift speed of ions or the macroscopic speed of ionic current conveying electrostatic interaction is very low, and so they may follow the electric field propagation apparently with a time shift (if they are improperly distributed, as was explicitly noticed \cite{HodgkinHuxley:1952}). However, as Figs. \doxyref{fig\+\_\+\+Clamping\+Voltage\+On}{p.}{group__MEASURING__ELECTROLYTES_fig_ClampingVoltageOn} and \doxyref{fig\+\_\+\+Clamping\+Voltage\+Off}{p.}{group__MEASURING__ELECTROLYTES_fig_ClampingVoltageOff} displays, when measuring the secondary entities (instead of a ternary one), everything comes to the right\+: the voltage and current change using the same time course. One should {\itshape measure} the voltage instead of {\itshape assuming} the potential appears immediately, even withoutz charge carriers. Furthermore, one should not introduce a foreign voltage into a system (by measuring its conductance) when studying the electric features of that system.
+
+Another major problem to solve when measuring chemical electrolytes using electronic devices is their interfacing. At some point, the ionic charge must be converted to electrons (there and back), which usually happens in electrolyte electrodes. Interfacing the analyzed electrolytic wire and metallic wire in the measurement circuit introduces problems, not only the contact potentials but also the time delay due to the use of electrolyte electrodes. These electrodes need to carry the ions to some distance, and that process is outside of the time scale of the primary measured process. The effect is noticed but not explained \cite{HodgkinHuxley:1952} "{}the steady state relation between sodium current and voltage could be calculated for this system and was found to agree reasonably with the observed curve at 0.\+2 msec after the onset of a sudden depolarization."{} Moreover, given that the speed of ions depends on the depolarizing voltage (see Eq. $\eqref{eq:StokesCurrent}$, this time gap depends on the depolarizing voltage\+: the higher the voltage, the shorter the time gap, demonstrated in their Fig. 3.\doxysubsubsection{Clamping}\label{group__MEASURING__ELECTROLYTES_MEASURING_ELECTROLITES_CLAMPING}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Theoretical time course of clamping voltages}\label{group__MEASURING__ELECTROLYTES_Clamping_Voltages}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Clamping voltage on}&\cellcolor{\tableheadbgcolor}\textbf{ Clamping voltage off
+
+}\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Clamping voltage on}&\cellcolor{\tableheadbgcolor}\textbf{ Clamping voltage off
+
+}\\\cline{1-2}
+\endhead
+\label{group__MEASURING__ELECTROLYTES_fig_ClampingVoltageOn}%
+
+
+ 
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HodgkinHuxleyUI_On.pdf}
+\caption{Time course of switching clamping voltage ON.\label{fig_ClampingVoltageOn}}
+\end{figure}
+ &\label{group__MEASURING__ELECTROLYTES_fig_ClampingVoltageOff}%
+
+
+ 
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HodgkinHuxleyUI_Off.pdf}
+\caption{Time course of switching clamping voltage OFF.\label{fig_ClampingVoltageOff}}
+\end{figure}
+ \\\cline{1-2}
+\end{longtabu}
+
+
+The experimental evidence is different, see \doxyref{fig\+\_\+\+Hodgkin\+Huxley\+Step\+Function}{p.}{group__MEASURING__ELECTROLYTES_fig_HodgkinHuxleyStepFunction}.
+
+\label{group__MEASURING__ELECTROLYTES_fig_HodgkinHuxleyStepFunction}%
+
+
+ 
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HodgkinHuxleyStepFunction.pdf}
+\caption{Experimental time course of switching clamping voltage ON and OFF}
+\label{fig_HodgkinHuxleyStepFunction}
+\end{figure}
+ 

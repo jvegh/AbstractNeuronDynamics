@@ -1,0 +1,192 @@
+\doxysection{Neuron\+Physical Class Reference}
+\label{classNeuronPhysical}\index{NeuronPhysical@{NeuronPhysical}}
+
+
+\doxysubsection{Detailed Description}
+Implements a general physical-\/type neuron. 
+
+The neuron membrane\textquotesingle{}s current and synaptic currents are descibed by a current contribution in which a saturating charge-\/up function is multiplied by a discharge function In the corresponding states, the neuron is in one of its Gen\+Comp\+Stage\+Machine\+Type\+\_\+t states
+\begin{DoxyItemize}
+\item Gen\+Comp\+Stage\+Machine\+Type\+\_\+t\+::gcsm\+\_\+\+Computing computing (collects charge)
+\item gcsm\+\_\+\+Delivering\+: delivers action potential
+\item gcsm\+\_\+\+Relaxing\+: restores resting potential
+\end{DoxyItemize}
+
+The Heartbeat\+\_\+method() handles an internal \textquotesingle{}state update\textquotesingle{} signal. In the corresponding stages, the neuron is
+\begin{DoxyItemize}
+\item gcsm\+\_\+\+Relaxing\+: Until it reaches its resting potential, calls \doxyref{Calculate\+\_\+\+Do()}{p.}{classNeuronPhysical_a4de3701160dfcbc4cd2a60e8c8d01eef}. Upon receiving an input, changes to stage gcsm\+\_\+\+Processing. Inputs enabled\+: the relative refractory period.
+\item gcsm\+\_\+\+Computing\+: Until it reaches its threshold potential, calls Calculate\+\_\+method(). At that point, mebrane passes to stage gcsm\+\_\+\+Delivering. Inputs enabled.
+\item gcsm\+\_\+\+Delivering\+: Until it reaches the threshold membrane potential again calls Calculate\+\_\+method(). (The neuron delivers its result to its output section.) After terminating, it passes to stage gcsm\+\_\+\+Relaxing, without restoring membrane\textquotesingle{}s potential. At the beginning \textquotesingle{}Transmitting\+Begin\textquotesingle{} is also issued. (Sends \textquotesingle{}Begin Transmitting\+Begin\textquotesingle{}) \begin{DoxySeeAlso}{See also}
+\doxyref{sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract}{p.}{classscGenComp__PU__Abstract}.
+\end{DoxySeeAlso}
+Signal transmission happens in parallel with the further processing. Inputs disabled; the absolute refractory period.
+\end{DoxyItemize}
+
+--These stages below are momentary states\+: need some action and passes to one of the above stages
+\begin{DoxyItemize}
+\item Input\+Received\+\_\+method()\+: the unit received new input. Only administrative action; the received input is handled in Heartbeat\+\_\+\+XXX\+\_\+\+Do(), as described in \doxyref{Calculate\+\_\+\+Do()}{p.}{classNeuronPhysical_a4de3701160dfcbc4cd2a60e8c8d01eef}. Disabled in mode gcsm\+\_\+\+Delivering.
+\item Synchronizing\+: deliver immediate spike, anyhow ; (a momentary state) Passes to gcsm\+\_\+\+Relaxing (after issuing \textquotesingle{}Delivering\+End\textquotesingle{}) 
+\end{DoxyItemize}
+
+Inheritance diagram for Neuron\+Physical\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classNeuronPhysical__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ Axon\+Time\+Derivative\+\_\+\+Get} (float Delay)
+\begin{DoxyCompactList}\small\item\em Axon\+Time\+Derivative\+\_\+\+Get param[in] Delay of axonal input with respect to local time, in ms. \end{DoxyCompactList}\item 
+\mbox{\label{classNeuronPhysical_a4de3701160dfcbc4cd2a60e8c8d01eef}} 
+virtual void \textbf{ Calculate\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Calculate the membrane\textquotesingle{}s new potential by solving a PDE at the new time after advancing time by the Heartbeat value. \end{DoxyCompactList}\item 
+virtual void \textbf{ Heartbeat\+\_\+\+Computing\+\_\+\+Do} ()
+\item 
+virtual bool \textbf{ Heartbeat\+\_\+\+Computing\+\_\+\+Stop} ()
+\item 
+virtual void \textbf{ Heartbeat\+\_\+\+Delivering\+\_\+\+Do} ()
+\item 
+virtual bool \textbf{ Heartbeat\+\_\+\+Delivering\+\_\+\+Stop} ()
+\item 
+virtual void \textbf{ Heartbeat\+\_\+\+Relaxing\+\_\+\+Do} ()
+\item 
+\mbox{\label{classNeuronPhysical_a535cedb66c2d5f7da379f007ee0774de}} 
+virtual bool \textbf{ Heartbeat\+\_\+\+Relaxing\+\_\+\+Stop} ()
+\begin{DoxyCompactList}\small\item\em Handle \textquotesingle{}sleep\textquotesingle{} stage, i.\+e., if to continue heartbeats in \textquotesingle{}Relaxing\textquotesingle{} mode. \end{DoxyCompactList}\item 
+\mbox{\label{classNeuronPhysical_a1ff47ab959c01f24b977de58887dfa19}} 
+virtual void \textbf{ Initialize\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Activity for intializing the unit. \end{DoxyCompactList}\item 
+virtual void \textbf{ Input\+Received\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em A new spike (or clamping) received; only in \textquotesingle{}Ready\textquotesingle{} and \textquotesingle{}Processing\textquotesingle{} states, furthermore in \char`\"{}\+XXXRelaxing\char`\"{} state during the \char`\"{}relative refractory\char`\"{} period. \end{DoxyCompactList}\item 
+float \textbf{ Membrane\+Rushin\+Time\+Derivative\+\_\+\+Get} ()
+\begin{DoxyCompactList}\small\item\em Membrane\+Time\+Derivative\+\_\+\+Get. \end{DoxyCompactList}\item 
+\textbf{ Neuron\+Physical} (sc\+\_\+core\+::sc\+\_\+module\+\_\+name nm)
+\begin{DoxyCompactList}\small\item\em Creates a physics-\/based neuron unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classNeuronPhysical_a19c07d130f56dc9873315446620d0a9a}} 
+\index{NeuronPhysical@{NeuronPhysical}!NeuronPhysical@{NeuronPhysical}}
+\index{NeuronPhysical@{NeuronPhysical}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{NeuronPhysical()}
+{\footnotesize\ttfamily Neuron\+Physical\+::\+Neuron\+Physical (\begin{DoxyParamCaption}\item[{sc\+\_\+core\+::sc\+\_\+module\+\_\+name}]{nm }\end{DoxyParamCaption})}
+
+
+
+Creates a physics-\/based neuron unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nm} & the SystemC name of the module \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classNeuronPhysical_a8574ba27efd4e084f9691ac594a1755a}} 
+\index{NeuronPhysical@{NeuronPhysical}!AxonTimeDerivative\_Get@{AxonTimeDerivative\_Get}}
+\index{AxonTimeDerivative\_Get@{AxonTimeDerivative\_Get}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{AxonTimeDerivative\_Get()}
+{\footnotesize\ttfamily float Neuron\+Physical\+::\+Axon\+Time\+Derivative\+\_\+\+Get (\begin{DoxyParamCaption}\item[{float}]{Delay }\end{DoxyParamCaption})}
+
+
+
+Axon\+Time\+Derivative\+\_\+\+Get param[in] Delay of axonal input with respect to local time, in ms. 
+
+\begin{DoxyReturn}{Returns}
+the time derivative of axon voltage due to the arrived ions 
+\end{DoxyReturn}
+\mbox{\label{classNeuronPhysical_a04fe9034e297048c272cd07cc9fa57d4}} 
+\index{NeuronPhysical@{NeuronPhysical}!Heartbeat\_Computing\_Do@{Heartbeat\_Computing\_Do}}
+\index{Heartbeat\_Computing\_Do@{Heartbeat\_Computing\_Do}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{Heartbeat\_Computing\_Do()}
+{\footnotesize\ttfamily virtual void Neuron\+Physical\+::\+Heartbeat\+\_\+\+Computing\+\_\+\+Do (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Heartbeat processing in \textquotesingle{}Computing\textquotesingle{}\+: all inputs effective 
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio} \doxyref{}{p.}{classscGenComp__PU__Bio_a1aacf9b0909eacef11041a684e89bce0}.
+
+\mbox{\label{classNeuronPhysical_a2275d5e03c547b06fe69fe2a529349d2}} 
+\index{NeuronPhysical@{NeuronPhysical}!Heartbeat\_Computing\_Stop@{Heartbeat\_Computing\_Stop}}
+\index{Heartbeat\_Computing\_Stop@{Heartbeat\_Computing\_Stop}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{Heartbeat\_Computing\_Stop()}
+{\footnotesize\ttfamily virtual bool Neuron\+Physical\+::\+Heartbeat\+\_\+\+Computing\+\_\+\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if to stop heartbeating in \textquotesingle{}Computing\textquotesingle{} mode 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_a75a0b61f9272fd7bf14413ecfdd9bbcb}.
+
+\mbox{\label{classNeuronPhysical_aa27870867ab7a0361692560ecc977e80}} 
+\index{NeuronPhysical@{NeuronPhysical}!Heartbeat\_Delivering\_Do@{Heartbeat\_Delivering\_Do}}
+\index{Heartbeat\_Delivering\_Do@{Heartbeat\_Delivering\_Do}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{Heartbeat\_Delivering\_Do()}
+{\footnotesize\ttfamily virtual void Neuron\+Physical\+::\+Heartbeat\+\_\+\+Delivering\+\_\+\+Do (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Heartbeat processing in \textquotesingle{}Delivering\textquotesingle{}\+: synaptic inputs disabled 
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio} \doxyref{}{p.}{classscGenComp__PU__Bio_addfd1439704d3c808f86dbe674f417a2}.
+
+\mbox{\label{classNeuronPhysical_a03aafa632cd215a7052225ebfe0bd753}} 
+\index{NeuronPhysical@{NeuronPhysical}!Heartbeat\_Delivering\_Stop@{Heartbeat\_Delivering\_Stop}}
+\index{Heartbeat\_Delivering\_Stop@{Heartbeat\_Delivering\_Stop}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{Heartbeat\_Delivering\_Stop()}
+{\footnotesize\ttfamily virtual bool Neuron\+Physical\+::\+Heartbeat\+\_\+\+Delivering\+\_\+\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if to stop heartbeating in \textquotesingle{}Delivering\textquotesingle{} mode 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_abfae7ba4b9ea1f5aacab5ad7cb770bc7}.
+
+\mbox{\label{classNeuronPhysical_ac48743aec7a1bf415eccf55e2b84cba5}} 
+\index{NeuronPhysical@{NeuronPhysical}!Heartbeat\_Relaxing\_Do@{Heartbeat\_Relaxing\_Do}}
+\index{Heartbeat\_Relaxing\_Do@{Heartbeat\_Relaxing\_Do}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{Heartbeat\_Relaxing\_Do()}
+{\footnotesize\ttfamily virtual void Neuron\+Physical\+::\+Heartbeat\+\_\+\+Relaxing\+\_\+\+Do (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Heartbeat processing in \textquotesingle{}Relaxing\textquotesingle{}\+: all inputs effective 
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio} \doxyref{}{p.}{classscGenComp__PU__Bio_a64c6ee49fdeefd43550b27db1f596501}.
+
+\mbox{\label{classNeuronPhysical_ad806dc719dded5aad7e2890cc533c7e3}} 
+\index{NeuronPhysical@{NeuronPhysical}!InputReceived\_Do@{InputReceived\_Do}}
+\index{InputReceived\_Do@{InputReceived\_Do}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{InputReceived\_Do()}
+{\footnotesize\ttfamily virtual void Neuron\+Physical\+::\+Input\+Received\+\_\+\+Do (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+A new spike (or clamping) received; only in \textquotesingle{}Ready\textquotesingle{} and \textquotesingle{}Processing\textquotesingle{} states, furthermore in \char`\"{}\+XXXRelaxing\char`\"{} state during the \char`\"{}relative refractory\char`\"{} period. 
+
+A spike arrived, store spike parameters. Receving an input is a momentary action, just administer its processing. Most of the job is done in methods Heartbeat\+\_\+\+Ready() and Heartbeat\+\_\+\+Processing(). If it was the first spike, issue \textquotesingle{}Begin\+\_\+\+Computing\textquotesingle{}
+
+Called by sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract\+::\+Input\+Received\+\_\+method Reimplemented given that in biology the first input also starts processing 
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio} \doxyref{}{p.}{classscGenComp__PU__Bio_a70cb7062ebb915a554588ac9e12d8436}.
+
+\mbox{\label{classNeuronPhysical_a66d025a8f935cf02a765b871c947ff64}} 
+\index{NeuronPhysical@{NeuronPhysical}!MembraneRushinTimeDerivative\_Get@{MembraneRushinTimeDerivative\_Get}}
+\index{MembraneRushinTimeDerivative\_Get@{MembraneRushinTimeDerivative\_Get}!NeuronPhysical@{NeuronPhysical}}
+\doxysubsubsection{MembraneRushinTimeDerivative\_Get()}
+{\footnotesize\ttfamily float Neuron\+Physical\+::\+Membrane\+Rushin\+Time\+Derivative\+\_\+\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Membrane\+Time\+Derivative\+\_\+\+Get. 
+
+\begin{DoxyReturn}{Returns}
+the time derivative of membrane voltage due to rushed-\/in ions 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Neuron\+Physical.\+h}\end{DoxyCompactItemize}

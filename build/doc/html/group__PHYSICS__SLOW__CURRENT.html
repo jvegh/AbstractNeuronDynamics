@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Abstract Neuron Dynamics V0.0.4 @ 2024.08.24: Slow current</title>
+<title>Abstract Neuron Dynamics V0.0.5 @ 2024.09.04: Slow current</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,7 +44,7 @@ MathJax.Hub.Config({
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="TAC_Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.4 @ 2024.08.24</a>
+   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.5 @ 2024.09.04</a>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -122,7 +122,7 @@ Currents with different speed</h1>
 \begin{equation} C\frac{dV}{dt}-\frac{V(t,x)-V_{rest}}{R}=0 \label{eq:Kirchoffsdifferential} \end{equation}
 </p>
 <p>We assume a discrete equipotential membrane with capacity \(C\) and leaks through a discrete resistance \(R\). Different damped oscillations can be produced depending on those parameters. The imitation is limited: the “rise time” gets smeared, and the output signals differ for the neural and the electric circuits. Instead of a step function, we expect for a “slow” current, we receive a smooth peak-like current time course (called a damped oscillator function). However, we can use the formalism developed for the “fast“ current. Adjusting its parameters allows the electric circuit to produce a behavior resemblant to a neuronal circuit.</p>
-<p>Notice that in our imitated neuronal circuit, the peak of the “fast” current appears later. The “slow” current is seen, although the delay time is not explicitly present. If we use chained electric RC circuits, such as in the case of multi-compartment membrane models <a class="el" href="citelist.html#CITEREF_MathNeuroscience:2010">[15]</a>, <a class="el" href="citelist.html#CITEREF_MultiCompartmentNeurons:2023">[48]</a>, the second such circuit receives the output voltage of the first circuit at a later time, and so on. It is also described by a system of equations similar to \(\eqref{Kirchoff&#39;s_differential}\), but they are valid at different times. Handling the many equipotential compartments attempts to cover the fact that one imitates finite membrane size and slow currents.</p>
+<p>Notice that in our imitated neuronal circuit, the peak of the “fast” current appears later. The “slow” current is seen, although the delay time is not explicitly present. If we use chained electric RC circuits, such as in the case of multi-compartment membrane models <a class="el" href="citelist.html#CITEREF_MathNeuroscience:2010">[18]</a>, <a class="el" href="citelist.html#CITEREF_MultiCompartmentNeurons:2023">[54]</a>, the second such circuit receives the output voltage of the first circuit at a later time, and so on. It is also described by a system of equations similar to \(\eqref{Kirchoff&#39;s_differential}\), but they are valid at different times. Handling the many equipotential compartments attempts to cover the fact that one imitates finite membrane size and slow currents.</p>
 <p>However, in biology no discrete elements for storing charge exist. The notion of storing charge can be used only in the sense that for the time of passing a finite-size element with finite propagation speed, the charge carriers spend the corresponding time in the element. That phenomenon resembles storing the charge, and that imitation enables us to describe a behavior resemblant to that of the biological circuit. Attempting to imitate the effects of biological “slow” currents using electric parallels hides that generating an <a class="el" href="GLOSSARY.html#GLOSSARY_AP">AP</a> is their native feature. No additional currents and sophisticated control mechanisms are needed: the <a class="el" href="group__MODELING__SINGLE__AP.html#MODELING_ACTION_POTENTIAL">Deriving-action-potential action potential</a> is a natural consequence of the interplay of the finite speed of the “slow” ionic current and the finite size of the neuronal membrane; furthermore, that slow currents may play a role also in cognitive functions. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->

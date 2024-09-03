@@ -1,6 +1,6 @@
 <map id="scGenComp_PU_Bio" name="scGenComp_PU_Bio">
-<area shape="rect" id="node1" title="Implements a general biological&#45;type computing PU. Defaults to variable execution time,..." alt="" coords="143,711,389,1048"/>
-<area shape="rect" id="node3" href="$classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi..." alt="" coords="5,1224,244,1497"/>
-<area shape="rect" id="node4" href="$classNeuronPhysical.html" title="Implements a general physical&#45;type neuron." alt="" coords="268,1096,547,1625"/>
-<area shape="rect" id="node2" href="$classscGenComp__PU__Abstract.html" title="Class to deal with operations of an abstract processing unit (PU), implementing a single&#45;shot element..." alt="" coords="147,5,385,663"/>
+<area shape="rect" id="node1" title="Implements a general biological&#45;type computing PU. Defaults to variable execution time,..." alt="" coords="123,659,345,971"/>
+<area shape="rect" id="node3" href="$classNeuronDemo.html" title="A simple demo class to implement the operation of an abstract biological neuron. The operating princi..." alt="" coords="5,1092,220,1345"/>
+<area shape="rect" id="node4" href="$classNeuronPhysical.html" title="Implements a general physical&#45;type neuron." alt="" coords="244,1019,469,1419"/>
+<area shape="rect" id="node2" href="$classscGenComp__PU__Abstract.html" title="Class to deal with operations of an abstract processing unit (PU), implementing a single&#45;shot element..." alt="" coords="125,5,343,611"/>
 </map>

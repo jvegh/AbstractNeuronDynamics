@@ -1,0 +1,762 @@
+%!PS-Adobe-3.0
+%%Creator: graphviz version 2.43.0 (0)
+%%Title: scGenComp_PU_Abstract
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 478 1104
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 442 1068 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% Node1
+gsave
+0 0 0.74902 nodecolor
+newpath 181 606.5 moveto
+181 1059.5 lineto
+344 1059.5 lineto
+344 606.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 181 606.5 moveto
+181 1059.5 lineto
+344 1059.5 lineto
+344 606.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+200.5 1047.5 moveto 124 (scGenComp_PU_Abstract) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 181 1040.5 moveto
+344 1040.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 1028.5 moveto 97 (+ EVENT_GenComp) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 1017.5 moveto 147 (# m_CorrectForFirstHeartbeat) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 1006.5 moveto 37 (# m_dt) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 995.5 moveto 115 (# m_Relaxing_Stopped) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 984.5 moveto 31 (# m_t) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 973.5 moveto 67 (# m_tracefile) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 962.5 moveto 111 (# mCentralClockMode) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 951.5 moveto 124 (# mDeliveringBeginTime) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 940.5 moveto 125 (# mFixedComputingTime) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 929.5 moveto 122 (# mFixedDeliveringTime) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 918.5 moveto 70 (# mIdlePeriod) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 907.5 moveto 65 (and 8 more...) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 181 900.5 moveto
+344 900.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 888.5 moveto 119 (+ ComputingBegin_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 877.5 moveto 109 (+ ComputingEnd_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 866.5 moveto 116 (+ DeliveringBegin_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 855.5 moveto 106 (+ DeliveringEnd_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 844.5 moveto 67 (+ Failed_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 833.5 moveto 80 (+ Initialize_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 822.5 moveto 108 (+ InputReceived_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 811.5 moveto 112 (+ NoOfInputsReceived) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 800.5 moveto 31 (_Get\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 789.5 moveto 93 (+ ObserverNotify\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 778.5 moveto 105 (+ ObservingBit_Get\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 767.5 moveto 71 (and 13 more...) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 756.5 moveto 85 (# CancelEvents\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 745.5 moveto 131 (# CentralClockMode_Get\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 734.5 moveto 94 (# ChargeupFailed\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 723.5 moveto 111 (# HaveEnoughInputs\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 712.5 moveto 145 (# Heartbeat_Computing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 701.5 moveto 119 (# Heartbeat_Computing) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 690.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 679.5 moveto 142 (# Heartbeat_Delivering_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 668.5 moveto 116 (# Heartbeat_Delivering) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 657.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 646.5 moveto 135 (# Heartbeat_Relaxing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 635.5 moveto 109 (# Heartbeat_Relaxing) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 624.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+189 613.5 moveto 65 (and 9 more...) alignedtext
+grestore
+% Node2
+gsave
+[ /Rect [ 88 336 255 570 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classscGenComp__PU__Bio.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 88 336.5 moveto
+88 569.5 lineto
+255 569.5 lineto
+255 336.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 88 336.5 moveto
+88 569.5 lineto
+255 569.5 lineto
+255 336.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+122 557.5 moveto 99 (scGenComp_PU_Bio) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 88 550.5 moveto
+255 550.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 538.5 moveto 91 (# m_Membrane_V) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 527.5 moveto 93 (# m_PeakReached) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 516.5 moveto 112 (# m_SynapsesEnabled) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 88 509.5 moveto
+255 509.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 497.5 moveto 119 (+ ComputingBegin_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 486.5 moveto 116 (+ DeliveringBegin_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 475.5 moveto 106 (+ DeliveringEnd_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 464.5 moveto 145 (+ Heartbeat_Computing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 453.5 moveto 142 (+ Heartbeat_Delivering_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 442.5 moveto 135 (+ Heartbeat_Relaxing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 431.5 moveto 108 (+ InputReceived_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 420.5 moveto 151 (+ MembraneAbsolutePotential) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 409.5 moveto 31 (_Get\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 398.5 moveto 148 (+ MembraneRelativePotential) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 387.5 moveto 31 (_Get\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 376.5 moveto 118 (+ scGenComp_PU_Bio\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 365.5 moveto 126 (+ ~scGenComp_PU_Bio\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 354.5 moveto 80 (# Initialize_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+96 343.5 moveto 75 (# OutputItem\(\)) alignedtext
+grestore
+% Node1->Node2
+gsave
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 205.8048 596.4968 moveto
+203.6232 587.435 201.4783 578.5252 199.3918 569.8581 curveto
+stroke
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 202.4419 597.4823 moveto
+208.1853 606.3853 lineto
+209.2475 595.8438 lineto
+closepath stroke
+grestore
+% Node5
+gsave
+[ /Rect [ 273 363.5 434 542.5 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classscGenComp__PU__Tech.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 273 364 moveto
+273 542 lineto
+434 542 lineto
+434 364 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 273 364 moveto
+273 542 lineto
+434 542 lineto
+434 364 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+301 530 moveto 105 (scGenComp_PU_Tech) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 273 523 moveto
+434 523 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+351.5 511 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 273 504 moveto
+434 504 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 492 moveto 108 (+ InputReceived_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 481 moveto 118 (+ ProcessingBegin_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 470 moveto 109 (+ RelaxingBegin_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 459 moveto 99 (+ RelaxingEnd_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 448 moveto 124 (+ scGenComp_PU_Tech\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 437 moveto 132 (+ ~scGenComp_PU_Tech\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 426 moveto 142 (# Heartbeat_Delivering_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 415 moveto 145 (# Heartbeat_Processing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 404 moveto 123 (# Heartbeat_Ready_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 393 moveto 135 (# Heartbeat_Relaxing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 382 moveto 80 (# Initialize_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+281 371 moveto 118 (# Processing_Finished\(\)) alignedtext
+grestore
+% Node1->Node5
+gsave
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 319.1595 596.6451 moveto
+323.7604 577.5338 328.199 559.0964 332.271 542.1821 curveto
+stroke
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 315.7525 595.8438 moveto
+316.8147 606.3853 lineto
+322.5581 597.4823 lineto
+closepath stroke
+grestore
+% Node3
+gsave
+[ /Rect [ 0 55 161 245 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classNeuronDemo.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 0 55.5 moveto
+0 244.5 lineto
+161 244.5 lineto
+161 55.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 55.5 moveto
+0 244.5 lineto
+161 244.5 lineto
+161 55.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+48 232.5 moveto 65 (NeuronDemo) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 225.5 moveto
+161 225.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+78.5 213.5 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 206.5 moveto
+161 206.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 194.5 moveto 145 (+ Heartbeat_Computing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 183.5 moveto 119 (+ Heartbeat_Computing) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 172.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 161.5 moveto 142 (+ Heartbeat_Delivering_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 150.5 moveto 116 (+ Heartbeat_Delivering) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 139.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 128.5 moveto 135 (+ Heartbeat_Relaxing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 117.5 moveto 109 (+ Heartbeat_Relaxing) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 106.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 95.5 moveto 80 (+ Initialize_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 84.5 moveto 108 (+ InputReceived_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 73.5 moveto 84 (+ NeuronDemo\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 62.5 moveto 92 (+ ~NeuronDemo\(\)) alignedtext
+grestore
+% Node2->Node3
+gsave
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 133.6567 326.8261 moveto
+125.3532 299.3606 116.6994 270.7365 108.8447 244.7556 curveto
+stroke
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 130.3331 327.9272 moveto
+136.5773 336.4864 lineto
+137.0336 325.9014 lineto
+closepath stroke
+grestore
+% Node4
+gsave
+[ /Rect [ 179 0 348 300 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classNeuronPhysical.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 179 .5 moveto
+179 299.5 lineto
+348 299.5 lineto
+348 .5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 179 .5 moveto
+179 299.5 lineto
+348 299.5 lineto
+348 .5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+225.5 287.5 moveto 76 (NeuronPhysical) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 179 280.5 moveto
+348 280.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 268.5 moveto 92 (# m_C_membrane) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 257.5 moveto 113 (# m_dV_dt_membrane) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 246.5 moveto 123 (# m_HasUnhandledInput) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 235.5 moveto 123 (# m_MembraneAIS_dVdt) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 224.5 moveto 153 (# m_MembraneResulting_dVdt) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 213.5 moveto 140 (# m_MembraneRushin_dVdt) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 202.5 moveto 124 (# m_MembraneRushin_V) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 191.5 moveto 92 (# m_R_membrane) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 180.5 moveto 43 (# m_tau) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 179 173.5 moveto
+348 173.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 161.5 moveto 112 (+ AxonTimeDerivative) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 150.5 moveto 31 (_Get\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 139.5 moveto 84 (+ Calculate_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 128.5 moveto 145 (+ Heartbeat_Computing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 117.5 moveto 119 (+ Heartbeat_Computing) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 106.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 95.5 moveto 142 (+ Heartbeat_Delivering_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 84.5 moveto 116 (+ Heartbeat_Delivering) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 73.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 62.5 moveto 135 (+ Heartbeat_Relaxing_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 51.5 moveto 109 (+ Heartbeat_Relaxing) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 40.5 moveto 35 (_Stop\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 29.5 moveto 80 (+ Initialize_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 18.5 moveto 108 (+ InputReceived_Do\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 7.5 moveto 65 (and 6 more...) alignedtext
+grestore
+% Node2->Node4
+gsave
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 209.773 326.7808 moveto
+212.5223 317.7858 215.3095 308.6668 218.0938 299.5573 curveto
+stroke
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 206.3824 325.9 moveto
+206.8065 336.4864 lineto
+213.0767 327.9462 lineto
+closepath stroke
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 478 1104
+end
+restore
+%%EOF

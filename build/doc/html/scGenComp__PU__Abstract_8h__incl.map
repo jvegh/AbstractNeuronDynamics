@@ -1,6 +1,6 @@
 <map id="scGenComp_PU_Abstract.h" name="scGenComp_PU_Abstract.h">
-<area shape="rect" id="node1" title="Function prototypes for the computing module. Just event and stage handling, no real activity." alt="" coords="5,5,224,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="19,81,83,109"/>
-<area shape="rect" id="node3" href="$EventGencomp_8h_source.html" title=" " alt="" coords="107,81,253,109"/>
-<area shape="rect" id="node4" title=" " alt="" coords="138,157,222,185"/>
+<area shape="rect" id="node1" title="Function prototypes for the computing module. Just event and stage handling, no real activity." alt="" coords="5,5,204,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="15,80,74,107"/>
+<area shape="rect" id="node3" href="$EventGencomp_8h_source.html" title=" " alt="" coords="98,80,231,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="126,155,203,181"/>
 </map>

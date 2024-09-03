@@ -1,0 +1,22 @@
+\doxysection{Action potential}
+\label{group__MODELING__AP}\index{Action potential@{Action potential}}
+As we discussed in section \doxyref{about modeling neuronal membrane}{p.}{group__MODELING__AP_MODELING_NEURONAL_MEMBRANE}, we can model a neuron as a membrane that changes its potential above a resting potential, receives (gated) synaptic current through its axons and through its ions channels. Those \doxyref{currents are slow}{p.}{group__PHYSICS__SLOW__CURRENT_PHYSICS_SLOW_CURRENT}, so we must consider their speed to produce the membrane\textquotesingle{}s correct behavior, either as a time delay or time time course of a current intensity.\doxysubsection{Abstract action potential}\label{group__MODELING__AP_MODELING_ACTION_POTENTIAL}
+\doxysubsection{Modeling neuronal membrane}\label{group__MODELING__AP_MODELING_NEURONAL_MEMBRANE}
+The ions arriving through the neuronal arbors simply cannot enter the membrane if membrane\textquotesingle{}s potential is above the threshold potential. This is observed that after (typically due to several adjacent input spikes) the {\texttt{ input spikes do not contribute anymore to membrane potential}} in the membrane\textquotesingle{}s chargeup phase but they are not any more diable if membrane potential drops below the threshold potential. In the latter case, the synaptic inputs get active again, the current flows into the membrane, but reaches \doxyref{AIS}{p.}{GLOSSARY_GLOSSARY_AIS} at some later time, depending on the distance of their junction point to the \doxyref{AIS}{p.}{GLOSSARY_GLOSSARY_AIS}. The inhibiton ends when the potential difference enables it, but its effect at the \doxyref{AIS}{p.}{GLOSSARY_GLOSSARY_AIS} can be observed only later, given that the slow current needs time to travel from the junction point to the \doxyref{AIS}{p.}{GLOSSARY_GLOSSARY_AIS}.
+
+Immediately after that the potential dropped below the threshold value (the \doxyref{AIS}{p.}{GLOSSARY_GLOSSARY_AIS} is going toward the hyperpolarized state or going to reach its resting value), the incoming spikes will contribute to restoring the resting potentia. Because of the effect of the {\itshape RC} circuit, their effect seems to be smaller is the potential change on the membrane heads toward hyperpolarizing the membrane, i.\+e., opposite with the potential increasing effect of the spike.
+
+\label{group__MODELING__AP_fig_The-ghost-image_AP}%
+ origin of the \doxyref{AP}{p.}{GLOSSARY_GLOSSARY_AP}. The finite-\/speed ions transferred on the finite-\/size surface of the membrane\+: Kirchoff\textquotesingle{}s Law in biology. The assumed delay time between input and output currents is \$0.\+49\textbackslash{} ms\$, the function form and and its parameters are as displayed in Fig. \doxyref{fig\+\_\+\+Post-\/synaptic\+\_\+potential\+\_\+lin}{p.}{group__MEASURING__ELECTROLYTES_fig_Post-synaptic_potential_lin}."{} width=400px
+
+ 
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HH_AP}
+\caption{The ``ghost image'' formed by the delayed membrane current: the
+origin of the \gls{AP}. The finite-speed ions transferred on the
+finite-size surface of the membrane: Kirchoff's Law in biology.
+The assumed delay time between input and output currents is $0.49\ ms$,
+the function form and and its parameters are as displayed in Fig. \ref fig:Post-synaptic_potential_lin.}
+\label{fig_The-ghost-image_AP}
+\end{figure}
+ 

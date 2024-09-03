@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Abstract Neuron Dynamics V0.0.4 @ 2024.08.24: Current vs charge</title>
+<title>Abstract Neuron Dynamics V0.0.5 @ 2024.09.04: Current vs charge</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,7 +44,7 @@ MathJax.Hub.Config({
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="TAC_Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.4 @ 2024.08.24</a>
+   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.5 @ 2024.09.04</a>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('group__MEASURING__CURRENT.html',''); i
 </div><!--header-->
 <div class="contents">
 <p>Back: <a class="el" href="group__PHYSICS__MEASURING.html">Electric measurements </a> Up: <a class="el" href="group__PHYSICS__MEASURING.html">Electric measurements </a> Continue: <a class="el" href="group__PHYSICS__MEASURING__DELAY.html">Delays </a></p>
-<p>The basic idea of biological current was correctly defined at the beginning: 'The permeability of a membrane to a penetrating substance is given quantitatively by the amount of the substance which crosses a unit area of the membrane in unit time under the action of a unit force. In simple cases of ionized substances both the amount of substance and the force acting may be expressed in electrical terms. Then the permeability may be ultimately converted into coulombs per second for a square centimeter and a potential difference of 1 volt, which is the conductance, in reciprocal ohms, for a square centimeter.' <a class="el" href="citelist.html#CITEREF_COLE_CURTIS_IMPEDANCE:1939">[13]</a> However, at that time physiologically defined fine details were not known.</p>
+<p>The basic idea of biological current was correctly defined at the beginning: 'The permeability of a membrane to a penetrating substance is given quantitatively by the amount of the substance which crosses a unit area of the membrane in unit time under the action of a unit force. In simple cases of ionized substances both the amount of substance and the force acting may be expressed in electrical terms. Then the permeability may be ultimately converted into coulombs per second for a square centimeter and a potential difference of 1 volt, which is the conductance, in reciprocal ohms, for a square centimeter.' <a class="el" href="citelist.html#CITEREF_COLE_CURTIS_IMPEDANCE:1939">[15]</a> However, at that time physiologically defined fine details were not known.</p>
 <h1><a class="anchor" id="MEASURING_CURRENT"></a>
 Current vs charge transfer</h1>
 <p>On microscopic scale, a charge creates a potential field and that field acts on another charge; it it moves, it is currentat microscopic level. When describing the macroscopic phenomenon "current" in microscopic terms, we need to understand that we apply a potential difference to a macroscopic piece of space (or measure it) and measure the statistical time course of the charge carriers. These two characteristics are connected through the features of the medium (material) that hosts our measurement. In a conducting wire, there are free charges, their number per unit volume is given by \(n\), and \(q\) is the amount of charge on each carrier. If the conductor has a cross section of \(A\), in the length \(dx\) of the wire we have charge \(dQ=q*n*A*dx\). If the charges are moving with a macroscopic speed \(v=\frac{dx}{dt}\), we define the current as the charge moved per unit time:</p>

@@ -1,0 +1,159 @@
+\doxysection{sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio Class Reference}
+\label{classscGenComp__PU__Bio}\index{scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}}
+
+
+\doxysubsection{Detailed Description}
+Implements a general biological-\/type computing PU. Defaults to variable execution time, no central clock. 
+
+In the corresponding states, the neuron is in one of its Gen\+Comp\+State\+Machine\+Type\+\_\+t states
+\begin{DoxyItemize}
+\item gcsm\+\_\+\+Computing\+: computing (collects charge)
+\item gcsm\+\_\+\+Delivering\+: delivers action potential
+\item gcsm\+\_\+\+Relaxing\+: restores resting potential
+\end{DoxyItemize}
+
+The Heartbeat\+\_\+method() handles an internal \textquotesingle{}update\textquotesingle{} signal. In the corresponding states, the neuron is
+\begin{DoxyItemize}
+\item gcsm\+\_\+\+Relaxing\+: Until it reaches its resting potential, calls Calculate\+Membrane\+Potential(). Upon receiving an input, changes to state gcsm\+\_\+\+Computing. Inputs enabled\+: the relative refractory period.
+\item gcsm\+\_\+\+Computing\+: Until it reaches its threshold potential, calls Calculate\+Membrane\+Potential(). At that point, changes to state to state gcsm\+\_\+\+Delivering. Inputs enabled.
+\item gcsm\+\_\+\+Delivering\+: Until it reaches its lowest membrane potential (its increase turns from negative to positive), calls Calculate\+Membrane\+Potential(). At that point, changes to state to state gcsm\+\_\+\+Relaxing, without restoring membrane\textquotesingle{}s potential. At the beginning issues signal \textquotesingle{}Begin Transmitting\textquotesingle{}. Signal transmission happens in parallel with the further processing. Inputs disabled; the absolute refractory period.
+\end{DoxyItemize}
+
+The Input\+Received\+\_\+method()\+: the unit received new input (a momentary state). Only administrative action; the received input is handled in Heartbeat\+\_\+method(), as described in Calculate\+Membrane\+Potential(). Disabled in mode gcsm\+\_\+\+Delivering.
+
+--These states below are momentary states\+: need action and passes to one of the above states
+\begin{DoxyItemize}
+\item Delivering\+: The unit is delivering its result to its output section
+\begin{DoxyItemize}
+\item After some time, it Sends \textquotesingle{}Begin Transmitting\textquotesingle{} \begin{DoxySeeAlso}{See also}
+\doxyref{sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract}{p.}{classscGenComp__PU__Abstract} (Activates transmission unit to send computed result to its chained unit(s), then goes to XXXRelaxing
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}
+\item Synchronizing\+: deliver result, anyhow ; (a momentary state)
+\begin{DoxyItemize}
+\item in biological mode, deliver immediate spike Passes to XXXRelaxing (after issuing \textquotesingle{}End Computing\textquotesingle{})
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\label{classscGenComp__PU__Bio_NeuronStateMachine}%
+
+
+ 
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/NeuronStateMachine.pdf}
+\caption{The neuronal state machine}
+\label{NeuronStateMachine}
+\end{figure}
+ 
+
+Inheritance diagram for sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classscGenComp__PU__Bio__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classscGenComp__PU__Bio_a3e3d739688705d444a8c08af0c7ac80f}} 
+virtual void \textbf{ Computing\+Begin\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em The extra processing for beginning computing. \end{DoxyCompactList}\item 
+\mbox{\label{classscGenComp__PU__Bio_a077027e13a678e6c052ec546ff6fab6f}} 
+void \textbf{ Delivering\+Begin\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em The extra activity for starting internal delivering. \end{DoxyCompactList}\item 
+\mbox{\label{classscGenComp__PU__Bio_aca6ec8124f2e6af9414d9205444fa12b}} 
+void \textbf{ Delivering\+End\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em The extra activity for finishing internal delivering. \end{DoxyCompactList}\item 
+\mbox{\label{classscGenComp__PU__Bio_a1aacf9b0909eacef11041a684e89bce0}} 
+virtual void \textbf{ Heartbeat\+\_\+\+Computing\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Heartbeat activity for computing. \end{DoxyCompactList}\item 
+\mbox{\label{classscGenComp__PU__Bio_addfd1439704d3c808f86dbe674f417a2}} 
+virtual void \textbf{ Heartbeat\+\_\+\+Delivering\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Heartbeat activity for delivering. \end{DoxyCompactList}\item 
+virtual void \textbf{ Heartbeat\+\_\+\+Relaxing\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Heartbeat\+\_\+method. \end{DoxyCompactList}\item 
+virtual void \textbf{ Input\+Received\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em A new spike (or clamping) received; only in \textquotesingle{}Relaxing\textquotesingle{} and \textquotesingle{}Computing\textquotesingle{} states, furthermore in \char`\"{}\+XXXRelaxing\char`\"{} state during the \char`\"{}relative refractory\char`\"{} period. \end{DoxyCompactList}\item 
+\textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio} (sc\+\_\+core\+::sc\+\_\+module\+\_\+name nm)
+\begin{DoxyCompactList}\small\item\em Creates a biological general computing unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classscGenComp__PU__Bio_ae8acab11afcb1db4025b4627708135ef}} 
+virtual void \textbf{ Initialize\+\_\+\+Do} ()
+\begin{DoxyCompactList}\small\item\em Puts the PU to its default state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classscGenComp__PU__Bio_adfc554b0e22d4fec1a3dd64e3349d2ec}} 
+\index{scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}!scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}}
+\index{scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}!scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}}
+\doxysubsubsection{scGenComp\_PU\_Bio()}
+{\footnotesize\ttfamily sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio\+::sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio (\begin{DoxyParamCaption}\item[{sc\+\_\+core\+::sc\+\_\+module\+\_\+name}]{nm }\end{DoxyParamCaption})}
+
+
+
+Creates a biological general computing unit. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nm} & the SystemC name of the module\\
+\hline
+\end{DoxyParams}
+Creates an abstract biological computing unit 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classscGenComp__PU__Bio_a64c6ee49fdeefd43550b27db1f596501}} 
+\index{scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}!Heartbeat\_Relaxing\_Do@{Heartbeat\_Relaxing\_Do}}
+\index{Heartbeat\_Relaxing\_Do@{Heartbeat\_Relaxing\_Do}!scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}}
+\doxysubsubsection{Heartbeat\_Relaxing\_Do()}
+{\footnotesize\ttfamily virtual void sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio\+::\+Heartbeat\+\_\+\+Relaxing\+\_\+\+Do (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Heartbeat\+\_\+method. 
+
+A periodic signal as a timebase for solving differential equations.
+
+
+\begin{DoxyItemize}
+\item The unit receives a signal EVENT\+\_\+\+Gen\+Comp.\+Heart\+Beat and handles it differently in different modes
+\item In \textquotesingle{}Computing\textquotesingle{} mode, re-\/calculates membrane\textquotesingle{}s charge-\/up potential
+\item In \textquotesingle{}Relaxing\textquotesingle{} mode, re-\/calculates membrane\textquotesingle{}s decay potential
+\item In \textquotesingle{}Delivering\textquotesingle{} mode, re-\/calculates membrane\textquotesingle{}s decay potential Heartbeat activity for relaxing 
+\end{DoxyItemize}
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_a0a827655bc1a3e0affd9f3e4c28d4d27}.
+
+
+
+Reimplemented in \textbf{ Neuron\+Physical} \doxyref{}{p.}{classNeuronPhysical_ac48743aec7a1bf415eccf55e2b84cba5}, and \textbf{ Neuron\+Demo} \doxyref{}{p.}{classNeuronDemo_a233a6008741bddf772d89a6211854329}.
+
+\mbox{\label{classscGenComp__PU__Bio_a70cb7062ebb915a554588ac9e12d8436}} 
+\index{scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}!InputReceived\_Do@{InputReceived\_Do}}
+\index{InputReceived\_Do@{InputReceived\_Do}!scGenComp\_PU\_Bio@{scGenComp\_PU\_Bio}}
+\doxysubsubsection{InputReceived\_Do()}
+{\footnotesize\ttfamily virtual void sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio\+::\+Input\+Received\+\_\+\+Do (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+A new spike (or clamping) received; only in \textquotesingle{}Relaxing\textquotesingle{} and \textquotesingle{}Computing\textquotesingle{} states, furthermore in \char`\"{}\+XXXRelaxing\char`\"{} state during the \char`\"{}relative refractory\char`\"{} period. 
+
+A spike arrived, store spike parameters. Receving an input is a momentary action, just administer its processing. Most of the job is done in methods Heartbeat\+\_\+\+Relaxing() and Heartbeat\+\_\+\+Computing(). If it was the first spike, issue \textquotesingle{}Begin\+\_\+\+Computing\textquotesingle{}
+
+Called by sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract\+::\+Input\+Received\+\_\+method Reimplemented given that in biology the first input also starts computing 
+
+Reimplemented from \textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Abstract} \doxyref{}{p.}{classscGenComp__PU__Abstract_a81d1c32b732fc5063d0b8acff9e83b92}.
+
+
+
+Reimplemented in \textbf{ Neuron\+Physical} \doxyref{}{p.}{classNeuronPhysical_ad806dc719dded5aad7e2890cc533c7e3}, and \textbf{ Neuron\+Demo} \doxyref{}{p.}{classNeuronDemo_a6b1fa359d1a0d044e2d53e688af5a28f}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sc\+Gen\+Comp\+\_\+\+PU\+\_\+\+Bio.\+h}\end{DoxyCompactItemize}

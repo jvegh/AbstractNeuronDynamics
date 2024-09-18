@@ -9,13 +9,6 @@
         <section title="Overview" ref="index.html" />
         <section title="Getting started" ref="GettingStarted.html" />
         <section title="Chapters" ref="modules.html">
-          <section title="Getting started" ref="group__GETTING__STARTED.html">
-            <section title="Getting started" ref="group__GETTING__STARTED.html#GETTING_STARTED_PAGE">
-              <section title="Getting started" ref="group__GETTING__STARTED.html#GettingStarted">
-                <section title="Getting started" ref="group__GETTING__STARTED.html#GettingStarted" />
-              </section>
-            </section>
-          </section>
           <section title="MODELING abstract neurons" ref="group__MODELING.html">
             <section title="MODELING single abstract neuron" ref="group__MODELING__SINGLE.html">
               <section title="Neuron&apos;s physics" ref="group__MODELING__SINGLE__PHYSICAL.html" />
@@ -186,6 +179,7 @@
       <keyword name="gcsm_InputReceived" id="scGenComp_PU_Abstract.h::gcsm_InputReceived" ref="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fab2cd713a498dfed6d82126c9906de453" />
       <keyword name="gcsm_Synchronizing" id="scGenComp_PU_Abstract.h::gcsm_Synchronizing" ref="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fac070cc97d512987ad9904607cd5d570c" />
       <keyword name="gcsm_Failed" id="scGenComp_PU_Abstract.h::gcsm_Failed" ref="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fa029b5a44eb55d8a1a82c8f6945ad9e6d" />
+      <keyword name="Getting started" id="Getting started" ref="GETTING_STARTED_PAGE.html" />
       <keyword name="MODELING single abstract neuron" id="MODELING single abstract neuron" ref="MODELING_SINGLE_MAIN_PAGE.html" />
       <keyword name="Neuron&apos;s physics" id="Neuron&apos;s physics" ref="MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE.html" />
       <keyword name="Ion channel" id="Ion channel" ref="MODELING_SINGLE_ION_CHANNEL_PAGE.html" />
@@ -215,7 +209,6 @@
       <keyword name="Release notes and porting" id="Release notes and porting" ref="ReleaseNotes.html" />
       <keyword name="GLOSSARY" id="GLOSSARY" ref="GLOSSARY.html" />
       <keyword name="Bibliography" id="Bibliography" ref="citelist.html" />
-      <keyword name="Getting started" id="Getting started" ref="group__GETTING__STARTED.html" />
       <keyword name="MODELING abstract neurons" id="MODELING abstract neurons" ref="group__MODELING.html" />
       <keyword name="PHYSICS behind neuronal operation" id="PHYSICS behind neuronal operation" ref="group__PHYSICS.html" />
       <keyword name="INFORMATION generalized for biology" id="INFORMATION generalized for biology" ref="group__INFORMATION.html" />
@@ -493,6 +486,7 @@
       <file>scGenComp__PU__Tech_8h.html</file>
       <file>scGenComp__PU__Tech_8h__incl.png</file>
       <file>scGenComp__PU__Tech_8h__incl.eps</file>
+      <file>GETTING_STARTED_PAGE.html</file>
       <file>MODELING_SINGLE_MAIN_PAGE.html</file>
       <file>MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE.html</file>
       <file>MODELING_SINGLE_ION_CHANNEL_PAGE.html</file>
@@ -522,7 +516,6 @@
       <file>ReleaseNotes.html</file>
       <file>GLOSSARY.html</file>
       <file>citelist.html</file>
-      <file>group__GETTING__STARTED.html</file>
       <file>group__MODELING.html</file>
       <file>group__PHYSICS.html</file>
       <file>group__INFORMATION.html</file>

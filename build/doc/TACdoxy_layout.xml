@@ -3,13 +3,12 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="user" url="index.html" title="Overview" />
-    <tab type="user" url="GettingStarted.html" title="Getting started" />
     <tab type="modules" visible="yes" title="Chapters" intro=""/>
     <tab type="mainpage" visible="yes" title=""/>
     <tab type="classlist" visible="yes" title="" intro=""/>
     <tab type="user" url="citelist.html" title="Cited references" />
     <tab type="user" url="GLOSSARY.html" title="Glossary" />
-    <tab type="user" url="https://statcounter.com/p12506963/?guest=1"  title="Visitor Statistic" />
+    <tab type="user" url="https://statcounter.com/p13027023/?guest=1"  title="Visitor Statistic" />
 <!--   <tab type="classmembers" visible="yes" title="" intro=""/> -->
   </navindex>
 

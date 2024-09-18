@@ -802,12 +802,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>GETTING_STARTED</name>
-    <title>Getting started</title>
-    <filename>group__GETTING__STARTED.html</filename>
-    <page>group__GETTING__STARTED</page>
-  </compound>
-  <compound kind="group">
     <name>MODELING</name>
     <title>MODELING abstract neurons</title>
     <filename>group__MODELING.html</filename>
@@ -1109,8 +1103,8 @@
   <compound kind="page">
     <name>GETTING_STARTED_PAGE</name>
     <title>Getting started</title>
-    <filename>group__GETTING__STARTED.html</filename>
-    <docanchor file="group__GETTING__STARTED.html" title="Getting started">GettingStarted</docanchor>
+    <filename>GETTING_STARTED_PAGE.html</filename>
+    <docanchor file="GETTING_STARTED_PAGE.html" title="Getting started">GettingStarted</docanchor>
   </compound>
   <compound kind="page">
     <name>MODELING_MAIN_PAGE</name>

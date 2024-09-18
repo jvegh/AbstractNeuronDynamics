@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['information_20basics_236',['Information basics',['../group__INFORMATION__BASICS.html',1,'']]],
-  ['information_20generalized_20for_20biology_237',['INFORMATION generalized for biology',['../group__INFORMATION.html',1,'']]],
-  ['introduction_238',['Introduction',['../group__PHYSICS__INTRODUCTORY.html',1,'']]],
-  ['ion_20channel_239',['Ion channel',['../group__MODELING__SINGLE__ION__CHANNEL.html',1,'']]]
+  ['measuring_20biological_20electricity_239',['MEASURING biological electricity',['../group__PHYSICS__MEASURING.html',1,'']]],
+  ['membrane_240',['Membrane',['../group__MODELING__SINGLE__MEMBRANE.html',1,'']]],
+  ['modeling_20abstract_20neurons_241',['MODELING abstract neurons',['../group__MODELING.html',1,'']]],
+  ['modeling_20multiple_20abstract_20neurons_242',['MODELING multiple abstract neurons',['../group__MODELING__MULTIPLE.html',1,'']]],
+  ['modeling_20single_20abstract_20neuron_243',['MODELING single abstract neuron',['../group__MODELING__SINGLE.html',1,'']]]
 ];

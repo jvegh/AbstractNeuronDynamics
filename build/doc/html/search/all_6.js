@@ -21,5 +21,5 @@ var searchData=
   ['gcsm_5fsynchronizing_53',['gcsm_Synchronizing',['../scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fac070cc97d512987ad9904607cd5d570c',1,'scGenComp_PU_Abstract.h']]],
   ['gencomppuobservingbits_5ft_54',['GenCompPUObservingBits_t',['../scGenComp__PU__Abstract_8h.html#ace4ff5493a619c88d5cbc1407e5a96f9',1,'scGenComp_PU_Abstract.h']]],
   ['gencompstagemachinetype_5ft_55',['GenCompStageMachineType_t',['../scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861f',1,'scGenComp_PU_Abstract.h']]],
-  ['getting_20started_56',['Getting started',['../group__GETTING__STARTED.html',1,'(Global Namespace)'],['../group__GETTING__STARTED.html',1,'(Global Namespace)']]]
+  ['getting_20started_56',['Getting started',['../GETTING_STARTED_PAGE.html',1,'']]]
 ];

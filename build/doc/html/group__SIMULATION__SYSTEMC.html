@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Abstract Neuron Dynamics V0.0.5 @ 2024.09.04: SystemC</title>
+<title>Abstract Neuron Dynamics V0.0.6 @ 2024.09.20: SystemC</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,7 +44,7 @@ MathJax.Hub.Config({
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="TAC_Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.5 @ 2024.09.04</a>
+   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.6 @ 2024.09.20</a>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -109,11 +109,11 @@ $(document).ready(function(){initNavTree('group__SIMULATION__SYSTEMC.html',''); 
 <div class="title">SystemC<div class="ingroups"><a class="el" href="group__SIMULATION.html">SIMULATION principles and technology</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>An (educational, demonstration and research)-purpose <a class="el" href="SIMULATION_MAIN_PAGE.html">simulator</a> attaches the site, with complete code, examples, use cases, reproduced research results and documentation (to the <a class="el" href="GLOSSARY.html#GLOSSARY_API">API</a> documentation through the related <em>modules</em> and <em>classes</em>). <em>Our simulator provides a deeper understanding, a correct physical background, and it is the only one where the time is handled as part of the unified space-time.</em> In this site, the science facts are provided as cited references, and in most cases also direct hyperlink makes accessing them easy.</p>
+<p>An (educational, demonstration and research)-purpose <a class="el" href="group__SIMULATION.html#SIMULATION_MAIN_PAGE">simulator</a> attaches the site, with complete code, examples, use cases, reproduced research results and documentation (to the <a class="el" href="GLOSSARY.html#GLOSSARY_API">API</a> documentation through the related <em>modules</em> and <em>classes</em>). <em>Our simulator provides a deeper understanding, a correct physical background, and it is the only one where the time is handled as part of the unified space-time.</em> In this site, the science facts are provided as cited references, and in most cases also direct hyperlink makes accessing them easy.</p>
 <p>The closely related <a class="el" href="group__MODELING__SINGLE.html#MODELING_SINGLE_MAIN">neuron simulation </a> details are underpinned by <a class="el" href="group__PHYSICS.html#PHYSICS_MAIN_PAGE">physics </a> explanations. <em>None of the existing simulators handles the mentioned phenomena: they live in the world of the classic science grammatically translated to biological terms, without interpreting them for biology. Neither of them handles time as a physically reasonable entity; instead, they consider it as an additional (and mathematically separable) parameter in the Newtonian scene.</em></p>
 <h1><a class="anchor" id="SIMULATION_SYSTEMC"></a>
 SystemC, the background language and engine</h1>
-<p>In the SystemC engine there exists a time resolution, a small period in which all events 'happen at the same time'. (for biological neurons, a \(10 \mu s\) time resolution seems to be sufficient.) for describing all its features a complete Refererence Guide <a class="el" href="citelist.html#CITEREF_SystemChome:2017">[31]</a> for developing the code, but using the well-written core of the package it is suffient to study the textbook <a class="el" href="citelist.html#CITEREF_SystemCBook:2010">[9]</a>.</p>
+<p>In the SystemC engine there exists a time resolution, a small period in which all events 'happen at the same time'. (for biological neurons, a \(10 \mu s\) time resolution seems to be sufficient.) for describing all its features a complete Refererence Guide <a class="el" href="citelist.html#CITEREF_SystemChome:2017">[32]</a> for developing the code, but using the well-written core of the package it is suffient to study the textbook <a class="el" href="citelist.html#CITEREF_SystemCBook:2010">[10]</a>.</p>
 <h1><a class="anchor" id="Ripes_Simulator"></a>
 Ripes Ripes_Simulator</h1>
 <p>The final goal is use the technology developed in <a href="https://ripes.me/">the RIPES simulator</a>, to visualize and manipulate variable of the neurons and their groups at different levels. Presently, program classes, demos and tests, furthermore, first of all: theoretical backround is provided and shared on the site.</p>

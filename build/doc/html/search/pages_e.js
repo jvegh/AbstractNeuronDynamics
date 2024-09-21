@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['the_20neuron_27s_20modeling_20abstractions_280',['The neuron&apos;s modeling abstractions',['../MODELING_PAGE.html',1,'']]]
+  ['the_20dynamic_20ion_20layers_291',['The dynamic ion layers',['../MODELING_SINGLE_LAYERS_PAGE.html',1,'']]]
 ];

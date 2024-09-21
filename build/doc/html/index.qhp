@@ -5,16 +5,19 @@
   <filterSection>
     <filterAttribute>doxygen</filterAttribute>
     <toc>
-      <section title="Abstract Neuron Dynamics V0.0.5 @ 2024.09.04" ref="index.html">
+      <section title="Abstract Neuron Dynamics V0.0.6 @ 2024.09.20" ref="index.html">
         <section title="Overview" ref="index.html" />
         <section title="Getting started" ref="GettingStarted.html" />
         <section title="Chapters" ref="modules.html">
           <section title="MODELING abstract neurons" ref="group__MODELING.html">
+            <section title="Modeling abstract neurons" ref="group__MODELING__MAIN.html" />
             <section title="MODELING single abstract neuron" ref="group__MODELING__SINGLE.html">
               <section title="Neuron&apos;s physics" ref="group__MODELING__SINGLE__PHYSICAL.html" />
               <section title="Ion channel" ref="group__MODELING__SINGLE__ION__CHANNEL.html" />
-              <section title="Membrane" ref="group__MODELING__SINGLE__MEMBRANE.html" />
+              <section title="Dynamic ion layers" ref="group__MODELING__SINGLE__LAYERS.html" />
+              <section title="Axon Initial Segment" ref="group__MODELING__SINGLE__AIS.html" />
               <section title="Axon" ref="group__MODELING__SINGLE__AXON.html" />
+              <section title="Membrane" ref="group__MODELING__SINGLE__MEMBRANE.html" />
               <section title="Electric operation" ref="group__MODELING__SINGLE__ELECTRIC.html" />
               <section title="Action potential" ref="group__MODELING__SINGLE__AP.html" />
               <section title="Artificial operating modes" ref="group__MODELING__SINGLE__ARTIFICIAL.html" />
@@ -23,7 +26,6 @@
               <section title="Computing aspects" ref="group__MODELING__SINGLE__COMPUTING.html" />
             </section>
             <section title="MODELING multiple abstract neurons" ref="group__MODELING__MULTIPLE.html" />
-            <section title="MODELING abstract neurons" ref="group__MODELING.html#MODELING_MAIN_PAGE" />
           </section>
           <section title="PHYSICS behind neuronal operation" ref="group__PHYSICS.html">
             <section title="PHYSICS notions and terms" ref="group__PHYSICS__NOTIONS.html">
@@ -35,10 +37,11 @@
             </section>
             <section title="MEASURING biological electricity" ref="group__PHYSICS__MEASURING.html">
               <section title="Current vs charge" ref="group__MEASURING__CURRENT.html" />
-              <section title="Electric oscillator" ref="group__PHYSICS__MEASURING__OSCILLATOR.html" />
               <section title="Delayed current" ref="group__PHYSICS__MEASURING__DELAY.html" />
+              <section title="Electric oscillator" ref="group__PHYSICS__MEASURING__OSCILLATOR.html" />
               <section title="Electrolytes" ref="group__MEASURING__ELECTROLYTES.html" />
               <section title="Conductance" ref="group__MEASURING__CONDUCTANCE.html" />
+              <section title="Signal filtering" ref="group__PHYSICS__MEASURING__FILTERING.html" />
             </section>
             <section title="PHYSICS behind neuronal operation" ref="group__PHYSICS.html#PHYSICS_MAIN_PAGE" />
           </section>
@@ -51,6 +54,11 @@
           </section>
           <section title="SIMULATION principles and technology" ref="group__SIMULATION.html">
             <section title="SystemC" ref="group__SIMULATION__SYSTEMC.html" />
+            <section title="SIMULATION principles and technology" ref="group__SIMULATION.html#SIMULATION_MAIN_PAGE">
+              <section title="NeuRipes&apos;s simulation method" ref="group__SIMULATION.html#NeuRipes_Simulation_MAIN">
+                <section title="NeuRipes&apos;s simulation method" ref="group__SIMULATION.html#NeuRipes_Simulation_MAIN" />
+              </section>
+            </section>
           </section>
           <section title="RELEASE_NOTES" ref="group__RELEASE__NOTES.html" />
         </section>
@@ -180,11 +188,14 @@
       <keyword name="gcsm_Synchronizing" id="scGenComp_PU_Abstract.h::gcsm_Synchronizing" ref="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fac070cc97d512987ad9904607cd5d570c" />
       <keyword name="gcsm_Failed" id="scGenComp_PU_Abstract.h::gcsm_Failed" ref="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fa029b5a44eb55d8a1a82c8f6945ad9e6d" />
       <keyword name="Getting started" id="Getting started" ref="GETTING_STARTED_PAGE.html" />
+      <keyword name="MODELING abstract neurons" id="MODELING abstract neurons" ref="MODELING_MAIN_PAGE.html" />
       <keyword name="MODELING single abstract neuron" id="MODELING single abstract neuron" ref="MODELING_SINGLE_MAIN_PAGE.html" />
       <keyword name="Neuron&apos;s physics" id="Neuron&apos;s physics" ref="MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE.html" />
       <keyword name="Ion channel" id="Ion channel" ref="MODELING_SINGLE_ION_CHANNEL_PAGE.html" />
-      <keyword name="Membrane" id="Membrane" ref="MODELING_SINGLE_MEMBRANE_PAGE.html" />
+      <keyword name="Dynamic ion layers" id="Dynamic ion layers" ref="MODELING_SINGLE_LAYERS_PAGE.html" />
+      <keyword name="Axon Initial Segment" id="Axon Initial Segment" ref="MODELING_SINGLE_AIS_PAGE.html" />
       <keyword name="Axon" id="Axon" ref="MODELING_SINGLE_AXON_PAGE.html" />
+      <keyword name="Membrane" id="Membrane" ref="MODELING_SINGLE_MEMBRANE_PAGE.html" />
       <keyword name="Electric operation" id="Electric operation" ref="MODELING_SINGLE_ELECTRIC_PAGE.html" />
       <keyword name="Action potential" id="Action potential" ref="MODELING_SINGLE_ACTION_POTENTIAL_PAGE.html" />
       <keyword name="Artificial operating modes" id="Artificial operating modes" ref="MODELING_SINGLE_ABSTRACT_ARTIFICIAL_PAGE.html" />
@@ -200,12 +211,12 @@
       <keyword name="Spatiotemporal behavior" id="Spatiotemporal behavior" ref="PHYSICS_SPATIOTEMPORAL_PAGE.html" />
       <keyword name="MEASURING biological electricity" id="MEASURING biological electricity" ref="PHYSICS_MEASURING_MAIN_PAGE.html" />
       <keyword name="Interpreting current" id="Interpreting current" ref="MEASURING_CURRENT_PAGE.html" />
-      <keyword name="Oscillators" id="Oscillators" ref="PHYSICS_MEASURING_OSCILLATOR_PAGE.html" />
       <keyword name="Delayed current" id="Delayed current" ref="PHYSICS_MEASURING_DELAY_PAGE.html" />
+      <keyword name="Oscillators" id="Oscillators" ref="PHYSICS_MEASURING_OSCILLATOR_PAGE.html" />
       <keyword name="Electrolytes: a case study" id="Electrolytes: a case study" ref="MEASURING_ELECTROLITES_PAGE.html" />
       <keyword name="Measuring conductance" id="Measuring conductance" ref="MEASURING_CONDUCTANCE_PAGE.html" />
+      <keyword name="Signal filtering" id="Signal filtering" ref="PHYSICS_MEASURING_FILTERING_PAGE.html" />
       <keyword name="INFORMATION generalized for biology" id="INFORMATION generalized for biology" ref="INFORMATION_MAIN_PAGE.html" />
-      <keyword name="SIMULATION principles and technology" id="SIMULATION principles and technology" ref="SIMULATION_MAIN_PAGE.html" />
       <keyword name="Release notes and porting" id="Release notes and porting" ref="ReleaseNotes.html" />
       <keyword name="GLOSSARY" id="GLOSSARY" ref="GLOSSARY.html" />
       <keyword name="Bibliography" id="Bibliography" ref="citelist.html" />
@@ -213,34 +224,38 @@
       <keyword name="PHYSICS behind neuronal operation" id="PHYSICS behind neuronal operation" ref="group__PHYSICS.html" />
       <keyword name="INFORMATION generalized for biology" id="INFORMATION generalized for biology" ref="group__INFORMATION.html" />
       <keyword name="COMPUTING generalized for biology" id="COMPUTING generalized for biology" ref="group__COMPUTING.html" />
+      <keyword name="SIMULATION principles and technology" id="SIMULATION principles and technology" ref="group__SIMULATION.html" />
+      <keyword name="Modeling abstract neurons" id="Modeling abstract neurons" ref="group__MODELING__MAIN.html" />
       <keyword name="Neuron&apos;s physics" id="Neuron&apos;s physics" ref="group__MODELING__SINGLE__PHYSICAL.html" />
       <keyword name="Ion channel" id="Ion channel" ref="group__MODELING__SINGLE__ION__CHANNEL.html" />
-      <keyword name="Membrane" id="Membrane" ref="group__MODELING__SINGLE__MEMBRANE.html" />
+      <keyword name="Dynamic ion layers" id="Dynamic ion layers" ref="group__MODELING__SINGLE__LAYERS.html" />
+      <keyword name="Axon Initial Segment" id="Axon Initial Segment" ref="group__MODELING__SINGLE__AIS.html" />
       <keyword name="Axon" id="Axon" ref="group__MODELING__SINGLE__AXON.html" />
+      <keyword name="Membrane" id="Membrane" ref="group__MODELING__SINGLE__MEMBRANE.html" />
       <keyword name="Electric operation" id="Electric operation" ref="group__MODELING__SINGLE__ELECTRIC.html" />
       <keyword name="Action potential" id="Action potential" ref="group__MODELING__SINGLE__AP.html" />
       <keyword name="Artificial operating modes" id="Artificial operating modes" ref="group__MODELING__SINGLE__ARTIFICIAL.html" />
       <keyword name="Fallacies" id="Fallacies" ref="group__MODELING__SINGLE__FALLACIES.html" />
       <keyword name="Comparing to other models" id="Comparing to other models" ref="group__MODELING__SINGLE__COMPARING.html" />
       <keyword name="Computing aspects" id="Computing aspects" ref="group__MODELING__SINGLE__COMPUTING.html" />
+      <keyword name="PHYSICS notions and terms" id="PHYSICS notions and terms" ref="group__PHYSICS__NOTIONS.html" />
       <keyword name="Introduction" id="Introduction" ref="group__PHYSICS__INTRODUCTORY.html" />
       <keyword name="Abstractions" id="Abstractions" ref="group__PHYSICS__ABSTRACTION.html" />
       <keyword name="Speeds" id="Speeds" ref="group__PHYSICS__SPEEDS.html" />
       <keyword name="Slow current" id="Slow current" ref="group__PHYSICS__SLOW__CURRENT.html" />
       <keyword name="Spatiotemporal behavior" id="Spatiotemporal behavior" ref="group__PHYSICS__SPATIOTEMPORAL.html" />
+      <keyword name="MEASURING biological electricity" id="MEASURING biological electricity" ref="group__PHYSICS__MEASURING.html" />
       <keyword name="Current vs charge" id="Current vs charge" ref="group__MEASURING__CURRENT.html" />
-      <keyword name="Electric oscillator" id="Electric oscillator" ref="group__PHYSICS__MEASURING__OSCILLATOR.html" />
       <keyword name="Delayed current" id="Delayed current" ref="group__PHYSICS__MEASURING__DELAY.html" />
+      <keyword name="Electric oscillator" id="Electric oscillator" ref="group__PHYSICS__MEASURING__OSCILLATOR.html" />
       <keyword name="Electrolytes" id="Electrolytes" ref="group__MEASURING__ELECTROLYTES.html" />
       <keyword name="Conductance" id="Conductance" ref="group__MEASURING__CONDUCTANCE.html" />
+      <keyword name="Signal filtering" id="Signal filtering" ref="group__PHYSICS__MEASURING__FILTERING.html" />
       <keyword name="Computing basics" id="Computing basics" ref="group__COMPUTING__BASICS.html" />
       <keyword name="Information basics" id="Information basics" ref="group__INFORMATION__BASICS.html" />
-      <keyword name="SIMULATION principles and technology" id="SIMULATION principles and technology" ref="group__SIMULATION.html" />
       <keyword name="SystemC" id="SystemC" ref="group__SIMULATION__SYSTEMC.html" />
       <keyword name="MODELING single abstract neuron" id="MODELING single abstract neuron" ref="group__MODELING__SINGLE.html" />
       <keyword name="MODELING multiple abstract neurons" id="MODELING multiple abstract neurons" ref="group__MODELING__MULTIPLE.html" />
-      <keyword name="PHYSICS notions and terms" id="PHYSICS notions and terms" ref="group__PHYSICS__NOTIONS.html" />
-      <keyword name="MEASURING biological electricity" id="MEASURING biological electricity" ref="group__PHYSICS__MEASURING.html" />
       <keyword name="RELEASE_NOTES" id="RELEASE_NOTES" ref="group__RELEASE__NOTES.html" />
       <keyword name="EVENT_GenComp_type" id="EVENT_GenComp_type" ref="classEVENT__GenComp__type.html" />
       <keyword name="ClockDown" id="EVENT_GenComp_type::ClockDown" ref="classEVENT__GenComp__type.html#a3220954b31996ff928a234d6303de813" />
@@ -487,11 +502,14 @@
       <file>scGenComp__PU__Tech_8h__incl.png</file>
       <file>scGenComp__PU__Tech_8h__incl.eps</file>
       <file>GETTING_STARTED_PAGE.html</file>
+      <file>MODELING_MAIN_PAGE.html</file>
       <file>MODELING_SINGLE_MAIN_PAGE.html</file>
       <file>MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE.html</file>
       <file>MODELING_SINGLE_ION_CHANNEL_PAGE.html</file>
-      <file>MODELING_SINGLE_MEMBRANE_PAGE.html</file>
+      <file>MODELING_SINGLE_LAYERS_PAGE.html</file>
+      <file>MODELING_SINGLE_AIS_PAGE.html</file>
       <file>MODELING_SINGLE_AXON_PAGE.html</file>
+      <file>MODELING_SINGLE_MEMBRANE_PAGE.html</file>
       <file>MODELING_SINGLE_ELECTRIC_PAGE.html</file>
       <file>MODELING_SINGLE_ACTION_POTENTIAL_PAGE.html</file>
       <file>MODELING_SINGLE_ABSTRACT_ARTIFICIAL_PAGE.html</file>
@@ -507,12 +525,12 @@
       <file>PHYSICS_SPATIOTEMPORAL_PAGE.html</file>
       <file>PHYSICS_MEASURING_MAIN_PAGE.html</file>
       <file>MEASURING_CURRENT_PAGE.html</file>
-      <file>PHYSICS_MEASURING_OSCILLATOR_PAGE.html</file>
       <file>PHYSICS_MEASURING_DELAY_PAGE.html</file>
+      <file>PHYSICS_MEASURING_OSCILLATOR_PAGE.html</file>
       <file>MEASURING_ELECTROLITES_PAGE.html</file>
       <file>MEASURING_CONDUCTANCE_PAGE.html</file>
+      <file>PHYSICS_MEASURING_FILTERING_PAGE.html</file>
       <file>INFORMATION_MAIN_PAGE.html</file>
-      <file>SIMULATION_MAIN_PAGE.html</file>
       <file>ReleaseNotes.html</file>
       <file>GLOSSARY.html</file>
       <file>citelist.html</file>
@@ -520,9 +538,13 @@
       <file>group__PHYSICS.html</file>
       <file>group__INFORMATION.html</file>
       <file>group__COMPUTING.html</file>
+      <file>group__SIMULATION.html</file>
+      <file>group__MODELING__MAIN.html</file>
       <file>group__MODELING__SINGLE__PHYSICAL.html</file>
       <file>group__MODELING__SINGLE__ION__CHANNEL.html</file>
-      <file>group__MODELING__SINGLE__MEMBRANE.html</file>
+      <file>group__MODELING__SINGLE__LAYERS.html</file>
+      <file>group__MODELING__SINGLE__AIS.html</file>
+      <file>nihms952878f1.jpg</file>
       <file>group__MODELING__SINGLE__AXON.html</file>
       <file>HodgkinHuxleyUI_On.png</file>
       <file>HodgkinHuxleyUI_Off.png</file>
@@ -530,10 +552,11 @@
       <file>Fig3_eval.png</file>
       <file>MasonPSPlin.png</file>
       <file>HodgkinHuxleyStepFunction.png</file>
+      <file>group__MODELING__SINGLE__MEMBRANE.html</file>
       <file>group__MODELING__SINGLE__ELECTRIC.html</file>
-      <file>nihms952878f1.jpg</file>
       <file>PSP.png</file>
       <file>HH_AP.jpg</file>
+      <file>Bean_Fig1d.png</file>
       <file>group__MODELING__SINGLE__AP.html</file>
       <file>AP_ConceptualDemo.png</file>
       <file>AP_Variety.png</file>
@@ -542,34 +565,35 @@
       <file>group__MODELING__SINGLE__FALLACIES.html</file>
       <file>group__MODELING__SINGLE__COMPARING.html</file>
       <file>group__MODELING__SINGLE__COMPUTING.html</file>
+      <file>group__PHYSICS__NOTIONS.html</file>
       <file>group__PHYSICS__INTRODUCTORY.html</file>
       <file>group__PHYSICS__ABSTRACTION.html</file>
       <file>group__PHYSICS__SPEEDS.html</file>
       <file>group__PHYSICS__SLOW__CURRENT.html</file>
       <file>group__PHYSICS__SPATIOTEMPORAL.html</file>
+      <file>group__PHYSICS__MEASURING.html</file>
       <file>group__MEASURING__CURRENT.html</file>
-      <file>group__PHYSICS__MEASURING__OSCILLATOR.html</file>
-      <file>rc-rc12Integrator.gif</file>
-      <file>rc-rc13Differentiator.gif</file>
       <file>group__PHYSICS__MEASURING__DELAY.html</file>
       <file>HodgkinHuxleyUI_On.png</file>
       <file>HodgkinHuxleyUI_Off.png</file>
+      <file>group__PHYSICS__MEASURING__OSCILLATOR.html</file>
+      <file>rc-rc12Integrator.gif</file>
+      <file>rc-rc13Differentiator.gif</file>
       <file>group__MEASURING__ELECTROLYTES.html</file>
       <file>HodgkinHuxleyUI_On.png</file>
       <file>HodgkinHuxleyUI_Off.png</file>
       <file>HodgkinHuxleyStepFunction.png</file>
       <file>group__MEASURING__CONDUCTANCE.html</file>
+      <file>group__PHYSICS__MEASURING__FILTERING.html</file>
       <file>group__COMPUTING__BASICS.html</file>
       <file>NeuronStateMachine.png</file>
       <file>group__INFORMATION__BASICS.html</file>
-      <file>group__SIMULATION.html</file>
       <file>group__SIMULATION__SYSTEMC.html</file>
       <file>GTKWave.png</file>
       <file>group__MODELING__SINGLE.html</file>
+      <file>ch11f38.jpg</file>
       <file>JohnstonSummaryFigure1_2.png</file>
       <file>group__MODELING__MULTIPLE.html</file>
-      <file>group__PHYSICS__NOTIONS.html</file>
-      <file>group__PHYSICS__MEASURING.html</file>
       <file>group__RELEASE__NOTES.html</file>
       <file>classEVENT__GenComp__type.html</file>
       <file>classEVENT__GenComp__type-members.html</file>

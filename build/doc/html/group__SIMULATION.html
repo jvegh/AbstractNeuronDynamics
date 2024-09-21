@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Abstract Neuron Dynamics V0.0.5 @ 2024.09.04: SIMULATION principles and technology</title>
+<title>Abstract Neuron Dynamics V0.0.6 @ 2024.09.20: SIMULATION principles and technology</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,7 +44,7 @@ MathJax.Hub.Config({
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="TAC_Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.5 @ 2024.09.04</a>
+   <div id="projectname"><a href="https://github.com/jvegh/AbstractNeuronDynamics">Abstract Neuron Dynamics V0.0.6 @ 2024.09.20</a>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -112,20 +112,22 @@ $(document).ready(function(){initNavTree('group__SIMULATION.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h1><a class="anchor" id="NeuRipes_Simulation_MAIN"></a>
-NeuRipes's simulation method</h1>
-<p>The central idea of simulation is the notion of "event". We use events almost in the everyday sense; that something happens at some given time. In technical computing, an event is an electric signal, that means the beginning or and of an elementary operation, or signals transferring control to another place in the program. In biology, "A signal is a physical event that, to the receiver,
-was not bound to happen at the time or in the way it did." <a class="el" href="citelist.html#CITEREF_mackay1952limiting">[38]</a> Similarly, we "define an elementary operation of the brain as a single synaptic event" <a class="el" href="citelist.html#CITEREF_ComputerBrainSejnowski:1989">[52]</a>.</p>
-<p>The basic issue with simulating biology with technology is that <em>two</em> time scales exist and they are connected by <em>events</em> only. The length of the computing and the biological operation are not proportional at all. Furthermore, neuronal operations happen simultaneously, while technical operations work in a sequential way (or maybe in parallelized sequential way) that breaks happening events simultaneously.</p>
-<p>The way as we perform simulation that we define events (such as beginning or end of computing, receiving an input, etc) and we perform the actions that happen at the same (biological) time. The "same time" in this context means that the simulated times are within a so called "time resolution". The biological actions are implemented as a kind of callback function that is called when the corresponding (simulated) time arrives. Choosing smaller time resolution results in slightly more accurate results at the price of much more computing time.</p>
-<p>The software we use is a special C++ based library SystemC with a user-level scheduler <a class="el" href="citelist.html#CITEREF_SystemChome:2017">[31]</a>, <a class="el" href="citelist.html#CITEREF_SystemCBook:2010">[9]</a>. The primary purpose of the software is to prepare electronic designs, so a lot of f ormal elements are to be considered. Those elements are typically confined in low-level modules, and the user-accessible modules resemble normal c++ modules, although their name and description max reflect specialties. </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
 <tr class="memitem:group__SIMULATION__SYSTEMC"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SIMULATION__SYSTEMC.html">SystemC</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+
+
+<h3><a id="SIMULATION_MAIN_PAGE"></a>SIMULATION principles and technology</h3><div class="textblock"><h1><a class="anchor" id="NeuRipes_Simulation_MAIN"></a>
+NeuRipes's simulation method</h1>
+<p>The central idea of simulation is the notion of "event". We use events almost in the everyday sense; that something happens at some given time. In technical computing, an event is an electric signal, that means the beginning or and of an elementary operation, or signals transferring control to another place in the program. In biology, "A signal is a physical event that, to the receiver,
+was not bound to happen at the time or in the way it did." <a class="el" href="citelist.html#CITEREF_mackay1952limiting">[40]</a> Similarly, we "define an elementary operation of the brain as a single synaptic event" <a class="el" href="citelist.html#CITEREF_ComputerBrainSejnowski:1989">[54]</a>.</p>
+<p>The basic issue with simulating biology with technology is that <em>two</em> time scales exist and they are connected by <em>events</em> only. The length of the computing and the biological operation are not proportional at all. Furthermore, neuronal operations happen simultaneously, while technical operations work in a sequential way (or maybe in parallelized sequential way) that breaks happening events simultaneously.</p>
+<p>The way as we perform simulation that we define events (such as beginning or end of computing, receiving an input, etc) and we perform the actions that happen at the same (biological) time. The "same time" in this context means that the simulated times are within a so called "time resolution". The biological actions are implemented as a kind of callback function that is called when the corresponding (simulated) time arrives. Choosing smaller time resolution results in slightly more accurate results at the price of much more computing time.</p>
+<p>The software we use is a special C++ based library SystemC with a user-level scheduler <a class="el" href="citelist.html#CITEREF_SystemChome:2017">[32]</a>, <a class="el" href="citelist.html#CITEREF_SystemCBook:2010">[10]</a>. The primary purpose of the software is to prepare electronic designs, so a lot of f ormal elements are to be considered. Those elements are typically confined in low-level modules, and the user-accessible modules resemble normal c++ modules, although their name and description max reflect specialties. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -1,0 +1,4 @@
+<map id="scGenComp_PU_Tech" name="scGenComp_PU_Tech">
+<area shape="rect" id="node1" title="Implements a general biological&#45;type computing PU." alt="" coords="7,659,221,897"/>
+<area shape="rect" id="node2" href="$classscGenComp__PU__Abstract.html" title="Class to deal with operations of an abstract processing unit (PU), implementing a single&#45;shot element..." alt="" coords="5,5,223,611"/>
+</map>

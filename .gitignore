@@ -1,3 +1,9 @@
+# Node artifact files
+3rdParty/QCustomPlot
+build/
+.GenComp_token.txt
+.github-recovery-codes.txt
+
 # Prerequisites
 *.d
 

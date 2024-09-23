@@ -1,0 +1,152 @@
+/**
+\page  MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE Neuron's physics
+
+@defgroup MODELING_SINGLE_PHYSICAL Neuron's physics
+@ingroup MODELING_SINGLE
+
+
+
+@section MODELING_SINGLE_PHYSICAL Neuron's physics
+
+
+Handling the several orders of magnitude in the relevant speeds of different
+physical phenomena (related to electric operations) needs great care. Using
+wrong approximations excludes, forever, recognizing that
+ - neuron cell is not equipotential (it needs severe efforts
+to concert conductance with the many-compartment model)
+ -  creating an action potential is a native feature of non-equipotential cells
+ - no mystic electric operation control mechanisms  (such as changing conductance
+ or synchronized currents) are built into neurons
+ - the chemical nature and function of the
+different ion currents are drastically different from the one that
+is assumed today
+ - understanding the temporal operation of the
+membrane is the key to understanding how the neural system computes
+ - the neural information transfer is a collective effort and a distributed
+analog process
+ - the representation of neural information is entirely
+different from the one that is commonly assumed
+ - interfacing technical and biological computing needs different principles
+ - neuromorphic computing needs new operating principles
+
+
+@subsection MODELING_SINGLE_PHYSICAL_OVERVIEW Overview
+Without external invasion (incoming spikes or experimenter's current injection)
+the neuron remains in a stable (but dynamic) equilibrium state.
+The electric potential and concentration between the intracellular and extracellular
+regions on the two sides of its semipermeable membrane differ.
+On the intracellular side a negative resting potential is accompanied
+by low  ion concentration.
+The ions arriving from the external world change that equilibrium state
+and the neuron attempts to restore that state, using different mechanisms.
+The neuron <i>passively</i> receives external charge (from fellow neurons or the experimenter)
+and <i>actively</i>  receives and sends charge from its extracellular environment to compensate for its effect.
+
+When the external invasion exceeds some tolerance level,
+the neuron autonomously takes measures to restore its resting state, maybe even at the price of
+overcompensating the external effect for some short time by borrowing ions from the extracellular space.
+The neuron attempts to restore its intracellular stationary state: removes the excess ions
+through its \gls{AIS} to the extracellular space.
+The extracellular space represents an 'infinite pool' of ions for the processes
+that need extra ions, so we discuss changes only on the intracellular side.
+(The ions are at the same time chemicals,
+but the concentration change they cause is negligible and is only local and transient.)
+
+Initially the neuron's membrane potential has a resting value.
+In this stage, the gates for external currents (the synaptic terminals) are enabled:
+the neuron is ready to receive external charge in its <i>natural way</i>.
+When (due to the received external charges) the deviation from the resting potential exceeds
+a critical threshold level,
+the neuron disables receiving more input charge until the potential
+can be decreased again below the critical level.
+
+The neuron wants to inform the fellow neurons (at the end of its axon)
+that its threshold level exceeded.
+To do so, it needs more charge for issuing an intense current pulse (spike).
+The neuron opens the ion channels in its membrane's wall. Through those channels,
+ions from the extracellular space
+rush in, and their appearance increases the membrane's voltage.
+
+The neuron can remove the excess charge only through its \gls{AIS},
+so ions start to flow out through the ion channels in the \gls{AIS}.
+The finite size (the path along the current from where the ions
+pass through membrane to the \gls{AIS}) and their finite speed together results
+\link MODELING_ACTION_POTENTIAL in the shape of the Action Potential@endlink.
+
+
+@subsection MODELING_SINGLE_PHYSICAL_CONCEPTUAL Conceptual stages of operation
+Our assumptions on the  operation of an abstract neuron  for
+generating an \gls{AP} are summarized in Figure \ref fig_AP_Conceptual.
+As displayed, the operation proceeds from stage to stage as the time passes,
+where the time-ordered stages are distinguished by physically different mechanisms of charge handling.
+Initially, the potential of the neuronal membrane is at the
+value of the resting potential and the neuron is in stage 'Relaxing'.
+When the first synaptic input arrives, the potential value gets higher
+and the neuron passes into stage 'Computing'.
+Without experimenter's invasion, this happens due to excitations arriving through
+neuron's synapses. The subsequent neuronal inputs
+may increase membrane's potential above the threshold level.
+Given that <i>the result
+of this neuronal operation is its charge integration time</i>, we call this stage 'Computing':
+how much time is required until the threshold voltage is reached.
+At that point, the result of 'Computing' is ready and the neuron passes to stage 'Delivering':
+it prepares to transfer its result, @link MODELING_ACTION_POTENTIAL the spike@endlink,
+to the downstream neuron(s) through its axon.
+
+
+When entering 'Delivering', two simultaneous actions affecting the charge collection
+of the neuron take place. First, exceeding the threshold voltage opens the ion channels in
+its membrane's wall, and second, the neuron closes its synaptic inputs
+(the elevated membrane's voltage prevents ions entering the membrane).
+The rushed-in ions through the membrane's wall very quickly increase
+the amount of ions on the intracellular surface, and so the
+membrane's voltage increases. The appearance of ions on the surface
+is instant, but it takes time (in the order of \f$0.1\ ms\f$) until the ions create
+a saturated layer on the surface. The details are discussed in sections \ref MODELING_SINGLE_LAYERS
+and \ref MODELING_SINGLE_MEMBRANE.
+The presence of the \gls{AIS} represents a current drain
+that causes a potential gradient. The details are discussed in section  \ref MODELING_SINGLE_ELECTRIC_OPERATION.
+The ions entering the intracellular side near to the \gls{AIS} will
+flow out immediately after the ions rush in; the ions entering
+at a place farther from the \gls{AIS} need distance-dependent time (in the order of \f$0.5\ ms\f$)
+to reach the  \gls{AIS}. The ions on the surface will move along the gradient, with their finite speed.
+
+Until the ions traveling from the most distant point
+reach the \gls{AIS}, the current at the \gls{AIS} increases.
+In the inital phase of
+restoring the resting potential, the membrane 'stores' the ions
+(they are on the surface, but they need time to reach the resistor).
+In the later period the 'capacitive current' reverses
+and produces an overshot (hyperpolarization).
+The effect resembles an underdamped damping oscillation
+(with a damping ratio \f$\zeta\approx 0.3\f$).
+
+When the decreasing membrane potential drops below the threshold value,
+the synaptic inputs get re-enabled: the neuron enters stage 'Relaxing' again. At that point,
+the membrane potential is not yet restored. The next @link COMPUTING 'neuronal computation'@endlink
+may start from a potential above or below the resting potential:
+the neuronal membrane has a 'memory'
+(the memory changes the next 'computing time').
+It is worth to notice that the slow synaptic current needs time (in the order of \f$0.1-0.5\ ms\f$)
+to travel from its entry point at the presynaptic terminal to the \gls{AIS}, so they cause a voltage change
+at the \gls{AIS} at a time when the voltage due to the membrane current
+is about or after reaching the hyperpolarized state.
+It is important to keep in mind that the events happen in time-space:
+due to the slow speed, one has to attach to the event <i>when</i> it happened
+and <i>where</i> it was measured.
+
+
+Back:  @link MODELING_SINGLE_MAIN Modeling a single neuron   @endlink
+Continue: @link  MODELING_SINGLE_ION_CHANNEL Ion channel @endlink
+Up: @link MODELING_SINGLE Abstract neuron @endlink
+
+
+
+*/
+
+/*
+
+
+@subsection MODELING_NEURONAL_MEMBRANE_CHARGE_CONSERVATION Charge conservation
+
+*/

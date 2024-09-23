@@ -1,0 +1,36 @@
+/**
+\page  MODELING_SINGLE_ABSTRACT_COMPUTING_PAGE Computing aspects
+
+
+@defgroup MODELING_SINGLE_COMPUTING Computing aspects
+@ingroup MODELING_SINGLE
+
+@section Modeling_Neuronal Modeling neuronal and neural computing
+
+There are strong arguments behind hypothesizing that <i>neural
+computing operations (processing, transferring, and storing information)
+are closely related to the time course of the nervous system's
+ionic currents</i> (both presynaptic currents and spiking).
+
+The goal was set @cite SejnowskiComputationalNeuroscience:1988
+decades ago: "The ultimate aim of computational neuroscience is
+to explain how electrical and chemical signals are used in the brain
+to represent and process information". Since then, chemical and
+enzymatic research has advanced a lot. However, explaining the electrical
+signals, primarily how the brain uses them to represent and process
+information, has stalled, mainly because of using wrong approximations
+of biological reality. Biology uses ad-hoc mathematical models (typically
+lacking physical reality) outside of their range of validity, and
+they deliver inconsistent, self-contradicting predictions, expectations,
+and interpretations for the real neurons and their networks. No place
+remains for interpreting the brain's neural information processing
+as a collective activity of neurons. Furthermore, we cannot discover that the brain handles information
+differently @cite VeghNeuralShannon:2022.
+
+
+Back:  @link MODELING_SINGLE_COMPARING Comparing to other modules  @endlink
+Continue: @link  MODELING_MULTIPLE Multiple neurons @endlink
+Up: @link MODELING MODELING @endlink
+
+
+*/

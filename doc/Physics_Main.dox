@@ -1,0 +1,30 @@
+/**
+\page  PHYSICS_MAIN_PAGE PHYSICS behind neuronal operation
+
+
+@ingroup PHYSICS PHYSICS behind neuronal operation
+
+A common fallacy in biology is that physics cannot precisely underpin the operation of living matter.
+No doubt, however, that the basic notions and terms need to be interpreted precisely,
+much beyond the level we used to at college level,
+using the appropriate abstractions and approximations for the phenomena,
+depending on the level of abstraction needed in the given cooperation of objects and interactions.
+In this section we discuss some of the relevant terms and notions of physics,
+differentiating which approximation is appropriate for physics (mainly electronics)
+and which approximation is appropriate for physiology.
+<div>
+As we discuss, biophysics simply translated the major terminus technicus words from the corresponding words
+from the theory and practice of physics' major subfields, maily electricity, which was
+worked out for homogenous, isotropic, structureless metals; to the structured,
+non-homogeneous non-izotropic, material mixtures and for a single interaction speed.
+Those notions not always have unchanged meaning, and how much they do,
+depends on the actual conditions. The precise meaning needs a case-by-case analysis.
+</div>
+
+<div>
+Back:  @link  MODELING_MAIN_PAGE Modeling neurons @endlink
+Continue: @link  PHYSICS_NOTIONS Physics notions and terms @endlink
+Up: @link PHYSICS_MAIN_PAGE Physics behind biology @endlink
+</div>
+
+*/

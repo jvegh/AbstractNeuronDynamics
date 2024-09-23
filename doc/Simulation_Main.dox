@@ -1,0 +1,133 @@
+/**
+\page  SIMULATION_MAIN_PAGE SIMULATION principles and technology
+
+
+@ingroup SIMULATION SIMULATION principles and technology
+@section   NeuRipes_Simulation_MAIN NeuRipes's simulation method
+
+The central idea of simulation is the notion of "event".
+We use events almost in the everyday sense; that something happens at some given time.
+In technical computing, an event is an electric signal, that means
+the beginning or and of an elementary operation, or signals transferring
+control to another place in the program.
+In biology,  "A signal is a physical event that, to the receiver,
+was not bound to happen at the time or in the way it did." @cite mackay1952limiting
+Similarly, we "define an elementary operation of the brain as a single synaptic event" @cite ComputerBrainSejnowski:1989.
+
+
+The basic issue with simulating biology with technology is that
+<i>two</i> time scales exist and they are connected by <i>events</i> only.
+The length of the computing and the biological operation are
+not proportional at all. Furthermore, neuronal operations happen
+simultaneously, while technical operations work in a sequential way
+(or maybe in parallelized sequential way) that breaks happening events simultaneously.
+
+The way as we perform simulation that we define events
+(such as beginning or end of computing, receiving an input, etc)
+and we perform the actions that happen at the same (biological) time.
+The "same time" in this context means that the simulated times
+are within a so called "time resolution". The biological actions
+are implemented as a kind of callback function that is called when
+the corresponding (simulated) time arrives. Choosing smaller time resolution
+results in slightly more accurate results at the price of much more computing time.
+
+The software we use is a special C++ based library SystemC with a user-level scheduler
+@cite SystemChome:2017, @cite SystemCBook:2010. The primary purpose of the software
+is to prepare electronic designs, so a lot of f ormal elements are to be considered.
+Those elements are typically confined in low-level modules, and the user-accessible modules
+resemble normal c++ modules, although their name and description max reflect specialties.
+
+
+@defgroup SIMULATION_SYSTEMC SystemC
+@ingroup SIMULATION
+
+An (educational, demonstration and research)-purpose @link SIMULATION_MAIN_PAGE simulator@endlink
+attaches the site, with complete code, examples, use cases, reproduced research results and documentation
+(to the \gls{API} documentation through the related \em modules and \em classes).
+<i>Our simulator provides a deeper understanding, a correct physical background,
+and it is the only one where the time is handled as part of the unified space-time.</i>
+In this site, the science facts are provided as cited references,
+and in most cases also direct hyperlink makes accessing them easy.
+
+The closely related @link MODELING_SINGLE_MAIN neuron simulation @endlink details are underpinned
+by @link PHYSICS_MAIN_PAGE physics @endlink explanations.
+<i>None of the existing simulators handles the mentioned phenomena:
+they live in the world of the classic science grammatically translated to biological terms,
+without interpreting them for biology.
+Neither of them handles time as a physically reasonable entity; instead, they consider
+it as an additional (and mathematically separable) parameter in the Newtonian scene.</i>
+
+
+
+@section SIMULATION_SYSTEMC SystemC, the background language and engine
+
+In the SystemC engine there exists a time resolution,
+a small period in which all events 'happen at the same time'.
+(for biological neurons, a \f$10 \mu s\f$ time resolution seems
+to be sufficient.) for describing all its features a complete
+Refererence Guide @cite SystemChome:2017 for developing the  code, but using the well-written
+core of the package it is suffient to study the textbook @cite SystemCBook:2010.
+
+
+
+
+@section   Ripes_Simulator Ripes Ripes_Simulator
+
+
+
+The final goal is use the technology developed in <a href="https://ripes.me/"> the RIPES simulator</a>,
+to visualize and manipulate variable of the neurons and their groups
+at different levels.
+Presently, program classes, demos and tests, furthermore,
+first of all: theoretical backround is provided and shared on the site.
+
+@section GTKWave_Simulator GTKWave simulator
+
+Although it remains almost entirely hidden for the average user, the simulator
+is essentially an electronic design software. It produces an 'ObjectName.vcd' file
+that, correspondingly, can be analyzed using the tools of electronic design.
+One of the popular tools is GTKWave. The contents of the .vcd file can be displayed
+as shown in \ref fig_GTKWave_Screenshot. (To reproduce the figure, one has to switch
+the signal forms to 'analog stepwise' and 'analog interpolated', respectively,
+and increase the 'insert analog height extension' to the single-text line annotation.)
+
+The figure shows the time course of the \gls{AP}, together with the corresponding
+@link MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR voltage derivatives@endlink produced by PhysicalNeuron.
+The 'State' line displays how the state of the neuron changes from 'Relaxing' (codename '1')
+to 'Computing' (codename "2') for the effect of receiving the first input (just a step-like increase
+in this phase of development). After reaching the threshold voltage, the state
+changes to 'Delivering' (codename '3')
+and remains there until the membrane voltage decreases again below the threshold.
+When the membrane's threshold voltage reached, a 'rush-in' current  starts
+that loads the membrane's condenser to a peak voltage and slowly discharges.
+
+The figure shows the time courses of a '@link MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_SIMPLE simple delivery@endlink'
+case when the (simulated, step-like) synaptic inputs trigger an \gls{AP}.
+The rush-in current produces a sharply changing time derivative,
+the current flowing through the \gls{AIS} generates another dime derivative.
+The resulting time derivative is their sum (or, actually, difference, given that
+the latter term is an outward current). This derivative has an inflection point,
+followed by a raising period and almost constant value.
+When @link MODELING_SINGLE_ELECTRIC_OPERATION integrating the resulting time derivative@endlink,
+the result is the\f$V_{out}\f$ \gls{AP}
+The membrane's resulting \f$\frac{dV}{dt}\f$ value changes sharply when entering stage 'Delivering'
+and later changes from negative to positive; in this way forming the output voltage.
+Although the \gls{AIS} voltage decays continuously, it is evidently visible
+in stage 'Computing', following the step-like incrementations.
+
+
+\anchor fig_GTKWave_Screenshot
+@image html GTKWave.png "The AP produced by PhysicalNeuron on the screen of GTKWave" width=600px
+
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/GTKWave.png}
+\caption{The AP produced by PhysicalNeuron on the screen of GTKWave.}
+\label{fig_GTKWave_Screenshot}
+\end{figure}
+@endlatexonly
+
+
+
+*/

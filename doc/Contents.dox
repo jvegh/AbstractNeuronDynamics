@@ -1,0 +1,90 @@
+/*
+This is just to remind programmer, how 'groups' are organized,
+has no direct relations to the .dox files
+
+
+The major chapters are:
+ - @link TAC_BASIC BASIC: Basic-level components, such as elementary modules and communication @endlink
+ - @link TAC_GENERAL_MAIN_PAGE GENERAL: The non-packet specific docs @endlink
+ - @link TAC_MODULE_SOURCES SOURCES: The simulation source files @endlink
+ - @link TAC_OTHER_SOURCES OTHER: The other source files (GUI, main, test) @endlink
+
+
+@defgroup TAC_BASIC BASIC The electronic modules
+        The the bottom layer (autonomous communication) for handling a large number of electronic modules
+    @defgroup TAC_BASIC_USER BASIC: User's guide
+        Details of how to use the communication layer
+              @ingroup TAC_BASIC
+    @defgroup TAC_BASIC_TECHNICAL  BASIC: Technical guide & programming.
+              Summary of the technical operation of the BASIC system
+            How the things (mainly communication) work and the \gls{API} to use them
+            @ingroup TAC_BASIC
+              @link TAC_BASIC_TECHNICAL_Breakdown_PAGE Technical breakdown of the components @endlink
+
+              @link TAC_BASIC_TECHNICAL_Communication_PAGE Communication of components @endlink
+
+              @link TAC_BASIC_TECHNICAL_Operation_PAGE Operation details @endlink
+
+              @link TAC_BASIC_TECHNICAL_MEMORY_PAGE  Memory handling @endlink
+
+              @link TAC_BASIC_TECHNICAL_Cooperation_Page Why and how modules can cooperate @endlink
+
+    @defgroup TAC_BASIC_THEORY BASIC: Theory guide & background
+        The theoretical basics for the communication in the bottom layer
+              @ingroup TAC_BASIC
+
+@defgroup TAC_GENERAL GENERAL: The non-packet specific docs
+Tell common handling for the TAC simulator family. The subclassed modules extend and specialize
+    these features
+     @defgroup TAC_GENERAL_USER GENERAL: User's guide
+     General aspects of using TAC simulators
+         @ingroup TAC_GENERAL
+        @link TAC_GEN_WORKING_PAGE Working with TAC simulators @endlink
+
+        @link TAC_GEN_USER_SETTINGS_PAGE How to use 'Settings' @endlink
+
+    @defgroup TAC_GENERAL_TECHNICAL GENERAL: Technical guide & programming
+    The generally valid implementation details
+              @ingroup TAC_GENERAL
+
+              @link TAC_GEN_TECHNICAL_INTRODUCTION_PAGE New concepts of the technical computing  @endlink
+
+              Introducing new concepts such us a different layering and Explicitly Many-Processor Approach
+
+              @link TAC_GEN_TECHNICAL_OPERATION_PAGE Simulating time-aware computing @endlink
+
+              How (technically) time-aware computing works
+    @defgroup TAC_GENERAL_THEORY GENERAL: Theory guide & background
+              The theoretical basics (principles and concepts) used in time-aware computation are sketched,
+              at signaling and communication level
+
+@ingroup TAC_GENERAL
+              @link TAC_GEN_THEORY_INTRODUCTION_PAGE Introduction to computing @endlink
+
+              @link TAC_GEN_THEORY_ABSTRACT_PAGE The abstract computing model @endlink
+
+              @link TAC_GEN_THEORY_LEARNING_PAGE  Information storage and learning @endlink
+
+              @link TAC_GEN_THEORY_PARADIGM_PAGE The idea of time-aware computing @endlink
+
+
+@defgroup TAC_MODULE_SOURCES SOURCES: The simulation source files
+The source files are built on top of each other.
+Many of the are used in unchanged form, many have overloaded member functions
+    @defgroup TAC_MODULE_BASIC SOURCES: package BASIC
+    Implementation details of the bottom (mainly communication) layer
+        @ingroup TAC_MODULE_SOURCES
+    @defgroup TAC_MODULE_PROC SOURCES: package PROC
+    Implementation details of the processor-related functionality
+        @ingroup TAC_MODULE_SOURCES
+    @defgroup TAC_MODULE_NEURER SOURCES: package NEURER
+    Implementation details of the time-aware neuron modeling facilities
+        @ingroup TAC_MODULE_SOURCES
+    @defgroup TAC_MODULE_MEMBRANE SOURCES: package MEMBRANE
+    Implementation details of the neuron membrane (a finite element patchwork model)
+        @ingroup TAC_MODULE_SOURCES
+
+@defgroup TAC_OTHER_SOURCES The other source files (GUI, main, test)
+Rarely needed source files; except if you want to branch a new development tree.
+
+*/

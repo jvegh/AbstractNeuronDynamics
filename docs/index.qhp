@@ -7,7 +7,6 @@
     <toc>
       <section title="Abstract Neuron Dynamics V0.0.6 @ 2024.09.20" ref="index.html">
         <section title="Overview" ref="index.html" />
-        <section title="Getting started" ref="GettingStarted.html" />
         <section title="Chapters" ref="modules.html">
           <section title="MODELING abstract neurons" ref="group__MODELING.html">
             <section title="Modeling abstract neurons" ref="group__MODELING__MAIN.html" />
@@ -165,6 +164,7 @@
         </section>
         <section title="Cited references" ref="citelist.html" />
         <section title="Glossary" ref="GLOSSARY.html" />
+        <section title="Release notes" ref="ReleaseNotes.html" />
       </section>
     </toc>
     <keywords>

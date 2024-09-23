@@ -1,0 +1,544 @@
+/**
+\page  MODELING_SINGLE_ELECTRIC_PAGE Electric operation
+
+@defgroup MODELING_SINGLE_ELECTRIC Electric operation
+       @ingroup MODELING_SINGLE
+
+
+@link PHYSICS_SPEEDS Nature shows various speeds and intermixes them@endlink,
+also in connection with electricity. Scrutinizing the basic notions
+of @link PHYSICS_MEASURING Measuring electric entities@endlink discovers
+that some abstractions derived for electric phenomena in metals seem to be
+invalid for biology: it uses fake ideas and notions about electricity.
+We set up an abstract electrical model of neuronal operation, which enables us
+to understand how neurons process the charge of ions. Our detailed
+model enables us, among others, to show that <i>the famous \gls{AP}
+is a natural consequence of processing finite-speed currents by finite-size
+membranes</i>.
+
+The 'slow current' phenomenon, a key aspect of our research, was
+discovered early @cite HodgkinHuxley:1952, but misinterpreted. The
+presence of 'slow current' or 'delayed rectifier current' (and even
+the simultaneous presence of 'slow' and 'fast' currents, for a review,
+see @cite SodiumCurrentDelay:2006) was observed, and the wording
+was introduced. However, its meaning is ill-defined: a delay in the
+time course of an instantaneous current or delayed activation of some
+biological process instead of some speed. When properly understood,
+this phenomenon could provide crucial insights into the fine details
+of the operation of the brain, necessitating a fresh start in neurobiology.
+
+
+Furthermore, our research paves the way for interpreting neuronal information
+processing in terms of true neuronal charge processing. One needs
+to pay more attention to the biological information representation
+to derive information-related notions for the brain's operation to
+satisfy Shannon's strict mathematical conditions @cite VeghNeuralShannon:2022.
+Attempting to reproduce the brain's information-related functionality,
+based <i>only</i> on its well-described anatomy, without understanding and reproducing
+its sophisticated temporal operation led directly to the collapse
+of the European Human Brain Project @cite EuroBrainImplosion:2020.
+
+
+
+@section MODELING_SINGLE_ELECTRIC Electric operation
+
+The idea that phenomena with 'ionized substances' 'may be expressed in electrical terms'
+@cite COLE_CURTIS_IMPEDANCE:1939 is around since the beginning of the last century.
+In 1952, Hodgkin and Huxley (@cite HodgkinHuxley:1952, Figure 1) introduced  the Nobel-prize winner
+idea of modeling neuron as an electric \f$RC\f$ oscillator circuit  (with current, potential,
+resistance/conductance and capacitance),
+although implemented using biological methods and materials.
+As they introduced, the neuron can be represented as a connected combination of  discrete elements,
+a resistor \f$R\f$ and a capacitor \f$C\f$,
+a @link PHYSICS_MEASURING_OSCILLATOR well-known electric element@endlink.
+In the case of biology it is implemented with a charge storage element (membrane),
+a current drain (the \gls{AIS}, causing a voltage drop)
+and several current sources, 'native' (synaptic) and 'artificial' (patching and clamping) currents
+(causing a voltage raise).
+However, there are two possibilities to combine those elements,
+and those two combinations have @link PHYSICS_MEASURING_OSCILLATOR drastically different behavior@endlink.
+
+We aim to upload instead of defy the explanations Hodgkin and Huxley made.
+Their summary was that
+"The agreement [between their theory and experiments] <i>must not be taken
+as evidence</i> that our equations are anything more than
+an <i>empirical description</i> of the time-course of the changes in
+permeability to sodium and potassium" and "certain features of our equations were capable of
+a physical interpretation, but <i>the success of the equations is no evidence in
+favour of the mechanism</i> of permeability change that we tentatively had in
+mind when formulating them" @cite HodgkinHuxley:1952, page 541.
+
+Instead, we add the building stone their work missed, to provide a
+<i>firm scientific background</i> to their enlightening observation that
+'it seems difficult to escape the conclusion that <i>the changes</i>
+in ionic permeability <i>depend on the movement of some component
+of the membrane</i> <i>which behaves as though it had a large charge</i>'.
+The idea, that <i>a slow movement of charge carriers</i> may hide in the
+background also appears explicitly: `it is necessary to suppose
+that there are more carriers and that they react or move more slowly.'
+In other words, <i>they noticed the presence of a @link Physics_Slow_Current.dox `slow' current@endlink
+that behaves differently from the `fast' currents that their equations
+describe</i>. Elaborating their genial observation was blocked by using
+a fake parallel taken from the theory of electricity that the interaction
+under study has an infinitely large propagation speed.
+This is why they felt that 'the
+interpretation given is unlikely to provide a correct picture of the
+membrane' @cite HodgkinHuxley:1952, although as they evaluated 'the only important difference
+is that the theoretical current has too little delay at the sodium
+potential; this reflects the inability of our equations to account
+fully for the delay in the rise of \f$g_K\f$'. They had to introduce
+the \f$K^+\f$ current to compensate for the wrong oscillator type, and their equations
+applied to the wrong type of oscillator cannot describe the features of a
+non-existing current, even if some conclusions are confirmed when
+empirical factors compensate the exact theoretical consequences.
+
+As they wrote in their former paper @cite HodgkinHuxleyCurrentVoltage:1952
+'repolarization during the falling phase <i>probably</i> depends on an outflow
+of potassium ions'; they provided a hypothesis without proving it.
+Similarly, they cited later @cite HodgkinHuxley:1952, page 505,
+that '<i>Evidence that the capacity current and ionic current are in parallel</i>'
+is experimentally underpinned.
+However, in their former paper the same conclusion is critically annotated that although
+'<i>at short times</i> the relation between ionic current density and membrane potential
+is qualitatively similar' to the theoretical derivation, '<i>more quantitative comparisons
+are invalidated</i> by the fact that the <u>ionic current is
+a function of time as well as of membrane potential</u>' (underlined by hand in the downloadable copy of the paper).
+Their equations '<i>cannot account for the delay in the rise of \f$g_K\f$</i>'
+(actually, the \f$Na^+\f$ @link MEASURING_CONDUCTANCE current, instead of the \f$K^+\f$ conductance, changes@endlink)
+because that current does not exist.
+(Hypothesizing $K^+$ in all cases leads to some discrepancy, see for example 'It is counter-
+intuitive that removing a potassium conductance would
+decrease the excitability of a neuron' @cite BeanActionPotential:2007.)
+
+
+Unfortunately, their basically correct hypothesis (that there is resemblance
+to the electric oscillator), was accompanied with chosing the wrong oscillator type,
+that forced introducing a non-existing \f$K^+\f$ current.
+These two wrong hypotheses were validated by a third wrong hypothesis
+that in biology the conductance of electric components is changing irrationally
+due-to non-science reasons. The <i>empirically determined conductance function</i>
+of course hides the deviation caused by chosing a wrong oscillator model,
+which effect is partly compensated by introducing a wrong 'rectifying current'
+and a non-physical delay between the two primary appearance of charges 'voltage' and 'current'.
+We emphasize again that
+they attempted to give a picture of <i>which physical processes are behind neuronal operation</i>;
+their successors did not ask thoose questions.
+They did have doubts whether their hypotheses were perfectly valid (they used the word 'probably'),
+but the science community wanted to believe they were right,
+and instead of fixing those wrong assumptions by understanding the correct science
+background, they approved their model that neurons behave like electric circuits (by adding that
+some components behave in a non-Ohmic way).
+
+
+
+They advanced science enormously, no doubt. The major issue with their model is that (as they admitted)
+it concludes a basically wrong description (irrealistic delay) of
+sudden changes, such as the arrival of a spike, of making clamping
+measurements, or of interpreting the mechanism of neuronal information
+transfer. The reason is that <i>they omitted the temporal course of electric processes</i>.
+
+
+With introducing the @link Physics_Slow_Current.dox 'slow' current@endlink,
+and the  @link PHYSICS_MEASURING_OSCILLATOR the correct type of oscillator@endlink
+(furthermore, providing the correct mathematical and physical background),
+<i>we turn  their empirical description to established theory for describing
+neuronal operation from the first principles,
+which Hodgkin and Huxley expected to be not possible</i> @cite HodgkinHuxley:1952.
+We prove that the 'capacitive current' in the right oscillator type
+was misindentified with the '\f$K^+\f$ current' in the wrong oscillator type
+and show that fitting a polynomial to their good experimental data
+misguided science development.
+Our interpretation also adds new physiological results, furthermore reveals and fixes minor mistakes.
+
+
+
+@section ABSTRACT_ELECTRIC_NEURON Electronics' view of neuronal membrane
+
+
+From the discussion and figure above, it is clear that the right choice is a
+<a href="https://www.electronics-tutorials.ws/rc/rc-differentiator.html"><b>differentiator</b></a>  where
+'the input signal is applied to one side of the capacitor with the output taken across the resistor'.
+The currents
+are directly created on the membrane (condenser) and the output voltage (\gls{AP})
+is taken across the resistor (\gls{AIS}).
+In other words: <i>The neuronal membrane is a serial instead of a parallel circuit</i>,
+with far-reaching consequences.
+
+For electrical modeling, we can use the approximation  that a distributed condenser
+(the neuronal membrane) and a discrete resistor (the \gls{AIS}) form an \f$RC\f$ circuit,
+see also the discussion in section \ref PHYSICS_MEASURING_OSCILLATOR.
+It is clear that all currents (including the synaptic currents, the membrane's rush-in current,
+and the artificial currents either patching them directly to the membrane or clamping them to its axons)
+flow into the condenser (and cause potential increases calculated using membrane's capacitance).
+Furthermore, the potential drops only due to the current flowing through the \gls{AIS}.
+It is the exact equivalent of
+<a href="https://www.electronics-tutorials.ws/rc/rc-differentiator.html">  a passive RC <b>differentiator</b> circuit</a>,
+and not to be mismatched with
+<a href="https://www.electronics-tutorials.ws/rc/rc-integrator.html"> a passive RC <b>integrator</b> circuit</a>
+where "the input is connected to a resistance while the output voltage is taken from across a capacitor".
+
+
+
+The momentary currents of the circuit on the input and output sides
+are different: the difference is stored in the form of @link PHYSICS_SLOW_CURRENT slowly moving current@endlink.
+The  <i>output voltage</i> is formed by working with <i>the time derivative of the input voltage</i>
+instead of <i>the current shared by the resistor and capacitor</i> as assumed by HH.
+The @link PHYSICS_SPEEDS_FINITE finite speed@endlink
+modifies the interpretation of the conservation laws.
+The charge conservation (expressed by Kichoff's Laws) remains valid, but only in a broader sense:
+the interaction is obviously <i>not instant</i>.
+Kichoff's Laws are valid only in their differential form
+(aka at a given @link PHYSICS_SPATIOTEMPORAL spatiotemporal coordinate@endlink)
+and with different initial conditions;
+an important consequence of the non-instant interaction speed plus the finite size
+distributed capacitance.
+
+
+
+@section MODELING_SINGLE_ELECTRIC_OPERATION Electric operation of neurons
+
+As we emphasized, we must use <i>different physical models in the different
+stages</i> of operation. We have changed the <i>integrator</i>-type \f$RC\f$ circuit to
+<i>differentiator</i>-type one; eliminated the fake \f$K^+\f$
+current; derived the neuronal \gls{AP} from the first principles of science, in this way eliminated
+the empirical functions. These changes mean that <i>we need
+entirely new mathematical formalism</i> to discuss neuronal operations.
+
+@subsection MODELING_SINGLE_ELECTRIC_INTEGRATOR Solving the integrator-type equation
+
+As we @link PHYSICS_MEASURING_OSCILLATOR introduced@endlink, \f$RC\f$ circuits are well-known electric elements,
+with established theory. Unfortunately, at their time, Hodgkin and Huxley  @cite HodgkinHuxley:1952
+choose the wrong type of \f$RC\f$ circuit. Their equations and conclusion
+are based on the <i>integrator</i> type \f$RC\f$ circuit. As they say 'The first step in our analysis
+is to <i>divide the total membrane current into a capacity current and an ionic current</i>'.
+Their Eq.(1) is
+\f{equation}{
+I = C_M \frac{dV}{dt}+I_i \label{eq:OutputHH}
+\f}
+Those <i>currents</i> control the operation of the neuronal membrane.
+With slightly rearranged terms (with the goal of
+comparing it to our right entity in Eq.(\f$\eqref{eq:OutputMembraneVoltage}\f$),
+\f{equation}{
+\frac{dV}{dt} = \frac{I}{C_M} - \frac{I_i}{C_M} \label{eq:OutputHHmod}
+\f}
+The basic issue with their idea that the output voltage (aka \gls{AP})
+is \f$V_{OUT}=\frac{1}{RC}\int_0^t V_{IN} dt\f$
+(\f$V_{IN}\f$ can be interpreted given that the two discrete elements are switched in parallel). It implies that to produce
+an output voltage that first rises, after peaking goes negative, then returns
+to zero, \f$V_{IN}\f$ must contain a strongly negative time-depending term.
+To produce such a term, Hodgkin and Huxley  @cite HodgkinHuxley:1952 used a circuit
+where the resistances/conductances change according to some <i>empirical</i> function
+(i.e, an admittedly  ad-hoc function, without science base).
+In other words, some mystic power must regulate the conductance of the elements,
+to make them behave as we know  from a subfield of science, the theory of electricity.
+
+@subsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR Solving the differentiator-type equation
+
+In the correct <a href="https://www.electronics-tutorials.ws/rc/rc-differentiator.html">   <i>differentiator-type</i>
+ \f$RC\f$ circuit</a> we
+need to work with the <i>time derivatives of the input voltages the input currents cause in the membrane</i>.
+We need to correct HH: <i>the time derivatives instead of currents govern the action potential</i>.
+(BTW: this behavior explains why a large slope of the arriving spike @cite LosonczyIntegrative:2006
+can trigger an instant spike: the large slope (much higher than a normal one)
+of the current induces a much higher voltage contribution around the point of arrival on the membrane,
+and so it alone can raise the local potential above the threshold voltage near to the junction,
+triggering the known mechanism.)
+The input voltage  \f$V_{IN}\f$ comprises different contributors, and the differentiation
+is linear; i.e., we shall sum up the different contributing terms linearly
+(compare our equation to Eq.\f$\eqref{eq:OutputHHmod}\f$)
+\f{equation}{
+\frac{d}{dt} V = \sum \frac{d}{dt} V_{IN} \label{eq:OutputMembraneVoltage}
+\f}
+To describe the \gls{AP}, the output voltage of the \f$RC\f$ circuit, we need to provide
+all contributions \f$\frac{d}{dt}V\f$ and solve the differential equation numerically.
+The time derivatives of the different voltages
+can be calculated using different physical models, corresponding to the different @link MODELING_SINGLE_ELECTRIC_STAGES stages of operation@endlink.
+Because of the presence of slow currents, they need different
+travel times and the different contributions have different time courses.
+We assume that the membrane is equipotential, that is \f$V_M(t)\f$ depends only on
+the time, so it is identical with the voltage function to \f$V_{AIS}(t)\f$.
+
+Notice also the differences, that HH's ionic current <i>decreases</i> the voltage derivative, our one
+<i>increases</i> it, and in their  case the resistive current is the difference between the total current
+and the ionic current, while in our case the current that flows out through the \gls{AIS}
+equals the sum of input currents, but they have
+a different time course: the neuronal condenser stores
+some charge for a while.
+
+
+@subsubsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_PATCHING Patching current
+In the case of a constant current where \f$I=\frac{dQ}{dt}\f$, the voltage increase \f$dV\f$
+on the capacity \f$C\f$ of the membrane is \f$\frac{dQ}{C}=\frac{I*dt}{C}\f$,
+so \f$\frac{d}{dt} V=\frac{I}{C}\f$. The direct <i>constant</i> current input \f$\frac{d}{dt} V_{PATCH}\f$
+to the neuron cell body is a simple constant current that causes a constant membrane's voltage derivative
+contribution.
+However, the currents are not necessarily constant. If the current follows a math function,
+the derivative of that function should be used. One must be careful that (step-like) <i>sudden  changes
+may produce very steep spikes</i> (see the wave forms in Fig \ref RCDifferentiatorCircuit on differentiating a square wave function).
+More details in section \ref MODELING_SINGLE_ABSTRACT_ARTFICIAL_CONSTANT and in Figure \ref fig_ArtificialCurrent_AP.
+
+@subsubsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_CLAMPING Clamping current
+The current at the switch ON/OFF events behaves as a step function;
+that is, it produces a saturating and a discharging current, respectively.
+The switch-on effect is known also in technical electricity; in biology
+its time constant is in the order of \f$1\ ms\f$,
+that is, it drastically influences the measured biological processes, see Figure \ref HodgkinHuxleyStepFunction.
+Recall that in the case of clamping, the <i>derivative</i> contains an exponential function.
+In the case of patching, the  <i>derivative</i> should be the derivative of a (nearly) square-wave function.
+Given that the current is delivered through the axon,
+@link MODELING_SINGLE_AXON the mechanisms of axonal charge transfer@endlink must be considered.
+
+@subsubsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_AIS AIS current
+The \gls{AIS} represents a non-distributed resistance \f$R_M\f$, and the current
+flowing through it is
+
+\f{equation}{
+I_{AIS} =  - \frac{V_M-V_{rest}}{R_M} \label{eq:I_AIS}
+\f}
+(it is an outward current, so it is negative),
+and its time derivative is
+\f{equation}{
+\frac{d}{dt} V_{AIS}(t) = - \frac{V_M(t)-V_{rest}}{C_M R_M}  \label{eq:dVdt_AIS}
+\f}
+
+(This current was mis-identified by HH as 'leaking current':
+if no other current/voltage derivative is present, the membrane discharges.
+See also the @link MODELING_SINGLE_FALLACIES_ENERGY energy consumption@endlink of neurons and the brain.)
+
+@subsubsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_PSP Synaptic and rushed-in current
+In the case of those currents, as we discussed in the cases of
+@link MODELING_SINGLE_MEMBRANE_RUSHEDIN membrane@endlink
+and @link AXONAL_CHARGE_DELIVERY axon@endlink,  a saturation-type function
+multiplied by a decay-type function describes the current, so the voltage derivative is
+\f{equation}{
+\frac{d}{dt}V_{M}(t)=a*exp(-a*t-b*t)-b*exp(-bt)*exp(1-exp(-a*t))\label{eq:PSPderivative}
+\f}
+The same voltage derivate (with different parameters \f$a\f$ and  \f$b\f$) is valid
+for \f$\frac{d}{dt}V_{SYN}(t)\f$ due to the membrane rush-in current (as discussed above,
+the voltage derivate is proportional
+to the current through a factor \f$1/C_{M}\f$). See also Figure @ref fig_PSP_Derivative.
+
+
+\anchor fig_PSP_Derivative
+@image html PSP.png "The shape of the membrane potential and its derivative" width=400px
+
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/PSP.pdf}
+\caption{The shape of the Post-Synaptic Potential and its time derivative}
+\label{fig_PSP_Derivative}
+\end{figure}
+@endlatexonly
+
+
+
+@subsubsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_SIMPLE Simple delivering
+
+In the simplest case (the membrane's voltage created instantly and then no external invasion happens),
+the resulting voltage derivative is
+\f{equation}{
+\frac{d}{dt}V(t) = \frac{d}{dt}V_{M}(t)+\frac{d}{dt} V_{AIS}(t) \label{eq:Simple}
+\f}
+Figure @ref fig_PSP_Derivative shows the functional forms of the \gls{PSP} \f$V_M(t)\f$ and
+its <i>voltage derivative</i> generated
+on the membrane \f$\frac{d}{dt}V_{M}(t)\f$,
+at some reasonable parameter values \f$a\f$ and \f$b\f$).
+(Notice that the front of an arriving spike as well as at the beginning of clamping
+the front is almost clearly exponential.)
+Notice the sudden change of the derivative after the output (spike delivery) begins: the exponential increase of \f$V_M(t)\f$
+really causes a steep change in its derivative at low time values.
+This case is implemented in NeuronPhysical. For different values of parameters \f$a\f$ and \f$b\f$,
+a @link MODELING_SINGLE_AP_VARIETY  variety of function shapes@endlink
+describing Action Potentials can be created, see Figure @ref AP_Variety.
+
+
+@subsubsection MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR_COMPLEX Complex case
+In the most complex case, the time derivative of voltage we need to work with is
+\f{equation}{
+\frac{d}{dt}V_{OUT}(t) = \frac{d}{dt} V_{AIS}(t) + \frac{d}{dt}V_{M}(t)+ \sum_i \frac{d}{dt} V_{SYN,i}(t)+\frac{d}{dt} V_{CLAMP}^{PATCH}(t) \label{eq:Complex }
+\f}
+
+The first term is always present. The second term only if previously exceeding
+the threshold value caused by membrane's charge-up (an instant effect).
+The third term changes during the stages of operation, as we describe below.
+The last term is an "artificial" contribution (and so: it depends on experimental settings),
+but it is frequently used in experimental research.
+Notice that whether voltage or current clamping is applied,
+it only means what the experimenter keeps constant;
+it acts with its <i>voltage derivative</i>. The same
+holds for the mathematical form of the used current/voltage.
+
+
+@subsection MODELING_SINGLE_ELECTRIC_STAGES Currents in different stages
+
+The neuron's electric operation comprises several @link
+MODELING_SINGLE_AP_STAGES stages@endlink, and the different physical phenomena
+produce different currents in those stages.
+The stages of neuronal
+operation, and the presence of slow and fast currents, furthermore
+the gating mechanisms significantly shade the picture.
+
+As we introduced, the ion currents are 'slow' if they arrive through the axon
+(as @cite HodgkinHuxley:1952 measured, an apparent @link PHYSICS_MEASURING_DELAY 'delay'@endlink
+can be observed between the voltage and the current).
+
+The 'artificial' contributions \f$\frac{d}{dt} V_{CLAMP}\f$ and \f$\frac{d}{dt} V_{PATCH}\f$,
+of course, depend only on the investigators and no additional (stage-dependent) rule is followed
+(although the delay may apply).
+
+The contribution \f$\frac{d}{dt} V_{AIS}(t)\f$ is always on; the neuron all the time,
+independently from its history, operating stage and its inputs, attempts to restore its resting potential.
+The \f$ I_{AIS}\f$ is active all the time. However, it is <i>not</i> a   "leaking current".
+It is proportional to the difference
+of the <i>membrane's potential above the resting potential</i>.
+In resting state, its value is zero.
+The mechanism in <i>resting state</i> is different. See also ee also the
+ @link MODELING_SINGLE_FALLACIES_ENERGY energy consumption@endlink of neurons and the brain.
+
+The contribution \f$\frac{d}{dt} V_{M}(t)\f$, once 'DeliveringBegin' issued, will not be stopped
+(except 'Synchronize') until the membrane voltage drops below the threshold value.
+(If the @link MODELING_SINGLE_ABSTRACT_ARTIFICIAL artificial currents@endlink are too high, the stage 'Delivering' may last forever.)
+
+The contributions \f$\frac{d}{dt} V_{SYN,i}(t)\f$ are only enabled
+when the membrane's voltage is below the threshold level.
+The amplitude of the current/voltage derivative depends
+on the membrane's voltage.
+The synaptic inputs \f$ I_{SYN,i}\f$  are  active only in the charge-up
+and 'relative refractory' period. Actually, when <i>the membrane potential
+is above the threshold value</i>: the ions cannot enter the intracellular space
+against the higher membrane potential: the 'normal' inputs can be blocked @cite DepolarizationBianchi:2012.
+
+
+
+@section MODELING_SINGLE_OSCILLATOR The biological oscillator
+
+
+In the case of biology: when the the ion inflow through membrane's wall instantly stops,
+the capacitor membrane gets fully charged (an instant action:
+the rushed-in ions cause the maximum charge-up voltage).
+The rushed-in ions represent an intense current in direction of
+the intracellular space: the amount of charge on the surface increases,
+manifesting in an increasing membrane voltage.
+However, since the ion current is slow and the membrane's size is finite,
+the ions near to \gls{AIS} start a current instantly, and the current increases
+until the ions from the farthest point reach \gls{AIS}.
+That is, when the current through the wall stops,
+the capacitor already reached its peak voltage (is fully charged), but the ions on the surface
+still follow the potential gradient.
+The arrival of the falling edge
+of the input voltage time derivative's waveform (whether square-ware or other type of falling edge)
+causes the capacitor to reverse current's direction, that decreases membrane's voltage.
+Depending on the parameters of the \f$RC\f$ circuit,
+<i>the reverse current direction can result in a negative voltage on the membrane</i>,
+and the \gls{AIS} forwards that voltage through its ion channels toward the axon.
+In other words: the falling edge decreases the amount of charge stored
+on the surface of the membrane, manifesting in a decreasing membrane voltage,
+and finally results in a 'hyperpolarized' state.
+
+As we see, there is a rather complete analogy with the case of
+@link PHYSICS_MEASURING_OSCILLATOR electric oscillator@endlink.
+In that abstraction, the charge is stored on the plates of the condenser
+and an infinitely fast electron current keeps balance between
+the charges on the two plates.
+In the biological oscillator it is only half of the truth.
+When charging up, the ion channels behave as an ideal wiring,
+and enable to create an ion-rich layer on the intracellular side
+and an ion-poor layer on the other.
+However, when discharging, the charge flows out through the \gls{AIS}'s region on the intracellular side,
+and it can reach the ion-poor layer only through the extracellular side.
+Until that time, it is "stored".
+
+The effect of the finite-speed ions transferred on the
+finite-size surface of the membrane needs to revisit Kirchoff's Junction Law for biology,
+in line with the theoretical conclusion of @link PHYSICS_SPEEDS_FINITE finite speed interaction@endlink.
+If we shift the output current measured after the \gls{AIS}  with an 'operating delay'
+and  subtract it from the input current due to the
+rushed-in ions, we receive the 'ghost image' shown in \ref fig_The-ghost-image_AP
+(see also Fig. 18 in @cite HodgkinHuxley:1952).
+We used the function form displayed in Fig. \ref fig_Post-synaptic_potential_lin,
+and subtracted the inverted function with an
+assumed delay time \f$0.49\ ms\f$ between input and output currents.
+The resulting shape is more than resemblant to an \gls{AP};
+see the comparison with the numerical solution of the differential equation
+\f$\eqref{eq:Simple}\f$; showing that, basically, the observed \gls{AP} <i>is created by
+the time delay of slow currents</i>.
+
+\anchor fig_The-ghost-image_AP
+@image html HH_AP.jpg "The 'ghost image' formed by the delayed membrane current: the origin of the Action Potential" width=400px
+
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HH_AP}
+\caption{The ``ghost image'' formed by the delayed membrane current: the
+origin of the \gls{AP}.}
+\label{fig_The-ghost-image_AP}
+\end{figure}
+@endlatexonly
+
+
+
+@subsection MODELING_SINGLE_TIMEDERIVATIVE Voltage time derivative
+
+The shape and different parameters of \gls{AP} has been the subject of numerous studies.
+For example, @cite BeanActionPotential:2007 measured \gls{AP},
+simultaneously with its time derivative of the \gls{oAPTD}, for a wealth of neuron types.
+Those measurements provide a direct proof for the existence of the \gls{iAPTD}
+our theoretical approach introduced, see equations
+\f$\eqref{eq:PSPderivative}\f$,
+\f$\eqref{eq:Simple}\f$
+\f$\eqref{eq:pSPVoltage}\f$
+ and Fig. @ref fig_VoltageTimeDerivative
+("\copyright{2007 Nature Publishing Group}. Bean, B. P. (2007):
+The action potential in mammalian central neurons. Nature Reviews Neuroscience,
+8(6), 451–465. doi:10.1038/nrn2148".)
+Our theoretically derived \gls{AP} and \gls{iAPTD} are overlayed to Fig. 2d in @cite BeanActionPotential:2007.
+See also our Figure @ref fig_ArtificialCurrent_AP.
+However, notice that the causality is reversed: the \gls{iAPTD} generates the \gls{AP}
+through the \f$RC\f$ circuit and not simply attaches the \gls{AP}.
+As we detailed, it is the primary reason
+(it is generated by a current inflow through the neuron's membrane) as we detailed above,
+and its time course generates \gls{AP}.
+The \gls{iAPTD} should be seen in front of \gls{AIS}, while the \gls{oAPTD}
+was measured when the current leaves the very first segment of the axon.
+Notice the broadening effect on the time derivative due to passing from the front of \gls{AIS}
+to the extracellular space.
+
+\anchor fig_VoltageTimeDerivative
+@image html Bean_Fig1d.png "The simultaneously measured \gls{AP} and \gls{oAPTD}." width=400px
+
+@latexonly
+\begin{figure}
+        \includegraphics[
+%	scale=0.85
+        ]{Bean_Fig1d}\caption{The simultaneously measured \gls{AP} and \gls{oAPTD}.
+        Our theoretically derived \gls{AP} and \gls{iAPTD} are overlayed
+        to Fig. 2d in \cite{BeanActionPotential:2007}.
+        See also our Figure \ref{fig_ArtificialCurrent_AP}.
+        "\copyright{2007 Nature Publishing Group}. Bean, B. P. (2007):
+        The action potential in mammalian central neurons.
+        Nature Reviews Neuroscience, 8(6), 451–465. doi:10.1038/nrn2148}".
+\label{fig_VoltageTimeDerivative}
+ }
+\end{figure}
+@endlatexonly
+
+Back:  @link MODELING_SINGLE_MEMBRANE Membrane   @endlink
+Continue: @link MODELING_ACTION_POTENTIAL  Action Potential  @endlink
+Up: @link MODELING MODELING @endlink
+
+
+*/
+
+/*
+In a biological condenser, there are no opposite charges on the two sides of the membrane
+(only the current of positive ions can be measured).
+
+
+
+
+
+
+
+*/

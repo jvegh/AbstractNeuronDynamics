@@ -1,0 +1,93 @@
+/**
+\page  PHYSICS_MEASURING_OSCILLATOR_PAGE Oscillators
+
+@defgroup PHYSICS_MEASURING_OSCILLATOR Electric oscillator
+@ingroup PHYSICS_MEASURING
+
+
+In the some cases, when precisely measuring the time course of current
+compared to the time course of voltage, one can experience a 'phase delay'
+between them. This may inspire further research, such as inventing
+'inductive', 'capacitive' and 'resistive' current; or one may believe
+that the system shows 'non-ohmic' behavior; that is it cannot be described
+by Laws of physics. The oscillators represent a case when the primary
+electric entities represent a case needing careful analyzis.
+
+
+
+@section PHYSICS_MEASURING_OSCILLATOR Electric oscillator
+
+
+
+<table>
+<caption id="RC_circuits">The electric RC circuits</caption>
+<tr><th>The RC Integrator                     <th>The RC Differentiator
+
+<tr><td>\f{equation}{V_{out}=\frac{1}{RC}\int_0^t V_{in}{dt}\label{eq:RC_Integrator}\f} <td>
+\f{equation}{V_{out}=RC\frac{dV_{in}}{dt}\label{eq:RC_Differentiator}\f}
+<tr><td><center>Low Pass Filter</center><td><center>High Pass Filter</center>
+<tr><td>\anchor RCIntegratorCircuit
+@image html rc-rc12Integrator.gif "The electric integrator RC circuit" width=250px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/RCIntegratorCircuit.pdf}
+\caption{The electric integrator RC circuit.\label{RCIntegratorCircuit}}
+\end{figure}
+@endlatexonly
+                     <td>
+                     \anchor RCDifferentiatorCircuit
+@image html rc-rc13Differentiator.gif "The electric differentiator RC circuit" width=250px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/RCDifferentiatoratorCircuit.pdf}
+\caption{The electric differentiator RC circuit.\label{RCDifferentiatorCircuit}}
+\end{figure}
+@endlatexonly
+</table>
+
+The two circuits comprise the same electric components, but wired in a different way:
+they form a <i>serial</i> and a <i>parallel</i> circuit, respectively.
+The serial circuit is
+<a href="https://www.electronics-tutorials.ws/rc/rc-differentiator.html">  a passive \f$RC\f$ <b>differentiator</b> circuit</a>:
+"the input is connected to a capacitor while the output voltage is taken from across a resistance"
+and is not not to be mismatched with the parallel circuit where
+<a href="https://www.electronics-tutorials.ws/rc/rc-integrator.html"> a passive RC <b>integrator</b> circuit</a>
+where "the input is connected to a resistance while the output voltage is taken from across a capacitor".
+One of the most vital
+differences between those circuits (see also the figures in  Table @ref RCIntegratorCircuit)
+that their output is defined by the <i>time integral</i> of the input voltage (or current)
+or by its <i>time derivative</i>. From biological point of view, <i>the differentiator can produce output voltage that
+differs from the input voltage in its sign, while the integrator cannot</i>.
+
+
+The integrator and differentiator are entirely different assemblies from the same
+ components (based on the abstraction that \f$R\f$ and \f$C\f$ are discrete elements
+ and the wiring is an ideal conductor), as their differential equations and waveforms show;
+ see table \ref RC_circuits, from <a href="https://www.electronics-tutorials.ws/rc"> the electric tutorial</a>. Although they have the same time constant \f$RC\f$, they form the input signal
+ entirely  differently.
+ From the figures showing the generated signal forms,
+ one sees that in the case of the <i>differentiator</i>,
+ the input signal's rising edge generates a rising output voltage,
+ and the falling edge generates a voltage with opposite sign compared to the input voltage,
+ in resemblance with the action potential.
+ By replacing the input square wave current with a physically plausible input current function,
+ we have good hopes to reproduce the \gls{AP} voltage on the output of the circuit.
+
+The Differentiator is a High Pass Filter type of circuit that can convert a
+square wave input signal into high frequency spikes at its output
+(For non-square wave input, the spikes get smeared).
+When the capacitor is fully charged the output voltage across the resistor is zero.
+<i>The arrival of the falling edge
+of the input waveform</i> (whether square-wave or other type of falling edge)
+<i>causes the capacitor to reverse its current giving a negative output contribution</i>,
+and the output spike changes from a positive value to a negative value, purely because it is a derivative.
+
+
+Back:  @link  PHYSICS_MEASURING_DELAY Delayed current @endlink
+Up: @link PHYSICS_MEASURING Electric measurements @endlink
+Continue: @link  MEASURING_ELECTROLYTES Measuring electrolites @endlink
+
+
+*/

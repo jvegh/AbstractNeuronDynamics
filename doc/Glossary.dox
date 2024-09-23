@@ -1,0 +1,173 @@
+//http://stackoverflow.com/questions/37410255/is-it-possible-to-create-a-central-glossary-with-doxygen
+/** @page GLOSSARY
+
+@section TAC_Glossary
+
+@subsection GLOSSARY_API API
+Application Programming Interface
+
+@subsection GLOSSARY_AI AI
+Artificial Intelligence
+
+@subsection GLOSSARY_AIS AIS
+Axon Initial Segment
+
+@subsection GLOSSARY_AP AP
+Action Potential
+
+@subsection GLOSSARY_APTD APTD
+Action Potential's Time Derivative}
+
+@subsection GLOSSARY_iAPTD iAPTD
+internal Action Potential's Time Derivative
+
+@subsection GLOSSARY_oAPTD oAPTD
+outward Action Potential's Time Derivative
+
+@subsection GLOSSARY_ANN ANN
+Artificial Neural Network
+
+@subsection GLOSSARY_BASE BASE
+The base unit package
+
+@subsection GLOSSARY_CLI CLI
+Command Line Interface
+
+@subsection GLOSSARY_CNN CNN
+Cellular Neural Network
+
+@subsection GLOSSARY_CNS CNS
+Central Nervous System
+
+@subsection GLOSSARY_CPU CPU
+Central Processing Unit
+
+@subsection GLOSSARY_CW CW
+configware
+
+@subsection GLOSSARY_DMA DMA
+Dynamic Memory Access
+
+@subsection GLOSSARY_EM EM
+electromagnetic
+
+@subsection GLOSSARY_EMPA EMPA
+<b>E</b>xplicitly <b>M</b>any <b>P</b>rocessor <b>A</b>pproach
+
+@subsection GLOSSARY_FIFO FIFO
+<b>F</b>irst <b>I</b>n <b>F</b>irst <b>O</b>out access style memory
+
+@subsection GLOSSARY_FPGA FPGA
+<b>F</b>ield <b>P</b>rogrammable <b>G</b>ate <b>A</b>rray
+
+@subsection GLOSSARY_GUI GUI
+Graphic User Interface
+
+@subsection GLOSSARY_GPGPU GPGPU
+General Purpose Graphic Processing Unit
+
+@subsection GLOSSARY_GPU GPU
+Graphic Processing Unit
+
+@subsection GLOSSARY_HDL HDL
+<b>H</b>ardware <b>D</b>escription <b>L</b>anguage
+
+@subsection GLOSSARY_HPC HPC
+High Performance Computing
+
+@subsection GLOSSARY_HPL HPL
+High Performance LINPACK @cite HPCG_List:2016
+@subsection GLOSSARY_HPCG HPCG
+High Performance Conjugate Gradients @cite HPCG_List:2016
+
+@subsection GLOSSARY_HW HW
+hardware
+
+@subsection GLOSSARY_HThread HThread
+hardware thread (similar to hyper-thread or hart)
+
+@subsection GLOSSARY_ID ID
+identity
+
+@subsection GLOSSARY_IO I/O
+Input/Output
+
+@subsection GLOSSARY_ILP ILP
+Instruction Level Parallelism
+
+@subsection GLOSSARY_IRQ IRQ
+Interrupt ReQuest
+
+@subsection GLOSSARY_ISA ISA
+Instruction Set Architecture
+
+@subsection GLOSSARY_MCP MCP
+multi- and many-core processor
+
+@subsection GLOSSARY_mutex mutex
+enables to use shared resources in a mutually exclusive way
+
+
+@subsection GLOSSARY_NoC NoC
+Network on Chip
+
+@subsection GLOSSARY_OS OS
+Operating system
+
+@subsection GLOSSARY_PC PC
+Program Counter
+
+@subsection GLOSSARY_PSP PSP
+Post-Synaptic Potential
+
+@subsection GLOSSARY_PERF PERF
+The performance measurement package
+
+@subsection GLOSSARY_PROC PROC
+The processor-simulation package
+
+@subsection GLOSSARY_PU PU
+Processing Unit
+
+@subsection GLOSSARY_RTL RTL
+Register Transfer Level
+
+@subsection GLOSSARY_SoC SoC
+System on Chip
+
+@subsection GLOSSARY_QT QT
+Quasi-Thread
+
+@subsection GLOSSARY_Qt5 Qt5
+The Qt toolkit
+
+
+
+@subsection GLOSSARY_SPA SPA
+Single Processor Approach \cite AmdahlSingleProcessor67
+
+@subsection GLOSSARY_SV SV
+Supervisor
+
+
+@subsection GLOSSARY_SystemC SystemC
+Essentially a class library, but nearly a language. See  \cite SystemChome:2017 \cite SystemCBook:2010
+
+@subsection GLOSSARY_splitter splitter
+A window divided by a horizontal or vertical bar into two segments.
+The share between the two segmens can be changed by dragging the separating bar.
+
+@subsection GLOSSARY_SW SW
+software
+
+@subsection GLOSSARY_TLP TLP
+Thread Level Parallelism
+
+@subsection GLOSSARY_TAC TAC
+Time-Aware Computing
+
+@subsection GLOSSARY_TLM TLM
+Transaction Level Modeling
+
+*/
+}

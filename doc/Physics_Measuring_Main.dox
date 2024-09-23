@@ -1,0 +1,20 @@
+/**
+\page  PHYSICS_MEASURING_MAIN_PAGE MEASURING biological electricity
+
+@defgroup PHYSICS_MEASURING MEASURING biological electricity
+        @ingroup PHYSICS
+
+
+@section PHYSICS_MEASURING_MAIN Measuring electrical quantities
+With the development of electronics (especially computing technology)
+and proliferation of special-purpose electronic devices,
+routine-like electronic measurements are carried out throughout
+all experimental science fields, including physiology.
+Routine-like activities always carry the danger
+that in a 'hit-and-run' style measurement one makes mistakes
+and misinterpretations.
+
+Back:  @link  PHYSICS PHYSICS  @endlink
+Continue: @link  MEASURING_CURRENT Current vs charge @endlink
+Up: @link PHYSICS Physics @endlink
+*/

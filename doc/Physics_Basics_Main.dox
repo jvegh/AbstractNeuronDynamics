@@ -1,0 +1,26 @@
+/** \page  PHYSICS_BASICS_NOTIONS_PAGE PHYSICS basic notions
+
+
+@defgroup PHYSICS_NOTIONS PHYSICS notions and terms
+        @ingroup PHYSICS
+
+As emphasized many times, we construct Laws and conclusions
+on somewhat simplified abstractions, in all fields of science.
+The notions and laws depend
+on the round of phenomena we know and want to describe.
+The Newtonian and Einsteinian world is
+basically distinguished by considering speed dependence.
+Interesting consequences are that in the Einsteinian world,
+the mass is not constant, the time and space are not absolute, and so on.
+Here we scrutinize the basic notions and discover similar differences
+between physics and biology
+as consequences of the required different abstractions and approximations.
+
+
+
+Back:  @link  PHYSICS PHYSICS  @endlink
+Continue: @link  PHYSICS_INTRODUCTORY Describing nature @endlink
+Up: @link PHYSICS PHYSICS @endlink
+
+*/
+

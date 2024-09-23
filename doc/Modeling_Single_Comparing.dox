@@ -1,0 +1,60 @@
+/**
+\page  MODELING_SINGLE_COMPARING_PAGE Comparing to other models
+
+@defgroup MODELING_SINGLE_COMPARING Comparing to other models
+       @ingroup MODELING_SINGLE
+
+
+@section MODELING_SINGLE_COMPARING Comparing our model to others
+
+The infinitely sophisticated operation forces us to analyze
+the components, their operation, their interface and cooperation individually, case by case.
+
+<a  href="https://neuronaldynamics.epfl.ch/online/x635.png">
+In formal models of spiking neurons the shape of an action potential (dashed line) is usually replaced by a \f$\delta\f$
+pulse (vertical line). The negative overshoot (spike-afterpotential) after the pulse is replaced by a ‘reset’
+of the membrane potential to the value of resting potential.
+</a>
+That is, formal models throw away neuronal memory and so neural cooperation, among others.
+
+Because of its common acceptance and wide usage, we discuss the @link MODELING_SINGLE_HODGKIN_HUXLEY Hodkin-Huxley model@endlink
+in a separate section
+
+
+@section MODELING_SINGLE_HODGKIN_HUXLEY The Hodgkin-Huxley model
+
+The <a  href="https://neuronaldynamics.epfl.ch/online/Ch2.S2.html">
+online book</a> on neuronal dynamics provides a very thorough discussion
+of the famous Hodgkin-Huxley model @cite HodgkinHuxley:1952.
+This was the very first attempt to provide a science-based model
+for the @link MODELING_SINGLE_ELECTRIC electric operation of a neuron@endlink,
+and it was the first step on a <i>terra incognita</i>.
+Setting it up enormously advanced our understanding
+in the field and deserved the Nobel-prize.
+However, since the decades the knowledge base has significantly extended
+and at some points the model must be enhanced.
+Its simplified ideas served very well in understanding the basics,
+but to discuss the finer details, many of its statements and assumptions
+must be modified.
+
+First, at that time the @link ABSTRACT_ELECTRIC_NEURON structure of neuronal mebrane@endlink was not known.
+Due to the lack of knowing the role of the Axon Initial Segment (\gls{AIS}),
+they assumed the wrong type of the @link PHYSICS_MEASURING_OSCILLATOR neuronal oscillator@endlink,
+and from that point on, many critical points of their discussion
+concerning the @link MODELING_SINGLE_ELECTRIC electric operation@endlink must be
+extended, enhanced and fixed.
+Second, they had the point-like neurons in mind and did not consider
+that biology operates using @link PHYSICS_SLOW_CURRENT slow currents@endlink.
+These two concepts must be extended/changed to enable
+how and why the @link MODELING_ACTION_POTENTIAL Action Potential@endlink is evoked.
+
+
+Here we confine the discussion to some general aspects,
+details are provided throughout the different section of the site.
+
+
+Back:  @link MODELING_SINGLE_FALLACIES Fallacies in neurocomputing  @endlink
+Continue: @link  MODELING_SINGLE_COMPUTING Computing aspects @endlink
+Up: @link MODELING MODELING @endlink
+
+*/

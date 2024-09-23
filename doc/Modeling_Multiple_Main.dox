@@ -1,0 +1,16 @@
+/**
+\page  MODELING_MULTIPLE_MAIN_PAGE MODELING multiple abstract neurons
+
+@addtogroup MODELING_MULTIPLE MODELING multiple abstract neurons
+@ingroup MODELING
+
+It was hypothesized that 'slow currents' (approximately in the
+meaning as we use the notion) 'span <i>cognitive</i>
+time intervals in the 100 ms range' @cite SlowSynapticCurrents:2022.
+
+
+@section MODELING_MULTIPLE_NEURONS Modeling multiple abstract neurons
+
+Neurassemblies
+
+*/

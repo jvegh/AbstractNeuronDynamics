@@ -1,0 +1,279 @@
+/**
+\page  COMPUTING_MAIN_PAGE COMPUTING generalized for biology
+
+@ingroup COMPUTING
+
+The brain computes!
+
+@defgroup COMPUTING_BASICS Computing basics
+@ingroup COMPUTING
+
+Pinpointing the interpretation of computing
+Coming soon!
+
+For now, see @cite VeghRevisingClassicComputing:2021 and @cite VeghScalingANN:2021 and @cite VeghHowMany:2020
+
+The theory of generalized computing, technical and biological
+
+@section COMPUTING Computing - a generalization
+Here <i>computing</i> is handled in a broader sense: information processing <i>in any implementation</i>.
+It covers conventional computing, biomorphic computing,  biological (neural) computing, and computing relating, among others, (the technology of) artificial intelligence.
+The computing objects use both their inputs and their internal state to calculate
+their output. The time-aware computing means to consider that <i>computing means both processing the available data
+and delivering data to and from the computing object</i>.
+Furthermore, that those operations must be synchronized
+(and in this way they block each other); and that not only that those processes need time,
+but <i>the inputs, the output and the internal states all have their temporal behavior</i>.
+We show that taking into account that temporal dependence explicitly,
+leads to considerable differences in their behavior as opposed with the behavior
+expected based on the time-unaware description. Please take care when reading.
+The text is, of course, computing-oriented, so it uses words processor, core, thread,
+hardware thread, memory, etc. However, it uses them in a slightly different way,
+in a different meaning. So, please read the corresponding manual, or skim it at least,
+before going into details. The approach we take seems to be overly complicated,
+but it is needed to build a more effective and capable computing. It majorly simplifies
+modern many-thread computing, but its real advantage manifest in large-scale computing.
+
+Technical sciences (mainly electronics and computing science)
+have developed to the level where elementary electronic components in number comparable
+to the elementary components of the \gls{CNS} can be assembled.
+Those large systems attempt to resemble each other. On the one side,
+biology inspires huge electronical systems (from \gls{HPC} to  \gls{ANN}).
+On the other side, electronic systems (mainly large-scale computers,
+but also special-purpose electronic simulators)
+attemp to imitate brain-like biological systems, with goals ranging from simulating the dynamics
+of molecular processes to creating artificial intelligence.
+Furthermore, there are attemps to combine and interface them.
+
+
+
+@section COMPUTING_COMMUNICATION Computing and communication
+
+@section COMPUTING_INFORMATION Computing and information
+
+@section COMPUTING_BIOLOGY Computing and information
+As discussed in @cite ThreeStateUnidirectional:2004
+@cite MarkovianIonChannel:2005, for the adequate description of the operation
+of ion channels, the major components of neuronal computing, three-state systems must be used.
+In the present two-state digital electronic logic systems, discharging the internal capacitances can be considered a "refractory" period, i.e., a third state, which defines time's direction. However, it is not known if such a third state can be available among the quantum states at all.
+Because of these reasons,  in the foreseeable future, quantum computers will not
+represent an alternative general-purpose architecture.
+ "Building such machines are decades away" @cite ScienceQuantumComputers:2018.
+ However, @link MODELING_SINGLE_AP_CONCEPTUAL biological neurons are three-state systems @endlink.
+
+
+@section MODELING_NEURONAL_MEMBRANE_COMPUTATIONAL Computational modeling of neuronal membrane
+
+see also @link MODELING_ACTION_POTENTIAL modeling of Action Potential@endlink.
+
+
+\anchor fig_NeuronStateMachine
+@image html NeuronStateMachine.png "The neuron's state machine as implemented by scGenComp_PU_Abstract." width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/NeuronStateMachine.pdf}
+\caption{The neuron's state machine as implemented by scGenComp_PU_Abstract \label{fig_NeuronStateMachine}}
+\end{figure}
+@endlatexonly
+
+*/
+
+
+
+/* *
+
+The appropriate handling of slow ionic currents, a key focus of our study,
+may have immediate medical implications. As we discuss,
+the speeds of currents depend on the features of the viscous liquids in which they stream,
+and their speeds affect the temporal features of neural operation.
+This understanding could be crucial when slow ionic currents are used for
+neural control, information transfer, and processing.
+''Structural
+alterations of the \gls{AIS} are likely to have an impact on normal neuronal activity'' @cite AlzheimerDisease:2022,
+and so can affect the speed of slow currents.
+Therefore, our research could potentially
+contribute to developing of new medical interventions and treatments.
+
+@section   Modeling_MAIN Modeling neurons
+
+We know very well that the speed of \gls{EM} interaction is finite,
+the charge is "atomic", at microscopic level, discrete charge carriers implement
+the macroscopic current and those charge carriers move with finite speed.
+In addition, at different abstraction levels, the same charge carrier may have different speeds,
+simultaneously, in different kinds of interactions. For example, the electric effect
+of an electron propagates with the speed of light, in metallic wires the electron can propagate
+with a diffusion speed of a few \f$mm/s\f$, but some mechanisms create the illusion
+of 'instant interaction'. Despite this, in the case of macroscopic currents, there exists a
+'propagation delay'. The mostly known example is the "telegrapher's equations":
+the electric signal in a wire can propagate with a speed around \f$100\ m/s\f$.
+Applying the above mentioned Laws, which are perfect for ideal cases,
+misguide us if we attempt to apply those Laws outside of  their range of validity.
+
+Similarly to those mentioned special cases, we need to scrutinize what an abstraction
+we can use to describe some phenomena in living material, including neurons;
+instead of using laws developed for a different phenomenon.
+Since it was discovered that neurons show electric activity, researchers
+attempted to describe them using notions, formulas and terms of technical electric circuits.
+Some initial resemblance surely exists, but the more details of biological operation
+comes to the light, the more differences we find compared to the technical electricity.
+The real issue is that researchers attempt to interpret  the finer details of biological operation
+in the frames of an abstraction which is not any more valid.
+For example, they use the mentioned Laws for biological materials,
+forgetting that they are abstracted for metals.
+
+@subsection Modeling_Computing The biological computing
+
+We must understand the corresponding
+electric behavior to scrutinize the ionic current's time course over
+the axons. To do so, we need to check the validity of our abstractions:
+we arrived at the boundaries of classic science. Extrapolating our notions
+about the macroscopic world to the microscopic one and assuming the
+classic assumption about the speed of interaction to the at least ten
+orders of magnitude lower interaction speed is misleading.
+
+
+@subsection Modeling_Phenomenon Physiological phenomena
+
+Although biological neurons make some extraordinary (housholding) operations
+(i.e., sometimes they produce 'random' firing),
+we focus on describing their ordinary operations, based on the acquired
+(and sometimes misinterpreted) phenomena.
+In that regime, they receive current packages (spikes) through their gated synaptic inputs
+(i.e., the current that flows in can reach neuron's membrane only under well defined conditions.
+Their effect is that the potential on neuron's membrane
+(in resemblance with technical condensers) increases (or decreases for inhibitory inputs). The membrane is "leaking",
+i.e., the voltage decays exponentially, in resemblance with technical condensers. In this data acquisition phase
+(for reasons to be explained later, we call it phase 'Computing'), the actual membrane voltage goes up and down between a long-term
+resting potential value and a critical threshold value. In this state all input synapses are open and any arriving current package
+contributes to the membrane's voltage. The current delivers charge, the inflown charge leads to fast (compared to the
+typical speed of events of a regularly working neuron) transient changes @cite TransientResponses:2008, @cite LIEBERSTEINHodgkinHuxley196745,
+@cite KochElectricalPropertiesSpike:1983. Given that the charge is distributed over that large surface of the membrane, the
+potential due to the inflown charge seen in the axonal arbor is much higher than the increase it causes in the potential
+of the membrane: the capacity of the membrane is much higher.
+
+When reaching that critical voltage level, a new epoch begins. The input channels (the axons) get blocked (no more input charge
+arrives through them for the period until membrane's level decreases below a critical voltage level (for reasons to be explained later, we call it phase 'Delivering').
+Simultanously, ion channels in membrane's wall open and ions rush in a short pediod into the intracellular volume,
+significantly increasing membrane's voltage. After some time (typically in the order of period \f$200\ \mu s\f$ @cite NeuronPreciseTiming:2021)
+an \gls{AP} starts toward the connected neurons through the axon. The \gls{AP} starts from the threshold potential,
+decreases below the resting potential and (in resemblance with a damped electric oscillantion) increases back to
+the resting potential (for reasons to be explained later, we call it phase 'Relaxing').
+
+The experience shows that the 'Computing' period between starting membrane's potential to the thresholding value
+does depend on both the (number and arrival time of) input spikes, furthermore on the potential value
+at the beginning of the charging process. In contrary, the length of the 'Delivering' period
+does depend only on the physiological parameters. After the 'Delivering', the neuron passes to
+phase 'Relaxing', where it tends to restore membrane's resting potential.
+In the 'Delivering' period, the synaptic inputs are nof effective: no input current
+contributes to membrane's voltage.
+
+Given that the internal operation of the neuron membrane needs time (the
+neuron membrane is not isopotential during that period (@cite KochVoltageDependentConductance:1999, @cite  NeuronPreciseTiming:2021),
+the result of a neural 'Computing' depends not only on its inputs (spikes though its synapses)
+but also on the neuron's internal state. (Classic neurophysiology also knows the effect: a spike arriving
+during the relative refractory period finds a membrane potential above
+the resting level, leading to spike generation at an earlier time.).
+One can easily interpret the effect using the temporal behavior @cite VeghBiologySpatioTemporal:2020, seen experimentally
+as nonlinear summing of synaptic inputs @cite KochElectricalPropertiesSpike:1983.
+The changed time of charge arrival (due to changes in the presynaptic
+spiking time, conduction velocity, and synapse's joining location).
+
+
+
+
+@subsection   Modeling_Physical The biophysical model
+
+
+In our biophysical model, a neuronal membrane is an isolating semipermeable membrane
+(a very thin, narrow, rectangular piece of biological material).
+It is covered of both sides with viscous electrolytic fluid,
+where the ion concentration changes in space (gradient) and time (current).
+The ions can enter and leave the membrane in various ways.
+Fine, tube-shaped membranes join the membrane at various points (in its dendrites)
+through axonal arbors, and there are voltage-controlled ion channels in its wall. These are the natural entry points for the input currents.
+The neuron has only one (extended) exit point, the \gls{AIS}, where a very high ion channel density enables issuing ions into the extracellular
+space. In addition, different ways of introducing artificial currents in the neurons are used in the experiments. The classic way was
+clamping the axons (i.e., connecting a voltage to an axon, and in this way enabling ion inflow through its wall; i.e.,  generating current in the axon),
+but using modern micro-electrodes current can be connected to any point of the neuron.
+
+On the two sides of the membrane(s), the internal and external ion concentrations differ by about five-six orders of magnitude,
+so any opening leads to processes tending to equalize the concentrations. In these processes microscopic particles participate,
+but because of their large number their effect appears also in the form of macroscopic fluiding streams and currents.
+The ion channels in membrane's wall are closed in their base state, but if the potential on the intracellular side reaches a
+threshold value, they get opened, and the ions from the higher concentration side pass to the lower concentration side.
+Different physical processes contribute and their different interaction speeds deserve attention.
+into the membrane in
+The ion channels are simply isolator tubes filled with
+electrolytic fluid. During its normal operation
+
+Key points: temporal operation, slow current, interplay of different interactions having very different speeds,
+temporally aligned serial and parallel execution
+
+@subsubsection Modeling_Biological_Computing The computing period
+
+Biological neurons (we distinct them from the technical neurons) can make only a very simple operation:
+integrating ionic currents, and their result is the period which is needed to reach their threshold potential.
+
+
+@subsubsection Modeling_Biological_Delivering The delivery period
+
+Biology must deliver the result of neuronal computation to large distances (especially compared
+to neuron's size) without distortion. Given that the information is essentially of temporal nature,
+the time of sending and receiving must be defined relatively accurately.
+During delivery, the computing unit must be denied.
+The delivery period begins spans the period when the membrane voltage exceeds the threshold potential.
+According to biological experience,
+When reaching the threshold potential, on the one side, the membrane potential prevents axonal currents
+to enter the membrane: the membrane's potential ('the result of calculation') will not change any more
+due to neuron's inputs. On the other side, reaching that threshold potential opens the voltage-controlled
+ion channels in membrane's wall, and an intensive ion current flows on the membrane.
+The operation of ion channels is very fast: the ions enter
+and finishes when
+
+
+@subsection Modeling_Abstract The abstract model
+
+
+In figure @ref NeuronStateMachine we summarize how, on some abstract level, our model describes neuronal operation.
+In this subsection we do not detail how nature implements neuronal charge processing (and even,
+we only mention abstract events and their mathematical handling, as handled by the simulator.
+
+@subsubsection Modeling_Abstract_ThreeState The need for three-states
+
+In the simulator, a neuron is implemented as a state machine, comprising three states. Technically, to reduce
+computing load and also to imitate the 'absolute rest' of neuronal states, a sub-state is also implemented,
+which differs from the 'Relaxing' state only that needs no computing operations; it is activated only on demand.
+
+Technically, we implement three periods and several events. The interactions and activities are different in those states,
+and the model consistently moves from states to states, generating and receiving events.
+
+
+@subsubsection Modeling_Abstract_Computing The computing period
+
+
+
+@subsubsection Modeling_Abstract_Delivering The delivery period
+
+After the elementary \gls{PU} computed the result, the unit must deliver it to its output section
+(not to be mismatched with transmitting to a different \gls{PU}).
+
+@subsubsection Modeling_Abstract_Refractory The refractory period
+
+
+
+@subsection   Modeling_MAIN_LIF The leaky integrate-and-fire model
+
+
+
+They 'passive membrane' model simply neglects that the living material (a real neuron) uses ions instead of electrons.
+The electrons used to generate the 'step function' must be converted to ions at some points.
+The clamping electrodes also delay by some (voltage dependent!) time the appearance
+of the response action. However, the major effect is that the ions are slow, that is, they need time
+to reach the boundaries of the membrane (as visualized in the figure). Because of this, the law
+of charge conservation is valid only in differential form
+
+
+*/
+
+

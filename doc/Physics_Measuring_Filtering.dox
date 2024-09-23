@@ -1,0 +1,72 @@
+/**
+\page  PHYSICS_MEASURING_FILTERING_PAGE Signal filtering
+
+@defgroup PHYSICS_MEASURING_FILTERING Signal filtering
+@ingroup PHYSICS_MEASURING
+
+
+@section MEASURING_FILTERING Membrane as low-pass filter
+
+
+The fallacy that in the neuronal \f$RC\f$ circuit the elements are switched in parallel, implies
+the commonly used fallacy that a biological neuron is a low-pass filter.
+Actually, a neuron can be modeled as a <i>differentiator</i>-type \f$RC\f$
+@link PHYSICS_MEASURING_OSCILLATOR oscillator@endlink that belongs to high-pass filters in the world of instant interaction of electronics.
+However, neurophysiology sticks to assuming that
+'the cell membrane composed of a resistance and a capacitance in parallel (RC circuit)'
+and if so, it should show the signs of a Low-Pass Filter.
+The experimental work @cite LowPassFilter_Carandini:1996
+(their figure is reproduced in @cite KochBiophysics:1999 as Fig. 1.4),
+'demonstrated' experimentally the 'low-pass' behavior of their neuron.
+It shows an example when one proves 'experimentally' what they want to believe.
+
+The basic issue with the evaluation of their data is
+the basic misunderstanding of neuron's function.
+<i>A neuron does not pass signals: it receives ones and produces new signals</i>.
+Furthermore, the physiological notions are
+interpreted for a 'steady state', i.e., using alternating current invalidates our basic assumptions.
+It is senseless to check its signal-passing feature: it is a wrong question to nature.
+The statement is valid for other measurement using alternating currents, too.
+
+Any foreign input current into the membrane, whether it is noise or a sine signal,
+increases the momentary and the average resting potential of the membrane,
+that is, decreases the probability that a synaptic trigger
+arrives at a moment when the synaptic input is enabled
+(the arrival time of the spike from the presynaptic neuron is independent
+from the operation of the postsynaptic neuron, so the signals arrive at a 'random time').
+With increasing the frequency of that foreign signal,
+more input charge increases membrane's voltage.
+The longer the membrane voltage is above its threshold potential,
+the less is the chance to re-open neuron's synaptic inputs, i.e.,
+to receive inputs from the 'regularly firing cell':
+the triggers arrive with high probability in the absolute refractory period.
+This effect, combined with the finite ion current speed,
+in the case of varying frequencies,
+makes the measured firing rate unpredictable.
+In a later research it was noticed that @cite DepolarizationBianchi:2012
+the too high current really blocks spiking (more precisely,
+receiving the triggering signal).
+
+From our conceptual model of generating \gls{AP} (see Fig. \ref fig_AP_Conceptual)
+it is immediately clear that although in the 'native mode' of operation
+the falling edge of the \gls{AP}
+would result in that the membrane's voltage falls below the threshold,
+in this way re-enabling synaptic inputs.
+However, in 'artificial' mode, the foreign current can keep the voltage above the threshold
+(for shorter or longer periods, additionally),
+so the synaptic signal cannot enter the membrane, given that
+in the periods when the membrane has potential value above the threshold,
+the synaptic inputs are not enabled.
+The synaptic inputs are re-enabled only when the membrane's potential is
+under the threshold potential when a new synaptic trigger arrives.
+That is, the triggering effect
+of the "regularly firing cells" is suppressed by the artificially
+increased neuronal membrane voltage.
+<i>The effect has nothing to do with the effect 'Low-Pass Filter'</i>.
+
+
+Back:  @link MEASURING_CURRENT Measuring current  @endlink
+Up: @link PHYSICS_MEASURING Electric measurements @endlink
+Continue: @link  PHYSICS_MEASURING_OSCILLATOR Oscillator @endlink
+
+*/

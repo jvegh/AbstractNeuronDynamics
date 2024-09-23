@@ -1,0 +1,13 @@
+/**
+\page ReleaseNotes Release notes and porting
+@addtogroup RELEASE_NOTES
+@ingroup GENCOMP_MODULE_PROCESS
+
+
+This page lists the most important API changes between versions,
+and gives tips to help porting your application to an upgraded version.
+
+@section Release_Notes General release notes
+
+*/
+

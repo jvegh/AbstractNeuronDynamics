@@ -1,0 +1,279 @@
+/**
+ \page PHYSICS_SPEED_PAGE Interaction speeds in nature
+
+@defgroup PHYSICS_SPEEDS Speeds
+@ingroup PHYSICS_NOTIONS
+
+Considering the role of the time, space and matter is the subject of endless debates in science.
+Considering finite interaction speeds is against using a "nice and classic physics"
+with its nice mathematical formulas, but omitting the different speeds
+misled and may mislead research in several fields.
+Biology produces situations where the complexity of phenomena
+and the needed carefulness meets the ones needed in cosmology.
+The difference is that in biology the consequences of phenomena are immediate
+and they can be studied experimentally.
+
+
+
+@section  PHYSICS_SPEEDS Speed in science
+
+
+The role of speed and time, particularly in
+the context of an object's changing location over time, has long held
+a mystique in the realm of scientific discovery (and recently returned
+to be mystic again in cosmology). This intrigue can
+be traced back to historical debates, such as Zeno's paradoxes. The
+acknowledgement that an object's movement speed can influence our
+observations is a topic that has sparked significant scientific discourse
+over the years. In this section, we aim to draw parallels between
+the historical debate on the finite speed of light and its contemporary
+implications in various scientific disciplines, such as the finite
+speed of ionic currents in biology.
+
+In 1676, the Danish astronomer Ole Rømer was making meticulous observations
+of Jupiter's moon Io and concluded not only that the speed of light
+is finite, but he measured its value with sufficient accuracy. Rømer
+never published a formal description of his method, possibly because
+of the opposition of his bosses, Cassini and Picard, to his ideas.
+Cassini knew Rømer's idea and the measurement data. However, instead
+of accepting the finite value of the speed of observation, he made
+periodic corrections to the tables of eclipses of Io to take account
+of its irregular orbital motion: <i>periodically resetting the clock</i>.
+The speed of light must remain infinitely large.
+
+However, the theory of finite speed quickly gained support among other
+natural philosophers of the period, such as Christiaan Huygens and
+Isaac Newton @cite Roemer:1676. Although Newton surely knew that
+the observation speed was finite, in his "Philosophiae Naturalis
+Principiai Mathematica" @cite NewtonPrincipia:1687, published
+in 1687, he decided to refer to observations that they happen "at
+the same time" despite knowing that what we observe at the same
+times, happen at different times. Using instant interaction results
+in "nice'" mathematical laws and enables us to describe most of
+nature's experiences with sufficient accuracy.
+
+Einstein, in 1905, discovered that the speed of observation (in moving
+reference frames) may play a decisive role in interpreting scientific
+phenomena. The results he derived using Minkowski-coordinates @cite Minkowski:1908 were
+counter-intuitive, with many unexpected consequences. Instead of introducing
+improvement(s) or correction(s) to the existing classic principles
+and methods, he introduced a new principle: the finite interaction speed.
+The <i>disciplinary analysis of the reception of
+Minkowski's Cologne lecture reveals an overwhelmingly
+positive response on the part of mathematicians, and a decidedly mixed
+reaction on the part of physicists</i> @cite Minkowski100:2008
+has turned to the exact opposite. Today, physics generally accepts
+the description, that is, the existence of finite interaction speed
+(resulting in the birth of a series of modern science disciplines).
+However, other science disciplines, including biology and computing
+science, refute (or at least do not use) it.
+
+Helmholtz, in 1850, sent a short report off to the Academy @cite HelmholtzReport:1850
+"I have found that a measurable time passes when the stimulus exerted
+by a momentary electric current on the hip plexus (Hüftgeflecht) of
+a frog propagates itself to the nerves of the thigh and enters the
+calf muscle." His teacher "had thought that the speed of nervous
+conduction might be in excess of the speed of light and could probably
+never be measured. Helmholtz's father, on hearing of the experiment
+and the surprisingly slow measured speed, wrote to his son that he
+would as soon believe this result as that one can see the light of
+a star that burned out a million years ago" @cite HelmoltzHistory:1851.
+
+With the development of measurement technology, it became evident
+that finite speed is a general feature of the "nervous connection".
+(Somehow, "the speed of nervous conduction" has been renamed to
+"conduction velocity", neglecting the clear distinction that physics
+makes between the two wording.) With the dawn of instrumental electronics
+and computing, the McCulloch-Pitts model @cite LogicalCalculusMcCulloch:1943
+introduced the picture that the brain can be modeled by a network
+of simple perceptron nodes connected by wires; that is, it comprises
+a two-state equipotential membrane connected with perfect wires. The
+experimental research also quickly (re-)discovered that those wires
+forward signals in a particular way; the speed of the potential wave
+(and that of the attached "transversal ion current") is finite.
+Furthermore, <i>the axons are not equipotential during transmission</i>.
+Although its structure is practically identical with axons, <i>biology
+assumes that, unlike an axon, the membrane remains equipotential during
+its operation, although the evidence shows the opposite
+</i>: 'the action potential spreads as a traveling wave from the initial site of depolarization
+to involve the entire plasma membrane' @cite MolecularBiology:2002.
+
+When seeing that assuming an equipotential membrane was wrong and
+a single equipotential surface (in other words, classic physics' instant
+interaction) cannot describe neurons adequately, multi-compartment
+models (typically comprising equipotential cylinders with different
+potentials) have been introduced @cite MathNeuroscience:2010. Then
+(forgetting that Ohm's Law is valid only for classic physics's 'instant
+interaction', furthermore, that no external potential is connected
+to either of the compartments, and no charge is present at the beginning,
+except at the input of the first compartment), the individually equipotential
+compartment pieces were connected by individual resistors. This model shows that
+the more compartments
+are used,
+the better is the agreement (accuracy) with experiments.
+It happens because the shorter is the size of the compartment
+(approaches a differential equation), the less noticeable is the deviation
+from the true non-equipotential surface. This conclusion means that
+charging the capacitance attached to the compartment takes time, resulting
+in <i>a delayed distributed current</i>. <i>Using infinitely many
+compartments, we would arrive at the differential equations describing
+a delayed distributed current on the surface of the non-equidistant
+membrane.</i> However, biology did entirely not give up its position.
+<i>It admitted that membrane current exists, but only between compartments,
+and its speed must be infinite</i> (or, at least, the speed of \gls{EM}
+interaction). However, at least the compartment pieces must be equipotential.
+Instead of fixing the wrong hypothesis, biology is "periodically
+resetting the clock".
+
+
+@section PHYSICS_SPEEDS_FINITE Finite-speed interactions
+
+When speaking about speed, especially the speed of charged objects
+inside neurons, one needs to consider microscopic and macroscopic
+levels of understanding. On the boundaries of the two levels, we need
+to make distinctions between different kinds of speeds, among others
+(in units of \f$m/s\f$), the propagation speed \f$10^{8}\f$ of the electric
+field (aka potential), the speed \f$10^{5}\f$ of thermal motion and potential-assisted motion, the
+apparent speed of current (as a macroscopic stream, both
+in metals and electrolytes; mainly due to the repulsion of nearby ions in the stream) \f$10^{1}\f$,
+ for ion current inside a neuron
+(see Fig. 1 in @cite ActionPotentialGenerationNatrium:2008) \f$10^{-2}\f$;
+diffusion speed of electrons in a wire \f$10^{-4}\f$, current drift speed
+ of the individual carriers in aqueous solutions \f$10^{-7}\f$; and
+of ions moving in a narrow tube filled with viscous liquid \f$10^{-8}\f$. Fortunately,
+in most <i>but not all</i> cases, different mechanisms
+(such as the Grotthuss mechanism or free electron model; for a review,
+see @cite GrotthussMechanism:2023) at the level of microscopic
+structure help to create the illusion of a high macroscopic propagation
+speed (million times higher than the speed of its microscopic carriers).
+<i>The same carrier can have macroscopic speeds differing by orders of
+magnitude, depending on the context</i>; a biological example see at
+@link MODELING_SINGLE_ION_CHANNEL ion channels@endlink.
+When more than one of those
+speeds plays a role in the phenomenon we study, we must carefully
+consider its context and prepare for handling <i>fast</i>
+and <i>slow</i> effects, furthermore, their mixing.
+
+In this section, we discuss mainly currents. <i>To deliver a
+current, one needs moving charged particles that need acting of some
+external (electric, magnetic, or chemical) force or a mixture of forces.
+We have speeds of \gls{EM} interaction, thermal motion of the charge
+carriers, macroscopic current, drift speed,</i> and mixing simultaneously
+in the same phenomenon. In the theoretical description of
+processes, instant interaction (i.e., the abstraction of non-physical,
+infinitely large interaction speed) is used in most cases. In the
+cases when absolutely needed, the generic notion of "speed" is
+used without specifying which one of the mentioned speeds it means.
+
+Considering the finite field propagation speed requires revisiting
+the fundamental physical laws. The famous Coulomb's
+Law (in a Lorentz-transformed form) should be written as
+
+
+\f{equation}{
+\frac{F(t)}{Q_{1}}=k\frac{Q_{2}}{r^{2}}(t{-\frac{r}{c}})\label{eq:CoulombTimeDependent}
+\f}
+
+The electrostatic field that charge \f$Q_1\f$ experiences
+due to the finite propagation speed \f$c\f$ of the electric
+field (or interaction) corresponds to that \f$Q_2\f$ at
+a distance \f$r\f$ <b>generated \f$\frac{r}{c}\f$ time ago</b>
+(\f$k\f$ is the constant describing the electric interaction). This term
+has no role if the two charges do not change their position; similarly
+to that in the special theory of relativity, only the relative movement
+leads to complications. If the distance changes, its effect is so
+tiny that the term can usually be omitted. So, our college knowledge
+can serve as a good first approximation.
+
+
+This speed term pops another Law from classical physics into our minds:
+Kirchhoff's junction rule. The law is perfect in the approximation
+'instant interaction' that classical
+physics uses. First, because it expresses charge conservation, <i>it
+is invalid when charges are "created" inside biological objects</i>
+(ions diffuse into the junction; see the role of ion channels in the
+wall of membranes). Second, it is not valid for input currents arriving
+with finite speeds, but it is valid for a single point in space-time
+(in other words, in differential equation form). The currents (and
+the voltages), measured at two different points in space-time, are
+different. Consequently, for extended objects (such as a line-like finite-size
+neuron), it is valid only with a time delay
+\f{equation}{
+I_{out}(t)=-I_{in}(t-\Delta t)\label{eq:Kirchoff_biology}
+\f}
+
+
+We can calculate the delay time \f$\Delta t\f$ (in a slightly
+simplified form) classically, from distance \f$r\f$ along the path of
+the current and the macroscopic speed \f$v\f$ of the current. Let us
+consider a 30 cm current path (a wire). The time delay is in the <i>nsec</i>
+range for \gls{EM} propagation speed, but it is in the <i>10 msec
+range</i> for the speed calculated from the telegraph equation and measured
+in metallic wires; furthermore, in the case of axonal current @cite HodgkinHuxley:1952,
+on a 0.3 cm distance, it is in the <i>0.1 msec range</i>. Inside a
+neuron, the current is so slow that the peak-to-peak temporal distance
+of an \gls{AP} at different places inside the neuron is several times
+more than the temporal length of the \gls{AP}, see Fig. 3f in @cite ActionPotentialGenerationNatrium:2008.
+<i>We must not describe the axon or the membrane with the usual  Kirchoff equation:
+the input and the output currents flow at different times; only the differential
+equation form expresses charge conservation</i>.
+For its exact interpretation see sections @link AXONAL_CHARGE_DELIVERY on axonal charge delivery @endlink
+and @link MODELING_SINGLE_MEMBRANE_TRUE_CURRENT on the true membrane current@endlink, Fig. @ref fig_The-ghost-image_AP,
+and the text around it. <i>Studying electric phenomena on structured
+media, such as biological cells, needs much care</i>. We must not apply
+laws derived from entirely different conditions (mainly metals).
+
+Using the cable equation, as Hodgkin and Huxley attempted @cite HodgkinHuxley:1952, led to
+numerical difficulties, and they faced the principal problem: their
+equations assumed infinitely fast electric interaction, and they attempted
+to combine them with the (unknown) finite macroscopic speed of current
+in neuronal telegraph cables. The validity of using cable equations
+for biological objects is at least doubtful: deriving a telegrapher
+equation assumes applying an external potential to the cable filled
+with charge carriers, and in the case of biological membranes neither
+external potential nor permanently present charge carriers exist.
+Furthermore, the cable equation assumes continuous current outflow
+(a distributed resistance), which is not true for the neuronal membrane
+(current flows only toward the \gls{AIS}).
+
+@section PHYSICS_SPEEDS_MIXING Mixing interaction speeds
+
+It is a mystery in biology that interactions with different speeds play
+their role <i>simultaneously</i>. The issue forces researchers to give
+non-scientific explanations to everyday phenomena only because <i>they
+routinely assume that the interactions have the same speed, and use
+the Laws about strictly pair-wise interactions</i>.
+
+During our college studies, we mentioned that light is an electromagnetic
+wave with a vast but finite propagation speed. Still, we forgot to
+highlight that, at the same time, it is the propagation speed of the
+electric (and magnetic and gravitational) interaction force field
+as well. The effect of "Retarded-Time Potential" is also known
+in physics and communication engineering. Algorithms "marching-on-in
+time" and "Analytical Retarded-Time Potential Expressions are
+derived to handle the problem; for a discussion, see @cite RetardedTimePotential:2011.
+Telegrapher's equations (also used to describe biological signal transfer)
+explicitly assume a finite propagation speed millions of times slower
+than the \gls{EM} interaction's. The issue is not confined to large
+distances: designers of micro-electronic devices also must consider
+the effect: they introduced clock time domains and clock distribution
+trees; see, for example @cite WiringDominance:2019 @cite VeghRevisingClassicComputing:2021.
+
+The theoretical model @cite VeghNeuralShannon:2022 described how
+the slow operation of biological objects explains biological phenomena,
+but  due to the lack of dedicated measurements
+it could only indirectly underpin the theory's correctness. Now, we
+give an exact quantitative explanation of the precise measurements
+ @cite HodgkinHuxley:1952 @cite SynapticTransmissionMason:1991,
+which have not been correctly understood in the past decades due to
+the lack of understanding of the role of the finite interaction speed
+(conduction velocity) in neuronal operation.
+
+
+
+Back:  @link  PHYSICS_ABSTRACTIONS Physics abstractions @endlink
+Continue: @link  PHYSICS_SLOW_CURRENT Slow currents @endlink
+Up: @link PHYSICS_NOTIONS Physics notions @endlink
+
+
+*/

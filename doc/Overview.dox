@@ -1,0 +1,151 @@
+/** \mainpage notitle
+
+
+<i>"Though this be madness, yet there is method in't."</i> (<b>Shakespeare: Hamlet: Act 2 Scene 2</b>)
+
+<h1>Why another neuron(al) theory and  simulator</h1>
+
+The dynamic operation of individual neurons, their connections, higher-level organizations and connections,
+and finally the brain and the mind,
+are still among the big mysteries of science: <i>at which point
+@link MODELING_ACTION_POTENTIAL the non-living matter becomes a living one@endlink,
+and at which point <b>a living matter becomes intelligent</b> and conscious</i>; whether and how
+all this stuff can be handled by science.
+The worst inheritances of neuroscience are the static view from anatomy;
+omitting revisiting periodically the basic hypotheses in the light of new research results;
+the abstractions of the classic science
+(the single speed, isolated pair-wise instant interactions)
+applied to biological materials without revisiting them;
+and applying ad-hoc mathematical formulas without correct physical processes in the backgound
+(actually creating an alternative nature).
+
+
+Nature is overly complex: science fields must use
+@link PHYSICS_Description different approximations and abstractions@endlink.
+In the interest of being able to describe nature, one has to pass
+<a  href="https://en.wikipedia.org/wiki/Charybdis">between 'Scylla' and 'Charybdis'</a>: being still
+sufficiently accurate and detailed in describing phenomena while keeping the mathematical complexity
+(and computational need) of description still manageable.
+<i>No presently available theoretical description and simulator are capable to perform that task</i>.
+
+We attempt to <i>see the forest for the trees</i>.
+Nature uses an infinite variety of implementing neurons. However, in the \gls{CNS} they can cooperate
+with each other. 'Despite the extraordinary diversity and complexity of neuronal morphology and synaptic connectivity,
+<i>the nervous systems adopts <b>a number of basic principles</b></i> for all neurons and synapses'
+@cite JohstonWuNeurophysiology:1995.
+We agree that '<i>the fundamental task of the nervous system is to <b>communicate and process information</b></i>'.
+Furthermore, the '<b>neurons convey
+neural information</b> by virtue of electrical and chemical signals'
+@cite JohstonWuNeurophysiology:1995.
+The goal was set decades ago:
+'<i>The ultimate aim of computational neuroscience is
+to explain <b>how electrical and chemical signals are used</b> in the brain
+to <b>represent and process information</b></i>'
+@cite SejnowskiComputationalNeuroscience:1988.
+We base our discussion on those @link MODELING_SINGLE general basic principles@endlink
+and create an @link NeuronPhysical 'abstract physical neuron'@endlink,
+skipping the 'implementation details' nature uses.
+Given that in many cases wrong physical principles, notions and measuring methods are used in
+measuring and modeling neurons,
+we need to discuss @link PHYSICS the true physics@endlink behind biological phenomena.
+To do so, we need to understand <i>how neurons @link COMPUTING_INFORMATION represent and process
+information@endlink</i>
+@cite VeghNeuralShannon:2022.
+We agree that 'The basic structural units of the nervous system are individual neurons'
+@cite JohstonWuNeurophysiology:1995, but
+we are also aware of that neurons 'are linked together
+by dynamically changing constellations of synaptic weights' and
+'cell assemblies are best understood in light of their output product' @cite BuzsakiCellAssemblies:2010,
+so we also @link  MODELING_MULTIPLE_NEURONS model multiple neurons@endlink.
+
+
+
+'The brain computes!
+This is accepted as a truism by the majority of neuroscientists.' @cite KochBiophysics:1999
+However, '<i>we so far <b>lack principles to understand rigorously how computation is done</b></i>
+in living, or active, matter' @cite NaturalComputation:2018.
+To understand how "computation is done", we @link COMPUTING generalize computing@endlink @cite VeghRevisingClassicComputing:2021,
+in close cooperation with @link COMPUTING_COMMUNICATION communication@endlink @cite RoleOfInformationTransferSpeed:2022.
+We attempt to synthetise the available knowledge with a fresh eye, and intend to make a leap
+in understanding neural computing,
+scrutinizing our knowledge
+pieces one-by-one, for credibility, relation to other pieces, to other sciences,
+finding contradictions and its resolutions,  <i>defying fallacies</i>.
+Sometimes you may need our \link GLOSSARY glossary \endlink or the search engine
+(see the right side of the title line).
+
+The site is not exclusively about theory: we give also a programmed implementation of the ideas we describe.
+@link SIMULATION_SYSTEMC Our simulator @endlink has direct science base, instead of ad-hoc mathematical formulas;
+and the only one which is able to reproduce @link SIMULATION_SYSTEMC the true biological time course@endlink of neurons,
+from first principles of science, without arbitrary assumptions and limited variability formulas.
+Our methods enable discussing the major aspects from the phenomena of natural operation of neurons
+to analyzing the effects of invasive electricity-related investigation methods on neuroscience.
+Presently we offer some demos, class implementations, test cases
+to demonstrate simulating capabilities. Our intention is to develop a full-value
+educational, demonstration and research tool.
+
+<b>Warning: </b>Please consider that this development is a one-man undertaking,
+and it shall develop theory, evaluation of published experiment, software implementation, its  testing and their documentation.
+There exist pre-developed code fragments, science publications
+and docs, so it develops relatively quickly,
+but it needs time to put them together in a consistent state.
+Please come back later and see if there is something new (see the date and version).
+
+\htmlonly
+
+
+<!-- Default Statcounter code for Abstract neuron dynamics
+https://github.com/jvegh/AbstractNeuronDynamics -->
+<script type="text/javascript">
+var sc_project=13027023;
+var sc_invisible=0;
+var sc_security="b82b0dba";
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Visitor counter" href="https://www.statcounter.hu/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13027023/0/b82b0dba/0/"
+alt="Visitor counter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+\endhtmlonly
+
+
+@defgroup MODELING MODELING abstract neurons
+@defgroup PHYSICS PHYSICS behind neuronal operation
+@defgroup INFORMATION INFORMATION generalized for biology
+@defgroup COMPUTING COMPUTING generalized for biology
+@defgroup SIMULATION SIMULATION principles and technology
+
+
+*/
+
+//@defgroup GETTING_STARTED Getting started
+
+//https://stackoverflow.com/questions/27149000/how-to-order-doxygen-groups
+// https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository/51175138?noredirect=1#comment139053015_51175138
+/*
+
+
+<!-- Default Statcounter code for TimeAwareComputing
+https://timeawarecomputing.github.io/ -->
+<script type="text/javascript">
+var sc_project=12506963;
+var sc_invisible=0;
+var sc_security="4d279618";
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Visitor counter"
+href="https://www.statcounter.hu/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12506963/0/4d279618/0/" alt="Visitor counter"></a></div></noscript>
+<!-- End of Statcounter Code -->
+<a href="https://statcounter.com/p12506963/?guest=1">Visitor statistic</a>
+
+
+*/
+

@@ -1,0 +1,438 @@
+/**
+\page  MODELING_SINGLE_AXON_PAGE Axon
+
+@defgroup MODELING_SINGLE_AXON Axon
+       @ingroup MODELING_SINGLE
+
+
+@section MODELING_SINGLE_AXON Modeling axon
+
+Axons not only passively follow the potential's time course, but they
+mediate the changes in their internal volume by using an ion pool
+available in their extracellular volume. In their 'natural regime',
+they forward ion packages with pumping ions in and out,
+using that the ion channels in their wall have a 'deactived' phase as well.
+In their 'artificial' regime, the biological operating mode is drastically different.
+
+@subsection MODELING_SINGLE_AXON_CLAMPING Modeling clamping
+
+The axon is modeled as a long electrolyte tube comprising
+cylindrical layers of thickness \f$dx\f$ along its axes, and we apply
+an external potential \f$V_{clamp}\f$ to the end of the tube. The little
+thin cylinders deliver ions of a specific chemical nature with an
+electrical charge.
+
+In their native mode of operation, the three modes of ion channels
+define the 'direction of the time' @cite ThreeStateUnidirectional:2004, @cite MarkovianIonChannel:2005,
+@cite RoleOfInformationTransferSpeed:2022 (the direction of
+the current that transmits the spike). The layer, that the
+front of the spike creates on the surface (on both sides
+of the tube), propagates in both directions,
+but it cannot open the ion channels on the side where
+the spike arrived from and the ion channels are still
+inactivated.
+
+Clamping
+sets up an artificial working regime for the ion channels: the permanent
+electric field on the outer surface keeps the ion channels open (in
+a stationary state) and enables ions to enter the inner surface where
+formerly no ions (and no potential) existed. The rushed-in ions will
+flow away from the place of clamping (recall that the current removes part of the ion layer on the surface), and a slow current toward the membrane can start.
+Under clamping conditions,
+the voltage is set by the experimenter instead of the transmitted signal, and in a static way instead of autonomous dynamic one.
+
+Initially, the membrane, the clamping point on the
+axon, and the intracellular and extracellular fluid maintain
+their resting potential. When suddenly an external potential %(such as clamping)
+is applied to some point of the axon, an electric field \f$\frac{dV}{dx}\propto(V_{membrane}-V_{clamp})\f$
+appears on the <i>outside surface</i> of the axon. The extracellular
+space with its high ion concentration \f$C_{k}^{ext}\f$ represents an
+'@link MEASURING_CURRENT ion cloud@endlink'.
+When the clamping voltage is switched on, a ``fast'' current
+instantly delivers the potential along the <i>outer</i> surface of
+the axon. However, this is not the case (at least not in the initial
+moment) on the <i>inner</i> surface: <i>there is no charge present that could
+change the potential</i>: the intracellular concentration at rest is around
+five orders of magnitude less than that in the extracellular space @cite KochBiophysics:1999.
+The physical picture that the clamping potential
+instantly appears at the end of the axon at the membrane is valid
+only if charge carriers exist in the axon, i.e., if (apparently) they
+have an infinitely large propagation speed.
+
+
+The persisting clamping voltage gradually triggers the opening of
+@link MODELING_SINGLE_ION_CHANNEL ion channels@endlink in its wall along the axon,
+leading to a continuous inflow through the axon's
+wall from the extracellular space into the intracellular
+space as a "fast current".
+The ions entering the intracellular space remain inside the axon:
+the cylindrical surface enables only a one-way (inward) traffic for the ions.
+As discussed in section 11.4 of @cite KochBiophysics:1999, 'once
+calcium enters the intracellular cytoplasm it is not free to diffuse') and
+they start to create an ion-rich layer on the internal surface.
+However, there exists a gradient in parallel with the wall and the ions experience the electric field (which is present initially
+only at the clamping point, but extends with the passing time) along the axis, speed up, and (after a short while) the ion's
+speed becomes constant in time but depends on the actual electric
+field. The <i>ions will slowly
+        move</i> along the axon <i>with a field-dependent constant velocity
+        in the electric space</i> in a viscous solution.
+The moving ions deliver charge, so
+the potential gradually extends along the electrolyte tube (the axon).
+'In axon fibers, the
+effective diffusion constant was estimated to be about one-tenth of
+the diffusion coefficient in aqueous solution' @cite KochBiophysics:1999; however, under the effect of the potential gradient,
+they form a ``slow current'' (and that macroscopic current may have a much higher propagation speed).
+<i>The current and potential are not instant, as we consider in
+        the classic theory of electricity</i>: they propagate with the speed
+of the ion current.
+
+
+
+In this model, we assume that during the time \f$dt\f$ in the volume
+\f$dx\f$, we have a constant ion inflow \f$I_{wall}\f$ through the axon's
+wall, which increases the charge and concentration already in the
+volume. The charges in the tube experience an electric field \f$\frac{dV}{dx}\f$,
+and they move with a @link MEASURING_CURRENT field-dependent speed@endlink \f$v\f$ inside the tube.
+As discussed, the axonal current appears in the volume \f$dx\f$ with
+a delay depending on \f$v\f$. The ionic fluid with velocity \f$v\f$ (proportional
+to \f$\frac{dV}{dx}\f$), in \f$dt\f$ time, transfers the ionic charge in
+the volume to the neighboring element at a distance \f$v*dt\f$, and delivers
+the charge from the neighboring element at a distance \f$-v*dt\f$ into
+this element. At time \f$t\f$, the concentration at \f$x\f$ will result
+from of the inflow at place \f$x-v*t\f$. The higher is
+\f$v\f$, the more is the difference between the "inflow" and the "present"
+concentration. The stream inside the axon, @link PHYSICS_SPATIOTEMPORAL a la Minkowski@endlink,
+for the biological observation see also @cite SpatiotemporalPlenz:1996 and @cite CoherentSpatioTemporal:2018,
+transforms the distance to time and vice versa. Under the effect of clamping,
+chemical ions diffuse into the tube (\f$\alpha\f$ is a timing constant
+of dimension \f$(1/time)\f$), and the current is decreased by the stream
+proportionally:
+
+\f{equation}{
+\frac{dI_{axon}}{dt}=-\alpha*I_{axon};\ I_{axon}(t)\approx I_{wall}*(1-\exp(-\alpha*t))\label{eq:AxonalCurrentNoConc}
+\f}
+
+The clamping voltage combined with the repulsive force of the
+entered ions generates a field that generates a macroscopic ion current
+(the result of the numeric simulation of the process is depicted in
+Figs. @ref fig_HH_Clamping_ON and @ref fig_HH_Clamping_ON). At the beginning, the
+intracellular solution remains at the resting potential, and the clamping
+potential at the end 'pushes'
+the ions toward the membrane, and in return, the ion's potential raises
+the axon's local potential. The diffused-in ions are transported towards
+the membrane as a 'slow' macroscopic ionic current (the speed
+of current Hodgkin and Huxley @cite HodgkinHuxley:1952 measured
+and also theoretically derived to be about \f$20\f$ \f$m/s\f$; it is in the
+order of magnitude we mentioned for the speed of macroscopic currents
+in metals and electrolytes).
+
+
+
+<table>
+<caption id="Clamping_time_course ">Time course of clamping</caption>
+
+<tr><td>\anchor fig_HH_Clamping_ON
+@image html HodgkinHuxleyUI_On.png "Clamping voltage ON" width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HodgkinHuxleyUI_On.pdf}
+\caption{The time course of voltage and current in the Hodgkin-Huxley clamping
+experiment, calculated numerically; clamping ON\label{fig_HH_Clamping_ON}}
+\end{figure}
+@endlatexonly
+                     <td>
+                     \anchor fig_HH_Clamping_OFF
+@image html HodgkinHuxleyUI_Off.png "Clamping voltage OFF" width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HodgkinHuxleyUI_Off.pdf}
+\caption{The time course of voltage and current in the Hodgkin-Huxley clamping
+experiment, calculated numerically; clamping OFF\label{fig_HH_Clamping_OFF}}
+\end{figure}
+@endlatexonly
+</table>
+
+@subsection MODELING_SINGLE_AXON_GATING Gating the axonal current
+The ions suffer a 'downhill' transfer from the axonal arbor @cite NeuritsArbor:2022
+to the membrane;
+that is, they can enter the membrane only if the potential in the arbor
+is above that in the membrane.
+Given that the membrane's potential changes in the range \f$100\ mV\f$,
+and the threshold value is about \f$20\ mV\f$,
+the changing membrane's potential provides a 'gating' function with its 'above the threshold'
+and 'below the threshold' values.
+As experimentally experienced, <i>while the membrane's voltage is above the
+membrane's threshold value,
+the ions from the axon cannot enter the membrane</i>.
+
+When the rushing-in begins, the collected charge will not change any more
+(its value is remembered by the <i>time</i> when rush-in begins),
+and so will their charge collection time: the computational result is ready.
+The ions need to propagate against membrane's electric repulsion and they
+cannot enter the membrane anymore until its potential decreases below the threshold level again
+(this period is known as the 'absolute refractory' period);
+the rest of the spike remains in 'pending' state.
+The speed of the ion current between the arbor and the membrane
+is proportional to their potential difference.
+
+Experimental evidence shows that the effect of new synaptic inputs,
+arriving after the rush-in current stops,
+is the weaker the closer is the time of their arrival to closing the gate.
+In other words, according to our model:
+the intensity of the current contribution is proportional
+to the difference of the threshold potential and the actual
+membrane potential. In the 'falling edge' phase,
+that difference is the larger the later the new spike arrives.
+With using the notion of 'slow current', we can also interpret
+why they seem to arrive much later compared to the time
+when the membrane's voltage drops below the threshold value:
+the 'slow' current must travel from its dendritic entry point to the \gls{AIS}.
+This delay leads to the fallacy of 'relative refractory' period:
+only 'refractory' period exists.
+The 'delayed' current
+may appear at the \gls{AIS} at the time when the membrane's voltage
+is about the 'hyperpolarized' state. In general,
+the neuron has a spatiotemporal behavior. The measured time course
+has a sense only when the position of the measurement is also known,
+and especially, the <i>time difference</i> between event matters.
+
+
+The ion rush-in into the membrane continues for a while, and  the membrane's potential increases.
+The increasing potential drives a current through the \gls{AIS} that decrases membrane's potential
+(because of the finite speed of ions, they appear with a delay both on the mebrane and on the \gls{AIS}).
+At the point when membrane's voltage drops below the threshold, the synaptic inputs can contribute again:
+the neuron is in phase 'Relaxing' again.
+This period is mistakenly identied as 'relative refractory' period. Actually,
+this state is not a 'refractory'; it is 'Relaxing' starting with an elevated membrane potential.
+It begins earlier than the first output appears on the \gls{AIS}.
+The slow axonal currents from the re-opened arbors must reach \gls{AIS},
+so they appear there with a delay (from different distances at different times),
+creating the <i>illusion that inputs are re-enabled only when the membrane voltage
+is about its hyperpolarized voltage value</i> @cite NeuralDynamicsGertsner:2014.
+Given that the neuron is actually in a 'Relaxing' state,
+-- due to re-opening the axonal inputs -- the pending inputs can contribute again, this time
+to the 'next' spike. In this period the neuronal potential differs
+from its resting value: it implements a short-term (time-dependent) <i>neuronal memory</i>;
+see Figure @ref fig_AP_Conceptual.
+The pending contribution is the larger the closer was the time of closing the arboral gates
+to the arrival of the synaptic input; a plausible explanation of Hebb's observation.
+
+
+With introducing the idea of 'slow current', we arrive at a clear interpretation
+of the observed refractory period. The synaptic inputs are closed when membrane's potential is above
+the threshold potential, and they are open below that value. This distinction
+may be important in the presence of 'artificial' currents (clamping and patching):
+the current adds a potential offset to the voltage level; furthermore, the patching current may arrive through a 'valved' axon.
+If that offset becomes higher than the threshold, no synaptic input can be received.
+Actually, the refractory period reflects an 'all or nothing' feature of the synaptic inputs:
+they are either open or closed, without a third state; unlike the ion channels.
+
+
+
+
+@section AXONAL_CHARGE_DELIVERY Axonal-charge-delivery
+
+
+Clamping sets up an artificial working regime
+for the ion channels: the permanent
+electric field on the outer surface keeps the ion channels open (in
+a stationary state) and enables ions to enter the inner surface where
+formerly no ions (and no potential) existed. The rushed-in ions will
+flow away from the place of clamping, and a slow current toward the
+membrane can start. As discussed in section \ref MODELING_SINGLE_MEMBRANE_TRUE_CURRENT,
+when the membrane's potential reaches its threshold potential, after a similar
+rush-in over the membrane's surface, the ions can only leave through
+the \gls{AIS}.
+
+@subsection AXONAL_CHARGE_EVALUATION Evaluation method matters
+
+It is a common fallacy that choosing the model and the data evaluation method
+do not influence the conclusions. Hodgkin and Huxley in their classic work @cite HodgkinHuxley:1952
+also showed that using a 'model-free' data evaluation method leads to conclusions
+opposite with the ones derived using the right physical model, from the same experimental data.
+
+Their Figure 3 (reproduced in Figure @ref fig_FittingExperimentalData)
+shows the result of the evaluation  of their experimental data.
+Unfortunately, they used their Eq. (11) to fit the data.
+I.e., once they introduced the wrong hypothesis that a \f$K^+\f$ ion current is present
+during the process (without proof, or despite the proof published in their former paper @cite HodgkinHuxleyCurrentVoltage:1952),
+used the @link MEASURING_CONDUCTANCE wrong interpretation of conductance@endlink,
+then topped the evaluating process with using an ad-hoc polynomial expression
+that adds a 'no current' region to the 'exponential current' region.
+This exponential increase following a 'no current' region
+(a sudden exponential increase in membrane's current) has been
+measured with high precision by @cite SodiumCurrentDelay:2006.
+As expressed by HH, 'there is reasonable agreement between theoretical and experimental curves,
+except that <i>the latter show more initial delay</i>'.
+What was not noticed by HH (due to the lack of physical picture) was,
+as seen in the figure, that <i>the initial delay is the longer the lower is the clamping voltage</i>.
+In this way,  the proportion of these two regions changes with the speed of the ion current,
+so their numeric values depicted in their Table 1, are completely wrong.
+
+
+\anchor fig_FittingExperimentalData
+@image html HodgkinHuxleyFig3.png "Finding time constants and membrane current by fitting data measured by Hodgkin and Huxley with our theoretically derived function" width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/HodgkinHuxleyFig3.pdf}
+\caption{Finding time constants and membrane current by fitting data measured by Hodgkin and Huxley (Fig.~3 in~\cite{HodgkinHuxley:1952}) with our theoretically derived function\label{fig_FittingExperimentalData}}
+\end{figure}
+@endlatexonly
+
+If we use the correct physical picture (that is, that the speed of the ion current is
+proportional to the clamping voltage), we can display the amplitude of the
+measured current and time constant in function of the clamping voltage,
+see Fig. @ref fig_SpeedDependence. Both the wrong (ad-hoc) values from HH's Table 1
+and the values derived from our physics-based model  are shown.
+Our model-based fitting results (as displayed in Figure @ref fig_FittingExperimentalData)
+show a linear dependence (although @link MEASURING_CONDUCTANCE
+the accuracy of those values gets worse as the clamping current decreases@endlink),
+while those of HH show opposite tendency, due to the voltage-dependent delay.
+(Notice that HH named the measured quantity as conductance although actually
+it is a current.)
+
+\anchor fig_SpeedDependence
+@image html Fig3_eval.png "The proportionality of membrane's current and time constant, respectively, with the clamping voltage." width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/Fig3_eval.pdf}
+\caption{The proportionality of membrane's current and time constant, respectively,
+with the clamping voltage. Data taken from Fig. @ref fig:FittingExperimentalData
+and Table 1 of @cite HodgkinHuxley:1952 \label{fig_SpeedDependence}}
+\end{figure}
+@endlatexonly
+
+
+
+We assume that the ionic inflow does not affect significantly the internal
+concentration and that the external concentration is constant. The
+saturation current depends on the speed of ions
+(i.e., on the clamping voltage, see Fig. @ref fig_FittingExperimentalData
+and Fig. @ref fig_SpeedDependence) in the tube. Our simple
+model assumes that \f$\alpha\f$ is constant in time but (through \f$v\f$
+and \f$\frac{dV}{dx}\f$) depends on the clamping voltage.
+
+We have a constant voltage at the end of the tube; a 'slow'
+current 'flowing out' from the tube increases and appears on the
+membrane, <i>establishing the illusion that the conductance of
+the tube and/or membrane increases</i>. <i>Resistance/conductance cannot be interpreted
+when charge carriers flow into the resistor</i> (and this is the case
+with the axon) from the environment: the 'slow' current produces
+a different behavior (increases the number of charge carriers \f$n\f$).
+
+
+
+
+@subsection MODELING_SINGLE_ELECTRIC_PSP The Post-Synaptic Potential
+Some schematic figures (for example
+the one <a href="https://neuronaldynamics.epfl.ch/online/x2.png">
+showing signal transmission from a presynaptic neuron to a postsynaptic neuron</a>)
+miss the point that at the synapse the action potential appears
+having a different shape, furthermore mis-identifies the temporal length of \gls{AP} to
+essentially between the beginning of charge-up to the end of reaching
+the hyperpolarization peak voltage. (Notice in Figure
+\ref fig_NeuronElectricOperationSummary that although
+the \gls{AP} with its hyperpolarization arrives to the synapse, the \gls{PSP}
+is not hyperpolarized.)
+Our discussion shows that <i>the long tail
+after hyperpolarization is a vital part of \gls{AP}</i> (among others, provides
+short-term neuronal memory for neuronal cooperation).
+
+\anchor fig_Post-synaptic_potential_lin
+@image html MasonPSPlin.png "The post-synaptic potential" width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/MasonPSPlin.pdf}
+\caption{The post-synaptic potential}
+\label{fig_Post-synaptic_potential_lin}
+\end{figure}
+@endlatexonly
+
+
+
+
+
+As the figure about <a href="https://www.ncbi.nlm.nih.gov/books/NBK26910/bin/ch11f39.gif">
+signal transmission from a presynaptic neuron to a postsynaptic neuron</a> depicts,
+the arriving presynaptic charge packages sum up and correspondingly produce
+a signal that corresponds to the spatially and temporally summed voltage change
+on the axon.
+
+The textbook @cite MolecularBiology:2002 mistakenly attributes the role
+of encoding the magnitude of \gls{PSP} to the ion channels (today known as \gls{AIS}).
+'For long-distance transmission, the magnitude of the \gls{PSP} is therefore translated, or encoded,
+into the frequency of firing of action potentials. This encoding is achieved
+by a special set of gated ion channels that are present at high density at the base of the axon.'
+The @link MODELING_ACTION_POTENTIAL encoding@endlink is performed by the interplay
+of neuron's finite size and the finite speed of the ion current, furthermore
+it is only indirectly connected to the firing rate.
+The fact that the amplitudes are summed spatially and temporally,
+demonstrates the @link PHYSICS_SPATIOTEMPORAL spatiotemporal behavior@endlink.
+
+
+The 'artificial' inputs (patching and clamping) mostly add a constant current,
+that produces a zero time derivate on the membrane and results in a constant
+output voltage. Given that the amount of current through the current drain is limited by the
+resistivity \f$R\f$ of \gls{AIS}, and it depends on the actual membrane voltage,
+introducing too high currents may lead to unnatural effects.
+If the external current integrated for a neuronal operating cycle exceeds the
+similary integrated maximum current the \gls{AIS} can transmit, the neuron "overflows":
+the extra charge leaves to the extracellular space and the neuronal cycle stops working.
+Any external current moves the work point where the 'native' inputs get effective again
+and the neuron can enter the 'Refractory' phase; after some point the neuron
+stops emitting \gls{AP}s. The axons are closed in the 'Delivering' stage,
+so the axonal inputs are not effective, given that thair gatings are closed.
+When 'artificial currents' (or too frequent incoming spikes) increase membrane's voltage
+permanently to be around the threshold level,
+the ion channels in membrane's wall will be in ill-defined state.
+Being very close to the threshold, small transients of the
+membrane's voltage may cause apparently unexpected changes in the output voltage,
+because their <i>time derivative</i> matters.
+
+
+\anchor HodgkinHuxleyStepFunction
+@image html HodgkinHuxleyStepFunction.png "The measured response function of a clamped neuron" width=600px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.8\textwidth]{images/HHStepFunction.pdf}
+\caption{The measured response function of a clamped neuron.
+\label{HodgkinHuxleyStepFunction}}
+\end{figure}
+@endlatexonly
+
+HH measured also the experimental response function of the neuron to switching
+a clamping voltage ON and OFF, with the result displayed in Figure @ref HodgkinHuxleyStepFunction.
+As they commented: 'both sodium and potassium conductances increase with a delay
+when the axon is depolarized but fall with no appreciable inflexion when it is repolarized' @cite HodgkinHuxley:1952.
+If our physical model: when switching clamping ON, there are no charge carriers
+in the axonal tube; they must be 'produced' first, as our model describes
+the time course of the axonal current. The current (after some delay caused
+by the electrolyte electrodes; a speed-dependent effect) exponentially decreases
+towards its saturation value.
+When switching clamping OFF, the tube is full with charge carriers, and
+the discharging starts with a delay.
+
+Back:  @link MODELING_SINGLE_AIS Axon Initial Segment   @endlink
+Continue: @link  MODELING_SINGLE_MEMBRANE Membrane @endlink
+Up: @link MODELING MODELING @endlink
+
+
+
+*/
+
+/*
+%
+%clamping
+%sets up an artificial working regime for the ion channels: the permanent
+%electric field on the outer surface keeps the ion channels open (in
+%a stationary state) and enables ions to enter the inner surface where
+%formerly no ions (and no potential) existed. The rushed-in ions will
+%flow away from the place of clamping, and a slow current toward the
+%membrane can start.
+*/

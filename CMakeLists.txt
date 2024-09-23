@@ -29,6 +29,7 @@ project(ScQtAND VERSION ${MyVersion}
         HOMEPAGE_URL "https://jvegh.github.io/AbstractNeuronDynamics"
 )
 include(BuildType)
+include(Summary)
 
 # ---[ Set up CMake options for the simulator
 # Choose if clocked physical bus is to be used; slows down simulation; not yet in use
@@ -46,7 +47,7 @@ message(HIGHLIGHTED ${Description})
 
 if(NOT DEFINED ENV{QT_HOST_PATH})
        set(CMAKE_PREFIX_PATH "~/Qt6/6.6.1/gcc_64")
-       message(HIGHLIGHTED "QT_HOST_PATH not defined; CMAKE_PREFIX_PATH= ${CMAKE_PREFIX_PATH}")
+       message(HIGHLIGHTED "QT_HOST_PATH not defined; QT_HOST_PATH= ${CMAKE_PREFIX_PATH}")
 else()
        message(HIGHLIGHTED "QT_HOST_PATH = ${QT_HOST_PATH}")
 endif()
@@ -133,11 +134,10 @@ include_directories(${SystemC_INCLUDE_DIRS})
 #if(BUILD_TESTS)
     find_package(GTest REQUIRED)
     add_subdirectory(gtest)
-    message(HIGHLIGHTED "    Testing with GTest installed")
+    message(HIGHLIGHTED "Testing with GTest installed")
 #endif()
 
 
-bad()
 
 ######################################################################
 ## GUI setup
@@ -149,12 +149,14 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+if(0)
 # ---[ Set up RIPES
 set(RIPES_WITH_QPROCESS ON CACHE BOOL "Build with QProcess-related utilities")
 # Add as a C++ definition
 if(RIPES_WITH_QPROCESS)
     add_definitions(-DRIPES_WITH_QPROCESS)
 endif()
+endif(0)
 
 # Find required Qt packages
 find_package(Qt6 COMPONENTS Core Widgets Svg Charts REQUIRED)
@@ -172,6 +174,7 @@ qt6_add_resources(EXAMPLES_SRC ${CMAKE_SOURCE_DIR}/examples/examples.qrc)
 qt6_add_resources(LAYOUTS_SRC ${CMAKE_SOURCE_DIR}/src/processors/layouts.qrc)
 qt6_add_resources(FONTS_SRC ${CMAKE_SOURCE_DIR}/resources/fonts/fonts.qrc)
 
+if(0)
 ######################################################################
 ## Library setup
 ######################################################################
@@ -183,7 +186,9 @@ include_directories(SYSTEM external/ELFIO)
 include_directories(SYSTEM external/VSRTL/external/Signals)
 include_directories(external/libelfin_cmake)
 include_directories(external)
+endif(0)
 
+if(0)
 option(RIPES_BUILD_VERILATOR_PROCESSORS "Build verilator processors" OFF)
 if(RIPES_BUILD_VERILATOR_PROCESSORS)
     if(NOT DEFINED ENV{VERILATOR_ROOT})
@@ -200,6 +205,7 @@ if(RIPES_BUILD_VERILATOR_PROCESSORS)
     set(VERILATOR_LIB verilator_lib)
     add_library(${VERILATOR_LIB} ${VERILATOR_SOURCES} ${VERILATOR_HEADERS})
 endif()
+endif(0)
 
 # Platform specific pre-target setup(s)
 if(${APPLE})
@@ -208,25 +214,29 @@ elseif(${WIN32})
     set(SYSTEM_FLAGS WIN32)
 endif()
 
+set(NEURON_LIB neuron_lib)
+
+if(0)
 add_subdirectory(external)
 
 # Fix the name of the ripes library.
 set(RIPES_LIB ripes_lib)
-set(NEURON_LIB neuron_lib)
 set(ISA_LIB isa_lib)
 add_subdirectory(src)
+endif(0)
+
 add_subdirectory(neuron)
 
 add_subdirectory(demos)
 
 
 if(BUILD_DOCS)
-  file(COPY ${CMAKE_SOURCE_DIR}/doc/dynsections.js DESTINATION ${CMAKE_SOURCE_DIR}/docs)
-#  file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/docs")
   find_package(Doxygen)
   add_subdirectory(doc) # The doxygen documentation
+  set(doxyfile_in "${CMAKE_SOURCE_DIR}/doc/Doxyfile.in")
 endif(BUILD_DOCS)
 
+if(0)
 set(APP_NAME NeuRipes)
 qt_add_executable(${APP_NAME} ${SYSTEM_FLAGS} ${ICONS_SRC} ${EXAMPLES_SRC} ${LAYOUTS_SRC} ${FONTS_SRC} main.cpp)
 
@@ -234,15 +244,18 @@ qt_add_executable(${APP_NAME} ${SYSTEM_FLAGS} ${ICONS_SRC} ${EXAMPLES_SRC} ${LAY
 target_link_libraries(${APP_NAME} PUBLIC Qt6::Core Qt6::Widgets)
 # Link Ripes library
 target_link_libraries(${APP_NAME} PUBLIC ${RIPES_LIB} ${NEURON_LIB} SystemC::systemc)
+endif(0)
 
+if(0)
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten")
     # https://doc.qt.io/qt-6/wasm.html#asyncify
     target_link_options(${RIPES_LIB} PUBLIC -sASYNCIFY -Os)
     target_link_options(${APP_NAME} PUBLIC -sASYNCIFY -Os)
 endif()
+endif(0)
 
-include(Summary)
 
+if(0)
 if(UNIX AND NOT APPLE) #Define the LINUX variable before testing it
     set(LINUX TRUE)
 endif()
@@ -261,3 +274,6 @@ endif()
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/appdir/usr/
     DESTINATION ${CMAKE_INSTALL_PREFIX}
 )
+endif(0)
+
+caffe_print_configuration_summary()

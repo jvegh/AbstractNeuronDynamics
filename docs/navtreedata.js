@@ -26,12 +26,12 @@ var NAVTREE =
 [
   [ "Abstract Neuron Dynamics V0.0.6 @ 2024.09.20", "index.html", [
     [ "Overview", "index.html", null ],
-    [ "Getting started", "GettingStarted.html", null ],
     [ "Chapters", "modules.html", "modules" ],
     [ "Class List", "annotated.html", "annotated" ],
     [ "Cited references", "citelist.html", null ],
     [ "Glossary", "GLOSSARY.html", null ],
-    [ "Visitor Statistic", "^https://statcounter.com/p12506963/?guest=1", null ]
+    [ "Release notes", "ReleaseNotes.html", null ],
+    [ "Visitor Statistic", "^https://statcounter.com/p13027023/summary", null ]
   ] ]
 ];
 

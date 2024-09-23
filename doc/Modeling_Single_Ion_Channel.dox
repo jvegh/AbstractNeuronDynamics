@@ -1,0 +1,115 @@
+/**
+\page  MODELING_SINGLE_ION_CHANNEL_PAGE Ion channel
+
+@defgroup MODELING_SINGLE_ION_CHANNEL Ion channel
+       @ingroup MODELING_SINGLE
+
+
+@section MODELING_SINGLE_ION_CHANNEL Ion channel
+
+'The function of ion channels is to allow specific inorganic ions
+to diffuse rapidly down their electrochemical gradients across the lipid bilayer...
+Nerve cells (neurons), in particular, have made a specialty of using ion channels,
+and ... use a diversity of such channels for receiving, conducting, and transmitting signals...
+Ion channels cannot be coupled to an energy source to perform active transport,
+so the transport that they mediate is always passive (“downhill”)' @cite MolecularBiology:2002.
+
+Recall that, in physics, the <i>drift speed</i>, the <i>electric repulsion-assisted speed</i>
+and the <i>potential-accelerated speed</i> of
+ions differ by  several orders of magnitude
+(<a href="https://www.ncbi.nlm.nih.gov/books/NBK26910/">
+as a consequence, "transport efficiency of ion channels"</a>
+is  \f$10^5\f$ times greater than the fastest rate of transport mediated by any known carrier protein)
+@cite MolecularBiology:2002.
+They are either closed or open without
+a noticeable transition state, but as discussed in @cite ThreeStateUnidirectional:2004
+@cite MarkovianIonChannel:2005, for their adequate description three states are needed:
+they can also be in inactivated state.
+We can consider the channel operation as "infinitely fast" compared
+to the speed of processes in front and behind of the channel: the massive difference in speeds
+explains why ion channel opening and closing resembles a 'digital
+operating mode'.
+@link PHYSICS_SPEEDS The different speeds@endlink
+play a significant role in the correct operation and
+the cooperation of different neuronal objects, including ion channels
+in the walls of membranes and axons.
+
+Experimental evidence shows that although
+ <a href="https://www.ncbi.nlm.nih.gov/books/NBK26910/bin/ch11f32.gif">
+'the durations of channel opening and closing vary greatly,
+the rate at which current flows through an open channel is practically constant'</a> @cite MolecularBiology:2002.
+The presence of the two layers on the opposite sides of the membrane
+actually implements the control square-ware signal on the figure.
+Those layers also explain why the ion channels (in a statistical sense)
+behave as digital, despite that the individual ion channels are not digital.
+
+
+It is hard to separate the operation of the individual channels
+from the operation of their population in the walls of membranes (layers), see also axon and neuronal membrane.
+When they
+pass the channel, they face two effects on the two sides of the membrane.
+On the side of departure with high concentration, they suddenly ``empty''
+the thin layer in the immediate proximity of the membrane. On the side of arrival with low concentration,
+again, the arrived ions suddenly form a ``filled'' thin layer.
+The ions in both segments can move only with their corresponding diffusion speed
+(in the order of \f$10^{-4}\ m/s\f$) but they experience each other's electric repulsion
+that can speed up their speed to the range \f$1\ m/s\f$.
+(BTW: this effect can be misinterpreted
+as a sudden ion adsorption @cite Hodgkin-HuxleyAdsorption:2021 on
+the surface of the membrane.) The final effect resembles an electric condenser:
+for a short time, ion-rich and ion-poor layers are formed on the two sides
+of the semipermeable isolator membrane.
+
+
+Although the individual
+ion channels open and close 'randomly', the repulsion force
+on the two surfaces of the membrane acts as an additional valve.
+As \cite MolecularBiology:2002 discusses,
+'this potential difference ... exists across a plasma membrane only about \f$5\ nm\f$ thick,
+so that the resulting voltage gradient is about \f$100,000\ V/cm\f$'.
+In a statistical sense, part of the ion channels can be open
+after the population members received the 'open' signal, part of the population can be closed
+or inactivated,
+but when the layer enables, the ions in the proximal layer
+can escape to the other side of the membrane.
+
+The rapid influx of ions
+causes a sudden increase in the potential on the intracellular side.
+Conversely, the ions' removal from the layer on the extracellular
+side near the membrane 'empties' the layer, and the after-diffusion
+(despite the large concentration difference) with the low drift speed
+(even if it is assisted by the repulsion of the fellow ions)
+takes time. Because of the slow after-diffusion, the transfer stops well before
+the ion channels get inactivated.
+See also the operation of clamped axons: removing the surface ion layer enables the membrane
+to prolong its 'open' state (again, in statistical sense).
+Basically, the diffusion speed in those layers
+(in a statistical sense) and the lack or presence of ions in the proximal layer,
+defines the 'open' and 'closed' states of the channel population.
+The ion channels have three states, but their population has only two.
+
+This behavior explains why ion currents
+start up with a sharp exponential rise @cite SodiumCurrentDelay:2006
+(fitting polynomial lines @cite HodgkinHuxley:1952
+to those critical regions was a big mistake: it hides the sudden change @cite SodiumCurrentDelay:2006
+caused by the state change (opening) of the ion channels, and that
+the 'rising edge' is actually described by an exponential increase); why initiating an
+\gls{AP} has precise timings (both the charge-up signal and pressing
+ions through the \gls{AIS}); why axonal arbors can provide a precise
+`ComputingBegin' signal. For the details, see the following subsections.
+@link MEASURING_CONDUCTANCE Measuring the conductance@endlink of ion channels, requires special care.
+It is easy to make a systematic error, given that the measurement device can affect the result.
+
+Notice that the charged layers mean that a population
+of ion channels must cooperate. Although the individual
+ion channels open and close 'randomly', the repulsion force
+on the two surfaces of the membrane acts as an additional valve. In a statistical sense, some ion channels are open
+after the population members received the 'open' signal,
+but when they are open, only the ions in the proximal layer
+can escape to the other side of the membrane.
+
+
+Back:  @link MODELING_SINGLE_PHYSICAL Neuron's physics   @endlink
+Continue: @link  MODELING_SINGLE_LAYERS Dynamic ion layers @endlink
+Up: @link MODELING MODELING @endlink
+*/

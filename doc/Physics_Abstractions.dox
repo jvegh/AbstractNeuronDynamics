@@ -1,0 +1,57 @@
+/** \page PHYSICS_ABSTRACTIONS_PAGE Physics abstractions
+
+@defgroup PHYSICS_ABSTRACTION Abstractions
+@ingroup PHYSICS_NOTIONS
+
+@section PHYSICS_ABSTRACTIONS Abstractions and introductory
+
+We give a short introduction to @link PHYSICS_Description the ideas we use to describe @endlink nature.
+To describe a <i>well defined</i> range of phenomena, we use approximations and omissions,
+and we create abstractions which can then be described by known Laws using
+the universal language of mathematics.  For example, we use the abstraction "charge"
+and "charge carrier" for electrons, protons, ions, etc., and we can describe the
+electricity-related abstract features of the carriers.
+We must not forget, however, that those Laws have been
+derived for abstractions based on approximations and omissions, and so they also have
+their range of validity. To apply  Laws from different fields of science,
+we must scrutinize whether all Laws we use are applied within their range of validity.
+
+Biology, and especially neuronal operations, produces examples where wrong omissions
+in the complex processes results in absolutely wrong results. In those cases
+some initial resemblance between our theoretical predictions and our phenomena exist, the success
+in simple cases provides no guarantee that the model was appropriate. Finally,
+all Laws are approximations and the accuracy of verifying their predictions is limited.
+Several theories can describe some phenomenon with the required accuracy.
+We also show in section @link PHYSICS_SPEEDS about the finite interaction speeds@endlink
+that the mostly known Laws (from Newton, Coulomb, Kirchoff, etc.) are
+also approximations. They have their range of validity, although it is often
+forgotten.
+
+One such neuralgic point of omissions and approximations is @link PHYSICS_SPEEDS_FINITE the vastly different
+interaction speeds@endlink;
+furthermore, that where the speed is considered at all, <i>the same speed is assumed for all interactions</i>.
+The Laws are abstract in the sense that, say, the objects in the Laws of physics have either mass or
+electric charge, but not both. It is the researcher's task to decide
+which combination of  Laws
+can be applied to the given condition. For example, one can assume in most cases
+that the speeds sum up linearly, except at very high speeds.
+Biology provides excellent case studies where different interactions
+shape the phenomenon and special care must be excercised.
+We give a short review of @link PHYSICS_SPEEDS history and kinds of interaction speeds@endlink.
+
+Neuronal operation is at the boundary where sometimes, in the same phenomenon,
+one interaction can be interpreted at macroscopic level, some another
+must already be interpreted at microscopic level.
+Given the vital role of charge and current in neuronal operation,
+we give their precise interpretation.
+Special emphasis is given to  the true
+@link MEASURING_CONDUCTANCE interpretation of conductance@endlink,
+one of the central terms in biology.
+
+
+Back:  @link  PHYSICS_NOTIONS Physics introduction @endlink
+Continue: @link  PHYSICS_SPEEDS Speeds @endlink
+Up: @link PHYSICS_INTRODUCTORY Physics notions @endlink
+
+
+*/

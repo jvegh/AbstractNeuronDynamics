@@ -1,0 +1,168 @@
+/**
+\page  MODELING_SINGLE_LAYERS_PAGE Dynamic ion layers
+
+@defgroup MODELING_SINGLE_LAYERS Dynamic ion layers
+       @ingroup MODELING_SINGLE
+
+@section MODELING_SINGLE_LAYERS Dynamic ion layers
+
+Semipermeable membranes, with ion channels in their walls,
+separating electrolyte segments with ion concentrations
+differing by orders of magnitude,
+play a special role in the neuronal electric operation.
+It is at least hard to interpret the operation of the individual channels without understanding their
+interaction with the electrolyte and the semipermeable membrane.
+
+In the <i>resting state</i> (without a voltage offset around the ion channels),
+the ion channels keep the balance between the separated segments.
+The case drastically changes if an additional potential gradient appears.
+In that case (part of) the ion layer, formed on the
+membrane's surface due to the charge arrived through the ion
+channels, is  continuously removed by the macroscopic ion current from the immediate
+proximity of the ion channels. The layer gets saturated at a later time and
+the conditions of transferring ions
+through the channels persist  for a longer period, so they remain open; enabling a continuous
+ion inflow (a macroscopic current, (see the
+discussion about  and clamping dynamic operation using  \gls{AIS}).
+The voltage-controlled ions channels open when
+on the lower concentration side the local voltage exceeds some threshold value.
+We consider the external concentration as constant: the extracellular
+space is infinitely large, and its concentration remains by orders
+of magnitude higher than the internal one.
+
+However, when an ion channel is open (meaning that ions from the high concentration side can
+pass through them to the low concentration side),   for a short period,
+the ions change the <i>local</i> concentration and potential of the electrolyte in the layers in the
+proximity of the entrance and exit
+of the channels.
+The repulsion and attraction forces
+on the two surfaces of the membrane around the channel's exit act
+as an additional valve on the ion transport:
+the population
+of ion channels must cooperate with them, given that the ions move 'downhill'.
+The ion channels have three states, but their population has only two.
+Fundamentally, the lack or presence of ions in the proximal layers,
+defines the 'open' and 'closed' states of the channel population.
+
+The individual ion channels open and close in a stochastic way.
+In a statistical sense, part of the ion channels can be open, another part can be closed or inactivated.
+However, only when the layer's potential enables, can the ions in the proximal layer
+escape to the other side of the membrane, even if the channel is open.
+In the lack of that offset voltage (and that layer), the ion channels have no more reason to re-open.
+That is, primarily the presence of the layers on the two sides of the membrane defines the ion inflow,
+and the individual ion channels  can freely (re)open, close of inactivate
+until the layer provides a sufficiently large potential offset.
+This transient state is the key to understanding the dynamic operation of neurons.
+
+There is a strong electric field on the boundary of the segments.
+As @cite MolecularBiology:2002 discusses,
+'an electrical potential difference about \f$50–100 mV\f$ ... exists across a plasma membrane
+only about \f$5\ nm\f$ thick, so that the resulting voltage gradient is about \f$100,000\ V/cm\f$'.
+In their 'off' state the voltage-controlled ion channels are mechanically closed,
+so the ions cannot follow that gradient.
+However, when (due to the collected synaptic charge or the large slope
+of the arriving spike @cite LosonczyIntegrative:2006 or clamping)
+a voltage offset appears at the  ion channel, it opens, ions rush in
+from the extracellular segment into the intracellular one due to the huge gradient.
+(This means a high speed, that is, a 'fast' current,  Stokes Law.)
+
+However, upon arriving at the other side of the  membrane, they experience that the
+electric field disappears, so the stream of ions stalls. The stalled ions
+increase the local potential (see section @ref MODELING_SINGLE_ELECTRIC_DIFFERENTIATOR)
+around the exit of the channel
+and the ions will move along the parallel potential gradient, toward neighboring
+channel exits. The received potential increase opens that channel, too,
+so the the potential increase quickly escalades (in an avalanche-like way @cite NeuronalAvalanches:2003)
+to the entire surface of the membrane.
+This process creates an ion-rich layer in the proximity of the membrane
+on the intracellular side and leaves behind an ion-poor layer
+on the opposite side. At the end of the process, the potential in the layer
+on the intracellular side temporarily reaches
+the  potential inside the bulk of the extracellular side.
+The ions in the layer experience two forces: in the direction
+parallel to the membrane's surface the electric repulsion due to the fellow ions
+in the same layer and  in the perpendicular direction the attraction of the ions
+in the opposite layer.
+
+The first force acts in distributing the potential uniformly  over the surface,
+and <i>in this way (per definitionem) an ion
+current flows in parallel with the surface</i>. This ion current is slow: the ions are moving
+in a viscous solution under the effect of a potential gradient (see Stokes Law), if any.
+In the lack of external potential, it is of type relaxation.
+In the presence of a current drain (such as \gls{AIS} on the membrane or the axonal arbor on the axon),
+a potential difference is present and an exponential discharge function of type \f$exp(-\beta *t)\f$
+describes that current, where \f$\beta\f$ is a time constant.
+
+The second one acts against the diffusion and prevents the ions to leave the layer.
+In this way the membrane will "store" the ions in a condenser-like way.
+Until that current stops (due to the saturation of the layer),
+<i>an ion current will flow in the direction perpendicular to the surface</i>.
+That current is "fast" only within the ion channel until the driving force disappears,
+and becomes "slow" in the electrolyte layer, where the received charge saturates the layer.
+A current of form \f$(1-exp(-\alpha *t))\f$ can describe the saturation,
+where \f$\alpha\f$ is a time constant. Recall that the current's speed
+depends on the voltage gradient, so the intensity and the temporal behavior of the
+currents are different, even between the "parallel" and "perpendicular" current directions,
+given that two different mechanisms control the process,
+although the motion of the same charged particles is considered.
+As the result of the two processes, the charge distribution can be described
+by a function of type \f$(1-exp(-\alpha *t))*exp(-\beta *t)\f$.
+Although the timing constants change
+as the potential changes, we use the approximation that
+the layer is thin, furthermore, that its concentration and potential has zero gradient
+in direction perpendicular to the membrane, but
+there exists a steep potential gradient between the layer
+and the rest of the segment.
+
+
+
+The 'caps' on the top of the ion channels act as
+individual regulators, and the ion channels continuously and randomly, open, close and inactivate.
+Their statistical population enables a
+macroscopic ion inflow throughout the surface and the electric repulsion distributes
+the charge over the surface, tending to make the local potential uniform over the voltage.
+The ion layer with that potential acts as an additional valve on the ion transmission across the segments.
+
+
+This behavior explains why ion currents across the membrane
+start up with a sharp exponential rise @cite SodiumCurrentDelay:2006
+(one of the big mistakes was fitting polynomial lines @cite HodgkinHuxley:1952
+to those critical regions, comprising both exponential and no-current regions:
+it hides the sudden change of membrane's current @cite SodiumCurrentDelay:2006
+caused by the state change of the ion channels); why initiating an
+\gls{AP} has precise timings (both the charge-up signal and pressing
+ions through the \gls{AIS}); why axonal arbors can provide a precise
+``Begin Computing'' signal.
+Measuring the conductance of ion channels, requires special care.
+As discussed in section on @link MEASURING_CONDUCTANCE measuring conductance@endlink, it is easy to
+make a systematic error, given that the measurement can affect the
+result.
+
+
+It is hard to separate the operation of the individual channels
+from the operation of their population in the walls of membranes (layers),
+see also axon and neuronal membrane.
+When the ions pass the channel, they face two effects on the two sides of the membrane.
+On the side of departure with high concentration, they suddenly ``empty''
+the thin layer in the immediate proximity of the membrane. On the side of arrival with low concentration,
+again, the arrived ions suddenly form a ``filled'' thin layer.
+The ions in both segments can move only with their corresponding diffusion speed
+(in the order of \f$10^{-4}\ m/s\f$) but they experience each other's electric repulsion
+that can speed up their speed to the range \f$1\ m/s\f$.
+(BTW: this effect can be misinterpreted
+as sudden ion adsorption @cite Hodgkin-HuxleyAdsorption:2021 on
+the surface of the membrane.) The final effect resembles an electric condenser:
+for a short time, ion-rich and ion-poor layers are formed on the two sides
+of the semipermeable isolator membrane.
+The two layers
+attract each other, so the ions in the layers can diffuse toward their respective neighboring layers
+only moderately.
+
+
+
+Back:  @link MODELING_SINGLE_ION_CHANNEL Ion channel @endlink
+Continue: @link  MODELING_SINGLE_AIS Axon Initial Segment @endlink
+Up: @link MODELING MODELING @endlink
+
+
+*/

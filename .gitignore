@@ -1,5 +1,5 @@
 # Node artifact files
-3rdParty/QCustomPlot
+3rdParty/
 build/
 .GenComp_token.txt
 .github-recovery-codes.txt

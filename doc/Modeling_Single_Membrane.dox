@@ -1,0 +1,406 @@
+/**
+\page  MODELING_SINGLE_MEMBRANE_PAGE Membrane
+
+@defgroup MODELING_SINGLE_MEMBRANE Membrane
+       @ingroup MODELING_SINGLE
+
+@section MODELING_SINGLE_MEMBRANE Modeling membrane
+
+For the sake of the discussion in this section (explaining semi-quantitatively
+<i>how</i> and <i>why</i> @link MODELING_ACTION_POTENTIAL action potential@endlink is created)
+we assume the neuron's membrane as a long, narrow and thin rectangular isolating surface
+with controlled ion channels in its wall,  junctions  at different points for
+controlled synaptic current inputs, furthermore a specific point for output current/voltage,
+the Axon Initial Segment (\gls{AIS}). The current flowing on the membrane's surface comprises ions,
+which represent a kind of @link PHYSICS_SLOW_CURRENT slow current@endlink.
+When we use the shorthand wording 'on the surface' in connection with ion currents,
+we mean that 'in the layer of the electrolyte in the immediate proximity of the isolating
+semipermeable membrane'.
+
+On the surface of the isolating membrane the electric processes attempt to
+maintain equal potentials.
+The \gls{AIS} represents a permanent (but voltage-dependent)
+drain current \f$ I_{AIS}\f$, the synaptic inputs \f$ I_{SYN,i}\f$ contribute (time-dependent and gated) continuous input currents;
+with a characteristic time comparable to that of the characteristic time of the action pontential.
+Furthermore, there is a delta-function-like contribution due to the ions rushing
+into the intracellular space when the ion channels in membrane's wall open at
+reaching the threshold voltage.
+In experimental investigations, a clamping voltage \f$ I_{CLAMP}\f$ is switched
+to an axon (it @link MODELING_SINGLE_AXON  generates current@endlink,
+despite that it is intended to be a voltage generator)
+or \f$ I_{DIRECT}\f$ current is introduced directly into the cell.
+
+
+Once the ion channels in the membrane's wall open,
+ions from the adjacent layer in the extracellular space enter the membrane.
+The ions entering the intracellular
+surface promptly (in a very small fraction of millisecond)
+increase the local potential, so they, in an avalanche-like way,
+open all @link MODELING_SINGLE_ION_CHANNEL ion channels@endlink in their proximity, in a very short period.
+'The description just given of an action potential concerns only a small patch of plasma membrane.
+The self-amplifying depolarization of the patch, however,
+is sufficient to depolarize neighboring regions of membrane,
+which then go through the same cycle. In this way,
+the action potential spreads as a traveling wave from the initial site of depolarization
+to involve the entire plasma membrane' @cite MolecularBiology:2002.
+That is, the depolarization happens in an avalanche-like way @cite NeuronalAvalanches:2003.
+
+
+
+The ions on the extracellular side move with their diffusion speed,
+maybe assisted by a mutual repulsion (if a gradient exists),
+but they are assisted by the enormous voltage gradient when they pass the open ion channels.
+The  enormous speed difference results in forming an 'empty' layer on the extracellular side,
+and a 'filled' layer on the intracellular side.
+The ion inflow stops shortly due to the lack of ions,
+the ions channels close and remain inactivated for some time
+(a larger fraction of millisecond).
+There is no need to open some \f$K^+\f$ channels (BTW: assuming an outward
+\f$K^+\f$ current is against charge conservation) and control
+\f$K^+\f$ and \f$Na^+\f$ ion channels: the different interaction speeds and
+finite sizes do all the business.
+
+As @cite MolecularBiology:2002 discusses in connection with ions' passage
+through the ion channels, 'mutual repulsion between the two ions
+is thought to help move them through the pore into the extracellular fluid',
+given that the distance between those ions is in the range of a small fraction
+on \f$nm\f$. We assume that that repulsion can create a thin 'charged' layer
+in the range of \f$0.1\ nm\f$ on top of the few  \f$nm\f$ thick membrane.
+Furthermore, the repulsion can effectively assist both advancing the ions
+along the surface and keeping membrane's surface equipotential.
+As we described, the \f$Na^+\f$ ions form for in a
+short time (a small fraction of millisecond) a thin \f$Na^+\f$-rich layer on the
+intracellular side of the membrane (this effect is misinterpreted
+as ion adsorption @cite Hodgkin-HuxleyAdsorption:2021),
+and correspondingly, a \f$Na^+\f$-poor layer on the extracellular side.
+The 'empty' layer on the extracellular side can be filled up with ions
+from the enormous pool, and also the ions at the very first segment of
+axon flow into the extracellular part (see for example @cite HodgkinHuxley:1952, Figure 18).
+The extracellular circle begins with the rushed-in ions from the extracellular side
+that ions 'disappear' into the intracellular side and 're-appear'
+(with a \f$0.5\ ms\f$ delay, see the same figure). The charge conservation
+is valid only with a time delay.
+On the intracellular side of the membrane, ions 'appear' when the \f$Na^+\f$
+channels open and the ions 'disappear' through the \gls{AIS} with a \f$0.5\ ms\f$ delay.
+<i>The picture is consistent, the charge conservation is valid,
+but only if we take into account that the ion current is slow</i>
+@link PHYSICS_SPEEDS_FINITE as we described@endlink.
+See also the \ref fig_The-ghost-image_AP and its explanation.
+
+
+
+
+The ions  entering the membrane
+(in some sense, in the direction perpendicular to the surface of the membrane)
+charge the membrane to its saturation value with a large time constant. The charges, under the effect of
+electrostatic repulsion and the voltage gradient due to the current drain
+at the \gls{AIS}, start to move along the dendritic surface, forming a
+macroscopic slow current. The charges 'created' at different distances from the \gls{AIS}
+need different times to arrive at it, creating charge, mechanical, etc. waves on the surface
+@cite MechanicalWaves:2015. We assume that the neuron'al's membrane is equipotential,
+but its dendritic tree is not equipotential (essentially, this is the implicit assumption
+of the multi-compartment models @cite MultiCompartmentNeurons:2023).
+
+
+The membrane is considered as an
+equipotential insulator piece surface, and its operation is thought
+to be closely aligned with that of an electric <i>RC</i> circuit.
+That model, because of choosing the wrong way of connecting the elements in the circuit,
+needs introducing fake physical and enzimatical mechanisms
+as well as defining mathematical relations between independently operating
+biological components.
+Unlike that model, our abstract model considers the correct behavior
+of different interactions operating those abstract components, and can explain
+the operation of a neuron from the first principles of science. Among others, that
+controling the ion channels in membranes's wall, inhibiting its synaptic inputs
+in well-defined phases of creating an action potential,
+emitting an @link MODELING_ACTION_POTENTIAL action potential@endlink  \gls{AP}
+with its precise shape and timing, are a natural consequence of
+receiving finite-speed currents by a finite-size neuronal membrane.
+
+
+
+@subsection MODELING_SINGLE_MEMBRANE_RUSHEDIN The rushed-in current
+
+
+The most intense current in a neuron is its charge-up current.
+The membrane's chargeup current (in our approximation) is an instant current:
+the ions rush in into the intracellular space in a very short time.
+The ions rushing in into the intracellular space, on the entire surface of the membrane,
+actually pass the ion channel  proportional to the vast gradient
+across the membrane surfaces (in our approach: instantly)
+and they quickly reach a saturation level (in the thin layer they create on the top
+of the membrane on the intracellular side), meaning that both the voltage due to the rushed-in current
+and the current that can flow away will be saturated, with a short time constant.
+Given that the elevated membrane potential is connected to the  \gls{AIS},
+a current can start. However, only the ions
+in the segment in front of the \gls{AIS} can pass
+its ion channels, so the ions farther from \gls{AIS} first have to reach
+that segment, that takes time.
+These two processes happen at the same time, so the \gls{AIS}  will see
+the resulting current
+
+\f{equation}{
+I_{MEMB}(t,x) = (1-\exp(-a*t))*exp(-b*t)
+\label{eq:MembraneCurrent}
+\f}
+
+where \f$a\f$ and \f$b\f$ are time constants describing
+the charge-up and discharge processes.
+The inflow is extremely quick and the ions shall diffuse to a small distance
+(as we estimate, \f$\approx 10^{-10}\ m\f$ with their speed \f$10^{-5}\ m/s\f$,
+so probably the repulsion of ions defines the saturation time constant \f$a\f$)
+in the proximity of the exit of the ion channel.
+The ion current intensity decays with time constant \f$b\f$, closely related
+to ions speed through the \f$I_{AIS}\f$, see sections @ref MEASURING_CURRENT and @ref MODELING_SINGLE_ELECTRIC.
+
+
+When the ion channels in membrane's wall open,
+ions from the adjacent layer in the extracellular space enter the membrane.
+The ions entering the intracellular
+surface promptly (in a very small fraction of millisecond)
+increase the local potential, so they in an avalanche-like way
+open all @link MODELING_SINGLE_ION_CHANNEL ion channels@endlink in their proximity, in a very short period.
+'The description just given of an action potential concerns only a small patch of plasma membrane.
+The self-amplifying depolarization of the patch, however,
+is sufficient to depolarize neighboring regions of membrane,
+which then go through the same cycle. In this way,
+the action potential spreads as a <i>traveling wave</i> from the initial site of depolarization
+to involve the entire plasma membrane' @cite MolecularBiology:2002.
+That is, the depolarization happens in an avalanche-like way @cite NeuronalAvalanches:2003
+and the evidence of existance of traveling waves @cite MechanicalWaves:2015 is known since decades.
+
+
+
+
+@subsection MODELING_SINGLE_MEMBRANE_AIS The AIS outflow current
+The membrane is an exceptionally good isolator (in contrast with the statements
+about the 'leaking current'), but at one end, at the \gls{AIS}
+the ions can exit to the extracellular space (the membrane is "leaking"
+only in the picture where a distributed resistance in parallel with
+a distributed condenser is assumed). The resistance/conductance of
+\gls{AIS} limits the current. The current outflow decreases the potential
+and the ions from the higher potential will move (in form of a macroscopic current) towards
+the \gls{AIS}. Two factors regulate the process. The first one is how quickly the
+ions can flow out through \gls{AIS}: the current is proportional to the
+potential difference above resting potential. The second one is how quickly the ions can
+travel towards the potential gradient: @link MEASURING_CURRENT the current is proportional  to
+the local driving force@endlink.
+
+The \gls{AIS} represents a non-distributed discrete resistance \f$R_M\f$,
+and correspondingly the current
+
+\f{equation}{
+I_{AIS} =  - \frac{V_M-V_{rest}}{R_M} \label{eq:I_AIS}
+\f}
+(it is an outward current, so it is negative).
+As long as a potential difference
+exists between the membrane and the extracellular space,
+an ion current will flow through the \gls{AIS}.
+
+The presence of \gls{AIS} leads to "leaking": a
+@link PHYSICS_SLOW_CURRENT slow current@endlink (represented by slow ions)
+on the surface of the intracellular side
+will flow in parallel with the surface into the \gls{AIS}.
+Given that those ion channels have no voltage threshold,
+the current can flow at any potential difference,
+creating the illusion of "leaking".
+
+
+
+
+@subsection MODELING_SINGLE_MEMBRANE_SYNAPTIC Synaptic currents and refractoriness
+
+
+As we know, after reaching the membrane's threshold potential,
+the axonal arbors stop emitting ions into the membrane.
+(The collected charge will not change any more,
+and so will their collection time: the computational result is ready.)
+The ions need to propagate against membrane's electric repulsion and,
+because of the 'downhill' method of propagation, they
+cannot enter the membrane anymore until its potential decreases below the threshold level again
+(this period is known as the 'absolute refractory' period);
+the rest of the spike remains in 'pending' state:
+it cannot leave the axon of the presynaptic neuron and cannot enter the membrane.
+
+After reaching the threshold, the ion rush-in into the membrane continues for a while, and  the membrane's potential increases.
+The increasing potential drives a current through \gls{AIS} that decrases membrane's potential
+(because of the finite speed of ions, they appear with a delay both on the membrane and on the \gls{AIS}).
+
+Another famous point is that when the the membrane potential decreases below the threshold potential,
+the synaptic inputs can contribute again: the neuron is in phase 'Relaxing' again.
+This period is mistakenly identied as 'relative refractory' period. Actually,
+this state is not a 'refractory'; it is in stage 'Relaxing', but starting with an elevated membrane potential.
+It begins earlier than the first output appears on the \gls{AIS}.
+The slow axonal currents from the re-opened arbors must reach \gls{AIS},
+so they appear there with a delay (from different distances, at different times),
+creating the <i>illusion that inputs are re-enabled only when the membrane voltage
+is about its hyperpolarized voltage value</i>.
+
+Given that the neuron is actually in a 'Relaxing' stage,
+-- due to re-opening the axonal inputs -- the pending inputs can contribute again, this time
+to the 'next' spike. In this period the initial neuronal potential differs
+from its resting value: it implements a short-term (time-dependent) <i>neuronal memory</i>,
+see also Figure \ref fig_AP_Conceptual.
+The pending contribution is the larger the closer was the time of closing the arboral gates
+to the arrival of the synaptic input; a plausible explanation of Hebb's observation.
+Althought the 'pending' current can diffuse over the dendritic tree,
+maybe over different synapses, it can contribute to the 'next' spike.
+
+
+
+With introducing the idea of 'slow current', we arrive at a clear interpretation
+of the observed refractory period. The synaptic inputs are closed when membrane's potential is above
+the threshold potential, and they are open below that value. This distinction
+may be important in the presence of 'artificial' currents (clamping and patching):
+that current adds a potential offset to the voltage level;
+furthermore, the patching current may arrive through a 'valved' axon.
+If that offset becomes higher than the threshold, no synaptic input can be received.
+Actually, the refractory period reflects an 'all or nothing' feature of the synapses:
+they are either open or closed, without a third state.
+
+See also
+<a href="https://neuronaldynamics.epfl.ch/online/Ch2.S2.html"> membrane refrectoriness </a>
+and figure
+<a href="https://neuronaldynamics.epfl.ch/online/x39.png"> membrane refrectoriness </a>
+
+
+(Notice in Figure
+\ref fig_NeuronElectricOperationSummary that although
+the \gls{AP} with its hyperpolarization arrives to the synapse, the \gls{PSP}
+is not hyperpolarized.)
+
+
+
+@subsection MODELING_SINGLE_MEMBRANE_OTHER The physical picture
+
+
+
+The ions  entering the membrane
+(in some sense, in the direction perpendicular to the surface of the membrane)
+charge the membrane to its saturation value with a large time constant. The charges, under the effect of
+electrostatic repulsion and the voltage gradient due to the current drain
+at the \gls{AIS}, start to move along the membrane's surface, forming a
+macroscopic slow current. Given that the electrostatic interaction is very strong,
+we may assume that the neuronal membrane is equipotential,
+except the region immediately in front of the \gls{AIS} where the
+current drain works. The charges 'created' at different distances from the \gls{AIS}
+need different times to arrive.
+
+
+However, their time course is different: the slow currents need different
+travel time and the different contributions have different time distributions.
+In the case of biology, the gating mechanisms complicate the process
+The membrane charge-up starts only when the membrane's voltage is above
+the membrane's threshold voltage, and conversely, the synaptic inputs
+are active only when the membrane's voltage is below the membrane's threshold voltage.
+The patching and clamping contributions have external control.
+The resulting output voltage measurable on the \gls{AIS} simply comprises
+@link MODELING_SINGLE_ELECTRIC_OPERATION the sum of all those contributions@endlink. The time derivatives of the different voltages
+can be calculated using different physical models.
+
+
+Unlike that model, our abstract model considers the correct behavior
+of different interactions operating those abstract components, and can explain
+the operation of a neuron from the first principles. Among others, that
+controling the ion channels in membranes's wall, inhibiting its synaptic inputs
+in well-defined phases of creating an action potential,
+emitting an @link MODELING_ACTION_POTENTIAL action potential@endlink  \gls{AP}
+with its precise shape and timing, are a natural consequence of
+receiving finite-speed currents by a finite-size neuronal membrane.
+<a href="https://neuronaldynamics.epfl.ch/">Neuronal dynamics</a>
+
+The "leaking current" \f$ I_{AIS}\f$ is active all the time. It is proportional to the difference
+of the <i>potential at \gls{AIS} above the resting potential</i>,  and the ion channels
+in  \gls{AIS} can be characterized by a discrete \f$R\f$  resistance value.
+The synaptic inputs \f$ I_{SYN,i}\f$  are  active only in the charge-up
+and relative refractory period (actually, when <i>the membrane potential
+is below the threshold value</i>: otherwise the ions cannot enter the intracellular space
+against the higher membrane potential)
+
+
+
+The slow ions (representing the charge-up and synaptic entry currents,
+as well as the 'artificial currents' due to patching or clamping)
+need time to traverse from
+their entry point to the \gls{AIS}.
+In this abstraction there  is no place for an ideal conductor wiring.
+In some cases these differences matter and
+the classic neuronal membrane model commonly used in biology
+is misleading; especially the picture  that suggests
+that resistance and capacitance are both discributed and are in parallel;
+there is no place for \gls{AIS} as a separated (and discrete) element.
+See also discussing the <a href="https://neuronaldynamics.epfl.ch/online/x12.png">electrical properties of neuron
+</a> "The cell membrane acts like a capacitor in parallel with a resistor". No, it is wrong:
+the circuit is serial.
+
+From this point on, all discussion is wrong:
+"Because the insulator is not perfect, the charge will, over time, slowly leak through the cell membrane."
+No, the insulator is perfect (BTW, there is no mechanism that could conduct);
+but the  \gls{AIS} is a good conductor, and it is always on since
+it is in series with the disctributed condenser.
+If we "split the driving current into two components" @cite HodgkinHuxley:1952,
+we are wrong: the circuit has serially switched components, we cannot cut it.
+Not much sense to analize <a href="https://neuronaldynamics.epfl.ch/online">\f$\delta\f$ functions, Fourier series, and so on</a>.
+The conclusion of the elegant discussion is also wrong:
+'we no longer have to worry about the time course of the membrane potential
+during the application of the current pulse:'
+'the membrane potential simply jumps at time \f$t=0\f$  by an amount \f$q/C\f$'.
+In this picture, has no sense to ask: <i>why the potential jumps</i>?
+Especially, without change of charge.
+Yes, the fact that the neuronal circuit is a <i>serially switched \f$RC\f$ oscillator</i>,
+and not a parallel one, has far-reaching consequences.
+
+
+
+@subsection MODELING_SINGLE_MEMBRANE_CONDENSER The neuronal condenser
+
+As discussed in connection
+with @link MODELING_SINGLE_ION_CHANNEL ion channels@endlink, when the membrane voltage
+exceeds its critical threshold value, ions from the extracellular space rush into
+the intracellular space.
+During that process, for a very short time,
+a thin layer of positive ions is formed on the intracellular side,
+and another thin layer on the extracellular side with the lack of positive ions
+(the layer from which the ions escaped). This configuration of ions resembles
+condenser plates with  ions of opposite charge on the two sides. Notice, hovever,
+that "the ideal wire" between the plates is distributed through the plates,
+and the current flows only for a very limited period.
+At the same time, ions will diffuse on the extracellular side
+into the emptied layer, a current perpendicular to the surface.
+The current loop closes through the extracellular space
+and the very first part of the axon.
+
+The membrane's capacitance should be interpreted differently:
+the presence of charge on the intracellular side means also
+the presence of a potential gradient.
+The ions are 'stored' only in the sense that they are inside
+the distributed capacitor while they traverse
+from their entry point to the \gls{AIS}.
+
+
+@section MODELING_SINGLE_MEMBRANE_TRUE_CURRENT The true membrane current
+
+Back:  @link MODELING_SINGLE_AXON Axon   @endlink
+Continue: @link  MODELING_SINGLE_ELECTRIC Electric operation @endlink
+Up: @link MODELING MODELING @endlink
+
+
+*/
+
+/*
+
+The 'artificial' inputs (patching and clamping) mostly add a constant current,
+that produces a zero time derivate on the membrane and result in a constant
+output voltage. Given that the amount of current through the current drain is limited by the
+resistivity \f$R\f$ of \gls{AIS}, and it depends on the actual membrane voltage,
+introducing too high currents may lead to unnatural effects.
+If the external current integrated for a neuronal operating cycle exceeds the
+similary integrated maximum current the \gls{AIS} can transmit, the neuron "overflows":
+the extra charge leaves to the extracellular space and the neuronal cyle stops working.
+Any external current moves the work point where the 'native' inputs get effective again
+and the neuron can enter the 'Refractory' phase; after some point the neuron
+stops emitting \gls{AP}s.
+
+
+*/

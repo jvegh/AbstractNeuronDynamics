@@ -1,0 +1,93 @@
+/**
+\page  MEASURING_CURRENT_PAGE Interpreting current
+
+@defgroup MEASURING_CURRENT Current vs charge
+ @ingroup PHYSICS_MEASURING
+
+
+The basic idea of biological current was correctly defined at the beginning:
+'The permeability of a membrane to a penetrating substance is
+given quantitatively by the amount of the substance which crosses
+a unit area of the membrane in unit time under the action of a unit
+force. In simple cases of ionized substances both the amount of
+substance and the force acting may be expressed in electrical terms.
+Then the permeability may be ultimately converted into coulombs
+per second for a square centimeter and a potential difference of 1
+volt, which is the conductance, in reciprocal ohms, for a square
+centimeter.' @cite COLE_CURTIS_IMPEDANCE:1939
+However, at that time physiologically defined fine details were not known.
+
+
+@section MEASURING_CURRENT Current vs charge transfer
+
+On microscopic scale, a charge creates a potential field
+and that field acts on another charge; if it moves,
+it is interpreted as current at macroscopic level.
+When describing the macroscopic phenomenon "current" in microscopic
+terms, we need to understand that we apply a potential difference
+to a macroscopic piece of space (or measure it) and measure the statistical
+time course of the charge carriers. These two characteristics are
+connected through the features of the medium (material) that hosts
+our measurement. In a conducting wire, there are free charges, their
+number per unit volume is given by \f$n\f$, and \f$q\f$ is the amount of
+charge on each carrier. If the conductor has a cross section of \f$A\f$,
+in the length \f$dx\f$ of the wire we have charge \f$dQ=q*n*A*dx\f$. If
+the charges are moving with a macroscopic speed \f$v=\frac{dx}{dt}\f$, we define
+the current as the charge moved per unit time:
+
+
+
+\f{equation}{
+I=\frac{dQ}{dt}=q*n*A*v\label{eq:DriftCurrent}
+\f}
+
+Notice that if any of the factors is zero, the macroscopic current
+\f$I\f$ is zero. <i>Microscopic carriers must be present in the volume</i>
+and have charge, the cross section must not be zero, and the charge
+carriers must move with a drift velocity, which usually needs an external
+force field. According to Stokes' Law, to move a spherical object
+with radius \f$R\f$ in a fluid having dynamic viscosity \f$\eta\f$, we need
+a force
+
+\f{equation}{
+F_{d}=6*\pi*\eta*R*v\label{eq:StokesForce}
+\f}
+
+(drag force) acting on it. A (microscopic) electric force
+field \f$\frac{dV}{dx}\f$ inside the wire would accelerate the charge
+carriers continuously
+
+\f{equation}{
+F_{e}=k\frac{dV}{dx}q
+\f}
+
+However, the medium in which the charge moves shows a (macroscopic,
+speed-dependent) counterforce \f$F_{d}\f$, which in steady state equals
+\f$F_{e}\f$, that is :
+
+\f{equation}{
+I=\frac{k*q^{2}*A}{6*\pi*\eta*R}*n*\frac{dV}{dx}\label{eq:StokesCurrent}
+\f}
+
+The amount of current in a wire is not only influenced by the electric
+force field (specific resistance) but also by the number of charge
+carriers \f$n\f$. While the latter is commonly considered constant and
+part of the former, this is not necessarily the case for biological
+systems with electrically active structures inside. The medium's internal
+structure introduces significant modifications. Applying an electric
+field to a wire can generate varying amounts of current as the number
+of charge carriers changes. For axons, we use a single-degree-of-freedom
+system, a viscous damping model, so the <i>ions will move with
+a field-dependent constant velocity in the electric space</i>. However,
+the activity of potential-controlled ion channels in its wall may
+change \f$n\f$ in various ways; furthermore, that change can result in
+'delayed' currents during measurement, for example, in clamping.
+
+
+
+Back:  @link  PHYSICS_MEASURING Electric measurements @endlink
+Up: @link PHYSICS_MEASURING Electric measurements @endlink
+Continue: @link  PHYSICS_MEASURING_DELAY Delayed current @endlink
+
+
+*/

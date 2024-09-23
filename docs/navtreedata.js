@@ -31,7 +31,8 @@ var NAVTREE =
     [ "Cited references", "citelist.html", null ],
     [ "Glossary", "GLOSSARY.html", null ],
     [ "Release notes", "ReleaseNotes.html", null ],
-    [ "Visitor Statistic", "^https://statcounter.com/p13027023/summary", null ]
+    [ "Visitor Statistic", "^https://github.com/jvegh/AbstractNeuronDynamics/graphs/traffic", null ],
+    [ "Development pace", "^https://github.com/jvegh/AbstractNeuronDynamics/graphs/code-frequency", null ]
   ] ]
 ];
 

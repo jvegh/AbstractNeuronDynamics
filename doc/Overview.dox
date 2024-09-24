@@ -27,6 +27,9 @@ In the interest of being able to describe nature, one has to pass
 sufficiently accurate and detailed in describing phenomena while keeping the mathematical complexity
 (and computational need) of description still manageable.
 <i>No presently available theoretical description and simulator are capable to perform that task</i>.
+The theoretical handling starts with @link MODELING_SINGLE_HODGKIN_HUXLEY the outdated and partly wrong empirical description@endlink
+ given seven decades ago
+and the simulation uses the principles and methods of the @link MODELING_COMPUTING_TIMEAWARE time-unaware modeling and computing@endlink methods
 
 We attempt to <i>see the forest for the trees</i>.
 Nature uses an infinite variety of implementing neurons. However, in the \gls{CNS} they can cooperate

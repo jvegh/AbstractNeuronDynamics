@@ -51,7 +51,7 @@ Furthermore, there are attemps to combine and interface them.
 
 @section COMPUTING_INFORMATION Computing and information
 
-@section COMPUTING_BIOLOGY Computing and information
+@section COMPUTING_BIOLOGY Computing and biology
 As discussed in @cite ThreeStateUnidirectional:2004
 @cite MarkovianIonChannel:2005, for the adequate description of the operation
 of ion channels, the major components of neuronal computing, three-state systems must be used.

@@ -8,9 +8,8 @@ var searchData=
   ['mfixedcomputingtime_84',['mFixedComputingTime',['../classscGenComp__PU__Abstract.html#a0fd72a2b7c76176e533f18edc4c522b2',1,'scGenComp_PU_Abstract']]],
   ['mlocaltimebase_85',['mLocalTimeBase',['../classscGenComp__PU__Abstract.html#ac6bd366a8a5948db90a51fe7ee010be3',1,'scGenComp_PU_Abstract']]],
   ['mobservedbits_86',['mObservedBits',['../classscGenComp__PU__Abstract.html#ab8dc6533d5cb788ef2fe3c8bd73d6e8e',1,'scGenComp_PU_Abstract']]],
-  ['modeling_20abstract_20neurons_87',['MODELING abstract neurons',['../group__MODELING.html',1,'']]],
-  ['modeling_20abstract_20neurons_88',['Modeling abstract neurons',['../group__MODELING__MAIN.html',1,'']]],
-  ['modeling_20abstract_20neurons_89',['MODELING abstract neurons',['../MODELING_MAIN_PAGE.html',1,'']]],
-  ['modeling_20multiple_20abstract_20neurons_90',['MODELING multiple abstract neurons',['../group__MODELING__MULTIPLE.html',1,'(Global Namespace)'],['../MODELING_MULTIPLE_MAIN_PAGE.html',1,'(Global Namespace)']]],
-  ['modeling_20single_20abstract_20neuron_91',['MODELING single abstract neuron',['../group__MODELING__SINGLE.html',1,'(Global Namespace)'],['../MODELING_SINGLE_MAIN_PAGE.html',1,'(Global Namespace)']]]
+  ['modeling_20abstract_20neurons_87',['MODELING abstract neurons',['../group__MODELING.html',1,'(Global Namespace)'],['../MODELING_MAIN_PAGE.html',1,'(Global Namespace)']]],
+  ['modeling_20multiple_20abstract_20neurons_88',['MODELING multiple abstract neurons',['../MODELING_MULTIPLE_MAIN_PAGE.html',1,'']]],
+  ['modeling_20multiple_20neurons_89',['MODELING multiple neurons',['../group__MODELING__MULTIPLE.html',1,'']]],
+  ['modeling_20single_20neuron_90',['MODELING single neuron',['../group__MODELING__SINGLE.html',1,'(Global Namespace)'],['../MODELING_SINGLE_MAIN_PAGE.html',1,'(Global Namespace)']]]
 ];

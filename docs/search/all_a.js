@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['neuron_27s_20abstract_20modeling_91',['Neuron&apos;s abstract modeling',['../group__MODELING__MAIN.html',1,'']]],
   ['neuron_27s_20physics_92',['Neuron&apos;s physics',['../MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE.html',1,'(Global Namespace)'],['../group__MODELING__SINGLE__PHYSICAL.html',1,'(Global Namespace)']]],
   ['neurondemo_93',['NeuronDemo',['../classNeuronDemo.html',1,'NeuronDemo'],['../classNeuronDemo.html#abac2ed1cc582eadad03d0c2db364e5d9',1,'NeuronDemo::NeuronDemo()']]],
   ['neurondemo_2eh_94',['NeuronDemo.h',['../NeuronDemo_8h.html',1,'']]],

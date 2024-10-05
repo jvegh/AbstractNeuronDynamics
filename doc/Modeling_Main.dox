@@ -1,46 +1,48 @@
 /**
 \page  MODELING_MAIN_PAGE MODELING abstract neurons
-@defgroup MODELING_MAIN  Modeling abstract neurons
+@defgroup MODELING_MAIN Neuron's abstract modeling
 @ingroup MODELING
 
-@section MODELING_MAIN Modeling abstract neurons
+@section MODELING_MAIN Neuron's abstract modeling
 
 The operation of the \gls{CNS} is closely related
 to @link COMPUTING_MAIN_PAGE information processing @endlink ('aka computing') of the brain.
-Neurons are one of the building stones of the living matter.
-Of course they do a lot of service activities
+Neurons are one of the building stones of living matter.
+Of course, they do many service activities
 to keep the cells active and healthy, to supply them with energy.
-However, for our goals their vital task is to @link COMPUTING receive, process and issue information@endlink,
+However, their vital task for our goals is to @link COMPUTING receive, process, and issue information@endlink
 in @link MODELING_MULTIPLE cooperation with special assemblies@endlink of fellow neurons.
 Information and computing (in a general sense) play a fundamental role in understanding neuronal operation.
-When studying \gls{CNS}, we need to start from  cells to circuits @cite FromCellsToCircuits:2018,
+When studying \gls{CNS}, we need to start from cells toward circuits @cite FromCellsToCircuits:2018,
 and we can study the brain 'from inside out' @cite  BuzsakiTheBrain:2019.
-During this journey we need to keep in mind that we need to use (and with the growing
-complexity: change) the @link PHYSICS_ABSTRACTIONS abstractions
-and approximations@endlink used to describe the abstract operation. Sometimes, even in describing the same phenomenon,
+During this journey, we must remember to use (and with the growing
+complexity: revisit and change) the @link PHYSICS_ABSTRACTIONS abstractions
+and approximations@endlink used to describe the abstract operation.
+Sometimes, even when describing the same phenomenon,
 different approximations must be used for the different participating interactions.
 
-The goal was set @cite SejnowskiComputationalNeuroscience:1988
-decades ago: 'The ultimate aim of computational neuroscience is
+For decades,'the ultimate aim of computational neuroscience is
 to explain how electrical and chemical signals are used in the brain
-to represent and process information'. Since then, chemical and
-enzymatic research has advanced enormously. However, explaining the electrical
-signals, primarily how the brain uses them to represent and process
-information, has stalled, mainly because of using wrong approximations
+to represent and process information'@cite SejnowskiComputationalNeuroscience:1988.
+Since then, chemical and enzymatic research has advanced enormously.
+We have discovered many (maybe too many) details of
+that signal processing. However, <i>explaining how the brain uses electrical
+signals to represent and process
+information has stalled</i>, mainly because of using wrong approximations
 of biological reality. Biology uses ad-hoc mathematical models (typically
-lacking physical reality), and
-they deliver inconsistent, self-contradicting predictions, expectations,
+lacking physical reality),
+delivering inconsistent, self-contradicting predictions, expectations,
 and interpretations for the real neurons and their networks. No place
 remains for interpreting the brain's neural information processing
-as a collective activity of neurons. Furthermore, we cannot discover that technical computing
-and the brain handle information differently @cite VeghNeuralShannon:2022.
+as a collective activity of neurons. Furthermore, we cannot discover that technical
+and biological computing handle information differently @cite VeghNeuralShannon:2022.
 
-However, the theoretical interpretation of the related phenomena is
-still missing. We make the first steps towards making an abstract understanding  the phenomena.
-In the first chapter, at single-neuron level; in the @link MODELING_MULTIPLE second chapter @endlink
-at 'neurassembly' level (the collective operation). In the third chapter we present
-how the computing shall be generalized to describe also
-@link COMPUTING biological computing systems@endlink.
+The theoretical interpretation of the related phenomena still needs to be included.
+We take the first steps towards making an abstract understanding of the phenomena.
+In this first chapter, at the single-neuron level; in the second chapter,
+at the 'neurassembly' level (@link MODELING_MULTIPLE collective operation@endlink).
+In the third chapter, we @link COMPUTING generalize computing@endlink for biological computing systems.
+In the fourth chapter, we reinterpret @link INFORMATION information@endlink for biology.
 
 back:  @link  MODELING_SINGLE_MAIN Modeling neurons  @endlink
 Continue: @link  MODELING_SINGLE_MAIN Modeling single neurons @endlink

@@ -9,8 +9,8 @@
         <section title="Overview" ref="index.html" />
         <section title="Chapters" ref="modules.html">
           <section title="MODELING abstract neurons" ref="group__MODELING.html">
-            <section title="Modeling abstract neurons" ref="group__MODELING__MAIN.html" />
-            <section title="MODELING single abstract neuron" ref="group__MODELING__SINGLE.html">
+            <section title="Neuron&apos;s abstract modeling" ref="group__MODELING__MAIN.html" />
+            <section title="MODELING single neuron" ref="group__MODELING__SINGLE.html">
               <section title="Neuron&apos;s physics" ref="group__MODELING__SINGLE__PHYSICAL.html" />
               <section title="Ion channel" ref="group__MODELING__SINGLE__ION__CHANNEL.html" />
               <section title="Dynamic ion layers" ref="group__MODELING__SINGLE__LAYERS.html" />
@@ -24,7 +24,7 @@
               <section title="Comparing to other models" ref="group__MODELING__SINGLE__COMPARING.html" />
               <section title="Computing aspects" ref="group__MODELING__SINGLE__COMPUTING.html" />
             </section>
-            <section title="MODELING multiple abstract neurons" ref="group__MODELING__MULTIPLE.html" />
+            <section title="MODELING multiple neurons" ref="group__MODELING__MULTIPLE.html" />
           </section>
           <section title="PHYSICS behind neuronal operation" ref="group__PHYSICS.html">
             <section title="PHYSICS notions and terms" ref="group__PHYSICS__NOTIONS.html">
@@ -189,7 +189,7 @@
       <keyword name="gcsm_Failed" id="scGenComp_PU_Abstract.h::gcsm_Failed" ref="scGenComp__PU__Abstract_8h.html#a2a131f305e5c73c0b10623b703c5861fa029b5a44eb55d8a1a82c8f6945ad9e6d" />
       <keyword name="Getting started" id="Getting started" ref="GETTING_STARTED_PAGE.html" />
       <keyword name="MODELING abstract neurons" id="MODELING abstract neurons" ref="MODELING_MAIN_PAGE.html" />
-      <keyword name="MODELING single abstract neuron" id="MODELING single abstract neuron" ref="MODELING_SINGLE_MAIN_PAGE.html" />
+      <keyword name="MODELING single neuron" id="MODELING single neuron" ref="MODELING_SINGLE_MAIN_PAGE.html" />
       <keyword name="Neuron&apos;s physics" id="Neuron&apos;s physics" ref="MODELING_SINGLE_ABSTRACT_MEMBRANE_PAGE.html" />
       <keyword name="Ion channel" id="Ion channel" ref="MODELING_SINGLE_ION_CHANNEL_PAGE.html" />
       <keyword name="Dynamic ion layers" id="Dynamic ion layers" ref="MODELING_SINGLE_LAYERS_PAGE.html" />
@@ -225,7 +225,7 @@
       <keyword name="INFORMATION generalized for biology" id="INFORMATION generalized for biology" ref="group__INFORMATION.html" />
       <keyword name="COMPUTING generalized for biology" id="COMPUTING generalized for biology" ref="group__COMPUTING.html" />
       <keyword name="SIMULATION principles and technology" id="SIMULATION principles and technology" ref="group__SIMULATION.html" />
-      <keyword name="Modeling abstract neurons" id="Modeling abstract neurons" ref="group__MODELING__MAIN.html" />
+      <keyword name="Neuron&apos;s abstract modeling" id="Neuron&apos;s abstract modeling" ref="group__MODELING__MAIN.html" />
       <keyword name="Neuron&apos;s physics" id="Neuron&apos;s physics" ref="group__MODELING__SINGLE__PHYSICAL.html" />
       <keyword name="Ion channel" id="Ion channel" ref="group__MODELING__SINGLE__ION__CHANNEL.html" />
       <keyword name="Dynamic ion layers" id="Dynamic ion layers" ref="group__MODELING__SINGLE__LAYERS.html" />
@@ -254,8 +254,8 @@
       <keyword name="Computing basics" id="Computing basics" ref="group__COMPUTING__BASICS.html" />
       <keyword name="Information basics" id="Information basics" ref="group__INFORMATION__BASICS.html" />
       <keyword name="SystemC" id="SystemC" ref="group__SIMULATION__SYSTEMC.html" />
-      <keyword name="MODELING single abstract neuron" id="MODELING single abstract neuron" ref="group__MODELING__SINGLE.html" />
-      <keyword name="MODELING multiple abstract neurons" id="MODELING multiple abstract neurons" ref="group__MODELING__MULTIPLE.html" />
+      <keyword name="MODELING single neuron" id="MODELING single neuron" ref="group__MODELING__SINGLE.html" />
+      <keyword name="MODELING multiple neurons" id="MODELING multiple neurons" ref="group__MODELING__MULTIPLE.html" />
       <keyword name="RELEASE_NOTES" id="RELEASE_NOTES" ref="group__RELEASE__NOTES.html" />
       <keyword name="EVENT_GenComp_type" id="EVENT_GenComp_type" ref="classEVENT__GenComp__type.html" />
       <keyword name="ClockDown" id="EVENT_GenComp_type::ClockDown" ref="classEVENT__GenComp__type.html#a3220954b31996ff928a234d6303de813" />

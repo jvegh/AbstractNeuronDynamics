@@ -12,6 +12,7 @@ are still among the big mysteries of science. <i>At which point
 which @link MODELING_SINGLE basic rules@endlink control the operation of neurons,
 how they @link MODELING_MULTIPLE cooperate@endlink in implementing more complex activity,
 what @link INFORMATION 'information' means@endlink for biological systems,
+how the @link COMPUTING brain computes@endlink,
 and at which point <b>a living matter becomes intelligent</b> and conscious</i>;
 whether and how science can handle all this stuff.
 The worst inheritances of neuroscience are the static view from anatomy,
@@ -31,7 +32,7 @@ while managing the mathematical complexity, computational requirements, and poss
 Currently, <i>no theoretical description or simulator can adequately meet this challenge</i>.
 The existing theoretical framework is based on an @link PHYSICS_NOTIONS incorrect biophysical background@endlink
 and relies on @link MODELING_SINGLE_HODGKIN_HUXLEY outdated and partly incorrect empirical descriptions@endlink
- from seven decades ago.
+from seven decades ago.
 Furthermore, the simulation uses principles and methods of
 @link SIMULATON_COMPUTING_TIMEAWARE time-unaware modeling@endlink and computing.
 
@@ -102,7 +103,7 @@ Please return later and see if something is new (see the date and version).
 
 \htmlonly
 
-
+<h1>
 <!-- Default Statcounter code for Abstract neuron dynamics
 https://github.com/jvegh/AbstractNeuronDynamics -->
 <script type="text/javascript">
@@ -120,6 +121,7 @@ src="https://c.statcounter.com/13027023/0/b82b0dba/0/"
 alt="Visitor counter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+</h1>
 \endhtmlonly
 
 

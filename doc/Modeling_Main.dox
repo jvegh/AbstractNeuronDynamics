@@ -11,7 +11,7 @@ Neurons are one of the building stones of the living matter.
 Of course they do a lot of service activities
 to keep the cells active and healthy, to supply them with energy.
 However, for our goals their vital task is to @link COMPUTING receive, process and issue information@endlink,
-in @link MODELING_MULTIPLE_NEURONS cooperation with special assemblies@endlink of fellow neurons.
+in @link MODELING_MULTIPLE cooperation with special assemblies@endlink of fellow neurons.
 Information and computing (in a general sense) play a fundamental role in understanding neuronal operation.
 When studying \gls{CNS}, we need to start from  cells to circuits @cite FromCellsToCircuits:2018,
 and we can study the brain 'from inside out' @cite  BuzsakiTheBrain:2019.

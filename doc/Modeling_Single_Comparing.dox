@@ -7,8 +7,110 @@
 
 @section MODELING_SINGLE_COMPARING Comparing our model to others
 
-The infinitely sophisticated operation forces us to analyze
-the components, their operation, their interface and cooperation individually, case by case.
+The infinitely sophisticated operation of neurons and their network forces us to analyze
+their components, operation, interface and cooperation individually, case by case.
+Our 'abstract' approach means that we focus on the electric aspects of operation
+and omit the 'implementation details' nature uses.
+@link MODELING_SINGLE Our model@endlink bases on <i>the first principles of science</i>,
+and derives the appropriate @link PHYSICS_ABSTRACTIONS abstractions and approximations@endlink.
+We put a physical picture behind the
+neuronal operation, make an abstraction by analyzing the respective processes,
+especially their speed of interaction and contribution to the phenomenon
+we want to describe. Then we make an approximation by omitting the non-relevant interactions.
+
+We divide the complex process
+into stages where in all stages a dominant interaction can be identified.
+For the remained contributions we derive a mathematical formula
+(usually some combination of formulas describing more simple interactions),
+and <i>draw the range of validity of applying that formula</i>. Given that the neuronal
+operation is a many-player game with many interactions between the components,
+we put together a neuronal process from several adjacent stages.
+The interaction types and partners change stage by stage, and so do the
+math formulas we use. However, in every single stage we do provide a
+physical background
+between different components of the system having different interactions.
+
+
+
+
+@section MODELING_PHYSICAL Physical neuron models
+The so called <i>physical neuron models</i> attempt to put a physical picture behind
+their math formulas (notice that they create the correspondance between
+the phenomena and equations in a way opposite to our one).
+
+
+The goal of the classic authors Hodgkin and Huxley @cite HodgkinHuxley:1952
+was 'find equations which describe the conductances with
+reasonable accuracy and are sufficiently simple for theoretical calculation
+of the \gls{AP} and refractory period' @cite HodgkinHuxley:1952. They did
+a too good and meticulous (nearly perfect) job, that covered their wrong hypotheses.
+They correctly evaluated their method 'The agreement [between our theory and experiments] <i>must not be taken
+as evidence</i> that our equations are anything more than
+an <i>empirical description</i> of the time-course of the changes in
+permeability to sodium and potassium'. They faithfully added that
+'<i>the interpretation given is unlikely to provide a correct picture of the
+membrane</i>'. Their followers forgot both their evaluation and the
+method they followed.
+
+@subsection MODELING_SINGLE_HODGKIN_HUXLEY The Hodgkin-Huxley model
+
+
+The <a  href="https://neuronaldynamics.epfl.ch/online/Ch2.S2.html">
+online book</a> on neuronal dynamics provides a very thorough discussion
+of the famous Hodgkin-Huxley model @cite HodgkinHuxley:1952.
+This was the very first attempt to provide a science-based model
+for the @link MODELING_SINGLE_ELECTRIC electric operation of a neuron@endlink,
+and it was the very first step on a <i>terra incognita</i>.
+Setting it up, enormously advanced our understanding
+in the field and deserved the Nobel-prize.
+However, during the passed decades, the knowledge base has significantly extended.
+At some points the model must be enhanced.
+Its simplified ideas served very well in understanding the basics,
+but to discuss the finer details, many of its statements and assumptions
+must be modified. 
+Here we confine the discussion to some general aspects,
+details are provided throughout the different sections of the site.
+
+Although it is commonly called 'model', the authors evaluated their method that
+<i>the success of the equations is no evidence in
+favour of the mechanism</i> of permeability change that we tentatively had in
+mind when formulating them' @cite HodgkinHuxley:1952, page 541.
+They were aware of that although
+'certain features of our equations were capable of a physical interpretation',
+a '<i>physical theory of this kind does not lead to
+satisfactory functions ... without further <b>ad hoc assumptions</b></i>'
+@cite HodgkinHuxley:1952.
+Their followers took over their tentative hypotheses and  ad-hoc assumptions  as fact,
+introduced further ad-hoc assumptions, needed to provide satisfactory agreement with the
+experimental evidence, into their admittedly wrong physical picture.
+So, those 'physical' models, starting from their hypothesis,
+lack the 'evidence in favour of the mechanism'.
+Unfortunately, some of their key hypotheses @cite HodgkinHuxley:1952 were really wrong.
+
+First, at that time the @link ABSTRACT_ELECTRIC_NEURON structure of neuronal mebrane@endlink was not known.
+The experimental microscopic resolution of their time did not enable them to discover finer
+details such as the Axon Initial Segment \gls{AIS}.
+Second, due to the lack of knowing the role (and the existence, at all) of the  \gls{AIS},
+they assumed the wrong type of the @link PHYSICS_MEASURING_OSCILLATOR neuronal oscillator@endlink.
+Third, hypothesising a parallelly switched \f$RC\f$ equivalent electric circuit,
+many critical points of their discussion
+concerning the @link MODELING_SINGLE_ELECTRIC electric operation@endlink must be
+extended, enhanced and fixed.
+Among others, that not the <i>ionic currents</i> themselves,
+but the <i>voltage time dependence</i> (time derivative) controls the neuronal membrane's
+operation. Furthermore, that not some mystic outward \f$K^+\f$  current causes the experienced
+hyperpolarization; instead, the 'capacitive current' of the correct oscillator circuit.
+In addition, they did not consider
+that biology operates using @link PHYSICS_SLOW_CURRENT slow currents@endlink,
+although they observed that the phenomena '<i>depend on the movement of some component
+of the membrane ... which behaves as though it had a large charge</i>'.
+Furthermore, they had the point-like neurons in mind.
+These concepts must be extended/changed to enable understanding of, among otthers,
+how and why the @link MODELING_ACTION_POTENTIAL Action Potential@endlink is evoked
+and how neurons process and transmit information using electric currents.
+
+
+@subsection MODELING_MATHEMATICAL Mathematical neuron models
 
 <a  href="https://neuronaldynamics.epfl.ch/online/x635.png">
 In formal models of spiking neurons the shape of an action potential (dashed line) is usually replaced by a \f$\delta\f$
@@ -16,41 +118,6 @@ pulse (vertical line). The negative overshoot (spike-afterpotential) after the p
 of the membrane potential to the value of resting potential.
 </a>
 That is, formal models throw away neuronal memory and so neural cooperation, among others.
-
-Because of its common acceptance and wide usage, we discuss the @link MODELING_SINGLE_HODGKIN_HUXLEY Hodkin-Huxley model@endlink
-in a separate section
-
-
-@section MODELING_SINGLE_HODGKIN_HUXLEY The Hodgkin-Huxley model
-
-The <a  href="https://neuronaldynamics.epfl.ch/online/Ch2.S2.html">
-online book</a> on neuronal dynamics provides a very thorough discussion
-of the famous Hodgkin-Huxley model @cite HodgkinHuxley:1952.
-This was the very first attempt to provide a science-based model
-for the @link MODELING_SINGLE_ELECTRIC electric operation of a neuron@endlink,
-and it was the first step on a <i>terra incognita</i>.
-Setting it up enormously advanced our understanding
-in the field and deserved the Nobel-prize.
-However, since the decades the knowledge base has significantly extended
-and at some points the model must be enhanced.
-Its simplified ideas served very well in understanding the basics,
-but to discuss the finer details, many of its statements and assumptions
-must be modified.
-
-First, at that time the @link ABSTRACT_ELECTRIC_NEURON structure of neuronal mebrane@endlink was not known.
-Due to the lack of knowing the role of the Axon Initial Segment (\gls{AIS}),
-they assumed the wrong type of the @link PHYSICS_MEASURING_OSCILLATOR neuronal oscillator@endlink,
-and from that point on, many critical points of their discussion
-concerning the @link MODELING_SINGLE_ELECTRIC electric operation@endlink must be
-extended, enhanced and fixed.
-Second, they had the point-like neurons in mind and did not consider
-that biology operates using @link PHYSICS_SLOW_CURRENT slow currents@endlink.
-These two concepts must be extended/changed to enable
-how and why the @link MODELING_ACTION_POTENTIAL Action Potential@endlink is evoked.
-
-
-Here we confine the discussion to some general aspects,
-details are provided throughout the different section of the site.
 
 
 Back:  @link MODELING_SINGLE_FALLACIES Fallacies in neurocomputing  @endlink

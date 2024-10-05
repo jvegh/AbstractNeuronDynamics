@@ -3,6 +3,8 @@
 build/
 .GenComp_token.txt
 .github-recovery-codes.txt
+*.autosave
+#*.*#
 
 # Prerequisites
 *.d

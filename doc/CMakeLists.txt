@@ -100,15 +100,15 @@ add_custom_target(
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-if(0)
 add_custom_target(doc ALL
   COMMAND doxygen
-  COMMAND ${CMAKE_COMMAND} -E rename ../docs TAC-doc
-  COMMAND ${CMAKE_COMMAND} -E remove TAC-doc/TAC-doc.tgz
-  COMMAND ${CMAKE_COMMAND} -E tar cfz TAC-doc.tgz TAC-doc
-  COMMAND ${CMAKE_COMMAND} -E rename TAC-doc.tgz TAC-doc/TAC-doc.tgz
-  COMMAND ${CMAKE_COMMAND} -E rename TAC-doc ../docs
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
-endif(0)
+#if(1)
+#  COMMAND ${CMAKE_COMMAND} -E rename ${CMAKE_SOURCE_DIR}/docs TAC-doc
+#  COMMAND ${CMAKE_COMMAND} -E remove TAC-doc/TAC-doc.tgz
+#  COMMAND ${CMAKE_COMMAND} -E tar cfz TAC-doc.tgz TAC-doc
+#  COMMAND ${CMAKE_COMMAND} -E rename TAC-doc.tgz TAC-doc/TAC-doc.tgz
+#  COMMAND ${CMAKE_COMMAND} -E rename TAC-doc ${CMAKE_SOURCE_DIR}/docs
+#  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+#endif(0)
 

@@ -17,11 +17,13 @@ we can assume that <i>the membrane itself is equipotential</i>.
 However, <i>the dendrites are not equipotential while delivering signals</i>.
 Their potential 'is a composite of the effects of all the signals impinging on the cell,
 weighted according to the distances of the synapses from the cell body'.
-'Each incoming signal is reflected in a local \gls{PSP} of graded magnitude,
-which decreases with distance from the site of the synapse.'
 'Temporal and spatial summation together provide the means  by which ...
-many presynaptic neurons jointly control the membrane potential.' @cite MolecularBiology:2002.
-This latter sentence should read that <i>its measurable effect (their potential)
+many presynaptic neurons jointly control the membrane potential'  @cite MolecularBiology:2002
+(see our @link MODELING_SINGLE_ELECTRIC_OPERATION mathematical discussion@endlink
+of this physiological evidence).
+'Each incoming signal is reflected in a local \gls{PSP} of graded magnitude,
+which decreases with distance from the site of the synapse' @cite MolecularBiology:2002
+This latter sentence should read that <i>its measurable effect (their local potential)
 decreases</i>, compared to the
 one at the presynaptic terminals. As the surface, over which it propagates
 during its journey through the dendrites, extends, the charge density decreases,
@@ -44,7 +46,7 @@ These statements mean (assuming that those signals travel with
 the same speed in the dendrites) that the <i>presence of
 a @link PHYSICS_SLOW_CURRENT 'slow current' of ions@endlink in neurons is
 experimentally underpinned</i>, although the notion is not introduced
-(mainly because its mathematical handling is not solved).
+(mainly because of its mathematical handling is not solved).
 Assuming that the dendrites' size is about \f$0.1\ mm\f$ and the synaptic signals appear
 at the \gls{AIS} \f$0.2\ ms\f$ after their arrival to their presynaptic terminals,
 we can estimate the speed of 'slow current' as  \f$0.5\ m/s\f$
@@ -88,7 +90,7 @@ satisfactory functions ... without further ad hoc assumptions</i>'  @cite Hodgki
 Their followers introduced further  ad-hoc assumptions,
 that were needed to provide satisfactory agreement with the
 experimental evidence, into their admittedly wrong physical picture.
-The followers forgot the doubts and question marks HH described and took their unproven hypotheses as facts.
+The followers forgot the doubts and question marks \gls{HH} described and took their unproven hypotheses as facts.
 "These equations and the methods that arose from this combination of modeling and
 experiments have since formed the basis for every subsequent model for active cells.
 The Hodgkin-Huxley model and a host of simplified equations  derived from
@@ -137,6 +139,51 @@ with a finite speed also in the dendrites, not only on the axons.
 \label{fig_NeuronElectricOperationSummary}
 \end{figure}
 @endlatexonly
+
+That view is endorsed two decades later @cite AIS_NeuronalPolarity:2010, see \ref fig_NeuronPolarity.
+@htmlonly
+As the caption of their Fig. 1 details, 'a | Neurons are functionally polarized because action potentials
+propagate in a single direction. Excitatory and inhibitory synaptic inputs are integrated at the axon initial segment (AIS).
+The resulting action potentials then propagate along the axon through the activity of ion channels clustered at nodes.
+Finally, neurotransmitter is released at the nerve terminal. b | Neurons are also anatomically polarized, as they can be
+subdivided into a somatodendritic input domain and an axonal output domain. The AIS separates these two domains.
+c | Neurons have a high degree of subcellular polarity, and synapses, the AIS, nodes of Ranvier and the neuromuscular
+junction are the main subcellular domains. Each of these domains is enriched in specific types of ion channels, receptors,
+adhesion molecules and molecular scaffolds that allow for the unidirectional propagation of action potentials. Each of
+these subcellular domains can also elicit unique electrophysiological responses (shown in white)'.
+@endhtmlonly
+Notice the important point:
+'Neurons are also anatomically polarized, as <i>they can be
+subdivided into a somatodendritic input domain and an axonal output domain</i>' @cite AIS_NeuronalPolarity:2010;
+providing a direct evidence that (unlike in \gls{HH}'s model, the input and output currents
+(and voltage time derivatives) are independent, see also Fig. @ref fig_NeuronPolarity.
+More precisely, they form the input and output of a neuronal oscillator, as our model suggests.
+Notice how the \gls{AP} changes its shape during its propagation in the adjacent segments,
+as our model explains: the broadening by axonal arbor,
+the voltage-gradient generated shape on the \gls{AIS}, the appearance of \gls{iAPTD} at the distant junction.
+Notice the lack of hyperpolarization at the beginning and end of the pipeline;
+a clear effect of of the neuronal oscillator.}
+
+\anchor fig_NeuronPolarity
+@image html NeuronPolarity.png "Neurons are highly polarized cells" width=600px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/JohnstonSummaryFigure1_2.png}
+\caption{Neurons are highly polarized cells. a | Neurons are functionally polarized because action potentials
+propagate in a single direction. Excitatory and inhibitory synaptic inputs are integrated at the axon initial segment (AIS).
+The resulting action potentials then propagate along the axon through the activity of ion channels clustered at nodes.
+Finally, neurotransmitter is released at the nerve terminal. b | Neurons are also anatomically polarized, as they can be
+subdivided into a somatodendritic input domain and an axonal output domain. The AIS separates these two domains.
+c | Neurons have a high degree of subcellular polarity, and synapses, the AIS, nodes of Ranvier and the neuromuscular
+junction are the main subcellular domains. Each of these domains is enriched in specific types of ion channels, receptors,
+adhesion molecules and molecular scaffolds that allow for the unidirectional propagation of action potentials. Each of
+these subcellular domains can also elicit unique electrophysiological responses (shown in white).}
+\label{fig_NeuronPolarity}
+\end{figure}
+@endlatexonly
+
+
 
 Experimental evidence shows that the electric signals
 have a finite speed in axons, dendrites and cell body; furthermore, that <i>within the cell,

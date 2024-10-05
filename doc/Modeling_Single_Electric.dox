@@ -195,7 +195,7 @@ distributed capacitance.
 
 
 
-@section MODELING_SINGLE_ELECTRIC_OPERATION Electric operation of neurons
+@section MODELING_SINGLE_ELECTRIC_OPERATION Mathematics of the electric operation of neurons
 
 As we emphasized, we must use <i>different physical models in the different
 stages</i> of operation. We have changed the <i>integrator</i>-type \f$RC\f$ circuit to
@@ -478,7 +478,6 @@ origin of the \gls{AP}.}
 @endlatexonly
 
 
-
 @subsection MODELING_SINGLE_TIMEDERIVATIVE Voltage time derivative
 
 The shape and different parameters of \gls{AP} has been the subject of numerous studies.
@@ -488,11 +487,9 @@ Those measurements provide a direct proof for the existence of the \gls{iAPTD}
 our theoretical approach introduced, see equations
 \f$\eqref{eq:PSPderivative}\f$,
 \f$\eqref{eq:Simple}\f$
-\f$\eqref{eq:pSPVoltage}\f$
- and Fig. @ref fig_VoltageTimeDerivative
-("\copyright{2007 Nature Publishing Group}. Bean, B. P. (2007):
+ and Fig. @ref fig_VoltageTimeDerivative ('Copyright{ 2007 Nature Publishing Group). Bean, B. P. (2007):
 The action potential in mammalian central neurons. Nature Reviews Neuroscience,
-8(6), 451–465. doi:10.1038/nrn2148".)
+8(6), 451–465. doi:10.1038/nrn2148'.)
 Our theoretically derived \gls{AP} and \gls{iAPTD} are overlayed to Fig. 2d in @cite BeanActionPotential:2007.
 See also our Figure @ref fig_ArtificialCurrent_AP.
 However, notice that the causality is reversed: the \gls{iAPTD} generates the \gls{AP}
@@ -506,19 +503,18 @@ Notice the broadening effect on the time derivative due to passing from the fron
 to the extracellular space.
 
 \anchor fig_VoltageTimeDerivative
-@image html Bean_Fig1d.png "The simultaneously measured \gls{AP} and \gls{oAPTD}." width=400px
+@image html Bean_Fig1d.png "The simultaneously measured axtion potential and its derivative." width=500px
 
 @latexonly
 \begin{figure}
-        \includegraphics[
-%	scale=0.85
-        ]{Bean_Fig1d}\caption{The simultaneously measured \gls{AP} and \gls{oAPTD}.
+        \includegraphics{Bean_Fig1d}
+        \caption{The simultaneously measured \gls{AP} and \gls{oAPTD}.
         Our theoretically derived \gls{AP} and \gls{iAPTD} are overlayed
         to Fig. 2d in \cite{BeanActionPotential:2007}.
         See also our Figure \ref{fig_ArtificialCurrent_AP}.
         "\copyright{2007 Nature Publishing Group}. Bean, B. P. (2007):
         The action potential in mammalian central neurons.
-        Nature Reviews Neuroscience, 8(6), 451–465. doi:10.1038/nrn2148}".
+        Nature Reviews Neuroscience, 8(6), 451–465. doi:10.1038/nrn2148".
 \label{fig_VoltageTimeDerivative}
  }
 \end{figure}
@@ -528,17 +524,5 @@ Back:  @link MODELING_SINGLE_MEMBRANE Membrane   @endlink
 Continue: @link MODELING_ACTION_POTENTIAL  Action Potential  @endlink
 Up: @link MODELING MODELING @endlink
 
-
 */
 
-/*
-In a biological condenser, there are no opposite charges on the two sides of the membrane
-(only the current of positive ions can be measured).
-
-
-
-
-
-
-
-*/

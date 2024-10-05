@@ -9,7 +9,8 @@
     <tab type="user" url="citelist.html" title="Cited references" />
     <tab type="user" url="GLOSSARY.html" title="Glossary" />
     <tab type="user" url="ReleaseNotes.html" title="Release notes" />
-    <tab type="user" url="https://statcounter.com/p13027023/summary"  title="Visitor Statistic" />
+    <tab type="user" url="https://github.com/jvegh/AbstractNeuronDynamics/graphs/traffic"  title="Visitor Statistic" />
+    <tab type="user" url="https://github.com/jvegh/AbstractNeuronDynamics/graphs/code-frequency"  title="Development pace" />
   </navindex>
 
   <!-- Layout definition for a class page -->

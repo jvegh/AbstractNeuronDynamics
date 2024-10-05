@@ -16,7 +16,7 @@ Axon Initial Segment
 Action Potential
 
 @subsection GLOSSARY_APTD APTD
-Action Potential's Time Derivative}
+Action Potential's Time Derivative
 
 @subsection GLOSSARY_iAPTD iAPTD
 internal Action Potential's Time Derivative
@@ -71,6 +71,9 @@ Graphic Processing Unit
 
 @subsection GLOSSARY_HDL HDL
 <b>H</b>ardware <b>D</b>escription <b>L</b>anguage
+
+@subsection GLOSSARY_HH HH
+Hodgkin and Huxley
 
 @subsection GLOSSARY_HPC HPC
 High Performance Computing

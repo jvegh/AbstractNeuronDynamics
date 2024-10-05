@@ -3,96 +3,102 @@
 
 <i>"Though this be madness, yet there is method in't."</i> (<b>Shakespeare: Hamlet: Act 2 Scene 2</b>)
 
-<h1>Why another neuron(al) theory and  simulator</h1>
+<h1>Introducing a Novel Abstract Neuron(al) Theory and Simulator: A New Frontier in Neuroscience</h1>
 
-The dynamic operation of individual neurons, their connections, higher-level organizations and connections,
-and finally the brain and the mind,
-are still among the big mysteries of science: <i>at which point
+The dynamic operation of individual neurons and their connections, higher-level organizations
+and their connections, and finally, the brain and the mind,
+are still among the big mysteries of science. <i>At which point
 @link MODELING_ACTION_POTENTIAL the non-living matter becomes a living one@endlink,
-and at which point <b>a living matter becomes intelligent</b> and conscious</i>; whether and how
-all this stuff can be handled by science.
-The worst inheritances of neuroscience are the static view from anatomy;
+which @link MODELING_SINGLE basic rules@endlink control the operation of neurons,
+how they @link MODELING_MULTIPLE cooperate@endlink in implementing more complex activity,
+what @link INFORMATION 'information' means@endlink for biological systems,
+and at which point <b>a living matter becomes intelligent</b> and conscious</i>;
+whether and how science can handle all this stuff.
+The worst inheritances of neuroscience are the static view from anatomy,
 omitting revisiting periodically the basic hypotheses in the light of new research results;
 the abstractions of the classic science
 (the single speed, isolated pair-wise instant interactions)
-applied to biological materials without revisiting them;
-and applying ad-hoc mathematical formulas without correct physical processes in the backgound
-(actually creating an alternative nature).
+applied to biological matters without revisiting them;
+and applying ad-hoc mathematical formulas without correct physical processes in the background
+(actually, creating an alternative nature).
+
+With its overwhelming complexity, nature presents a formidable challenge to scientific fields:
+we must use @link PHYSICS_Description different approximations and abstractions@endlink.
+To accurately describe nature, we must navigate
+<a  href="https://en.wikipedia.org/wiki/Charybdis">between 'Scylla' and 'Charybdis'</a>:
+maintaining sufficient accuracy and detail
+while managing the mathematical complexity, computational requirements, and possibilities.
+Currently, <i>no theoretical description or simulator can adequately meet this challenge</i>.
+The existing theoretical framework is based on an @link PHYSICS_NOTIONS incorrect biophysical background@endlink
+and relies on @link MODELING_SINGLE_HODGKIN_HUXLEY outdated and partly incorrect empirical descriptions@endlink
+ from seven decades ago.
+Furthermore, the simulation uses principles and methods of
+@link SIMULATON_COMPUTING_TIMEAWARE time-unaware modeling@endlink and computing.
 
 
-Nature is overly complex: science fields must use
-@link PHYSICS_Description different approximations and abstractions@endlink.
-In the interest of being able to describe nature, one has to pass
-<a  href="https://en.wikipedia.org/wiki/Charybdis">between 'Scylla' and 'Charybdis'</a>: being still
-sufficiently accurate and detailed in describing phenomena while keeping the mathematical complexity
-(and computational need) of description still manageable.
-<i>No presently available theoretical description and simulator are capable to perform that task</i>.
-The theoretical handling starts with @link MODELING_SINGLE_HODGKIN_HUXLEY the outdated and partly wrong empirical description@endlink
- given seven decades ago
-and the simulation uses the principles and methods of the @link MODELING_COMPUTING_TIMEAWARE time-unaware modeling and computing@endlink methods
 
 We attempt to <i>see the forest for the trees</i>.
-Nature uses an infinite variety of implementing neurons. However, in the \gls{CNS} they can cooperate
-with each other. 'Despite the extraordinary diversity and complexity of neuronal morphology and synaptic connectivity,
-<i>the nervous systems adopts <b>a number of basic principles</b></i> for all neurons and synapses'
+Nature uses an infinite variety of implementing neurons. However, in the \gls{CNS}, they can cooperate.
+'Despite the extraordinary diversity and complexity of neuronal morphology and synaptic connectivity,
+<i>the nervous systems adopt <b>a number of basic principles</b></i> for all neurons and synapses'
 @cite JohstonWuNeurophysiology:1995.
-We agree that '<i>the fundamental task of the nervous system is to <b>communicate and process information</b></i>'.
-Furthermore, the '<b>neurons convey
+We base our discussion on those @link MODELING_SINGLE basic principles@endlink
+and create an @link NeuronPhysical 'abstract physical neuron'@endlink,
+skipping the 'implementation details' nature uses.
+In many cases, wrong physical principles, notions, and measuring methods are used in
+measuring and modeling neurons;
+we need to discuss @link PHYSICS the true physics@endlink behind biological phenomena.
+
+The '<b>neurons convey
 neural information</b> by virtue of electrical and chemical signals'
 @cite JohstonWuNeurophysiology:1995.
+We agree that '<i>the fundamental task of the nervous system is to <b>communicate and process information</b></i>'.
 The goal was set decades ago:
 '<i>The ultimate aim of computational neuroscience is
 to explain <b>how electrical and chemical signals are used</b> in the brain
 to <b>represent and process information</b></i>'
 @cite SejnowskiComputationalNeuroscience:1988.
-We base our discussion on those @link MODELING_SINGLE general basic principles@endlink
-and create an @link NeuronPhysical 'abstract physical neuron'@endlink,
-skipping the 'implementation details' nature uses.
-Given that in many cases wrong physical principles, notions and measuring methods are used in
-measuring and modeling neurons,
-we need to discuss @link PHYSICS the true physics@endlink behind biological phenomena.
-To do so, we need to understand <i>how neurons @link COMPUTING_INFORMATION represent and process
+We need to understand <i>how neurons @link COMPUTING_INFORMATION represent and process
 information@endlink</i>
 @cite VeghNeuralShannon:2022.
 We agree that 'The basic structural units of the nervous system are individual neurons'
 @cite JohstonWuNeurophysiology:1995, but
-we are also aware of that neurons 'are linked together
+we are also aware that neurons 'are linked together
 by dynamically changing constellations of synaptic weights' and
 'cell assemblies are best understood in light of their output product' @cite BuzsakiCellAssemblies:2010,
-so we also @link  MODELING_MULTIPLE_NEURONS model multiple neurons@endlink.
-
+so we also @link  MODELING_MULTIPLE model multiple neurons@endlink.
 
 
 'The brain computes!
-This is accepted as a truism by the majority of neuroscientists.' @cite KochBiophysics:1999
+This  statement is accepted as a truism by the majority of neuroscientists.' @cite KochBiophysics:1999
 However, '<i>we so far <b>lack principles to understand rigorously how computation is done</b></i>
 in living, or active, matter' @cite NaturalComputation:2018.
-To understand how "computation is done", we @link COMPUTING generalize computing@endlink @cite VeghRevisingClassicComputing:2021,
+To understand how "computation is done", we @link COMPUTING generalize computing@endlink @cite VeghRevisingClassicComputing:2021
 in close cooperation with @link COMPUTING_COMMUNICATION communication@endlink @cite RoleOfInformationTransferSpeed:2022.
-We attempt to synthetise the available knowledge with a fresh eye, and intend to make a leap
-in understanding neural computing,
+We attempt to synthesize the available knowledge with a fresh eye and intend to leap
+into understanding neural computing,
 scrutinizing our knowledge
-pieces one-by-one, for credibility, relation to other pieces, to other sciences,
-finding contradictions and its resolutions,  <i>defying fallacies</i>.
-Sometimes you may need our \link GLOSSARY glossary \endlink or the search engine
+pieces individually for credibility, relation to other pieces of other sciences,
+finding contradictions and resolutions, an <i>defying fallacies</i>.
+Sometimes, you may need our \link GLOSSARY glossary \endlink or the search engine
 (see the right side of the title line).
 
-The site is not exclusively about theory: we give also a programmed implementation of the ideas we describe.
-@link SIMULATION_SYSTEMC Our simulator @endlink has direct science base, instead of ad-hoc mathematical formulas;
-and the only one which is able to reproduce @link SIMULATION_SYSTEMC the true biological time course@endlink of neurons,
-from first principles of science, without arbitrary assumptions and limited variability formulas.
-Our methods enable discussing the major aspects from the phenomena of natural operation of neurons
+Our site is not just about theory; we also provide a programmed implementation of the ideas we describe.
+@link SIMULATION_SYSTEMC Our simulator@endlink, based on direct science instead of ad-hoc mathematical formulas,
+is the only one capable of reproducing  @link SIMULATION_SYSTEMC the true biological time course@endlink of neurons
+from the first principles of science without ad-hoc assumptions and limited variability formulas.
+Our methods enable discussion of the major aspects from the phenomena of natural operation of neurons
 to analyzing the effects of invasive electricity-related investigation methods on neuroscience.
-Presently we offer some demos, class implementations, test cases
-to demonstrate simulating capabilities. Our intention is to develop a full-value
-educational, demonstration and research tool.
+We currently offer some demos, class implementations, and test cases
+to demonstrate our simulating capabilities. Our goal is to develop a comprehensive educational,
+demonstration, and research tool that will inspire and empower future generations of neuroscientists.
 
-<b>Warning: </b>Please consider that this development is a one-man undertaking,
-and it shall develop theory, evaluation of published experiment, software implementation, its  testing and their documentation.
-There exist pre-developed code fragments, science publications
-and docs, so it develops relatively quickly,
-but it needs time to put them together in a consistent state.
-Please come back later and see if there is something new (see the date and version).
+<b>Warning: </b>This development is a one-man undertaking,
+and it shall develop theory, evaluation of published experiments, software implementation,
+testing, and documentation.
+Pre-developed code fragments, science publications, and docs exist, so they develop relatively quickly,
+but time is needed to put them together consistently.
+Please return later and see if something is new (see the date and version).
 
 \htmlonly
 

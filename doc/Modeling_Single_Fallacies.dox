@@ -17,9 +17,9 @@ the approximations and abstractions. Or, turns a hypothesis to a fallacy.
 
 Neuroanatomy provided unbelievable wealth of details of the \gls{CNS},
 its structure, components, their infinite variety of implementation,
-connection, chemical/enzimatical composition, and so on.
+connection, chemical/enzymatical composition, and so on.
 A vast amount of data are collected and is available,
-and uncountable attempts (mathematical models) have been made
+and uncountable attempts (mathematical models) have been proposed
 to describe the actual phenomena. However, focusing on the too many details
 prevents understanding that <i>the nervous systems adopts a number of basic principles</i>
 @cite JohstonWuNeurophysiology:1995. The illusion of the really impressive
@@ -29,7 +29,7 @@ The brain must be studied really "from Inside Out" @cite BuzsakiTheBrain:2019.
 First of all, understanding how the known and established physical laws
 underpin the operation of single neurons (the interface of non-living matter
 and living matter) instead of hypothesizing additional laws and phenomena
-complementing/overwriting them, creating a fictive nature, which in some points
+complementing/overwriting them, creating a fictive nature, which in some points is
 resemblant to the real one. The abstraction,
 that discrete components connected by ideal wires can describe the electric phenomena,
 is successful in electronics. However, it is not valid for neurons,
@@ -58,8 +58,8 @@ of being point-like is valid, depends on the targeted phenomenon.
 In the initial investigations, the <i>size of the cells</i> was seen
 to be much smaller than the <i>size of the their connections</i>.
 In addition, the axons were much earlier available for experimental
-investigations, suggesting that the observed signals originate and
-terminate in the nodes of the network. This abstraction might be
+investigations, suggesting that the observed signals originated and
+terminated in the nodes of the network. This abstraction might be
 appropriate (with some limitations, mainly due to the connection speed)
 until we can develop technical tools to study the <i>internal operation</i>
 of the nodes of the network. A point-like neuron has no physical size,
@@ -70,16 +70,27 @@ its mystic internal operation produces an action potential as an output signal
 in a pair-wise interaction.
 
 When starting from 'the so-called point representation
-of a neuron" @cite KochBiophysics:1999, admitting that "such
+of a neuron' @cite KochBiophysics:1999, admitting that "such
 an approximation would be valid, for instance, if we were investigating
 a small, spherical cell without a significant dendritic tree", we
 necessarily arrive at the conclusion that "individual neurons convert
 the incoming streams of binary pulses into analog, spatially distributed
-variables". This point of view blocks the interpretation of even
+variables". However, we know that
+'dendritic trees can be quite large, containing up to 98 % of the
+entire neuronal surface area' @cite BiologicalConservationLaw:2017,
+so the application of that oversimplified model is at least limited.
+That point of view blocks the interpretation of even
 the correctly seen phenomena and leads to the design of wrong experiments.
 An immediate consequence of interpreting neuronal communication as
 streams of binary pulses leads to applying Shannon's mathematical
 theory to neural communication, despite Shannon's opposition @cite ShannonBandwagon:1956.
+
+From that point comes the assumption that 'Because the cell body is small compared with the dendritic tree,
+its membrane potential is roughly uniform' @cite MolecularBiology:2002; that is
+we can assume that <i>the membrane itself is equipotential</i>. This distinction
+enables us to to introduce the approximation leading to a hybrid model that the cell body itself
+is isopotential, while the rest of the neuron, including the dentritic tree, is not.
+
 
 @subsection MODELING_SINGLE_FALLACIES_PASSIVE Passive distributed membrane
 
@@ -95,7 +106,8 @@ The attached equivalent figure shows really
 <a href="https://www.electronics-tutorials.ws/rc/rc-integrator.html"> a passive RC <b>integrator</b> circuit</a>
 where "the input is connected to a resistance while the output voltage is taken from across a capacitor".
 That @link ABSTRACT_ELECTRIC_NEURON picture is obviously wrong@endlink,
-see also Figure \ref StructureOfAIS.
+<a href="https://www.researchgate.net/figure/Cartoon-of-a-multipolar-neuron-and-the-molecular-composition-of-the-AIS-A-Neurons-are_fig1_325092997"> the structure of the Axon Initial Segment</a>,
+
 With inventing the \gls{AIS}, the wrong hypothesis turned to a fallacy.
 
 
@@ -140,7 +152,12 @@ only about 5 nm thick, so that the resulting voltage gradient is about 100,000 V
 The diameter of the ion channel is about 0.1 nm, and
 'two \f$K^+\f$ ions in single file within the selectivity filter, separated by about 8 Å.
 Mutual repulsion between the two ions is thought to help move them through the pore
-into the extracellular fluid."  @cite MolecularBiology:2002
+into the extracellular fluid"  @cite MolecularBiology:2002.
+The repulsion is of course active, but here the fundamental driving force is
+the mentioned huge gradient due to the vast contractration difference across the segments.
+However, that electric gradient does not act in the frozen state investigated.
+
+
 
 Fortunately, the correct differentiator-type
 circuit produces the 'hyper-polarized' \gls{AP} voltage time course
@@ -168,6 +185,51 @@ Now it is. It is high time to fix the neuronal circuit type and
 @link MODELING_ACTION_POTENTIAL explain creating the Action Potential@endlink
 with a correct model, from the first principles of science.
 
+
+@subsection MODELING_SINGLE_FALLACIES_BACKPROPAGATION Backpropagation of action potential signals
+
+The meticulous measurement @cite BackpropagationAP:2012 resulted in a
+'voltage-space plot' (actually, a two-dimensional voltage in the
+function of space and time coordinates, measured at three spatiotemporal points only),
+see our Fig. \ref fig_BackPropagationOfPotentialWave.
+As the figure explained, 'Shown are voltage responses following
+somatic current injection (t = 0 ms) at the indicated times (left)'.
+
+If we estimate the \gls{AIS} size to be \f$50\ \mu m\f$ and the raise of voltage gradient \f$50\ \mu s\f$
+from the half width of the red transparent region (in the figure caption \f$100\ \mu s\f$ is mentioned
+for its full width, but see our Fig. \ref fig_ArtificialCurrent_AP
+and Figure \ref fig_VoltageTimeDerivative), we arrive at that the speed of \gls{AP},
+when initiated in the \gls{AIS}, is \f$1\ m/s\f$,  in good agreement with the conduction speed of the
+\gls{AP}
+"which first propagates down the axon to activate the first nodes of Ranvier".
+After that, according to the paper, "the IS spike then invades the somato-dendritic region
+initiating a SD spike, which backpropagates into the dendritic tree". It is not the case, however.
+The ions must turn back, and move against the increasing potential, to backpropagate.
+Instead, the voltage increase is due to the 'impact pressure' of the slow current.
+The slow internal ion current due to the somatic current injection (t = 0 ms)
+is still moving toward the \gls{AIS}, but the resistance of the \gls{AIS}
+enables only part of the current to flow out. The ions farther from the \gls{AIS}
+must be decelerated to stop them; this needs a potential increase in front of the \gls{AIS};
+this creates the illusion of backpropagation.
+The effect is gradual; the electric repulsion tends to make the surface layer
+equipotential. Clearly the effect of the slow current.
+
+Fig. 2.C enables to estimate the gradient \f$200\ \\u V/\mu s\f$ that means 
+a \f$10\ mV\f$ counter-potential in the \f$50\ \\u m\f$ length of the \gls{AIS},
+meaning a \f$2\ V/cm\f$ voltage gradient against backpropagation of ions from the end of action.
+Too high for the \gls{AP} with amplitude \f$50\ mV\f$.
+
+
+\anchor fig_BackPropagationOfPotentialWave
+@image html ais_action-potential_kole-stuart_2012.png "Backpropagation of the Action Potential" width=400px
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.5\textwidth]{images/ais_action-potential_kole-stuart_2012.png}
+\caption{"Backpropagation", aka or AP initiation and propagation in a cortical pyramidal neuron model. (@cite BackpropagationAP:2012 Figure 3.B)}
+\label{fig_BackPropagationOfPotentialWave}
+\end{figure}
+@endlatexonly
 
 
 @subsection MODELING_NEURONAL_MEMBRANE_REFRACTORINESS Membrane refrectoriness

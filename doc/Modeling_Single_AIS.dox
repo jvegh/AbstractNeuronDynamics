@@ -14,13 +14,13 @@ synaptic inputs gives rise to action potentials at the
 axon initial segment (AIS), a 20--60 \f$\mu m\f$ long domain
 located at the proximal axon/soma interface that has
 a high density of voltage-gated ion channels."
-As discussed in @cite AxonInitialSegmentStructure:2018, see also their Figure \ref StructureOfAIS,
-<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5992072/"> the structure of the Axon Initial Segment</a>
+As discussed in @cite AxonInitialSegmentStructure:2018, see also
+<a href="https://www.researchgate.net/figure/Cartoon-of-a-multipolar-neuron-and-the-molecular-composition-of-the-AIS-A-Neurons-are_fig1_325092997"> the structure of the Axon Initial Segment</a>,
 is known to the smallest details @cite AISStructureReview:2018.
 As the illuminating investigations in 2008 @cite ActionPotentialGenerationNatrium:2008
 revealed, the \gls{AIS} has very dense ion channels. That is, from electrical point
 of view, those parallelized channels can be abstracted as a  <i>discrete  conductance</i>
-(or resistance) between the membrane and the axon, see Figure @ref StructureOfAIS.
+(or resistance) between the membrane and the axon.
 The membrane itself can be abstracted as a <i>distributed condenser</i> with no resistance
 (in contrast with the viewpoint of biophysics, where the membrane  plus \gls{AIS} is considered as a distributed element,
 where the capacitor and condenser cannot be separated,
@@ -28,20 +28,7 @@ see also section \ref MODELING_SINGLE_FALLACIES_PASSIVE).
 We need to be aware of the differences, see section @ref MODELING_SINGLE_MEMBRANE.
 
 
-\anchor StructureOfAIS
-@image html nihms952878f1.jpg "The structure of the Axon Initial Segment" width=350px
-
-@latexonly
-\begin{figure}
-\includegraphics[width=.4\textwidth]{images/nihms952878f1.jpg}
-\caption{The structure of the Axon Initial Segment. Ann. N.Y. Acad. Sci. 1420 (2018) 46--61, Figure 1. $\copyright$ 2018 New York Academy of Sciences.}
-\label{StructureOfAIS}
-\end{figure}
-@endlatexonly
-
-
-At the time of setting up their electrical model for the neuron, the structure of the neuron
-(see the top schematic in Figure @ref StructureOfAIS), the \gls{AIS}
+At the time of setting up their electrical model for the neuron, the structure of the neuron, the \gls{AIS}
 and its role in the electric operation was not yet known.
 Despite the early warning that '<i>it was not possible to separate the change into
 resistance and capacity components</i>' @cite COLE_CURTIS_IMPEDANCE:1939,
@@ -63,6 +50,21 @@ Back:  @link MODELING_SINGLE_LAYERS Dynamic layers  @endlink
 Continue: @link  MODELING_SINGLE_AXON Axon @endlink
 Up: @link MODELING MODELING @endlink
 
+
+*/
+
+/*  @image html nihms952878f1.jpg "" width=350px
+\anchor StructureOfAIS
+
+<img src="https://www.researchgate.net/figure/Cartoon-of-a-multipolar-neuron-and-the-molecular-composition-of-the-AIS-A-Neurons-are_fig1_325092997" alt="The structure of the Axon Initial Segment" />
+
+@latexonly
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/nihms952878f1.jpg}
+\caption{The structure of the Axon Initial Segment. Ann. N.Y. Acad. Sci. 1420 (2018) 46--61, Figure 1. $\copyright$ 2018 New York Academy of Sciences.}
+\label{StructureOfAIS}
+\end{figure}
+@endlatexonly
 
 */
 

@@ -7,12 +7,16 @@
  *  @bug No known bugs.
  */
 
+#define MAKE_TIME_BENCHMARKING  // uncomment to measure the time with benchmarking macros
+#define SC_MAKE_TIME_BENCHMARKING  // uncomment to measure the time with benchmarking macros
+
 #include "NeuronPhysical.h"
 
 // Define parameters for calculating membrane voltage's time derivative
 #define Membrane_Amplitude 350.
 #define Rushin_A 4
-#define Rushin_B 0.2
+//#define Rushin_B 0.2
+#define Rushin_B 0.18
 // Define parameters for calculating axon's voltage's time derivative
 #define Axon_Amplitude 40.
 #define Axon_A 6.3
@@ -26,8 +30,8 @@
 
 // This section configures debug and log printing; must be located AFTER the other includes
 //#define SUPPRESS_LOGGING // Suppress all log messages
-#define DEBUG_EVENTS    ///< Print event debug messages  for this module
-#define DEBUG_PRINTS    ///< Print general debug messages for this module
+//#define DEBUG_EVENTS    ///< Print event debug messages  for this module
+//#define DEBUG_PRINTS    ///< Print general debug messages for this module
 // Those defines must be located before 'DebugMacros.h", and are undefined in that file
 #include "DebugMacros.h"
 
@@ -55,9 +59,7 @@ void NeuronPhysical::
     sc_trace(m_tracefile,m_MembraneResulting_dVdt,"Resulting_dV/dt");
     sc_trace(m_tracefile,m_MembraneRushin_dVdt,"Rushin_dV/dt");
     sc_trace(m_tracefile,m_MembraneAIS_dVdt,"AIS_dV/dt");
-//    sc_trace(m_tracefile,mStageFlag,"Stage");
-    sc_trace(m_tracefile,mStateFlag,"State");
-//    sc_trace(m_tracefile,mOperationCounter,"Operations");
+    sc_trace(m_tracefile,float(mStageFlag),"Stage");
     sc_trace(m_tracefile,m_SynapsesEnabled,"Synapses");
 }
 
@@ -68,7 +70,7 @@ void NeuronPhysical::
     scGenComp_PU_Bio::Initialize_Do();   // Do also inherited initialization
             DEBUG_SC_EVENT(name(),"Initialized for NeuronPhysical");
     m_Membrane_V = 0;
-    m_dt = HEARTBEAT_TIME_DEFAULT.to_seconds()*1000.;
+    m_Membrane_dV = 0;
     m_HasUnhandledInput = false;
     m_SynapsesEnabled = true;
 }
@@ -100,18 +102,11 @@ float NeuronPhysical::
     MembraneRushinVoltage_Get()
 {
 //    double LocalTime = m_t-mDeliveringBeginTime;  //
-    double DeliveryTime = m_t-mDeliveringBeginTime.to_seconds()*1000.;
+    double DeliveryTime = mDeliveringBeginTime.to_seconds()*1000.;
+    DeliveryTime = m_t-DeliveryTime;
     if(DeliveryTime<0) return 0.;
     return Membrane_Amplitude*(1-exp(-Rushin_A*DeliveryTime))*exp(-Rushin_B*DeliveryTime);
 }
-/*   double A_term = (1-exp(-Rushin_A*LocalTime));
-    double B_term = exp(-Rushin_B*LocalTime);
-    double I_M = Membrane_Amplitude*(1-exp(-Rushin_A*LocalTime))*exp(-Rushin_B*LocalTime);
-
-    double MembraneRushin_V = Membrane_Amplitude*A_term*B_term;
-*/
-//        Membrane_Amplitude*(1-exp(-Rushin_A*LocalTime))*exp(-Rushin_B*LocalTime);
-//    return MembraneRushin_V;
 
 float NeuronPhysical::
     AxonTimeDerivative_Get(float Delay)
@@ -132,52 +127,54 @@ float NeuronPhysical::
     void NeuronPhysical::
     Calculate_Do()
 {
-    m_MembraneRushin_V = MembraneRushinVoltage_Get();
-    m_dV_dt_membrane = MembraneRushinTimeDerivative_Get() ;
-    m_SynapsesEnabled = m_Membrane_V < ThresholdPotential;
+//    m_MembraneRushin_V = MembraneRushinVoltage_Get();
     switch(StageFlag_Get())
     {
         case gcsm_Relaxing:
         {
-            if(m_Relaxing_Stopped)
-                m_dV_dt_membrane = 0;
+             if(m_Relaxing_Stopped)
+                m_MembraneRushin_dVdt = 0;
             else
-                m_dV_dt_membrane = MembraneRushinTimeDerivative_Get();
+             {
+                m_MembraneRushin_dVdt = MembraneRushinTimeDerivative_Get();
+                m_PeakReached = m_Membrane_V > 0;
+            }
             break;
-        }
+            }
         case gcsm_Computing:
         {
             // Previous membrane!
-            m_dV_dt_membrane = 0;
+            m_MembraneRushin_dVdt = 0;
             m_MembraneRushin_V = 0;
             break;
         }
         case gcsm_Delivering:
         {
-            m_PeakReached = m_dV_dt_membrane < 0;
+            m_MembraneRushin_V = MembraneRushinVoltage_Get();
+            m_MembraneRushin_dVdt = MembraneRushinTimeDerivative_Get();
+            m_SynapsesEnabled = m_Membrane_V < ThresholdPotential;
+            m_PeakReached = m_MembraneRushin_dVdt < 0;
             break;
         }
         default: assert(0); break;
     }
-    double dV_dt_AIS = m_Membrane_V/m_R_membrane ;
-    m_MembraneAIS_dVdt = dV_dt_AIS *m_dt   // The AIS dV
+//    double I_AIS = m_Membrane_V/m_R_membrane ; // The AIS current
+    m_MembraneAIS_dVdt = m_Membrane_V/m_R_membrane   // The AIS dV/dt
                          /m_C_membrane;
 
-    m_MembraneRushin_dVdt =  m_dV_dt_membrane *m_dt   // The rush-in dV
-                            /m_C_membrane;
-    dV_dt_AIS = m_dV_dt_membrane-dV_dt_AIS;
-    m_MembraneResulting_dVdt = dV_dt_AIS *m_dt   // The charge difference
-                               /m_C_membrane;
-    m_Membrane_V += .2+
-                    (dV_dt_AIS)*m_dt   // The charge difference
-        /m_C_membrane
+//    m_MembraneRushin_dVdt =  m_dV_dt_membrane;
+//    I_AIS = m_dV_dt_membrane-I_AIS;
+    m_MembraneResulting_dVdt = m_MembraneRushin_dVdt - m_MembraneAIS_dVdt;
+//    m_MembraneResulting_dVdt = I_AIS *m_dt   // The charge difference
+//                               /m_C_membrane;
+    m_Membrane_dV = m_MembraneResulting_dVdt * m_dt;  // The charge difference
+
+    m_Membrane_V +=  m_Membrane_dV;
+        /*//.2+
+                    m_MembraneResulting_dVdt *m_dt   // The charge difference
+//                /m_C_membrane
         ;
-    if(abs(m_Membrane_V)<2)
-        dV_dt_AIS /=2;
-    if(gcsm_Relaxing == StageFlag_Get())
-    {
-        m_PeakReached = dV_dt_AIS > 0;
-    }
+*/
 }
 
 // Handle neuronal membrane's potential in 'Computing' mode
@@ -248,10 +245,11 @@ bool NeuronPhysical::
  void  NeuronPhysical::
     OutputItem(void)
 {
-     if(0==OutputCounter++%5)
-    cerr <<  sc_time_String_Get(scLocalTime_Get()) << ","
+ //    if(0==OutputCounter++%5)
+    cerr << m_t  << ","
+//     sc_time_String_Get(scLocalTime_Get()) << ","
          << m_Membrane_V << ","
-         << m_MembraneRushin_V/3 << ","
+         << m_MembraneRushin_V << ","
          << m_MembraneRushin_dVdt << ","
          << m_MembraneAIS_dVdt << ","
          <<m_MembraneResulting_dVdt << ","

@@ -18,23 +18,22 @@
 <b>Usage:</b>
     If the module includes this header, it must be preceded by defining
     @code{.cpp}
-#define SC_MAKE_TIME_BENCHMARKING  // uncomment to measure the time with benchmarking macros
+        #define SC_MAKE_TIME_BENCHMARKING  // uncomment to measure the SystemC time with benchmarking macros
     @endcode
    If this name is not defined, no code is generated as code expansion for the module.
     The variables, however, must be defined (although they will be
     optimized out as unused ones).
     Alternatively, generating those variables may be protected with bracketing them by pairs
     @code{.cpp}
-#ifdef BENCHMARK_TIME_BEGIN
-#endif
+        #ifdef SC_BENCHMARK_TIME_ACTIVE
+        #endif
     @endcode
 
 <b>Example:</b>
     in your module, between the '\#include' files write
 
     @code{.cpp}
-#define SC_MAKE_TIME_BENCHMARKING  // comment out if you do not want to benchmark
-#include "scMacroTimeBenchmarking.h"    // Must be after the define to have its effect
+        #define SC_MAKE_TIME_BENCHMARKING  // comment out if you do not want to benchmark
     @endcode
 It is a good idea to use these macro expansions at the end of heading block:
 the similar macro definitions in included other modules may overload them
@@ -101,7 +100,8 @@ Or to benchmark (in multiple variables) SIMULATED execution time about critical 
 */
 
 #ifdef SC_MAKE_TIME_BENCHMARKING
-#include <systemc>
+    #define SC_BENCHMARK_TIME_ACTIVE   // Time benchmarking required
+//#include <systemc>
 #define SC_BENCHMARK_TIME_END(t,x,s)\
 *x = sc_time_stamp() - *t; \
     *t = sc_time_stamp(); *s += *x;
@@ -113,8 +113,9 @@ SC_BENCHMARK_TIME_BEGIN(t,x); *s=*x;
     *t = sc_time_stamp(); *x=sc_time(SC_ZERO_TIME);
 #else // The time measurement not needed, do nothing
 // The macros with empty functionality will be optimized out by the compiler
-#define SC_BENCHMARK_TIME_RESET(t,x,s)
-#define SC_BENCHMARK_TIME_BEGIN(x,t)
-#define SC_BENCHMARK_TIME_END(t,x,s)
+    #define SC_BENCHMARK_TIME_RESET(t,x,s)
+    #define SC_BENCHMARK_TIME_BEGIN(x,t)
+    #define SC_BENCHMARK_TIME_END(t,x,s)
+    #undef SC_BENCHMARK_TIME_ACTIVE   // Time benchmarking required
 #endif //SC_MAKE_TIME_BENCHMARKING
-#undef SC_MAKE_TIME_BENCHMARKING // Make macro definition file-scope wide
+//#undef SC_BENCHMARK_TIME_ACTIVE

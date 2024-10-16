@@ -25,7 +25,7 @@
     optimized out as unused ones).
     Alternatively, generating those variables may be protected with bracketing them by pairs
     @code{.cpp}
-#ifdef BENCHMARK_TIME_BEGIN
+#ifdef BENCHMARK_TIME_ACTIVE
 #endif
     @endcode
 
@@ -36,7 +36,6 @@
 
     @code{.cpp}
 #define MAKE_TIME_BENCHMARKING  // comment out if you do not want to benchmark
-#include "MacroTimeBenchmarking.h"    // Must be after the define to have its effect
     @endcode
 It is a good idea to use these macro expansions at the end of heading block:
 the similar macro definitions in included other modules may overload them
@@ -106,12 +105,13 @@ Take care: control printing takes a along time.
   @param s deliver clock duration since _RESET (only read)
 */
 
+#undef BENCHMARK_TIME_ACTIVE
 
 #ifdef MAKE_TIME_BENCHMARKING
+#define BENCHMARK_TIME_ACTIVE   // Time benchmarking required
 #include <ctime>
 #include <ratio>
 #include <chrono>
-
 // Return the time since the last call TIME_BEGIN in x, and sums the elapsed time in s
 #define BENCHMARK_TIME_END(t,x,s)\
     *x = std::chrono::duration< int64_t, nano>(std::chrono::steady_clock::now() - *t); \
@@ -122,11 +122,11 @@ Take care: control printing takes a along time.
 // Remembers beginning of time
 #define BENCHMARK_TIME_BEGIN(t,x)\
     *t = std::chrono::steady_clock::now(); *x=*t-*t;
-#else // The time measurement not needed, do nothing
-// The macros with empty functionality
-#define BENCHMARK_TIME_RESET(t,x,s)
-#define BENCHMARK_TIME_BEGIN(x,t)
-#define BENCHMARK_TIME_END(t,x,s)
+#else // Time benchmarking not needed, do nothing
+    // The macros with empty functionality
+    #define BENCHMARK_TIME_RESET(t,x,s)
+    #define BENCHMARK_TIME_BEGIN(x,t)
+    #define BENCHMARK_TIME_END(t,x,s)
 #endif //MAKE_TIME_BENCHMARKING
 #undef MAKE_TIME_BENCHMARKING // Make macro definition file-scope wide
 

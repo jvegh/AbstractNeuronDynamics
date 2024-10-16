@@ -18,13 +18,6 @@
 
 #include "scGenComp_PU_Abstract.h"
 
-//How tightly the actual membrane potential must approach its resting value, in mV
-#define AllowedRestingPotentialDifference 2.
-// The absolute value of the resting potential
-#define RestingMembranePotential -65
-// The difference of threshold potential to the resting potential
-#define ThresholdPotential 20
-
 
 #ifndef NEURONDEMO_H
 
@@ -120,7 +113,10 @@ class scGenComp_PU_Bio : public scGenComp_PU_Abstract
      * - In 'Relaxing' mode, re-calculates membrane's decay potential
      * - In 'Delivering' mode, re-calculates membrane's decay potential
      */
-
+    /**
+     * @brief Adjust integration step size, to keep accuracy and computing time tolerable
+     */
+    virtual void Heartbeat_Adjust(void);
     //! Heartbeat activity for relaxing
     virtual void Heartbeat_Relaxing_Do();
     //! Heartbeat activity for computing
@@ -137,6 +133,7 @@ class scGenComp_PU_Bio : public scGenComp_PU_Abstract
 
  protected:
     float m_Membrane_V; //< The actual value of membrane potential, in mV
+    float m_Membrane_dV;   //< The actual change in membrane potential, in mV
     bool m_PeakReached; //< If the AP overpassed the depolarized state
     bool m_SynapsesEnabled; //<
   };// of class scGenComp_PU_Bio

@@ -15,6 +15,10 @@
         The macros have source-module scope. All variables must be passed by reference.
 */
 
+// Use this define in the derived module
+#define MAKE_TIME_BENCHMARKING  // comment out if you do not want to benchmark clock time
+#define SC_MAKE_TIME_BENCHMARKING  // comment out if you do not want to benchmark SystemC time
+
 #include "scGenComp_PU_Abstract.h"
 
 // This section configures debug and log printing
@@ -29,10 +33,14 @@ string GenCompObserveStrings[]{"Group","Module","ComputingBegin","ComputingEnd",
                                "Input","Initialize","RelaxingBegin","ValueChanged"};
 string GenCompStagesString[]{"Sleeping", "Relaxing", "Computing", "Delivering"};
 
+/*sc_core::sc_time PU_ComputingPeriod  = sc_core::sc_time(40,SC_US);
+sc_core::sc_time PU_DeliveringPeriod = sc_core::sc_time(60,SC_US);
+*/
+
     scGenComp_PU_Abstract::
 scGenComp_PU_Abstract(sc_core::sc_module_name nm
-                          ,sc_core::sc_time FixedComputingTime
-                          ,sc_core::sc_time FixedDeliveringTime
+                          ,sc_core::sc_time(FixedComputingTime)
+                          ,sc_core::sc_time(FixedDeliveringTime)
                           ,bool CentralClockMode
                           ): sc_core::sc_module( nm)
     ,mStageFlag(gcsm_Relaxing)
@@ -42,13 +50,15 @@ scGenComp_PU_Abstract(sc_core::sc_module_name nm
     ,mFixedComputingTime(FixedComputingTime)
     ,mFixedDeliveringTime(FixedDeliveringTime)
     ,mInputsReceived(0)
+    ,m_Heartbeat_time_default(sc_core::sc_time(HEARTBEAT_TIME_DEFAULT,SC_NS))
     ,mCentralClockMode(CentralClockMode)
- {
+  {
+    m_Heartbeat_time = m_Heartbeat_time_default;
     mObservedBits[gcob_ObserveGroup] = true;   // Enable this module for its group observing by default
     mObservedBits[gcob_ObserveModule] = true;   // Enable module observing by default
 
     Tracing_Initialize();
-    // Verify if not using variable computing time with a central clock
+    // Make sure if not using variable computing time with a central clock
     assert(!((SC_ZERO_TIME == FixedComputingTime) && CentralClockMode));
     // *** The stuff below in the constructor are SystemC specific, do not touch!
     typedef scGenComp_PU_Abstract SC_CURRENT_USER_MODULE; // Needed if some routines are listed in this constructor
@@ -129,7 +139,7 @@ void scGenComp_PU_Abstract::
     EVENT_GenComp.Heartbeat.cancel();
     EVENT_GenComp.InputReceived.cancel();
     EVENT_GenComp.Synchronize.cancel();
-                DEBUG_SC_EVENT(name(),"Cncl 'all events' in " << GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT(name(),"Cncl 'all events' in " << GenCompStagesString[mStageFlag] << "'");
 }
 
 //  Receive rising edge of an external clock and issue 'ComputingBegin'
@@ -147,37 +157,54 @@ void scGenComp_PU_Abstract::
 {
     // Imitate 'ComputingEnd'; for central clock
             assert(mCentralClockMode);
-    ComputingEnd_method();    // Imitate receiving 'ComputingBegin'
+    ComputingEnd_method();    // Imitate receiving 'ComputingEnd'
 }
 
 // Called when the state 'processing' begins
 void scGenComp_PU_Abstract::
     ComputingBegin_method()
 {
+        // Previous, the stage must have been 'Relaxing'
+            #ifdef BENCHMARK_TIME_ACTIVE
+                BENCHMARK_TIME_END(&t_Relaxing,&x_Relaxing,&s_Relaxing);
+                TimeDuration_Relaxing_Get();
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_BENCHMARK_TIME_END(&SC_t_Relaxing,&SC_x_Relaxing,&SC_s_Relaxing);
+                SC_TimeDuration_Relaxing_Get();
+            #endif // SC_BENCHMARK_TIME_ACTIVE
+                // And now begin the new computing
+            #ifdef BENCHMARK_TIME_ACTIVE
+                t_Computing =chrono::steady_clock::now();
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_t_Computing = sc_core::sc_time_stamp();
+            #endif // SC_BENCHMARK_TIME_ACTIVE
+    HeartbeatTime_Set(m_Heartbeat_time_default);
             assert(gcsm_Relaxing == StageFlag_Get()); // Must be set in stage 'Relaxing'
             assert(HaveEnoughInputs()); // And must receive input before computing
-            DEBUG_SC_EVENT(name(),"RCVD 'ComputingBegin' in '" << GenCompStagesString[mStateFlag] << "'");
+            DEBUG_SC_EVENT(name(),"RCVD 'ComputingBegin' in stage '" << GenCompStagesString[mStageFlag] << "'");
     mIdlePeriod = sc_core::sc_time_stamp() - mRelaxingBeginTime; // Remember idle time before this processing
     mLocalTimeBase = sc_core::sc_time_stamp();  // The clock is synchronized to the beginning of processing
-    m_t = scLocalTime_Get().to_seconds()*1000.;
     StageFlag_Set(gcsm_Computing);   // Pass to "Computing"
         //    Inputs.clear();
     ObserverNotify(gcob_ObserveComputingBegin);
     ComputingBegin_Do();         // Now perform the activity in the derived classes
-    if(mFixedComputingTime==sc_core::sc_time(SC_ZERO_TIME))
+    if(SC_ZERO_TIME==mFixedComputingTime)
     {   // We use variable time and heartbeat
-//        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT);
-        m_CorrectForFirstHeartbeat = true;  // Mark we need correction
-                EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_RESOLUTION);  // Use a minimum time
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' in '"<< GenCompStatesString[mStateFlag]
-                                    << "' @" << sc_time_String_Get(sc_time_stamp()+HEARTBEAT_TIME_RESOLUTION));
-        Heartbeat_Computing_Do();    // Make the calculation for 0th HB, still in 'Relaxing' mode
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Calculated in '"<< GenCompStatesString[mStateFlag] << "'");
+        EVENT_GenComp.Heartbeat.notify(SC_ZERO_TIME);  // Use a minimum time
+/*        m_FirstHeartbeatInStage = true;  // Mark we need correction
+        EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_resolution);  // Use a minimum time
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' @"  << sc_time_String_Get(sc_time_stamp()+m_Heartbeat_time_default) << " in stage '"<< GenCompStagesString[mStageFlag]);
+        m_t = scLocalTime_Get().to_seconds()*1000.;
+*/
+//        Heartbeat_Computing_Do();    // Make the calculation for 0th HB, still in 'Relaxing' mode
+//                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Calculated in stage '"<< GenCompStagesString[mStageFlag] << "'");
      }
     else
     {
         EVENT_GenComp.ComputingEnd.notify(mFixedComputingTime);
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'ComputingEnd' in '"<< GenCompStatesString[mStateFlag] << "' @" << sc_time_String_Get(sc_time_stamp()+mFixedComputingTime));
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'ComputingEnd' @" << sc_time_String_Get(sc_time_stamp()+mFixedComputingTime) << " in stage '"<< GenCompStagesString[mStageFlag] << "'" );
     }
 }
 
@@ -186,44 +213,69 @@ void scGenComp_PU_Abstract::
 void scGenComp_PU_Abstract::
     ComputingEnd_method()
 {
-    m_t = scLocalTime_Get().to_seconds()*1000.;
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'ComputingEnd' in '" << GenCompStatesString[mStateFlag] << "'");
+            #ifdef BENCHMARK_TIME_ACTIVE
+                BENCHMARK_TIME_END(&t_Computing,&x_Computing,&s_Computing);
+                TimeDuration_Computing_Get();
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_BENCHMARK_TIME_END(&SC_t_Computing,&SC_x_Computing,&SC_s_Computing);
+                SC_TimeDuration_Computing_Get();
+            #endif // SC_BENCHMARK_TIME_ACTIVE
+    HeartbeatTime_Set(m_Heartbeat_time_default);
+    if(gcsm_Relaxing == StageFlag_Get())
+    {   // Computing failed; omit delivering
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'ComputingEnd' in '" << GenCompStagesString[mStageFlag] << "': computing failed");
+        StageFlag_Set(gcsm_Delivering); // Imitate normal computing end
+        EVENT_GenComp.RelaxingBegin.notify(SC_ZERO_TIME);
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'RelaxingBegin' in " << GenCompStagesString[mStageFlag] << "'");
+    }
+    else
+    {  // Computing succeeded
+ //       m_t = scLocalTime_Get().to_seconds()*1000.;
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'ComputingEnd' in '" << GenCompStagesString[mStageFlag] << "'");
                 assert(gcsm_Computing == StageFlag_Get()); // Must be set by 'ComputingEnd'
-    ComputingEnd_Do();          // Now perform the activity in the derived classes
-    ObserverNotify(gcob_ObserveComputingEnd);
-    mResultPeriod = scLocalTime_Get();
-    EVENT_GenComp.DeliveringBegin.notify(SC_ZERO_TIME);
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'DeliveringBegin' in '" << GenCompStatesString[mStateFlag]<< "'");
+        ComputingEnd_Do();          // Now perform the activity in the derived classes
+        ObserverNotify(gcob_ObserveComputingEnd);
+        mResultPeriod = scLocalTime_Get();
+        EVENT_GenComp.DeliveringBegin.notify(SC_ZERO_TIME);
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'DeliveringBegin' in '" << GenCompStagesString[mStageFlag]<< "'");
+    }
 }
 
 // Called when the stage 'delivering' begins
 void scGenComp_PU_Abstract::
     DeliveringBegin_method()
 {
-    m_t = scLocalTime_Get().to_seconds()*1000.;
+            #ifdef BENCHMARK_TIME_ACTIVE
+                BENCHMARK_TIME_BEGIN(&t_Delivering,&x_Delivering);    // Begin the benchmarking here
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_BENCHMARK_TIME_BEGIN(&SC_t_Delivering,&SC_x_Delivering);    // Begin the benchmarking here
+            #endif //SC_ BENCHMARK_TIME_ACTIVE
+    HeartbeatTime_Set(m_Heartbeat_time_default);
                 assert(gcsm_Computing == StageFlag_Get()); // Must be set by 'ComputingEnd'
-    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'DeliveringBegin in " << GenCompStagesString[mStageFlag]<< "'");
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'DeliveringBegin in " << GenCompStagesString[mStageFlag]<< "'");
     mDeliveringBeginTime = sc_core::sc_time_stamp();
     StageFlag_Set(gcsm_Delivering);   // Pass to "Delivering"
     ObserverNotify(gcob_ObserveDeliveringBegin);
-    if(mFixedComputingTime==sc_core::sc_time(SC_ZERO_TIME))
+    if(mFixedComputingTime==SC_ZERO_TIME)
     {   // We use variable time
- //       EVENT_GenComp.Heartbeat.cancel(); // Be sure there are no foreign heartbeats
- //       DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Cncl 'Heartbeat' in '"<< GenCompStagesString[mStageFlag] << "'");
-        m_CorrectForFirstHeartbeat = true;  // Mark we need correction
-        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_RESOLUTION);  // Use a minimum time
-        DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' in '"<< GenCompStatesString[mStateFlag]
-                                                                                << "' @" << sc_time_String_Get(sc_time_stamp()+HEARTBEAT_TIME_RESOLUTION));
-//        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT);
-//                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' in '"<< GenCompStagesString[mStageFlag]
-//                                     << "' @" << sc_time_String_Get(sc_time_stamp()+HEARTBEAT_TIME_DEFAULT));
+        EVENT_GenComp.Heartbeat.notify(SC_ZERO_TIME);  // Make an immediete calculation
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Calculated in stage '"<< GenCompStagesString[mStageFlag] << "'");
+ /*       DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' @" << sc_time_String_Get(sc_time_stamp()+m_Heartbeat_time_resolution) << " in stage '"<< GenCompStagesString[mStageFlag]
+                                                                             << "'" );
+        m_FirstHeartbeatInStage = true;  // Mark we need correction
+        EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_resolution);  // Use a minimum time
+                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' @" << sc_time_String_Get(sc_time_stamp()+m_Heartbeat_time_resolution) << " in stage '"<< GenCompStagesString[mStageFlag]
+                                                                                << "'" );
+*/
+        m_t = scLocalTime_Get().to_seconds()*1000.;
         DeliveringBegin_Do();;  // Make the calculation for 0th HB
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Calculated in '"<< GenCompStagesString[mStageFlag] << "'");
     }
     else
     {
         EVENT_GenComp.DeliveringEnd.notify(mFixedDeliveringTime);
-        DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'DeliveringEnd' in '"<< GenCompStatesString[mStateFlag] << "' @" << sc_time_String_Get(sc_time_stamp()+mFixedDeliveringTime));
+        DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'DeliveringEnd' in '"<< GenCompStagesString[mStageFlag] << "' @" << sc_time_String_Get(sc_time_stamp()+mFixedDeliveringTime));
     }
 }
 
@@ -231,55 +283,70 @@ void scGenComp_PU_Abstract::
 void scGenComp_PU_Abstract::
     DeliveringEnd_method()
 {
-    m_t = scLocalTime_Get().to_seconds()*1000.;
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'DeliveringEnd' in " << GenCompStatesString[mStateFlag] << "'");
+            #ifdef BENCHMARK_TIME_ACTIVE
+                BENCHMARK_TIME_END(&t_Delivering,&x_Delivering,&s_Delivering);
+                TimeDuration_Delivering_Get();
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_BENCHMARK_TIME_END(&SC_t_Delivering,&SC_x_Delivering,&SC_s_Delivering);
+                SC_TimeDuration_Delivering_Get();
+            #endif // SC_BENCHMARK_TIME_ACTIVE
+//    HeartbeatTime_Set(m_Heartbeat_time_default);
+//    m_t = scLocalTime_Get().to_seconds()*1000.;
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'DeliveringEnd' in stage " << GenCompStagesString[mStageFlag] << "'");
                 assert(StageFlag_Get() == gcsm_Delivering); // Must be set by 'DeliveringBegin'
     DeliveringEnd_Do();
     ++mOperationCounter;        // This operation finished
     ObserverNotify(gcob_ObserveDeliveringEnd);  // Inform observer
     EVENT_GenComp.RelaxingBegin.notify(SC_ZERO_TIME);
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'RelaxingBegin' in " << GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'RelaxingBegin' in stage " << GenCompStagesString[mStageFlag] << "'");
  }
 
 
 void scGenComp_PU_Abstract::
     Failed_method(void)
 {
-                DEBUG_SC_EVENT(name(),"RCVD 'Failed  in " << GenCompStatesString[mStateFlag] << "'");
-                DEBUG_SC_EVENT(name(),"Implicit 'Initialize'  in " << GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT(name(),"RCVD 'Failed  in " << GenCompStagesString[mStageFlag] << "'");
+                DEBUG_SC_EVENT(name(),"Implicit 'Initialize'  in " << GenCompStagesString[mStageFlag] << "'");
     Initialize_method();
     Failed_Do();
 }
 
+// Adjusts the heartbeat time (integration step size)
+void scGenComp_PU_Abstract::
+    Heartbeat_Adjust(void)
+{   // By default, make nothing. See the bio case
+    m_t = scLocalTime_Get().to_seconds()*1000.; // Set the time for the calculation, in usec
+
+}
 
 // Called when the state 'processing' ends
 void scGenComp_PU_Abstract::
     Heartbeat_method()
 {
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'Heartbeat' in '"<< GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"RCVD 'Heartbeat' in stage '"<< GenCompStagesString[mStageFlag] << "'");
     ObserverNotify(gcob_ObserveHeartbeat);
-    m_t = scLocalTime_Get().to_seconds()*1000.;
-    OutputItem();
+    Heartbeat_Adjust(); // The derived classes may need to adjust the integration time step
     bool StopHeartbeating = false;
     switch(StageFlag_Get())
     {
         case gcsm_Computing:
         {
-            Heartbeat_Computing_Do();
+            Heartbeat_Computing_Do();  // The voltage gradient may skip
             if((StopHeartbeating = Heartbeat_Computing_Stop()))
             {
                 EVENT_GenComp.ComputingEnd.notify(SC_ZERO_TIME);
-                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'ComputingEnd' in " << GenCompStatesString[mStateFlag] << "'");
+                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'ComputingEnd' in stage '" << GenCompStagesString[mStageFlag] << "'");
             }
             break;
         }
         case gcsm_Delivering:
         {
-            Heartbeat_Delivering_Do();
+            Heartbeat_Delivering_Do(); // The voltage gradient may skip
             if((StopHeartbeating = Heartbeat_Delivering_Stop()))
             {
                 EVENT_GenComp.DeliveringEnd.notify(SC_ZERO_TIME);
-                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'DeliveringEnd' in " << GenCompStatesString[mStateFlag] << "'");
+                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'DeliveringEnd' in 302 " << GenCompStagesString[mStageFlag] << "'");
             }
             break;
         }
@@ -289,25 +356,26 @@ void scGenComp_PU_Abstract::
             if((StopHeartbeating = Heartbeat_Relaxing_Stop()))
             {
                 m_Relaxing_Stopped = true;
-                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Relaxing finished in '" << GenCompStatesString[mStateFlag]
+                    DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Relaxing finished in '" << GenCompStagesString[mStageFlag]
                                                                                    << "' @" << sc_time_String_Get(sc_time_stamp()));
             }
             break;
         }
         default: ; assert(0); break; // do nothing
     }
+    OutputItem(); // Deliver the result of heartbeat calculation
     if(!StopHeartbeating)
     {   // Send the heartbeat again
-        sc_core::sc_time NewScheduledHeartbeat = HEARTBEAT_TIME_DEFAULT;
-        if(m_CorrectForFirstHeartbeat)
-            NewScheduledHeartbeat -= HEARTBEAT_TIME_RESOLUTION;
-        m_CorrectForFirstHeartbeat = false;  // Mark we do NOT need correction any more
+        sc_core::sc_time NewScheduledHeartbeat = m_Heartbeat_time;
+        if(m_FirstHeartbeatInStage)
+            NewScheduledHeartbeat -= m_Heartbeat_time_resolution;
+        m_FirstHeartbeatInStage = false;  // Mark we do NOT need correction any more
             EVENT_GenComp.Heartbeat.notify(NewScheduledHeartbeat); // Continue heartbeating
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' in '"<< GenCompStatesString[mStateFlag]
-                                    << "' @" << sc_time_String_Get(sc_time_stamp()+NewScheduledHeartbeat));
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' " <<
+                                    "' @" << sc_time_String_Get(sc_time_stamp()+NewScheduledHeartbeat)
+                                    << " in stage '" << GenCompStagesString[mStageFlag]);
     }
  }
-
 
 // Puts the PU in its default state
 // Usually triggered by EVENT_GenComp.Initialize
@@ -315,13 +383,24 @@ void scGenComp_PU_Abstract::
 void scGenComp_PU_Abstract::
     Initialize_method(void)
 {
-                DEBUG_SC_EVENT(name(),"RCVD 'Initialize' in state '" << GenCompStatesString[mStateFlag] << "'");
+            #ifdef BENCHMARK_TIME_ACTIVE
+                BENCHMARK_TIME_RESET(&t_Computing,&x_Computing,&s_Computing); // Reset at the very begining, say in the constructor
+                BENCHMARK_TIME_RESET(&t_Delivering,&x_Delivering,&s_Delivering); // Reset at the very begining, say in the constructor
+                BENCHMARK_TIME_RESET(&t_Relaxing,&x_Relaxing,&s_Relaxing); // Reset at the very begining, say in the constructor
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_BENCHMARK_TIME_RESET(&SC_t_Computing,&SC_x_Computing,&SC_s_Computing); // Reset at the very begining, say in the constructor
+                SC_BENCHMARK_TIME_RESET(&SC_t_Delivering,&SC_x_Delivering,&SC_s_Delivering); // Reset at the very begining, say in the constructor
+                SC_BENCHMARK_TIME_RESET(&SC_t_Relaxing,&SC_x_Relaxing,&SC_s_Relaxing); // Reset at the very begining, say in the constructor
+            #endif // SC_BENCHMARK_TIME_ACTIVE
+                DEBUG_SC_EVENT(name(),"RCVD 'Initialize' in stage '" << GenCompStagesString[mStageFlag] << "'");
     ObserverNotify(gcob_ObserveInitialize);
     StageFlag_Set(gcsm_Relaxing);   // Pass to "Relaxing"
     mLocalTimeBase = sc_time_stamp();
     mOperationCounter = 0;    // Count the actions the unit makes
     mInputsReceived = 0;     // We did not receive any input yet
-    m_CorrectForFirstHeartbeat = false;
+    HeartbeatTime_Set(m_Heartbeat_time_default);
+    m_FirstHeartbeatInStage = false;
     CancelEvents();
     EVENT_GenComp.DeliveringEnd.cancel();
     EVENT_GenComp.ComputingEnd.cancel();
@@ -334,10 +413,10 @@ void scGenComp_PU_Abstract::
 {
     if(gcsm_Delivering == mStageFlag)
     {   // Omit input in delivery phase
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Omit 'InputReceived' in '"<< GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Omit 'InputReceived' in '"<< GenCompStagesString[mStageFlag] << "'");
         return;
     }
-                DEBUG_SC_EVENT(name(),"RCVD 'InputReceived' in '" << GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT(name(),"RCVD 'InputReceived' #" <<mInputsReceived  << " in stage '" << GenCompStagesString[mStageFlag] << "'");
     ObserverNotify(gcob_ObserveInput);
     InputReceived_Do();
     ++mInputsReceived;  // Now we have a valid input
@@ -347,13 +426,14 @@ void scGenComp_PU_Abstract::
         // Imitate 'ComputingBegin'; in bio PUs for the first 'InputReceived' only
         if(!(mInputsReceived>1))
         {
-                    DEBUG_SC_EVENT(name(), "After 'InputReceived' in '" << GenCompStatesString[mStateFlag] << "', imitate 'ComputingBegin'");
+                    DEBUG_SC_EVENT(name(), "After 'InputReceived' in stage '" << GenCompStagesString[mStageFlag] << "', imitate 'ComputingBegin'");
             ComputingBegin_method();    // Imitate receiving 'ComputingBegin'
         }
     }
     else
     {   // We use fixed computing time
         if(mCentralClockMode) return;   // Some clock will trigger computing
+        StageFlag_Set(gcsm_Computing);
     }
 }
 
@@ -362,26 +442,33 @@ void scGenComp_PU_Abstract::
 void scGenComp_PU_Abstract::
     RelaxingBegin_method()
 {
+            #ifdef BENCHMARK_TIME_ACTIVE
+                BENCHMARK_TIME_BEGIN(&t_Relaxing,&x_Relaxing);    // Begin the benchmarking here
+            #endif // BENCHMARK_TIME_ACTIVE
+            #ifdef SC_BENCHMARK_TIME_ACTIVE
+                SC_BENCHMARK_TIME_BEGIN(&SC_t_Relaxing,&SC_x_Relaxing);    // Begin the benchmarking here
+            #endif // SC_BENCHMARK_TIME_ACTIVE
                 assert( gcsm_Delivering == StageFlag_Get()); // Must be set by 'DeliveringEnd'
-                DEBUG_SC_EVENT(name(),"RCVD 'RelaxingBegin' in " << GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT(name(),"RCVD 'RelaxingBegin' in stage " << GenCompStagesString[mStageFlag] << "'");
     mRelaxingBeginTime = sc_core::sc_time_stamp();
+//    HeartbeatTime_Set(m_Heartbeat_time_default);
     StageFlag_Set(gcsm_Relaxing);                 // Passing to statio 'Relaxing'
     ObserverNotify(gcob_ObserveRelaxingBegin);
     RelaxingBegin_Do();
-//    EVENT_GenComp.Heartbeat.cancel(); // Be sure there are no foreign heartbeats
-//                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Cncl 'Heartbeat' in '"<< GenCompStatesString[mStateFlag] << "'");
-    EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT);
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd 'Heartbeat' in '"<< GenCompStatesString[mStateFlag]
-                                                                                    << "' @" << sc_time_String_Get(sc_time_stamp()+HEARTBEAT_TIME_DEFAULT));
+      EVENT_GenComp.Heartbeat.notify(SC_ZERO_TIME); // Perform an immediate calculation
+/*    EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_default);
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Schd  'Heartbeat' @"  << sc_time_String_Get(sc_time_stamp()+m_Heartbeat_time_default) << " in stage '"<< GenCompStagesString[mStageFlag]
+                                                                                    << "'");
     Heartbeat_Relaxing_Do(); // Make the calculation for 0th HB
-                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Calculated in '"<< GenCompStatesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"Calculated in '"<< GenCompStagesString[mStageFlag] << "'");
+*/
 }
 
 // Synchronization request from a fellow PU
 void scGenComp_PU_Abstract::
     Synchronize_method(void)
 {
-                DEBUG_SC_EVENT(name(),"RCVD 'Synchronize' in " << GenCompStagesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT(name(),"RCVD 'Synchronize' in " << GenCompStagesString[mStageFlag] << "'");
     if(gcsm_Delivering == StageFlag_Get())
     {
         DEBUG_SC_WARNING_LOCAL(scLocalTime_Get(),name(),"Synchronization is only possible if 'Relaxing' or 'Processing'");
@@ -390,7 +477,7 @@ void scGenComp_PU_Abstract::
     // We received a legal syncronization request, immediate delivering follows
     CancelEvents();// Be sure there are no pending events
     StageFlag_Set(gcsm_Computing); // Must be set for DeliveringBegin()
-                DEBUG_SC_EVENT(name(),"Implicit 'DeliveringBegin' in " << GenCompStagesString[mStateFlag] << "'");
+                DEBUG_SC_EVENT(name(),"Implicit 'DeliveringBegin' in " << GenCompStagesString[mStageFlag] << "'");
     DeliveringBegin_method(); // Implicit 'DeliveringBegin'
 }
 

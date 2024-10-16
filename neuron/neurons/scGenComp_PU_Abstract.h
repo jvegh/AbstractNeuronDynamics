@@ -4,8 +4,7 @@
  *  @brief Function prototypes for the computing module.
  *  Just event and stage handling, no real activity
  *  @todo Implement TransmittingEnd
- *  @todo Implement smaller heartbeat times
- */
+  */
 /*
  *  @author János Végh (jvegh)
  *  @bug No known bugs.
@@ -23,8 +22,18 @@
 #include "EventGencomp.h"
 using namespace sc_core; using namespace sc_dt; using namespace std;
 //class scGenComp_Simulator;
-#define HEARTBEAT_TIME_DEFAULT sc_core::sc_time(2,SC_US)
-#define HEARTBEAT_TIME_RESOLUTION sc_core::sc_time(100,SC_NS)
+#include "scGenComp_Config.h"
+#include "Utils.h"
+
+#define SC_MAKE_TIME_BENCHMARKING  // uncomment to measure the SystemCtime with benchmarking macros
+#define MAKE_TIME_BENCHMARKING  // uncomment to measure the clock time with benchmarking macros
+#ifdef SC_MAKE_TIME_BENCHMARKING
+    #include "scMacroTimeBenchmarking.h"    // Must be after the define to have its effect
+#endif
+#ifdef MAKE_TIME_BENCHMARKING
+    #include "MacroTimeBenchmarking.h"    // Must be after the define to have its effect
+#endif
+
 
 #ifndef SCBIOGENCOMP_H
 #ifndef SCTECHGENCOMP_H // Just to exclude for Doxygen, to not repeat it
@@ -240,8 +249,8 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
      * @param[in] ExternSynchronMode If external synchronization used
      */
     scGenComp_PU_Abstract(sc_core::sc_module_name nm
-                            ,sc_core::sc_time FixedComputingTime = sc_core::sc_time(SC_ZERO_TIME)
-                            ,sc_core::sc_time FixedDeliveringTime = sc_core::sc_time(SC_ZERO_TIME)
+                            ,sc_core::sc_time FixedComputingTime = SC_ZERO_TIME
+                            ,sc_core::sc_time FixedDeliveringTime = SC_ZERO_TIME
                             ,bool ExternSynchronMode =false
                              );
 
@@ -355,7 +364,6 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
 
     inline GenCompStageMachineType_t StageFlag_Get(void){ return mStageFlag;}
 //    virtual void TransmissionBegin_Do(){}
-
 protected:
     /**
      * @brief Cancels all pending events. Called from Initialize_method(),Synchronize_method(),
@@ -370,12 +378,21 @@ protected:
      */
     virtual bool HaveEnoughInputs(void){return true;}
     /**
+     * @brief Adjust neuron's heartbeat (integration) time,
+     * to keep the precision good and the coputing time tolerable.
+     * When passing from one stage to another, changes the integration step back to default time;
+     * then increases following the steps, attempts to increase it.
+     */
+    virtual void Heartbeat_Adjust(void);
+
+    /**
      * @brief Handle Heartbeat in 'Computing' mode
      *
      * It should be overloaded (by default makes nothing).
      * Called by Heartbeat_method();
      */
-    virtual void Heartbeat_Computing_Do(){}
+
+     virtual void Heartbeat_Computing_Do(){}
     /**
      * @brief Handle Heartbeat in 'Delivering' mode
      *
@@ -383,12 +400,6 @@ protected:
      * Called by Heartbeat_method()
      */
     virtual void Heartbeat_Delivering_Do(){};
-    /**
-     * @brief Handle Heartbeat in 'Relaxing' mode
-     *
-     * Called by Heartbeat_method();
-     */
-    virtual void Heartbeat_Relaxing_Do(){}
     /**
      * @return true if to stop heartbeating in 'Computing' mode
      */
@@ -398,11 +409,21 @@ protected:
      */
     virtual bool Heartbeat_Delivering_Stop(){return scLocalTime_Get()>mFixedComputingTime+mFixedDeliveringTime;}
     /**
+     * @brief Handle Heartbeat in 'Relaxing' mode
+     *
+     * Called by Heartbeat_method();
+     */
+    virtual void Heartbeat_Relaxing_Do(){}
+    /**
      * @brief Handle 'sleep' stage, i.e., if to continue heartbeats in 'Relaxing' mode
      */
     virtual bool Heartbeat_Relaxing_Stop(){return true;}
 
-    float HeartbeatTimeInMicrosec_Get(){    return HEARTBEAT_TIME_DEFAULT.to_seconds()*1000.*1000.;}
+    /**
+     * Access function to neuron's heartbeat (integration) time,     */
+    sc_core::sc_time HeartbeatTime_Get(void){return m_Heartbeat_time;}
+    void HeartbeatTime_Set(sc_core::sc_time HBT){m_Heartbeat_time = HBT; }
+    float HeartbeatTimeInMicrosec_Get(){    return m_Heartbeat_time.to_seconds()*1000.*1000.;}
 
     /**
      * @brief scLocalTime_Get
@@ -434,7 +455,7 @@ protected:
      */
     sc_core::sc_time
          mLocalTimeBase         //< The beginning of the local computing; time of 'ProcessingBegin'
-                                //< aka, When this processing begun
+                                //< aka, When !this! processing begun
         ,mDeliveringBeginTime   //< When the result was ready; aka when fired
         ,mRelaxingBeginTime       //< When this processing begun
         ,mResultPeriod       //< Last processing time duration (the result) (T(DeliveringBegin)-T(ProcessingBegin))
@@ -457,8 +478,13 @@ protected:
      * The derived units must override Heartbeat_XXX_Stop()
      * to provide the appropriate stopping conditions
      */
-    sc_core::sc_time mFixedComputingTime; //< If to use fixed-time computing
-    sc_core::sc_time mFixedDeliveringTime; //< If to use fixed-time delivering
+
+    sc_core::sc_time
+         mFixedComputingTime //< If to use fixed-time computing
+        ,mFixedDeliveringTime //< If to use fixed-time delivering
+        ,m_Heartbeat_time_default    //< The reset value of heartbeat time
+        ,m_Heartbeat_time_resolution    //< The time tolerance
+        ,m_Heartbeat_time; //< The size of the integration step size
     uint32_t mInputsReceived;        // No of inputs received(arguments or or spikes)
     bool m_Relaxing_Stopped;
     float m_dt; // The integration time step
@@ -471,11 +497,49 @@ protected:
 
     /** If set, external clock starts computing and delivering */
     bool mCentralClockMode;       //< If module needs central clock synchrony signals for changing its states
-    bool m_CorrectForFirstHeartbeat;    //< If to correct for the 1st heartbeat time
+    bool m_FirstHeartbeatInStage;    //< If to correct for the 1st heartbeat time
     //** Output an item
     virtual void OutputItem(void){}
     sc_trace_file* m_tracefile;
     virtual void Tracing_Initialize();    // By default, makes nothing
+    // Benchmarking stores
+        #ifdef BENCHMARK_TIME_ACTIVE
+            chrono::steady_clock::time_point t_Computing =chrono::steady_clock::now();
+            std::chrono::duration< int64_t, nano> x_Computing,s_Computing = (std::chrono::duration< int64_t, nano>)0;
+            chrono::steady_clock::time_point t_Delivering =chrono::steady_clock::now();
+            std::chrono::duration< int64_t, nano> x_Delivering,s_Delivering = (std::chrono::duration< int64_t, nano>)0;
+            chrono::steady_clock::time_point t_Relaxing =chrono::steady_clock::now();
+            std::chrono::duration< int64_t, nano> x_Relaxing,s_Relaxing = (std::chrono::duration< int64_t, nano>)0;
+            virtual void TimeDuration_Computing_Get()
+            {  std::cerr  << "Computing took " << x_Computing.count()/1000/1000. << " msec CLOCK time" << endl;}
+            virtual void TimeDuration_Delivering_Get()
+            {  std::cerr  << "Delivering took " << x_Delivering.count()/1000/1000. << " msec CLOCK time" << endl;}
+            virtual void TimeDuration_Relaxing_Get()
+            {  std::cerr  << "Relaxing took " << x_Relaxing.count()/1000/1000. << " msec CLOCK time" << endl;}
+        #endif // BENCHMARK_TIME_ACTIVE
+        #ifdef SC_BENCHMARK_TIME_ACTIVE
+            sc_core::sc_time SC_t_Computing = SC_ZERO_TIME, SC_x_Computing, SC_s_Computing;
+            sc_core::sc_time SC_t_Delivering = SC_ZERO_TIME, SC_x_Delivering, SC_s_Delivering;
+            sc_core::sc_time SC_t_Relaxing = SC_ZERO_TIME, SC_x_Relaxing, SC_s_Relaxing;
+            virtual void SC_TimeDuration_Computing_Get()
+            {
+                std::cerr //<< std::fixed << std::setfill (' ') << std::setprecision(3) << std::setw(7)
+                          << "Computing took " << sc_time_String_Get(SC_x_Computing) << " ms SC time " << endl;
+            }
+            virtual void SC_TimeDuration_Delivering_Get()
+            {
+                std::cerr //<< std::fixed << std::setfill (' ') << std::setprecision(3) << std::setw(7)
+                          << "Delivering took " << sc_time_String_Get(SC_x_Delivering) << " ms SC time " << endl;
+            }
+            virtual void SC_TimeDuration_Relaxing_Get()
+            {
+                std::cerr //<< std::fixed << std::setfill (' ') << std::setprecision(d) << std::setw(w)
+                          << "Relaxing took " << sc_time_String_Get(SC_x_Relaxing) << " ms SC time " << endl;
+            }
+        #endif // BENCHMARK_SCTIME_ACTIVE
+/*
+    @endcode
+*/
 private:
     /**
      * @brief  Receive rising edge of an external clock and issue 'ComputingBegin'
@@ -588,6 +652,7 @@ private:
     void TransmissionBegin_method();
 
 };// of class scGenComp_PU_Abstract
+
 
 /* * @}*/
 

@@ -1,5 +1,4 @@
 /** @file NeuronPhysical.h
-
  *  @brief Function prototypes for the physics-based neuron module
  */
 /*
@@ -124,8 +123,8 @@ public:
     void  OutputItem(void);
 protected:
     // Just for tracing
-    double m_dV_dt_membrane;    // The actual time derivative
-    double m_MembraneRushin_V;
+//    double m_dV_dt_membrane;    // The actual time derivative
+    double m_MembraneRushin_V;    // Only for tracing
     double m_MembraneRushin_dVdt;
     double m_MembraneAIS_dVdt;
     double m_MembraneResulting_dVdt;

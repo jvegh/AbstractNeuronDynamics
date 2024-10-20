@@ -128,6 +128,7 @@ protected:
     double m_MembraneRushin_dVdt;
     double m_MembraneAIS_dVdt;
     double m_MembraneResulting_dVdt;
+    double m_AIS_I; // Current through the AIS
 
 
     bool m_HasUnhandledInput; // Signal if to open a new input

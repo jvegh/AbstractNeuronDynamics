@@ -158,7 +158,7 @@ float NeuronPhysical::
         }
         default: assert(0); break;
     }
-//    double I_AIS = m_Membrane_V/m_R_membrane ; // The AIS current
+    m_AIS_I = m_Membrane_V/m_R_membrane * m_dt; // The AIS current
     m_MembraneAIS_dVdt = m_Membrane_V/m_R_membrane   // The AIS dV/dt
                          /m_C_membrane;
 
@@ -175,7 +175,7 @@ float NeuronPhysical::
 //                /m_C_membrane
         ;
 */
-    Heartbeat_Adjust();
+//    Heartbeat_Adjust();
 }
 
 // Handle neuronal membrane's potential in 'Computing' mode
@@ -256,7 +256,8 @@ bool NeuronPhysical::
          << m_MembraneRushin_dVdt << ","
          << m_MembraneAIS_dVdt << ","
          <<m_MembraneResulting_dVdt << ","
-         << m_SynapsesEnabled<< ","
+         << m_SynapsesEnabled << ","
+         << (m_Membrane_V - m_AIS_I) << ","
          <<  "\n"; //<
  }
 

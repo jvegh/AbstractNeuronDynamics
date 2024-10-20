@@ -342,7 +342,7 @@ void scGenComp_PU_Abstract::
             if((StopHeartbeating = Heartbeat_Computing_Stop()))
             {
                 // Set the smallest heartbeat for delivering
-                HeartbeatTime_Set(m_Heartbeat_time_resolution);
+//                HeartbeatTime_Set(m_Heartbeat_time_resolution);
                 EVENT_GenComp.ComputingEnd.notify(SC_ZERO_TIME);
                     DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'ComputingEnd' in stage '" << GenCompStagesString[mStageFlag] << "'");
             }
@@ -354,7 +354,7 @@ void scGenComp_PU_Abstract::
             if((StopHeartbeating = Heartbeat_Delivering_Stop()))
             {
                 // Set the smallest heartbeat for the relaxing
-                HeartbeatTime_Set(m_Heartbeat_time_resolution);
+//                HeartbeatTime_Set(m_Heartbeat_time_resolution);
                 EVENT_GenComp.DeliveringEnd.notify(SC_ZERO_TIME);
                     DEBUG_SC_EVENT_LOCAL(scLocalTime_Get(),name(),"SENT 'DeliveringEnd' in 302 " << GenCompStagesString[mStageFlag] << "'");
             }

@@ -1,5 +1,5 @@
-/** @file NeuronDemo.h
- *  @brief Function prototypes for the DEMO neuron PU computing module
+/** @file NeuronConceptual.h
+ *  @brief Function prototypes for the conceptual neuron PU computing module
  */
 /*
  *  @author János Végh (jvegh)
@@ -7,8 +7,8 @@
 */
 
 
-#ifndef NEURONDEMO_H
-#define NEURONDEMO_H
+#ifndef NEURONCONCEPTUAL_H
+#define NEURONCONCEPTUAL_H
 /* * @addtogroup GENCOMP_MODULE_PROCESS
  *  @{
  */
@@ -18,8 +18,8 @@
 #define MembraneInputIncrease 6
 #define MembraneRelaxDischarge 1
 /*!
- * \class NeuronDemo
- * \brief  A simple demo class to implement the operation of an abstract biological neuron.
+ * \class NeuronConceptual
+ * \brief  A simple conceptual class to implement the operation of an abstract biological neuron.
  * The operating principle of neuronal processing, and programming details:
  *
  * The class adjusts member scGenComp_PU_Bio::m_Membrane_V (the membrane potential).
@@ -28,7 +28,7 @@
  * Given that the membrane's potential rather than time of instruction count
  * defines processing phases, method scGenComp_PU_Abstract::Heartbeat_method()
  * is called periodically, with HEARTBEAT_TIME_DEFAULT (simulated) time
- * (presently set to \f$10\ \mu s\f$).
+ * (presently set to \f$2\ \mu s\f$).
  * That function internally calls one of its state-dependent Heartbeat_XXX_Do() methods.
  *
  * InputReceived_Do() imitates chargeup: membranes voltage increases promptly by \f$6\ mV\f$ after receiving a synaptic input
@@ -73,17 +73,17 @@ The conceptual schematics is implemented by the Neuron demo:
 
  */
 
-class NeuronDemo : public scGenComp_PU_Bio
+class NeuronConceptual : public scGenComp_PU_Bio
 {
 public:
     /*!
-     * \brief Creates a demo-purpose neuron unit
+     * \brief Creates a demo-purpose conceptual neuron unit
      * @param nm the SystemC name of the module
      */
-    NeuronDemo(sc_core::sc_module_name nm ):
+    NeuronConceptual(sc_core::sc_module_name nm ):
         scGenComp_PU_Bio(nm){}
 
-    virtual ~NeuronDemo(void)    {}// Must be overridden
+    virtual ~NeuronConceptual(void)    {}// Must be overridden
 
     //! Heartbeat processing in 'Computing'
     virtual void Heartbeat_Computing_Do();
@@ -108,6 +108,6 @@ private:
     bool m_PeakReached;
  //   virtual void OutputItem(void);
 
-};// of class NeuronDemo
+};// of class NeuronConceptual
 /* * @}*/
-#endif // NEURONDEMO_H
+#endif // NEURONCONCEPTUAL_H

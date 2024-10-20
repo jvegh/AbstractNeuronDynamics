@@ -422,7 +422,10 @@ protected:
     /**
      * Access function to neuron's heartbeat (integration) time,     */
     sc_core::sc_time HeartbeatTime_Get(void){return m_Heartbeat_time;}
-    void HeartbeatTime_Set(sc_core::sc_time HBT){m_Heartbeat_time = HBT; }
+    void HeartbeatTime_Set(sc_core::sc_time HBT)
+    {   m_Heartbeat_time = HBT;
+        m_dt = m_Heartbeat_time.to_seconds()*1000.;
+    }
     float HeartbeatTimeInMicrosec_Get(){    return m_Heartbeat_time.to_seconds()*1000.*1000.;}
 
     /**
@@ -497,7 +500,7 @@ protected:
 
     /** If set, external clock starts computing and delivering */
     bool mCentralClockMode;       //< If module needs central clock synchrony signals for changing its states
-    bool m_FirstHeartbeatInStage;    //< If to correct for the 1st heartbeat time
+ //??   bool m_FirstHeartbeatInStage;    //< If to correct for the 1st heartbeat time
     //** Output an item
     virtual void OutputItem(void){}
     sc_trace_file* m_tracefile;
@@ -510,31 +513,49 @@ protected:
             std::chrono::duration< int64_t, nano> x_Delivering,s_Delivering = (std::chrono::duration< int64_t, nano>)0;
             chrono::steady_clock::time_point t_Relaxing =chrono::steady_clock::now();
             std::chrono::duration< int64_t, nano> x_Relaxing,s_Relaxing = (std::chrono::duration< int64_t, nano>)0;
-            virtual void TimeDuration_Computing_Get()
-            {  std::cerr  << "Computing took " << x_Computing.count()/1000/1000. << " msec CLOCK time" << endl;}
-            virtual void TimeDuration_Delivering_Get()
-            {  std::cerr  << "Delivering took " << x_Delivering.count()/1000/1000. << " msec CLOCK time" << endl;}
-            virtual void TimeDuration_Relaxing_Get()
-            {  std::cerr  << "Relaxing took " << x_Relaxing.count()/1000/1000. << " msec CLOCK time" << endl;}
+            float TimeDuration_Computing_Get()
+            {  return  x_Computing.count()/1000/1000.;}
+            float TimeDuration_Delivering_Get()
+            {  return x_Delivering.count()/1000/1000.;}
+            float TimeDuration_Relaxing_Get()
+            {  return x_Relaxing.count()/1000/1000.;}
+            virtual void TimeDuration_Computing_Print()
+            {  std::cerr  << "Computing took " << TimeDuration_Computing_Get() << " msec CLOCK time" << endl;}
+            virtual void TimeDuration_Delivering_Print()
+            {  std::cerr  << "Delivering took " << TimeDuration_Delivering_Get() << " msec CLOCK time" << endl;}
+            virtual void TimeDuration_Relaxing_Print()
+            {  std::cerr  << "Relaxing took " << TimeDuration_Relaxing_Get() << " msec CLOCK time" << endl;}
         #endif // BENCHMARK_TIME_ACTIVE
         #ifdef SC_BENCHMARK_TIME_ACTIVE
             sc_core::sc_time SC_t_Computing = SC_ZERO_TIME, SC_x_Computing, SC_s_Computing;
             sc_core::sc_time SC_t_Delivering = SC_ZERO_TIME, SC_x_Delivering, SC_s_Delivering;
             sc_core::sc_time SC_t_Relaxing = SC_ZERO_TIME, SC_x_Relaxing, SC_s_Relaxing;
-            virtual void SC_TimeDuration_Computing_Get()
+            string SC_TimeDuration_Computing_Get()
             {
-                std::cerr //<< std::fixed << std::setfill (' ') << std::setprecision(3) << std::setw(7)
-                          << "Computing took " << sc_time_String_Get(SC_x_Computing) << " ms SC time " << endl;
+                return sc_time_String_Get(SC_x_Computing);
             }
-            virtual void SC_TimeDuration_Delivering_Get()
+            string SC_TimeDuration_Delivering_Get()
             {
-                std::cerr //<< std::fixed << std::setfill (' ') << std::setprecision(3) << std::setw(7)
-                          << "Delivering took " << sc_time_String_Get(SC_x_Delivering) << " ms SC time " << endl;
+                return sc_time_String_Get(SC_x_Delivering);
             }
-            virtual void SC_TimeDuration_Relaxing_Get()
+            string SC_TimeDuration_Relaxing_Get()
+            {
+                return sc_time_String_Get(SC_x_Relaxing);
+            }
+            virtual void SC_TimeDuration_Computing_Print()
+            {
+                std::cerr << std::fixed << std::setfill (' ') << std::setprecision(3) << std::setw(7)
+                << "Computing took " << sc_time_String_Get(SC_x_Computing) << " ms SC time " << endl;
+            }
+            virtual void SC_TimeDuration_Delivering_Print()
+            {
+                std::cerr << std::fixed << std::setfill (' ') << std::setprecision(3) << std::setw(7)
+                << "Delivering took " << sc_time_String_Get(SC_x_Delivering) << " ms SC time " << endl;
+            }
+            virtual void SC_TimeDuration_Relaxing_Print()
             {
                 std::cerr //<< std::fixed << std::setfill (' ') << std::setprecision(d) << std::setw(w)
-                          << "Relaxing took " << sc_time_String_Get(SC_x_Relaxing) << " ms SC time " << endl;
+                    << "Relaxing took " << sc_time_String_Get(SC_x_Relaxing) << " ms SC time " << endl;
             }
         #endif // BENCHMARK_SCTIME_ACTIVE
 /*

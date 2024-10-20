@@ -137,7 +137,7 @@ float NeuronPhysical::
             else
              {
                 m_MembraneRushin_dVdt = MembraneRushinTimeDerivative_Get();
-                m_PeakReached = m_Membrane_V > 0;
+                m_PeakReached = (m_Membrane_V < 0) && (m_MembraneRushin_dVdt>0);
             }
             break;
             }
@@ -175,6 +175,7 @@ float NeuronPhysical::
 //                /m_C_membrane
         ;
 */
+    Heartbeat_Adjust();
 }
 
 // Handle neuronal membrane's potential in 'Computing' mode
@@ -183,7 +184,7 @@ void NeuronPhysical::
 {
     if(m_HasUnhandledInput)
     {
-        OutputItem();
+//??        OutputItem();
         m_Membrane_V += 8; // A temporary hack, just to imitate potential increase
         m_HasUnhandledInput = false;
     }
@@ -231,11 +232,13 @@ bool NeuronPhysical::
 bool NeuronPhysical::
     Heartbeat_Relaxing_Stop()
 {
+    // Maybe we were relaxin and received our first inut
     if(m_HasUnhandledInput)return true;
-
+    // We are after delivering, check if before the hyperrelaxation turning point
+    if(!m_PeakReached) return false;
+    // We are over the hyperrelaxation turning point, check if resting
     if ((abs(m_Membrane_V )>= AllowedRestingPotentialDifference))
         return false; // Continue relaxing
-    if(!m_PeakReached) return false;
     // Make sure the resting potential really zero
     m_Membrane_V = 0; m_Relaxing_Stopped = true;
     return true;

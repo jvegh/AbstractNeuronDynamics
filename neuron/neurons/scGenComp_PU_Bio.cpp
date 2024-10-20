@@ -68,15 +68,13 @@ void scGenComp_PU_Bio::
     float diff_V = abs(m_Membrane_dV);
     if(diff_V<0.1)
     { // The membrane's voltage changed less than 0.5 mV; can increase
-        m_Heartbeat_time *=2;
-        m_dt = m_Heartbeat_time.to_seconds()*1000.;
-        DEBUG_SC_EVENT(name(),"Heartbeat set to " << m_dt );
+        HeartbeatTime_Set(m_Heartbeat_time *2);
+                DEBUG_SC_EVENT(name(),"Heartbeat set to " << m_dt );
     }
-    else if(diff_V>0.3)
-    { // The membrane's voltage changed more than 2 mV; must decrease
-        m_Heartbeat_time /=2;
-        m_dt = m_Heartbeat_time.to_seconds()*1000.;
-        DEBUG_SC_EVENT(name(),"Heartbeat set to " << m_dt );
+    else if((diff_V>1) &&(m_Heartbeat_time > m_Heartbeat_time_resolution))
+    { // The membrane's voltage changed more than 0.3 mV; must decrease if above resolution
+        HeartbeatTime_Set(m_Heartbeat_time /2);
+                DEBUG_SC_EVENT(name(),"Heartbeat set to " << m_dt );
     }
 }
 

@@ -133,6 +133,7 @@ class scGenComp_PU_Bio : public scGenComp_PU_Abstract
 
  protected:
     float m_Membrane_V; //< The actual value of membrane potential, in mV
+    float m_Membrane_V_last; //< The actual value of membrane potential, in mV
     float m_Membrane_dV;   //< The actual change in membrane potential, in mV
     bool m_PeakReached; //< If the AP overpassed the depolarized state
     bool m_SynapsesEnabled; //<

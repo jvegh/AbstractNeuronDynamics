@@ -18,8 +18,8 @@
 
 #include "scGenComp_PU_Abstract.h"
 
-#define HEARTBEAT_TIME_DIVISIONS_TECH 8
-#define HEARTBEAT_TIME_DEFAULT_TECH sc_core::sc_time(HEARTBEAT_TIME_DIVISIONS_TECH*16,SC_US)
+//sc_core::sc_time HEARTBEAT_TIME_DIVISIONS_TECH = sc_core::sc_time(8,SC_NS);
+//sc_core::sc_time HEARTBEAT_TIME_DEFAULT_TECH = HEARTBEAT_TIME_DIVISIONS_TECH;
 
 /*
  * \class scGenComp_PU_Tech
@@ -80,8 +80,8 @@ class scGenComp_PU_Tech : public scGenComp_PU_Abstract
      * Creates an abstract biological computing unit
      */
      scGenComp_PU_Tech(sc_core::sc_module_name nm
-                        ,sc_core::sc_time FixedComputingTime = sc_core::sc_time(SC_ZERO_TIME)
-                        ,sc_core::sc_time FixedDeliveringTime = sc_core::sc_time(SC_ZERO_TIME)
+                        ,sc_core::sc_time FixedComputingTime = SC_ZERO_TIME
+                        ,sc_core::sc_time FixedDeliveringTime = SC_ZERO_TIME
                         ,bool ExternSynchronMode =false
  );
     virtual ~scGenComp_PU_Tech(void); // Must be overridden

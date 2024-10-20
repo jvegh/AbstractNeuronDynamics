@@ -16,6 +16,7 @@
 
 #include "DebugMacros.h"
 
+#define scLocalTimeLimit  50
 
 // The units of general computing work in the same way, using general events
 // \brief Implement handling the states of computing
@@ -66,10 +67,10 @@ void scGenComp_PU_Tech::
 void scGenComp_PU_Tech::
     Heartbeat_Delivering_Do()
 {
-    if (scLocalTime_Get() < sc_time(8*HEARTBEAT_TIME_DEFAULT_TECH))
+    if (scLocalTime_Get() < sc_time(8*m_Heartbeat_time_default))
     {   // We are still processing; re-issue the heartbeat
         // if the limit is not yet reached
-        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT_TECH);
+        EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_default);
 //        DEBUG_SC_EVENT_LOCAL("SENT    EVENT_GenComp.HeartBeat with BIO_HEARTBEAT_TIME");
     }
     else
@@ -93,7 +94,7 @@ void scGenComp_PU_Tech::
     else
     {   // We are still processing; re-issue the heartbeat
            // if the limit is not yet reached
-        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT);
+        EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_default);
  //                   DEBUG_SC_EVENT_LOCAL("SENT    EVENT_GenComp.HeartBeat with mHeartbeat");
     }
 }
@@ -104,10 +105,10 @@ void scGenComp_PU_Tech::
 void scGenComp_PU_Tech::
     Heartbeat_Ready_Do()
 {
-    if (scLocalTime_Get() < sc_time(2*HEARTBEAT_TIME_DEFAULT_TECH))
+    if (scLocalTime_Get() < 2*m_Heartbeat_time_default)
     {   // We are still processing; re-issue the heartbeat
         // if the limit is not yet reached
-        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT_TECH);
+        EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_default);
                 //DEBUG_SC_EVENT_LOCAL("SENT    EVENT_GenComp.HeartBeat with BIO_HEARTBEAT_TIME");
     }
     else
@@ -123,10 +124,10 @@ void scGenComp_PU_Tech::
 void scGenComp_PU_Tech::
     Heartbeat_Relaxing_Do()
 {
-    if (scLocalTime_Get() < sc_time(8*HEARTBEAT_TIME_DEFAULT_TECH))
+    if (scLocalTime_Get() < 8*m_Heartbeat_time_default)
     {   // We are still processing; re-issue the heartbeat
         // if the limit is not yet reached
-        EVENT_GenComp.Heartbeat.notify(HEARTBEAT_TIME_DEFAULT_TECH);
+        EVENT_GenComp.Heartbeat.notify(m_Heartbeat_time_default);
 //                DEBUG_SC_EVENT_LOCAL("SENT    EVENT_GenComp.HeartBeat with BIO_HEARTBEAT_TIME");
     }
     else
@@ -187,6 +188,5 @@ void scGenComp_PU_Tech::
 bool scGenComp_PU_Tech::
     Processing_Finished(void)
 {   // Just to provide a sample
-    return scLocalTime_Get() >= sc_core::sc_time(500,SC_US);
-
+    return scLocalTime_Get() >= m_Heartbeat_time_default;
 }

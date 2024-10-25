@@ -41,6 +41,10 @@ function(create_neuron_lib NAME)
     if(OPTIONS_LINK_TO_NEURON_LIB)
         target_link_libraries(${NEURON_LIB} PUBLIC ${LIB_NAME})
     endif()
+
+    if(OPTIONS_LINK_ISA_LIB)
+        target_link_libraries(${LIB_NAME} PUBLIC ${ISA_LIB})
+    endif()
 endfunction()
 
 # Error flags on everything but MSVC
@@ -58,20 +62,19 @@ create_neuron_lib(${NEURON_LIB} FIXED_NAME EXCLUDE_SRC_INC)
 target_sources(neuron_lib
   PRIVATE
     neurons/EventGencomp.h
+    neurons/scGenComp_Config.h
+ #   neurons/GencompMachineStates.h
 )
 
-include_directories(
-    include
-    ${CMAKE_INSTALL_PREFIX}/include
-    ${QT_HOST_PATH}/include
-    ${SystemC_INCLUDE_DIRS}
-    )
-
+# All of the following subdirectories will create separate libraries and link them into
+# neuron_lib
+#add_subdirectory(editor)
+#add_subdirectory(syscall)
 
 # Also link Qt and VSRTL libraries.
 target_link_libraries(${NEURON_LIB} PUBLIC
     fancytabbar_lib
-#?    Qt6::Charts
-#?    dwarf++
-)
+    ${VSRTL_GRAPHICS_LIB}
+    Qt6::Charts
+    dwarf++)
 

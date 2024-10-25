@@ -1,8 +1,9 @@
 /** @file scGenComp_PU_Abstract.h
  *  @ingroup GENCOMP_MODULE_PROCESS
  *
- *  @brief Function prototypes for the computing module.
+ *  @brief Function prototypes for the general processing unit.
  *  Just event and stage handling, no real activity
+ *  @todo Implement TransmittingBegin
  *  @todo Implement TransmittingEnd
   */
 /*
@@ -49,9 +50,9 @@ using namespace sc_core; using namespace sc_dt; using namespace std;
  * the \gls{PU} needs to simulate the processing</i>. The code of this base class is a bit complex, in order to enable simple derived \gls{PU}s:
  * the complex event handling mechanism is confined in this class; the derived classes
  * are free from any SystemC specific programming
- * (for and example see NeuronDemo).
+ * (for and example see NeuronPhysical).
  * The \gls{PU} has correspondingly the stages 'Computing', 'Delivering' and 'Relaxing'
- * as the minimum necessary basic states. The module implements a single-shot normal operating mode,
+ * as the minimum necessary basic stages. The module implements a single-shot normal operating mode,
  * that is, the operation is automatic between the corresponding xxxBegin and xxxEnd events,
  * and at the end of the xxxEnd events the corresponding next xxxBegin event is issued.
  * A distinguished (compared to other simulators) feature of the class is handling time faithfully.
@@ -61,7 +62,7 @@ using namespace sc_core; using namespace sc_dt; using namespace std;
  * and the scGenComp_PU_Abstract::Heartbeat_method() checks periodically if the recent operating stage finished
  * using stage-specific methods XXX_stop().
  * (This is the operating mode for biology, including neuronal simulation.)
- * For details, see scGenComp_PU_Bio and NeuronDemo.
+ * For details, see scGenComp_PU_Bio and NeuronPhysical.
  *
  * In technical systems, the usual method is to use central-clock driven synchronized PUs.
  * If scGenComp_PU_Abstract::mCentralClockMode is set to true,
@@ -76,7 +77,7 @@ using namespace sc_core; using namespace sc_dt; using namespace std;
  *
  * Advancing simulated time
  *
- * In timed mode, the derived modules derived can use timed computing and delivering,
+ * In timed mode, the derived classes can use timed computing and delivering,
  * in which case XXXBegin methods issue an EVENT_GenComp.XXXEnd.notify(FixedTime) event.
  * The simulated time 'jumps', no smaller steps.
  * In untimed mode it issues EVENT_GenComp.Heartbeat.notify(sc_time(HeartbeatTime)) periodically.
@@ -86,16 +87,16 @@ using namespace sc_core; using namespace sc_dt; using namespace std;
  * if the corresponding stage transition reached.
  * The modules issue per module 'Heartbeat' signals; there is always only one signal scheduled.
  *
- * The heartbeating is not a central synchronization: it enables to consider module's stages
+ * The heartbeating is not a central synchronization: it enables to consider module's states
  * (such as neuronal analog voltage levels) and handles changing module's stages,
- * instead of external synchronization signals)
+ * instead of external synchronization signals). The simulated time
+ * (more precisely, the results of the simulated processes) control the simulated processing.
  *
  * In synchronized mode, central clock signals issue signals for 'Computing' and 'Delivering'.
  */
 
 #endif //SCTECHGENCOMP_H
 #endif //SCBIOGENCOMP_H
-
 
 enum GenCompStageMachineType_t {gcsm_Sleeping,
                                  gcsm_Relaxing,
@@ -109,7 +110,7 @@ enum GenCompStageMachineType_t {gcsm_Sleeping,
 
 /*! \enum GenCompStageMachineType_t
  * The operation of an elementary computing unit of general computing is modelled as a multiple-state machine-like structure,
- * with internal state stored in state variable scGenComp_PU_Abstract::mStageFlag.
+ * with internal stage stored a variable scGenComp_PU_Abstract::mStageFlag.
 @verbatim
 
                    Sleeping<------> Relaxing     <---Initializing
@@ -131,9 +132,9 @@ They call XXX_Do() functions (may be overloaded by users) which may implement
 additional activity. If needed, the upstream object's XXX_Do()
 can be called within those functions.
 
- * - The stages below are momentary stages: need action and pass to one of the above states
+ * - The stages below are momentary: need action and pass to one of the above stages
  * - Failing : Something went wrong, reset unit and pass to Relaxing
- * - Synchronizing: deliver result, anyhow ;  (a momentary stage)
+ * - Synchronizing: deliver result, anyhow ;
  *   - in biological mode, deliver immediate spike
  *   - in technical mode, deliver immediate result (such and in a \gls{GPU})
  *   Passes to Relaxing (after issuing 'End Computing')
@@ -178,15 +179,14 @@ can be called within those functions.
 */
 
 /*! \var GenCompStageMachineType_t::gcsm_Initializing
- *  Initilizes the unit. Passes to GenCompStageMachineType_t::gcsm_Relaxing
+ *  Initilizes the unit instantly. Passes to GenCompStageMachineType_t::gcsm_Relaxing
  *
- * A momentary stage
  *
  * Begins at EVENT_GenComp_type::Initialize.
  */
 
 /*! \var GenCompStageMachineType_t::gcsm_InputReceived
- *  Receives input. (input arguments are delivered to the input section)
+ *  Receives input instantly. (input arguments are delivered to the input section)
  *  If not clocked, may pass to GenCompStageMachineType_t::gcsm_Computing
  *
  *  A momentary stage
@@ -195,7 +195,7 @@ can be called within those functions.
  */
 
 /*! \var GenCompStageMachineType_t::gcsm_Synchronizing
- *  Synchronizes the operation to fellow PUs
+ *  Synchronizes the operation to fellow PUs instantly
  *  (passes immediately to GenCompStageMachineType_t::gcsm_Delivering,
  *  except when in state GenCompStageMachineType_t::gcsm_Delivering).
  *
@@ -205,10 +205,8 @@ can be called within those functions.
  */
 
 /*! \var GenCompStageMachineType_t::gcsm_Failed
- *  Enables to simulate failed operations.
+ *  Enables to simulate failed operations instantly.
  *  (Actually, re-initializes unit)
- *
- * A momentary stage
  *
  * Begins at EVENT_GenComp_type::Failed
  */
@@ -256,38 +254,36 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
 
     virtual ~scGenComp_PU_Abstract(void); // Must be overridden
 
-    /** @brief The extra processing for beginning computing
+    /** @brief The extra processing for beginning computing. Called from ComputingBegin_method()
      */
     virtual void ComputingBegin_Do(){}
 
-    /** @brief The extra processing for finishing computing
+    /** @brief The extra processing for finishing computing. Called from ComputingEnd_method()
      */
     virtual void ComputingEnd_Do(){}
 
-    /** @brief The extra activity for starting internal delivering
+    /** @brief The extra activity for starting internal delivering. Called from DeliveringBegin_method()
      */
     virtual void DeliveringBegin_Do(){}
 
-    /** @brief The extra activity for finishing internal delivering
+    /** @brief The extra activity for finishing internal delivering. Called from DeliveringEnd_method()
     */
     virtual void DeliveringEnd_Do(){}
 
-    /** @brief The extra activity for handling event 'Failed'.
+    /** @brief The extra activity for handling event 'Failed'.  Called from Failed_method().
      *  Includes initialization.
      */
     virtual void Failed_Do(){}
 
-    /** @brief Additional initialization activity
-     * Called from Initialize_method()
+    /** @brief Additional initialization activity. Called from Initialize_method().
      */
     virtual void Initialize_Do(){}
 
-    /** @brief Code to overload actual input processing
-     * Called from InputReceived_method()
+    /** @brief The extra activity for input processing. Called from InputReceived_method().
      */
     virtual void InputReceived_Do(void){}
 
-     // @return the number of the received inputs
+     /// @return the number of the received inputs
     uint32_t NoOfInputsReceived_Get(){return mInputsReceived;}
 
     /** @brief Notify the observer about some important change
@@ -296,7 +292,7 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
     void ObserverNotify(GenCompPUObservingBits_t ObservedBit);
 
     /*!
-     * \brief Set an observing bit for this scGenComp_PU_Abstract
+     * \brief Get value of an observing bit for this scGenComp_PU_Abstract
      * \param B is the bit to get in mObservedBits
      * \return is the requested value of the bit
      */
@@ -317,17 +313,17 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
         mObservedBits[B] = V;
     }
     /**
-     * @brief OperationCounter_Get
+     * @brief Get the number of operations performed
      * @return how many operations the unit performed
      */
     int32_t OperationCounter_Get(void){return mOperationCounter;}
 
-    void OperatingTimes_Set(sc_core::sc_time ComputingTime = SC_ZERO_TIME,
+/*    void OperatingTimes_Set(sc_core::sc_time ComputingTime = SC_ZERO_TIME,
                             sc_core::sc_time DeliveringTime  = SC_ZERO_TIME)
     {
         mFixedComputingTime = ComputingTime;
         mFixedDeliveringTime = DeliveringTime;
-    }
+    }*/
 
     /**
      * Save the address of the observer simulator in the PU
@@ -338,7 +334,7 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
     virtual void RelaxingBegin_Do(){}
 
     /**
-     * @brief scIdlePeriod_Get, can be called after an operation started
+     * @brief scIdlePeriod_Get, can be called after the next operation started
      * @return the idle time before the beginning of the last operation
      */
     inline sc_core::sc_time
@@ -348,21 +344,28 @@ class scGenComp_PU_Abstract: public sc_core::sc_module
      * @return 
      */
     sc_core::sc_time scResultPeriod_Get() const { return mResultPeriod;}
-    /**  @return the computing plus delivery time
+    /** Return the total simulated time of the last processing
+     *   @return the computing plus delivery time
      */
     sc_core::sc_time scProcessingPeriod_Get() const { return mRelaxingBeginTime - mLocalTimeBase;}
-    //  @return the time of the beginning of delivery (firing)
+    /*! Return the beginning of the last 'Delivering' period
+     *   @return the time of the beginning of delivery (firing)
+     */
     sc_core::sc_time scDeliveringTimeBegin_Get() const { return mDeliveringBeginTime ;}
-    // @return The beginning of the simulated time of the recent operation
+    /*! Return when the recent operation has started
+    * @return The beginning of the simulated time of the recent operation
+    */
     sc_core::sc_time scLocalTimeBase_Get(void)const { return mLocalTimeBase;}
     /**
-     * @brief scRelaxingBeginTime_Get
+     * @brief Return when the last relaxing period started
      * @return The time the last operation ended
      */
     sc_core::sc_time scRelaxingBeginTime_Get() const { return mRelaxingBeginTime;}
+    /// The event specific to this class
      EVENT_GenComp_type EVENT_GenComp;
-
-    inline GenCompStageMachineType_t StageFlag_Get(void){ return mStageFlag;}
+    /// The flag describing the stage of the unit
+    inline GenCompStageMachineType_t StageFlag_Get(void){ return mStageFlag; }
+//  To be implemented
 //    virtual void TransmissionBegin_Do(){}
 protected:
     /**
@@ -370,10 +373,10 @@ protected:
      */
     virtual void CancelEvents(void);
 
-    // To sidestep private call
+    // To sidestep private call; see Failed_method()
     void ChargeupFailed(void){Failed_method();};
     /**
-     * @brief HaveEnoughInputs
+     * @brief Return if the unit received sufficient inputs
      * @return true if the sufficient number of inputs arrived (say multi-input gates)
      */
     virtual bool HaveEnoughInputs(void){return true;}
@@ -413,6 +416,11 @@ protected:
      *
      * Called by Heartbeat_method();
      */
+    /** @brief Handle Heartbeat in 'Relaxing' mode
+     *
+     * It should be overloaded (by default makes nothing).
+     * Called by Heartbeat_method();
+     */
     virtual void Heartbeat_Relaxing_Do(){}
     /**
      * @brief Handle 'sleep' stage, i.e., if to continue heartbeats in 'Relaxing' mode
@@ -429,20 +437,22 @@ protected:
     float HeartbeatTimeInMicrosec_Get(){    return m_Heartbeat_time.to_seconds()*1000.*1000.;}
 
     /**
-     * @brief scLocalTime_Get
-     * @return The simulated time since the beginning of the recent operation
+     * @brief The simulated time since the beginning of the recent operation
      */
     sc_core::sc_time scLocalTime_Get() const {return sc_core::sc_time_stamp()-mLocalTimeBase;}
     // Return local time for calculations in derived classes, to avoid using direct SystemC calls
+    /// Return simulated local sc_time converted to milliseconds
     float LocalTimeInMillisec_Get(){    return scLocalTime_Get().to_seconds()*1000.;}
+    /// Return simulated local sc_time converted to microseconds
     float LocalTimeInMicrosec_Get(){    return scLocalTime_Get().to_seconds()*1000.*1000.;}
+    /// Return simulated local sc_time converted to nanoseconds
     float LocalTimeInNanosec_Get(){    return scLocalTime_Get().to_seconds()*1000.*1000.*1000.;}
     /**
      * @brief scLocalTimeBase_Set
      * @param T The beginning of the simulated time of the recent operation
      */
     void scLocalTimeBase_Set(sc_core::sc_time T) { mLocalTimeBase = T;}
-    /** @param S Set state machine to stage S */
+   /** @param S Set stage machine to stage S */
 
     inline void StageFlag_Set(GenCompStageMachineType_t S){    mStageFlag = S;
         mStateFlag = mStageFlag;}
@@ -465,14 +475,6 @@ protected:
         ,mIdlePeriod         //< Time duration (ProcessingBeginTime - LastRelaxingBeginTime)
          ;
     /**
-     * Store here which events the unit wants to be observed
-     *
-     * @see #GenCompPUObservingBits_t
-     */
-    bitset<gcob_Max> mObservedBits;   //< The bits of the GenComp_PU state
-//    scGenComp_Simulator* MySimulator;     //< The simulator that observes us
-    int32_t mOperationCounter;            //< Count the operations
-    /**
      * @brief mFixedComputingTime,mFixedDeliveringTime
      *
      * If this value is NOT SC_ZERO_TIME, the system uses this value
@@ -482,12 +484,6 @@ protected:
      * to provide the appropriate stopping conditions
      */
 
-    sc_core::sc_time
-         mFixedComputingTime //< If to use fixed-time computing
-        ,mFixedDeliveringTime //< If to use fixed-time delivering
-        ,m_Heartbeat_time_default    //< The reset value of heartbeat time
-        ,m_Heartbeat_time_resolution    //< The time tolerance
-        ,m_Heartbeat_time; //< The size of the integration step size
     uint32_t mInputsReceived;        // No of inputs received(arguments or or spikes)
     bool m_Relaxing_Stopped;
     float m_dt; // The integration time step
@@ -561,7 +557,30 @@ protected:
 /*
     @endcode
 */
+            sc_core::sc_time
+                m_Heartbeat_time_default    //< The reset value of heartbeat time
+                ,m_Heartbeat_time_resolution    //< The time tolerance
+                ,m_Heartbeat_time; //< The size of the integration step size
 private:
+     /**
+     * Store here which events the unit wants to be observed
+     *
+     * @see #GenCompPUObservingBits_t
+     */
+    bitset<gcob_Max> mObservedBits;   //< The bits of the GenComp_PU stage
+    //    scGenComp_Simulator* MySimulator;     //< The simulator that observes us
+    int32_t mOperationCounter;            //< Count the operations
+    /**
+     * @brief mFixedComputingTime,mFixedDeliveringTime
+     *
+     * If this value is NOT SC_ZERO_TIME, the system uses this value
+     * for the time span of computing and delivering time, otherwise
+     * uses scGenComp_PU_Abstract::Heartbeat_method() periodically to see if the operation finished.
+     * The derived units must override Heartbeat_XXX_Stop()
+     * to provide the appropriate stopping conditions
+     */
+    sc_core::sc_time mFixedComputingTime; //< If to use fixed-time computing
+    sc_core::sc_time mFixedDeliveringTime; //< If to use fixed-time delivering
     /**
      * @brief  Receive rising edge of an external clock and issue 'ComputingBegin'
      */
@@ -596,15 +615,14 @@ private:
      * @brief Module failed.
      *
      * Usually activated by EVENT_GenComp.Failed
-     * - In biological computing, it means a failed charge-up; passes to 'Relaxing' stage.
-     *
+     * - In biological computing, it means a failed charge-up; passes to 'Relaxing'
      * - In technical computing, it results in a failed operation
      */
     void Failed_method();
     /**
      * @brief A periodic signal as a timebase to refresh state. Used internally, to avoid using clock signals.
      *
-     * Usually activated by EVENT_GenComp::Heartbeat. A heartbeat can be useful in states
+     * Usually activated by EVENT_GenComp::Heartbeat. A heartbeat can be useful in stages
      *  Relaxing, Processing, and Delivering
      *
      * Branches according to PU's recent stage and calls (see the corresponding state machine diagram)

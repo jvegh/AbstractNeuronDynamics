@@ -3,6 +3,8 @@
 
  *  @brief Function prototypes for the bio computing module
  *  It is just event handling, no modules
+ *
+ *  @todo
  */
 /*
  *  @author János Végh (jvegh)
@@ -25,46 +27,48 @@
  * \class scGenComp_PU_Bio
  * \brief  Implements a general biological-type computing PU. Defaults to variable execution time, no central clock.
  *
- * In the corresponding states, the neuron is in one of its GenCompStateMachineType_t states
+ * In the corresponding states, the neuron is in one of its GenCompStageMachineType_t states
  *  - gcsm_Computing: computing (collects charge)
  *  - gcsm_Delivering: delivers action potential
  *  - gcsm_Relaxing: restores resting potential
  *
  *  The Heartbeat_method() handles an internal 'update' signal. In the corresponding states, the neuron is
- *  - gcsm_Relaxing: Until it reaches its resting potential, calls CalculateMembranePotential(). Upon receiving an input,
+ *  - gcsm_Relaxing: Until it reaches its resting potential, calls Calculate_Do(). Upon receiving an input,
  *    changes to state gcsm_Computing. Inputs enabled: the relative refractory period.
- *  - gcsm_Computing: Until it reaches its threshold potential, calls CalculateMembranePotential().
+ *  - gcsm_Computing: Until it reaches its threshold potential, calls Calculate_Do().
  *    At that point, changes to state  to state gcsm_Delivering. Inputs enabled.
  *  - gcsm_Delivering: Until it reaches its lowest membrane potential
- *    (its increase turns from negative to positive), calls CalculateMembranePotential().
+ *    (its increase turns from negative to positive), calls Calculate_Do().
  *    At that point, changes to state  to state gcsm_Relaxing, without restoring membrane's potential.
- *    At the beginning issues signal 'Begin Transmitting'. Signal transmission happens
+ *    At the beginning issues signal 'TransmittingBegin'. Signal transmission happens
  *    in parallel with the further processing. Inputs disabled; the absolute refractory period.
  *
  *  The InputReceived_method(): the unit received new input (a momentary state).
  *  Only administrative action; the received input is handled in Heartbeat_method(),
- *  as described in CalculateMembranePotential(). Disabled in mode gcsm_Delivering.
+ *  as described in Calculate_Do(). Disabled in mode gcsm_Delivering.
  *
- * --These states below are momentary states: need action and passes to one of the above states
+ * --The states below are momentary states: need action and passes to one of the above states
  * - Delivering: The unit is delivering its result to its output section
  *   - After some time, it Sends 'Begin Transmitting' @see scGenComp_PU_Abstract
  *     (Activates transmission unit to send computed result to its chained unit(s),
- *      then goes to XXXRelaxing
+ *      then goes to gcsm_Relaxing
  * - Synchronizing: deliver result, anyhow ;  (a momentary state)
  *   - in biological mode, deliver immediate spike
- *   Passes to XXXRelaxing (after issuing 'End Computing')
+ *   Passes to GenCompStageMachineType_t::gcsm_Relaxing (after issuing 'End Computing')
  *
  *
-\anchor NeuronStateMachine
-@image html NeuronStateMachine.png "The neuronal state machine" width=500px
+
+\anchor fig_AP_ConceptualDemo
+@image html AP_ConceptualDemo.png "The conceptual time course of an action potential" width=500px
 
 @latexonly
 \begin{figure}
-\includegraphics[width=.4\textwidth]{images/NeuronStateMachine.pdf}
-\caption{The neuronal state machine}
-\label{NeuronStateMachine}
+\includegraphics[width=.4\textwidth]{images/AP_ConceptualDemo.pdf}
+\caption{The conceptual time course of an action potential}
+\label{fig_AP_ConceptualDemo}
 \end{figure}
 @endlatexonly
+
  */
 #endif // NEURONDEMO_H
 

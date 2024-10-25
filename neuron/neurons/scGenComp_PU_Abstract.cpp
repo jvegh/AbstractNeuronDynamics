@@ -453,7 +453,7 @@ void scGenComp_PU_Abstract::
 }
 
 
-// Called when the state 'Relaxing' begins
+// Called when  'Relaxing' begins
 void scGenComp_PU_Abstract::
     RelaxingBegin_method()
 {

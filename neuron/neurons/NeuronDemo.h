@@ -58,19 +58,6 @@
  * Initialize_Do() is only called in constructor (preserves voltage between spikes)
  *
 
-\anchor fig_AP_ConceptualDemo
-@image html images/AP_Conceptual.png "The conceptual schematic Action Potential produced by NeuronDemo" width=600px
-
-
-The conceptual schematics is implemented by the Neuron demo:
-@latexonly
-\begin{figure}
-\includegraphics[width=.4\textwidth]{images/AP_ConceptualDemo.pdf}
-\caption{The conceptual schematic Action Potential produced by NeuronDemo}
-\label{fig_AP_ConceptualDemo}
-\end{figure}
-@endlatexonly
-
  */
 
 class NeuronDemo : public scGenComp_PU_Bio

@@ -1,0 +1,249 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Membrane with a finite width ‣ § 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Sun Nov  3 09:47:31 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 3, 2024.-->
+
+<link rel="shortcut icon" href="../../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../../latexmldoc.css" type="text/css">
+<script src="../../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#sec:Physiology-TwoSegments" title="§ 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#sec:Physiology-Electrodiffusion" title="§ 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up up" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up up up" href="../../../ch_Physics/sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up up up up" href="../../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up up up up up" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_CONDUCTANCE/index.html" title="§ 3.4.3 Conductance ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="next" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../../../ch_Physics/sec_Physics-Electricity/sec_Physics-Current/index.html" title="§ 3.4.1 Current ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../../../ch_Physics/sec_Physics-Electricity/sec_Calculating-ion's-speed/index.html" title="§ 3.4.2 Current’s speed ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_CONDUCTANCE/index.html" title="§ 3.4.3 Conductance ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../../ch_Physics/sec_PhysicsIntroduction/index.html" title="§ 3.1 Introduction ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../../ch_Physics/sec_Physics-Abstraction/index.html" title="§ 3.2 Abstractions and approximations ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../../ch_Physics/sec_Physics-Speeds/index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../../ch_Physics/sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break"></p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Neurophysiology (abstract)</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../../ch_Physics/sec_PhysicsIntroduction/index.html" title="§ 3.1 Introduction ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../../ch_Physics/sec_Physics-Abstraction/index.html" title="§ 3.2 Abstractions and approximations ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>Abstractions and approximations</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../../ch_Physics/sec_Physics-Speeds/index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>Interaction speeds in nature</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="../../../ch_Physics/sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4 </span>Electricity in biology</span></a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../../../ch_Physics/sec_Physics-Electricity/sec_Physics-Current/index.html" title="§ 3.4.1 Current ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.1 </span>Current</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../../../ch_Physics/sec_Physics-Electricity/sec_Calculating-ion's-speed/index.html" title="§ 3.4.2 Current’s speed ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.2 </span>Current’s speed</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_CONDUCTANCE/index.html" title="§ 3.4.3 Conductance ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.3 </span>Conductance</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.4 </span>Oscillator</span></a>
+<ul class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#sec:Physiology-Electrodiffusion" title="§ 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.5 </span>Electrodiffusion</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#sec:Physiology-Electrodiffusion" title="§ 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.5 </span>Electrodiffusion</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#sec:Physiology-TwoSegments" title="§ 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.5.3 </span>Two segments</span></a><a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_CONDUCTANCE/index.html" title="§ 3.4.3 Conductance ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.3 </span>Conductance</span></a><a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.4 </span>Oscillator</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section id="sec:Physiology-FiniteWidth" class="ltx_subsubsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsubsection">Membrane with a finite width </h1>
+
+<div id="Ch3.S5.SS3.SSSx2.p1" class="ltx_para">
+<p class="ltx_p">Now let us separate the volume into two segments by a membrane with
+a finite thickness d, see
+Figure <a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#fig:The-membrane's-extra-gradient" title="Figure 3.1 ‣ Membrane with a finite width ‣ § 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.1</span></a>.
+The membrane is a perfect isolator, i.e., no charge carriers exist
+between its two surfaces. In this way we separate the two segments
+by distance <math id="Ch3.S5.SS3.SSSx2.p1.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> (we measure distance in units of the thickness <math id="Ch3.S5.SS3.SSSx2.p1.m2" class="ltx_Math" alttext="d" display="inline"><mi>d</mi></math>
+when deriving the mathematical dependence, but use physical units
+in the figure), the first force is unchanged while second force reduces.
+In this way the net force at position <math id="Ch3.S5.SS3.SSSx2.p1.m3" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> becomes</p>
+<table id="Ch3.E17" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E17.m1" class="ltx_Math" alttext="F_{m}\propto\int_{0}^{+\infty}\bigl{(}\frac{dV}{dx}(x)-\frac{dV}{dx}(x+1)\bigr%
+{)}" display="block"><mrow><msub><mi>F</mi><mi>m</mi></msub><mo>∝</mo><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow></msubsup><mrow><mo maxsize="120%" minsize="120%">(</mo><mrow><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>V</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>V</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.17)</span></td>
+</tr>
+</table>
+</div>
+<div id="Ch3.S5.SS3.SSSx2.p2" class="ltx_para">
+<p class="ltx_p">Given that the potential is composed from those of the neighboring
+individual ions of form <math id="Ch3.S5.SS3.SSSx2.p2.m1" class="ltx_Math" alttext="\frac{1}{x^{2}}" display="inline"><mfrac><mn>1</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac></math>, we assume that</p>
+<table id="Ch3.E18" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E18.m1" class="ltx_Math" alttext="F_{m}\propto\bigl{(}\int_{0}^{-\infty}\frac{V}{x}dx-\int_{0}^{+\infty}\frac{V}%
+{x+1}dx\bigr{)}=-ln(x)\bigr{]}_{0}^{\infty}+ln(x+1)\bigr{]}_{0}^{\infty}" display="block"><mrow><msubsup><mrow><msub><mi>F</mi><mi>m</mi></msub><mo>∝</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow></msubsup><mfrac><mi>V</mi><mi>x</mi></mfrac><mi>d</mi><mi>x</mi><mo>-</mo><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow></msubsup><mfrac><mi>V</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>x</mi><mo maxsize="120%" minsize="120%">)</mo></mrow><mo>=</mo><mo>-</mo><mi>l</mi><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mo maxsize="120%" minsize="120%">]</mo></mrow><mn>0</mn><mi mathvariant="normal">∞</mi></msubsup><mo>+</mo><mi>l</mi><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mo maxsize="120%" minsize="120%">]</mo><msub><mi></mi><mn>0</mn></msub><msup><mi></mi><mi mathvariant="normal">∞</mi></msup></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.18)</span></td>
+</tr>
+</table>
+<p class="ltx_p">We use the approximation that <math id="Ch3.S5.SS3.SSSx2.p2.m2" class="ltx_Math" alttext="\ln(\infty)\approx=\ln(1+\infty)" display="inline"><mrow><mi>ln</mi><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">)</mo></mrow><mo>≈</mo><mo>=</mo><mi>ln</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">)</mo></mrow></mrow></math>
+and we arrive at that the</p>
+<table id="Ch3.E19" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E19.m1" class="ltx_Math" alttext="F_{m}(x)\propto ln(\frac{x}{x+1})" display="block"><mrow><mrow><msub><mi>F</mi><mi>m</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>∝</mo><mrow><mi>l</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mfrac><mi>x</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.19)</span></td>
+</tr>
+</table>
+</div>
+<div id="Ch3.S5.SS3.SSSx2.p3" class="ltx_para">
+<p class="ltx_p">As it is well known from the theory of electricity, separating charges
+creates an extra potential gradient and potential which are proportional
+with the potential and the concentration. That is, we need to assume
+that the extra potential along our line is described by a function
+of form</p>
+<table id="eq:FiniteGradient" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E20.m1" class="ltx_Math" alttext="\frac{dV}{dx}(x)\propto F_{bulk}\big{(}ln(\frac{x}{x+d})\big{)}" display="block"><mrow><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>V</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>∝</mo><mrow><msub><mi>F</mi><mrow><mi>b</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>k</mi></mrow></msub><mo>⁢</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><mrow><mi>l</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mfrac><mi>x</mi><mrow><mi>x</mi><mo>+</mo><mi>d</mi></mrow></mfrac><mo stretchy="false">)</mo></mrow></mrow><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.20)</span></td>
+</tr>
+</table>
+</div>
+<div id="Ch3.S5.SS3.SSSx2.p4" class="ltx_para">
+<p class="ltx_p">Although from thermodynamical point of view the segments are isolated,
+the extra potential gradient invokes an extra concentration gradient
+change according to Eq.(<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#eq:Nernst" title="(3.9) ‣ Steady state ‣ § 3.5.1 Laws of motion ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.9</span></a>). Integrating by parts
+(using that <math id="Ch3.S5.SS3.SSSx2.p4.m1" class="ltx_Math" alttext="\int udv=uv-\int vdu" display="inline"><mrow><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>u</mi><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>v</mi></mrow></mrow></mrow><mo>=</mo><mrow><mrow><mi>u</mi><mo>⁢</mo><mi>v</mi></mrow><mo>-</mo><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>v</mi><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>u</mi></mrow></mrow></mrow></mrow></mrow></math>) we arrive at that the potential
+is</p>
+<table id="eq:FinitePotential" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E21.m1" class="ltx_Math" alttext="V(x)=ln\bigl{(}\frac{x}{x+d}\bigr{)}x-ln(|x+d|)+C" display="block"><mrow><mrow><mi>V</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mrow><mi>l</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><mfrac><mi>x</mi><mrow><mi>x</mi><mo>+</mo><mi>d</mi></mrow></mfrac><mo maxsize="120%" minsize="120%">)</mo></mrow><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mrow><mi>l</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mo stretchy="false">|</mo><mrow><mi>x</mi><mo>+</mo><mi>d</mi></mrow><mo stretchy="false">|</mo></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>+</mo><mi>C</mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.21)</span></td>
+</tr>
+</table>
+<p class="ltx_p">or in a different form</p>
+<table id="Ch3.E22" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E22.m1" class="ltx_Math" alttext="V(x)=V_{o}*ln\bigl{(}\frac{x}{|x+d|*(x+d)}\bigr{)}+C" display="block"><mrow><mrow><mi>V</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mrow><msub><mi>V</mi><mi>o</mi></msub><mo>*</mo><mi>l</mi></mrow><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><mfrac><mi>x</mi><mrow><mrow><mo stretchy="false">|</mo><mrow><mi>x</mi><mo>+</mo><mi>d</mi></mrow><mo stretchy="false">|</mo></mrow><mo>*</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mi>d</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mfrac><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow><mo>+</mo><mi>C</mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.22)</span></td>
+</tr>
+</table>
+</div>
+<figure id="fig:The-membrane's-extra-gradient" class="ltx_figure"><object type="image/svg+xml" data="fig/NernstPlanckMembrane.svg" id="Ch3.F1.g1" class="ltx_graphics" width="541" height="421" aria-label="The neuronal membrane’s extra "><p>The neuronal membrane’s extra </p></object>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 3.1: </span>The neuronal membrane’s extra <em class="ltx_emph ltx_font_italic">potential gradient</em> in the function
+of the distance from the membrane’s surface and the bulk potential.
+The thickness of the atomic layers proximal to membrane’s surfaces
+are also shown.</figcaption>
+</figure>
+<div id="Ch3.S5.SS3.SSSx2.p5" class="ltx_para">
+<p class="ltx_p">Figure <a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#fig:The-membrane's-extra-gradient" title="Figure 3.1 ‣ Membrane with a finite width ‣ § 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.1</span></a> shows the membrane’s
+extra potential gradient in function of the distance from the membrane’s
+surface for three different bulk potentials (i.e., different concentrations).
+Here, we use physical length units (instead of the abstract distances
+used during the derivation) and an arbitrary voltage gradient scale.
+Suppose we assume the estimation given in <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#bib.bib26" title="" class="ltx_ref">26</a>]</cite>
+that in the case of resting potential, the scale of the gradient that
+accelerates the ions across the ion channel is calibrated approximately
+as <math id="Ch3.S5.SS3.SSSx2.p5.m1" class="ltx_Math" alttext="kV/cm" display="inline"><mrow><mrow><mrow><mi>k</mi><mo>⁢</mo><mi>V</mi></mrow><mo>/</mo><mi>c</mi></mrow><mo>⁢</mo><mi>m</mi></mrow></math>. Recall that we are still speaking about the resting state
+and only about the extra gradient evoked by the finite-width membrane.
+We are at the boundaries of the macroscopic and microscopic worlds.
+We derived our integrand from the picture of discrete charges but
+integrated it into the picture of continuous charge distribution,
+so we have an empirical factor between them. We assume an atomic layer
+(a skin) on the surface. However, the layer itself can also be modeled
+as having just a few ions under their mutual repulsion on the surface
+or a few atomic layers on top of each other, depending on the concentration
+and voltage in the bulk on the two sides. (The diagram line is valid
+in the plane crossing the membrane and the ion channel.)</p>
+</div>
+<figure id="fig:The-extra-membrane-potential" class="ltx_figure"><object type="image/svg+xml" data="fig/NernstPlanckMembranePotential.svg" id="Ch3.F2.g1" class="ltx_graphics" width="541" height="421" aria-label="The extra membrane potential gradient see Eq.("><p>The extra membrane potential gradient see Eq.(</p></object>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 3.2: </span>The extra membrane potential gradient see Eq.(<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#eq:FiniteGradient" title="(3.20) ‣ Membrane with a finite width ‣ § 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.20</span></a>)
+and extra potential Eq.(<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html#eq:FinitePotential" title="(3.21) ‣ Membrane with a finite width ‣ § 3.5.3 Two segments ‣ § 3.5 Electrodiffusion ‣ § 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.21</span></a>) in the function
+of the distance from the membrane’s surface. Also shown the assumed
+thickness of the ’atomic ion layer’ .
+For illustration, a simple capped ion channel in the membrane’s wall
+is also displayed, but its effect on the potential is not accounted
+for.</figcaption>
+</figure>
+<div id="Ch3.S5.SS3.SSSx2.p6" class="ltx_para">
+<p class="ltx_p">We assumed that the membrane’s width is <math id="Ch3.S5.SS3.SSSx2.p6.m1" class="ltx_Math" alttext="5\ nm" display="inline"><mrow><mpadded width="+5pt"><mn>5</mn></mpadded><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>m</mi></mrow></math>. An ion channel is
+depicted in the middle of the figure with a diameter of about <math id="Ch3.S5.SS3.SSSx2.p6.m2" class="ltx_Math" alttext="1.5\ nm" display="inline"><mrow><mpadded width="+5pt"><mn>1.5</mn></mpadded><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>m</mi></mrow></math>.
+Furthermore, we assume that the ion’s size and, correspondingly, the
+thickness of the atomic layer in the electrolyte on the surface of
+the membrane is about <math id="Ch3.S5.SS3.SSSx2.p6.m3" class="ltx_Math" alttext="0.1\ nm" display="inline"><mrow><mpadded width="+5pt"><mn>0.1</mn></mpadded><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>m</mi></mrow></math>. For comparison, recall that the
+size of the tip of the clamp pipette is in the range of <math id="Ch3.S5.SS3.SSSx2.p6.m4" class="ltx_Math" alttext="1,000\ nm" display="inline"><mrow><mn>1</mn><mo>,</mo><mrow><mpadded width="+5pt"><mn>000</mn></mpadded><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>m</mi></mrow></mrow></math>
+and the size of the soma in the range of <math id="Ch3.S5.SS3.SSSx2.p6.m5" class="ltx_Math" alttext="10,000\ nm" display="inline"><mrow><mn>10</mn><mo>,</mo><mrow><mpadded width="+5pt"><mn>000</mn></mpadded><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>m</mi></mrow></mrow></math>.</p>
+</div>
+<div id="Ch3.S5.SS3.SSSx2.p7" class="ltx_para">
+<p class="ltx_p">The figure shows three different bulk concentrations, so one can estimate
+(using non-matching diagram lines) what happens if the concentrations
+change between the two segments (although their interaction slightly
+complicates the process). The bulk concentration naturally changes
+the potential, so a difference in the potentials can be measured.
+However, this may be the voltage between the bulks, one bulk and one
+layer, or two layers. When measuring potential in the segments using
+such a pipette and touching the membrane one actually may measure
+some average potential which contains only a tiny proportion from
+the layer, so the mentioned extra potential gradient cannot be measured
+by that method. Anyhow, the ion currents flow between the two layers
+under the potential, which can drastically differ from the bulk potential.
+Derived values, such as the GHK potential, should bee rethought.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_CONDUCTANCE/index.html" title="§ 3.4.3 Conductance ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.3 </span>Conductance</span></a><a href="../../../ch_Physics/sec_Physics-Electricity/MEASURING_OSCILLATOR/index.html" title="§ 3.4.4 Oscillator ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4.4 </span>Oscillator</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Nov  3 09:47:31 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

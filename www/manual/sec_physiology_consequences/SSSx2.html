@@ -1,0 +1,97 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Connecting science to life‣ § 1.3.6 Consequences ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Tue Oct 29 14:50:50 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on October 29, 2024.-->
+
+<link rel="shortcut icon" href="../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../latexmldoc.css" type="text/css">
+<script src="../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="index.html" title="§ 1.3.6 Consequences ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="subsec_Operating-regimes.html" title="Operating regimes ‣ § 1.3.6 Consequences ‣ Abstract Neuron Dynamics">
+<link rel="next" href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Abstract Neuron Dynamics">
+<link rel="subsubsection" href="subsec_Operating-regimes.html" title="Operating regimes ‣ § 1.3.6 Consequences ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Physiology/index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsubsection" href="../sec_Physiology-Current-Without.html" title="Current without external potential ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="index.html" title="§ 1.3.6 Consequences ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../sec_Physiology-AP/index.html" title="§ 1.5 Action Potential ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="216" height="122" alt="">
+<p class="ltx_p">Version <em class="ltx_emph ltx_font_italic">0.8.6</em>
+<br class="ltx_break"></p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Overview</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Physiology/index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Physiology (abstract)</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="../sec_Physiology-Current-Without.html" title="Current without external potential ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Current without external potential</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a href="index.html" title="§ 1.3.6 Consequences ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.6 </span>Consequences</span></a>
+<ul class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="subsec_Operating-regimes.html" title="Operating regimes ‣ § 1.3.6 Consequences ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Operating regimes</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title">Connecting science to life</span></span></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4 </span>Calculating ion’s speed</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../sec_Physiology-AP/index.html" title="§ 1.5 Action Potential ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.5 </span>Action Potential</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<p class="ltx_p"><a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="216" height="216" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="index.html" title="§ 1.3.6 Consequences ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.6 </span>Consequences</span></a><a href="subsec_Operating-regimes.html" title="Operating regimes ‣ § 1.3.6 Consequences ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title">Operating regimes</span></a><a href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4 </span>Calculating ion’s speed</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_subsubsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsubsection">Connecting science to life</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The two layers, plus the demon, also naturally explain why that difference
+comes into existence. As we explained above, when a <em class="ltx_emph ltx_font_italic">finite-width</em>
+membrane separating the two segments appears in the volume (due to
+the evolution or the development of the individual biological object),
+two thin electrolyte layers will be formed proximal to its surfaces
+on the two sides, even if the concentrations are equal. As observed,
+“a membrane potential arises when there is a difference in the electrical
+charge on the two sides of a membrane, due to a <em class="ltx_emph ltx_font_italic">slight excess</em>
+of positive ions over negative ones on one side and a slight deficit
+on the other.” <cite class="ltx_cite ltx_citemacro_cite">[<a href="../bib.html#bib21" title="" class="ltx_ref">21</a>]</cite> We add that some potential
+difference is created by the presence of the membrane alone, as discussed
+above. When a demon also appears in the membrane (initially a simple
+hole), the random movement of ions with <em class="ltx_emph ltx_font_italic">finite speed </em>through
+the <em class="ltx_emph ltx_font_italic">finite length</em> of the ion channels may also solve the mystery
+of <em class="ltx_emph ltx_font_italic">why a cell comes into life during evolution</em>.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="subsec_Operating-regimes.html" title="Operating regimes ‣ § 1.3.6 Consequences ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title">Operating regimes</span></a><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4 </span>Calculating ion’s speed</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Oct 29 14:50:50 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

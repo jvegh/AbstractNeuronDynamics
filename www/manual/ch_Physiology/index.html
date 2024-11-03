@@ -1,0 +1,247 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2 Neurophysiology (abstract)‣ Abstract Neuron Dynamics</title>
+<!--Generated on Sun Nov  3 14:45:06 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 3, 2024.-->
+
+<link rel="shortcut icon" href="../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../latexmldoc.css" type="text/css">
+<script src="../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="../ch_Single/MODELING_SINGLE_ABSTRACT_NEURON/sec_Single-AbstractPotentialInside/index.html" title="§ 1.1.1 Neuron’s potential ‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="next" href="sec_Physiology-Membrane/index.html" title="§ 2.1 Membrane ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+<link rel="section" href="sec_Physiology-Membrane/index.html" title="§ 2.1 Membrane ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="sec_Physiology-AP/index.html" title="§ 2.2 Action Potential ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="sec_Physiology-Experimental/index.html" title="§ 2.3 Experimental evidence ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<meta name="keywords" lang="en" content="Maxwell, Maxwell equation, Nernst-Planck, Nernst-Planck equation, equation">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break"></p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self">
+<span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Neurophysiology (abstract)</span></span>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="sec_Physiology-Membrane/index.html" title="§ 2.1 Membrane ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.1 </span>Membrane</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="sec_Physiology-AP/index.html" title="§ 2.2 Action Potential ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.2 </span>Action Potential</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="sec_Physiology-Experimental/index.html" title="§ 2.3 Experimental evidence ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.3 </span>Experimental evidence</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Neural computing</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../index.html" title="Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title">Abstract Neuron Dynamics</span></a><a href="../ch_Single/MODELING_SINGLE_ABSTRACT_NEURON/sec_Single-AbstractPotentialInside/index.html" title="§ 1.1.1 Neuron’s potential ‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1.1 </span>Neuron’s potential</span></a><a href="sec_Physiology-Membrane/index.html" title="§ 2.1 Membrane ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.1 </span>Membrane</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_chapter ltx_authors_1line">
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">Chapter 2 </span>Neurophysiology (abstract)</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Biological objects, with their semipermeable membranes, separating
+ionic solutions into sections with concentrations differing by orders
+of magnitude, furthermore containing voltage-controlled ion channels
+that react actively to electric fields, are more complex cases for
+understanding their detailed operation. Classic theory cannot explain
+some details of neurophysiological phenomena, including neurons’ charge
+processing, especially their temporal behavior, that implements its
+information processing capability because physiology incorrectly interprets
+the fundamental electric terms. Extrapolating notions derived from
+metals to electrolytes, especially to biological neurons with electrically
+active internal structures, may be misleading.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">It is hazardous to introduce technically (and incorrectly) derived
+and misinterpreted macroscopic features and interpret them as fundamental
+electric notions. The idea of
+conductance
+has been introduced
+to neurophysiology almost a century ago. It was taken from physics, where the
+notion was derived for metals. Since then, its original interpretation
+has been forgotten, and today (in contrast with physics), it has become
+a primary entity for describing electric characteristics of biological
+cells. We explain how the right physics background enables us to
+discover wrong physical models and
+misinterpreted notions of physics in neurophysiology;
+furthermore, how the right interpretation opens the way to the correct interpretation
+of neuronal information. We set up an abstract electric model of neuronal
+operation.
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Without having charge, the particles in a solution follow the laws
+of thermodynamics. Having charge affects their mass distribution and
+leads to measurable effects in the solution’s local electric distribution:
+the change of one gradient generates the change of the other. However,
+the corresponding “laws of motion” are still missing. We must
+introduce (at least) two interaction speeds (at least ’fast’ and ’slow’
+currents) and derive physics-based mathematical approximation to describe
+the experiences. We generally show a way of handling interactions
+with speeds differing by orders of magnitude. It is a pre-requisite
+of attempting to describe life by laws of science: life is based on
+electrodiffusion processes in biological matters. We derive a method
+and the mathematical form of calculating the Nernst-Planck equation’s
+
+
+time derivatives, showing how that time course can describe processes
+with the participation of the (neuronal) membrane. <em class="ltx_emph ltx_font_italic">The derived
+equations are the Maxwell equations for electrodiffusion and also
+the laws of motion for biology.</em>
+
+
+We show that a semipermeable membrane
+introduces a new interface (a layer of atomic width) between the electrolyte
+and the membrane that can be described only using microscopic and
+macroscopic terms simultaneously. We also discuss the operation of
+gated ion channels in semipermeable membrane, furthermore, that ions
+change their speed from <em class="ltx_emph ltx_font_italic">drift </em>speed to <em class="ltx_emph ltx_font_italic">potential-assisted</em>
+speed or even <em class="ltx_emph ltx_font_italic">potential-accelerated</em> speed. The case studies
+also include how and why action potential is evoked due to finite
+size of the neurons and finite speed of their charge processing. The
+time-aware computing procedure (considering the finite speed of charge
+carriers) naturally describes the biophysically plausible abstract
+model of electric charge processing in biological neurons.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Biology uses the idea of ”instant interaction” borrowed from classic
+physics and describes its ”slow” currents using equations developed
+for instant interaction; i.e., as if they were ”fast” currents.
+The lack of idea about slow currents leads
+to the introduction of fake currents (which have no source, change
+the ion type, introduce non-physical delays between the two secondary
+electric entities voltage and current, and so on). <span class="ltx_text ltx_font_italic">Experimental
+biology sees the time, but its theory does not want to admit it.</span>
+Instead of introducing that biological processes need time, biology
+suggts that physics has a wrong notion about speed, space, time,
+and electricity. Unfortunately, biophysics participates in this business:
+in some cases simply translates notions, terms and equations from
+classic physics (mainly theory of electricity), without validating
+that the original abstraction remains valid in the case of biology.</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Nature is infinitely complex, and science must make
+abstractions for a particular assembly of phenomena to describe them
+with reasonable accuracy using a piece of that language. We create
+a dialect of that universal language and validate its usage for our
+assembly of phenomena. Different science fields may use different
+abstractions and dialects, developing new ones or attempting to inherit
+them from other science fields. However, in the latter case, <span class="ltx_text ltx_font_italic">we
+must not borrow their validation without scrutinizing whether in the case of our
+abstractions they remain valid</span>. To describe its electric operations,
+biology borrowed laws and equations from physics, where it was assumed
+that the speed of interaction is the speed of
+EM
+interaction,
+the interactions have the same speed and they are strictly pair-wise.
+Although technical electricity knows and describes that macroscopic
+currents are a million times slower and different laws describe them,
+biology did not borrow the idea or where it did (the telegrapher’s
+equation); it did it incorrectly.</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">Believing that the mathematical equations developed for the abstraction
+of ”instant interaction” of classic physics are valid for biology,
+leads to describing a surrealistic virtual nature, where charges are
+not present but creating potential
+the <a href="https://doi.org/10.1038/9173" title="" class="ltx_ref ltx_href">conductance depends
+on the applied voltage</a> <cite class="ltx_cite ltx_citemacro_cite">[<a href="../bib.html#bib30" title="" class="ltx_ref">30</a>]</cite>,
+and that conductance governs biological operation; the mystic reason
+of creating
+AP is ”based on an indirect inference, that excitatory
+inputs interact sublinearly when located somewhere in the distal dendritic
+tree” (for a review see section 5.2 in <cite class="ltx_cite ltx_citemacro_cite">[<a href="../bib.html#bib11" title="" class="ltx_ref">11</a>]</cite>);
+signals propagate with delays without assuming that it happens due
+to the finite speed of current that delivers the signal; applying
+telegrapher’s equations, which assume that current flows out of the
+cable, to the case of axons where the current remains the same while
+it travels; modeling and showing dependencies of infinite-speed electric
+circuits for finite-speed biological circuits; applying Kirchoff’s
+Conservation Law to space segments where ions are created inside (diffuse
+into the segment); that the temporal operation due to many-synaptic
+inputs is governed by some cross-correlation of independent inputs; that the information
+processing of time-dependent analog signals is described by a formalism
+developed for time-independent digital signals.</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">Since Euclid, we know ”there is no royal road to geometry”. We
+add that there is no biologist’s road to nature. The true nature is
+different from the one they assume when they apply the mathematical formalism
+developed for the approximations and abstraction of classic science.
+One must derive the proper approximations relevant
+to the studied phenomena, usually comprising several interactions
+with speeds differing by orders of magnitude, develop the appropriate
+abstractions and approximations, then develop the corresponding mathematics.
+This is also valid for the
+case of electricity in metals, from the speed of
+EM
+interaction down to the drift speed of electrons. Even we know that
+the speed of a macroscopic current
+is between those two extreme values.
+Extrapolating our notions about the macroscopic world to the microscopic
+one and assuming the classic interaction speed (the ”instant
+interaction”), abstracted from the vast interaction
+speed of
+EM
+waves to at least ten orders of magnitude lower
+interaction speed, is misleading.</p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry"><a href="sec_Physiology-Membrane/index.html" title="§ 2.1 Membrane ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.1 </span>Membrane</span></a></li>
+</ul>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry"><a href="sec_Physiology-AP/index.html" title="§ 2.2 Action Potential ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.2 </span>Action Potential</span></a></li>
+</ul>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry"><a href="sec_Physiology-Experimental/index.html" title="§ 2.3 Experimental evidence ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.3 </span>Experimental evidence</span></a></li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../ch_Single/MODELING_SINGLE_ABSTRACT_NEURON/sec_Single-AbstractPotentialInside/index.html" title="§ 1.1.1 Neuron’s potential ‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1.1 </span>Neuron’s potential</span></a><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="sec_Physiology-Membrane/index.html" title="§ 2.1 Membrane ‣ Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2.1 </span>Membrane</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Nov  3 14:45:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

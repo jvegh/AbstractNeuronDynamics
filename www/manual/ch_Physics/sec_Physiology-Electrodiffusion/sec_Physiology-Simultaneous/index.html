@@ -1,0 +1,167 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>3.6.2 Simultaneous interactions‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Sat Nov  2 20:52:17 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 2, 2024.-->
+
+<link rel="shortcut icon" href="../../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../../latexmldoc.css" type="text/css">
+<script src="../../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../index.html" title="§ 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../../index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up up" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="../sec_Calculating-ion's-speed/index.html" title="§ 3.6.1 Calculating ion’s speed ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="next" href="../sec_Physiology-LawsOfMotion/index.html" title="§ 3.6.3 Laws of motion ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Calculating-ion's-speed/index.html" title="§ 3.6.1 Calculating ion’s speed ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Physiology-LawsOfMotion/index.html" title="§ 3.6.3 Laws of motion ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Physiology-OneSegment/index.html" title="§ 3.6.4 One segment ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Physiology-TwoSegments/index.html" title="§ 3.6.5 Two segments ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Demon-in-the-membrane/index.html" title="§ 3.6.6 Demon in the membrane ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_PhysiologyCurrentHandling/index.html" title="§ 3.6.7 Current handling ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_PhysicsIntroduction/index.html" title="§ 3.1 Introduction ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Physics-Abstraction/index.html" title="§ 3.2 Abstractions and approximations ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Physics-Speeds/index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../MEASURING_CONDUCTANCE/index.html" title="§ 3.5 Conductance ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../index.html" title="§ 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Single/index.html" title="Chapter 1 Modeling single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+<meta name="keywords" lang="en" content="instant interaction, prompt interaction">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break"></p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Single/index.html" title="Chapter 1 Modeling single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Modeling single neurons</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Neurophysiology (abstract)</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../../index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_PhysicsIntroduction/index.html" title="§ 3.1 Introduction ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Physics-Abstraction/index.html" title="§ 3.2 Abstractions and approximations ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>Abstractions and approximations</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Physics-Speeds/index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>Interaction speeds in nature</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4 </span>Electricity in biology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../MEASURING_CONDUCTANCE/index.html" title="§ 3.5 Conductance ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.5 </span> Conductance</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="../index.html" title="§ 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6 </span>Electrodiffusion</span></a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Calculating-ion's-speed/index.html" title="§ 3.6.1 Calculating ion’s speed ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.1 </span>Calculating ion’s speed</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.2 </span>Simultaneous interactions</span></span></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Physiology-LawsOfMotion/index.html" title="§ 3.6.3 Laws of motion ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.3 </span>Laws of motion</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Physiology-OneSegment/index.html" title="§ 3.6.4 One segment ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.4 </span>One segment</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Physiology-TwoSegments/index.html" title="§ 3.6.5 Two segments ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.5 </span>Two segments</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Demon-in-the-membrane/index.html" title="§ 3.6.6 Demon in the membrane ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.6 </span>Demon in the membrane</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_PhysiologyCurrentHandling/index.html" title="§ 3.6.7 Current handling ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.7 </span>Current handling</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Neural computing</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../index.html" title="§ 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6 </span>Electrodiffusion</span></a><a href="../sec_Calculating-ion's-speed/index.html" title="§ 3.6.1 Calculating ion’s speed ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.1 </span>Calculating ion’s speed</span></a><a href="../sec_Physiology-LawsOfMotion/index.html" title="§ 3.6.3 Laws of motion ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.3 </span>Laws of motion</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_subsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">§ 3.6.2 </span>Simultaneous interactions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">When an object can interact with another in a way abstracted by science
+as more than one interaction type, we need to find the relation between
+them. Such a famous case is electricity and magnetism. Their interrelation
+is defined by the Maxwell equations: how an electrical field creates
+a magnetic one and vice versa (notice that the law is about their
+<em class="ltx_emph ltx_font_italic">space derivatives</em> instead of the quantities). An apparently
+similar case is found in electrodiffusion, where ions can be abstracted
+as mass and charge, one belonging to thermodynamics and the other
+to electricity. There is, however, an essential difference between
+those cases: the interaction speeds are the same in the first case
+(moreover, – in the spirit of the classic physics –
+the interactions are instant) and differ by several orders of magnitude
+in the second.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Science laws about separate interactions of masses and charges are
+based on abstractions, which enable and need approximations and omissions.
+While we understand that the speeds of electromagnetic and gravitational
+interactions are finite, we can use the ’instant interaction’ approximation
+in classic physics. This is because one effect of the first particle
+reaches the second particle at the same time as the other effect,
+leading to the absence of a time-dependent term in the mathematical
+formulation. However, this is not the case in electrodiffusion, where
+the mass transfer is significantly slower than the transfer speed
+of the electromagnetic field. To describe the interrelation of these
+two effects, we need to conduct case studies and apply casual approximations.
+
+
+Science actually uses the notion ’instant’ in the sense that one interaction
+is much faster than the process under study; we consider the faster interaction as instant. It’s important
+to remember that we are dealing with a mix of macroscopic and microscopic
+descriptions, and this understanding is a key aspect of our research.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The instant interaction in the classic science is based on the oversimplified
+approximation that the interaction speed is <em class="ltx_emph ltx_font_italic">always</em> much higher
+than the speed of changes it causes and that the processes can <em class="ltx_emph ltx_font_italic">always</em>
+be described by a single stage. We put together a series of stages
+to describe the complex phenomena observed in the neurons’ electric
+processing, where the stages provide input and output for each other,
+involve more than one interaction speed and use per-stage-valid approximations.
+We simplify the approximations by omitting the less significant interactions
+and introduce ideas for accounting the different interaction speeds.
+In this way we reduce the problem to a case that science can describe
+mathematically. <em class="ltx_emph ltx_font_italic">This procedure is different from that one applies
+some mathematical equations derived for an abstracted case of science
+to a biological phenomenon without validating that we use the appropriate
+formalism; than eventually attemps to find the mechanism which is described by the formalism</em>.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">We are at the boundary of microscopic and macroscopic world, and we
+must consider different interactions with different speeds. To describe
+the phenomena, which are neither purely microscopic nor macroscopic, more than one abstraction must be used. Still, they show the behavior
+of both worlds, furthermore, they change their behavior during the
+course of the studied process.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../sec_Calculating-ion's-speed/index.html" title="§ 3.6.1 Calculating ion’s speed ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.1 </span>Calculating ion’s speed</span></a><a href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="../sec_Physiology-LawsOfMotion/index.html" title="§ 3.6.3 Laws of motion ‣ § 3.6 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.6.3 </span>Laws of motion</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov  2 20:52:17 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

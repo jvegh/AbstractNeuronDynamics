@@ -1,0 +1,132 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.2 Abstractions and approximations‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Fri Nov  1 21:17:41 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 1, 2024.-->
+
+<link rel="shortcut icon" href="../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../latexmldoc.css" type="text/css">
+<script src="../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="index.html" title="Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="sec_PhysicsIntroduction.html" title="§ 1.1 Introduction to physics for biology ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="next" href="sec_Physics-Speeds.html" title="§ 1.3 Interaction speeds in nature ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="sec_PhysicsIntroduction.html" title="§ 1.1 Introduction to physics for biology ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="sec_Physics-Speeds.html" title="§ 1.3 Interaction speeds in nature ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="index.html" title="Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Computing/index.html" title="Chapter 2 Neural computing ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Information/index.html" title="Chapter 3 Neural information ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break"></p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="index.html" title="Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Physics for biology</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="sec_PhysicsIntroduction.html" title="§ 1.1 Introduction to physics for biology ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction to physics for biology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Abstractions and approximations</span></span></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="sec_Physics-Speeds.html" title="§ 1.3 Interaction speeds in nature ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3 </span>Interaction speeds in nature</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Computing/index.html" title="Chapter 2 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Neural computing</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Information/index.html" title="Chapter 3 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Neural information</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="index.html" title="Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Physics for biology</span></a><a href="sec_PhysicsIntroduction.html" title="§ 1.1 Introduction to physics for biology ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction to physics for biology</span></a><a href="sec_Physics-Speeds.html" title="§ 1.3 Interaction speeds in nature ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3 </span>Interaction speeds in nature</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">§ 1.2 </span>Abstractions and approximations</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">To describe a <span class="ltx_text ltx_font_italic">well defined</span> range of phenomena, we use approximations and omissions,
+<a name="PHYSICS_Description" id="PHYSICS_Description" class="ltx_anchor"></a>
+<a name="PHYSICS_ABSTRACTIONS" id="PHYSICS_ABSTRACTIONS" class="ltx_anchor"></a>
+and we create abstractions which can then be described by known Laws using
+the universal language of mathematics. For example, we use the abstraction ”charge”
+and ”charge carrier” for electrons, protons, ions, etc., and we can describe the
+electricity-related abstract features of the carriers.
+We must not forget, however, that <span class="ltx_text ltx_font_italic">those Laws have been
+derived for abstractions based on approximations and omissions</span>, and so they also <span class="ltx_text ltx_font_italic">have
+their range of validity</span>. To apply Laws from different fields of science,
+we must scrutinize whether all Laws we use are applied within their range of validity.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Biology, and especially neuronal operations, produces examples where wrong omissions
+in the complex processes results in absolutely wrong results. In those cases
+some initial resemblance between our theoretical predictions and our phenomena exist, the success
+in simple cases provides no guarantee that the model was appropriate.
+As Hodgkin and Huxlex expressed: ”the success of the equations is no evidence in
+favour of the mechanism” <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">HodgkinHuxley:1952</span>]</cite>. Finally,
+all Laws are approximations and the accuracy of verifying their predictions is limited.
+Several theories can describe some phenomenon with the required accuracy.
+We also show in section about the
+<span class="ltx_ref ltx_ref_self">finite interaction speeds</span>
+that the mostly known Laws (from Newton, Coulomb, Kirchoff, etc.) are
+also approximations. They have their range of validity, although it is often
+forgotten.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">One such neuralgic point of omissions and approximations is the vastly different
+<span class="ltx_ref ltx_ref_self">interaction speeds</span>;
+furthermore, that where the speed is considered at all, <span class="ltx_text ltx_font_italic">the same speed is assumed for all interactions</span>.
+The Laws are abstract in the sense that, say, the objects in the Laws of physics have either mass or
+electric charge, but not both. It is the researcher’s task to decide
+which combination of Laws
+can be applied to the given condition. For example, one can assume in most cases
+that the speeds sum up linearly, except at very high speeds.
+Biology provides excellent case studies where different interactions
+shape the phenomenon and special care must be excercised.
+We give a short review of
+<span class="ltx_ref ltx_ref_self">history and kinds of interaction speeds</span>.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Neuronal operation is at the boundary where sometimes, in the same phenomenon,
+one interaction can be interpreted at macroscopic level, some another
+must already be interpreted at microscopic level.
+Given the vital role of charge and current in neuronal operation,
+we give their precise interpretation.
+Special emphasis is given to the true
+<a href="sec_Physics-Speeds.html#MEASURING_CONDUCTANCE" title="§ 1.3 Interaction speeds in nature ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref">interpretation of conductance</a>,
+one of the central terms in biology.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="sec_PhysicsIntroduction.html" title="§ 1.1 Introduction to physics for biology ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction to physics for biology</span></a><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="sec_Physics-Speeds.html" title="§ 1.3 Interaction speeds in nature ‣ Chapter 1 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3 </span>Interaction speeds in nature</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Fri Nov  1 21:17:41 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

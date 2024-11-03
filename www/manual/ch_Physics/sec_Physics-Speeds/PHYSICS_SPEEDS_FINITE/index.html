@@ -1,0 +1,237 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>3.3.3 Finite-speed interactions‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Sun Nov  3 14:45:06 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 3, 2024.-->
+
+<link rel="shortcut icon" href="../../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../../latexmldoc.css" type="text/css">
+<script src="../../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../../index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="up up up" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="../sec_Physics-SpeedNeuro/index.html" title="§ 3.3.2 Speed in neuroscience ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="next" href="../PHYSICS_SPEEDS_MIXING/index.html" title="§ 3.3.4 Mixing interaction speeds ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Physics-SpeedLight/index.html" title="§ 3.3.1 Speed of light ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Physics-SpeedNeuro/index.html" title="§ 3.3.2 Speed in neuroscience ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../PHYSICS_SPEEDS_MIXING/index.html" title="§ 3.3.4 Mixing interaction speeds ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="../sec_Physiology-Simultaneous/index.html" title="§ 3.3.5 Simultaneous interactions ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_PhysicsIntroduction/index.html" title="§ 3.1 Introduction ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Physics-Abstraction/index.html" title="§ 3.2 Abstractions and approximations ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Physiology-Electrodiffusion/index.html" title="§ 3.5 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break"></p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Neurophysiology (abstract)</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../../index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_PhysicsIntroduction/index.html" title="§ 3.1 Introduction ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Physics-Abstraction/index.html" title="§ 3.2 Abstractions and approximations ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>Abstractions and approximations</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="../index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>Interaction speeds in nature</span></a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Physics-SpeedLight/index.html" title="§ 3.3.1 Speed of light ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.1 </span>Speed of light</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Physics-SpeedNeuro/index.html" title="§ 3.3.2 Speed in neuroscience ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.2 </span>Speed in neuroscience</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.3 </span>Finite-speed interactions</span></span></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../PHYSICS_SPEEDS_MIXING/index.html" title="§ 3.3.4 Mixing interaction speeds ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.4 </span> Mixing interaction speeds</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="../sec_Physiology-Simultaneous/index.html" title="§ 3.3.5 Simultaneous interactions ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.5 </span>Simultaneous interactions</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Physics-Electricity/index.html" title="§ 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.4 </span>Electricity in biology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Physiology-Electrodiffusion/index.html" title="§ 3.5 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.5 </span>Electrodiffusion</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Neural computing</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../index.html" title="§ 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>Interaction speeds in nature</span></a><a href="../sec_Physics-SpeedNeuro/index.html" title="§ 3.3.2 Speed in neuroscience ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.2 </span>Speed in neuroscience</span></a><a href="../PHYSICS_SPEEDS_MIXING/index.html" title="§ 3.3.4 Mixing interaction speeds ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.4 </span> Mixing interaction speeds</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_subsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">§ 3.3.3 </span>Finite-speed interactions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">When speaking about speed, especially the speed of charged objects
+inside neurons, one needs to consider microscopic and macroscopic
+levels of understanding. On the boundaries of the two levels, we need
+to make distinctions between different kinds of speeds, among others
+(in units of <math id="p1.m1" class="ltx_Math" alttext="m/s" display="inline"><mrow><mi>m</mi><mo>/</mo><mi>s</mi></mrow></math>), the propagation speed <math id="p1.m2" class="ltx_Math" alttext="10^{8}" display="inline"><msup><mn>10</mn><mn>8</mn></msup></math> of the electric
+field (aka potential), the speed <math id="p1.m3" class="ltx_Math" alttext="10^{5}" display="inline"><msup><mn>10</mn><mn>5</mn></msup></math> of thermal motion and potential-assisted motion, the
+apparent speed of current (as a macroscopic stream, both
+in metals and electrolytes; mainly due to the repulsion of nearby ions in the stream) <math id="p1.m4" class="ltx_Math" alttext="10^{1}" display="inline"><msup><mn>10</mn><mn>1</mn></msup></math>,
+for ion current inside a neuron
+(see Fig. 1 in  <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib2" title="" class="ltx_ref">2</a>]</cite>) <math id="p1.m5" class="ltx_Math" alttext="10^{-2}" display="inline"><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></math>;
+diffusion speed of electrons in a wire <math id="p1.m6" class="ltx_Math" alttext="10^{-4}" display="inline"><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></math>, current drift speed
+of the individual carriers in aqueous solutions <math id="p1.m7" class="ltx_Math" alttext="10^{-7}" display="inline"><msup><mn>10</mn><mrow><mo>-</mo><mn>7</mn></mrow></msup></math>; and
+of ions moving in a narrow tube filled with viscous liquid <math id="p1.m8" class="ltx_Math" alttext="10^{-8}" display="inline"><msup><mn>10</mn><mrow><mo>-</mo><mn>8</mn></mrow></msup></math>. Fortunately,
+in most <span class="ltx_text ltx_font_italic">but not all</span> cases, different mechanisms
+(such as the Grotthuss mechanism or free electron model; for a review,
+see <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib49" title="" class="ltx_ref">49</a>]</cite>) at the level of microscopic
+structure help to create the illusion of a high macroscopic propagation
+speed (million times higher than the speed of its microscopic carriers).
+<span class="ltx_text ltx_font_italic">The same carrier can have macroscopic speeds differing by orders of
+magnitude, depending on the context</span>; a biological example see at
+ion channels.
+When more than one of those
+speeds plays a role in the phenomenon we study, we must carefully
+consider its context and prepare for handling <span class="ltx_text ltx_font_italic">fast</span>
+and <span class="ltx_text ltx_font_italic">slow</span> effects, furthermore, their mixing.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">In this section, we discuss mainly currents. <span class="ltx_text ltx_font_italic">To deliver a
+current, one needs moving charged particles that need acting of some
+external (electric, magnetic, or chemical) force or a mixture of forces.
+We have speeds of
+EM interaction, thermal motion of the charge
+carriers, macroscopic current, drift speed</span>, and mixing simultaneously
+in the same phenomenon. In the theoretical description of
+processes, instant interaction (i.e., the abstraction of non-physical,
+infinitely large interaction speed) is used in most cases. In the
+cases when absolutely needed, the generic notion of ”speed” is
+used without specifying which one of the mentioned speeds it means.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Considering the finite field propagation speed requires revisiting
+the fundamental physical laws. The famous Coulomb’s
+Law (in a Lorentz-transformed form) should be written as</p>
+</div>
+<div id="p4" class="ltx_para">
+<table id="eq:CoulombTimeDependent" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E1.m1" class="ltx_Math" alttext="\frac{F(t)}{Q_{1}}=k\frac{Q_{2}}{r^{2}}(t{-\frac{r}{c}})" display="block"><mrow><mfrac><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow><msub><mi>Q</mi><mn>1</mn></msub></mfrac><mo>=</mo><mrow><mi>k</mi><mo>⁢</mo><mfrac><msub><mi>Q</mi><mn>2</mn></msub><msup><mi>r</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mfrac><mi>r</mi><mi>c</mi></mfrac></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.1)</span></td>
+</tr>
+</table>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">The electrostatic field that charge <math id="p5.m1" class="ltx_Math" alttext="Q_{1}" display="inline"><msub><mi>Q</mi><mn>1</mn></msub></math> experiences
+due to the finite propagation speed <math id="p5.m2" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> of the electric
+field (or interaction) corresponds to that <math id="p5.m3" class="ltx_Math" alttext="Q_{2}" display="inline"><msub><mi>Q</mi><mn>2</mn></msub></math> at
+a distance <math id="p5.m4" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> <span class="ltx_text ltx_font_italic">generated <math id="p5.m5" class="ltx_Math" alttext="\frac{r}{c}" display="inline"><mfrac><mi>r</mi><mi>c</mi></mfrac></math> time ago</span>
+(<math id="p5.m6" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> is the constant describing the electric interaction). This term
+has no role if the two charges do not change their position; similarly
+to that in the special theory of relativity, only the relative movement
+leads to complications. If the distance changes, its effect is so
+tiny that the term can usually be omitted. So, our college knowledge
+can serve as a good first approximation.</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">This speed term pops another Law from classical physics into our minds:
+Kirchhoff’s junction rule. The law is perfect in the approximation
+’instant interaction’ that classical
+physics uses. First, because it expresses charge conservation, <span class="ltx_text ltx_font_italic">it
+is invalid when charges are ”created” inside biological objects</span>
+(ions diffuse into the junction; see the role of ion channels in the
+wall of membranes). Second, it is not valid for input currents arriving
+with finite speeds, but it is valid for a single point in space-time
+(in other words, in differential equation form). The currents (and
+the voltages), measured at two different points in space-time, are
+different. Consequently, for extended objects (such as a line-like finite-size
+neuron), it is valid only with a time delay</p>
+</div>
+<div id="p7" class="ltx_para">
+<table id="eq:Kirchoff_biology" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch3.E2.m1" class="ltx_Math" alttext="I_{out}(t)=-I_{in}(t-\Delta t)" display="block"><mrow><mrow><msub><mi>I</mi><mrow><mi>o</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>t</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>-</mo><mrow><msub><mi>I</mi><mrow><mi>i</mi><mo>⁢</mo><mi>n</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3.2)</span></td>
+</tr>
+</table>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">We can calculate the delay time <math id="p8.m1" class="ltx_Math" alttext="\Delta t" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></math> (in a slightly
+simplified form) classically, from distance <math id="p8.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> along the path of
+the current and the macroscopic speed <math id="p8.m3" class="ltx_Math" alttext="v" display="inline"><mi>v</mi></math> of the current. Let us
+consider a 30 cm current path (a wire). The time delay is in the <span class="ltx_text ltx_font_italic">nsec</span>
+range for
+EM propagation speed, but it is in the <math id="p8.m4" class="ltx_Math" alttext="10\ msec" display="inline"><mrow><mpadded width="+5pt"><mn>10</mn></mpadded><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>c</mi></mrow></math>
+range for the speed calculated from the telegraph equation and measured
+in metallic wires; furthermore, in the case of axonal current <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib3" title="" class="ltx_ref">3</a>]</cite>,
+on a <math id="p8.m5" class="ltx_Math" alttext="0.3\ cm" display="inline"><mrow><mpadded width="+5pt"><mn>0.3</mn></mpadded><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>m</mi></mrow></math> distance, it is in the <math id="p8.m6" class="ltx_Math" alttext="0.1\ msec" display="inline"><mrow><mpadded width="+5pt"><mn>0.1</mn></mpadded><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>c</mi></mrow></math>. Inside a
+neuron, the current is so slow that the peak-to-peak temporal distance
+of an
+AP at different places inside the neuron is several times
+more than the temporal length of the
+AP, see Fig. 3f in <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib2" title="" class="ltx_ref">2</a>]</cite>.
+<span class="ltx_text ltx_font_italic">We must not describe the axon or the membrane with the usual Kirchoff equation:
+the input and the output currents flow at different times; only the differential
+equation form expresses charge conservation</span>.
+For its exact interpretation see sections on
+axonal charge delivery
+and on the
+true membrane current, Fig. <span class="ltx_ref ltx_missing_label ltx_ref_self">LABEL:fig_The-ghost-image_AP</span>,
+and the text around it. <span class="ltx_text ltx_font_italic">Studying electric phenomena on structured
+media, such as biological cells, needs much care</span>. We must not apply
+laws derived from entirely different conditions (mainly metals).</p>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p">Using the cable equation, as Hodgkin and Huxley attempted @cite HodgkinHuxley:1952, led to
+numerical difficulties, and they faced the principal problem: their
+equations assumed infinitely fast electric interaction, and they attempted
+to combine them with the (unknown) finite macroscopic speed of current
+in neuronal telegraph cables. The validity of using cable equations
+for biological objects is at least doubtful: deriving a telegrapher
+equation assumes applying an external potential to the cable filled
+with charge carriers, and in the case of biological membranes neither
+external potential nor permanently present charge carriers exist.
+Furthermore, the cable equation assumes continuous current outflow
+(a distributed resistance), which is not true for the neuronal membrane
+(current flows only toward the
+AIS).</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../sec_Physics-SpeedNeuro/index.html" title="§ 3.3.2 Speed in neuroscience ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.2 </span>Speed in neuroscience</span></a><a href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="../PHYSICS_SPEEDS_MIXING/index.html" title="§ 3.3.4 Mixing interaction speeds ‣ § 3.3 Interaction speeds in nature ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.4 </span> Mixing interaction speeds</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Nov  3 14:45:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1 Physiology (theoretical)‣ Abstract Neuron Dynamics Version 0.8.6</title>
+<!--Generated on Mon Oct 28 22:02:54 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on October 28, 2024.-->
+
+<link rel="shortcut icon" href="../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../latexmldoc.css" type="text/css">
+<script src="../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../index.html" title="Abstract Neuron Dynamics Version 0.8.6">
+<link rel="start" href="../index.html" title="Abstract Neuron Dynamics Version 0.8.6">
+<link rel="prev" href="../ch_overview/Sx1.html" title="Why another neuron(al) theory and simulator ‣ Overview ‣ Abstract Neuron Dynamics Version 0.8.6">
+<link rel="next" href="S1.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (theoretical) ‣ Abstract Neuron Dynamics Version 0.8.6">
+<link rel="chapter" href="../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics Version 0.8.6">
+<link rel="bibliography" href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics Version 0.8.6">
+<link rel="index" href="../idx.html" title="Index ‣ Abstract Neuron Dynamics Version 0.8.6">
+<link rel="section" href="S1.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (theoretical) ‣ Abstract Neuron Dynamics Version 0.8.6">
+<meta name="keywords" lang="en" content="Maxwell, Maxwell equation, Nernst-Planck, Nernst-Planck equation, equation">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="216" height="122" alt="">
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref"><span class="ltx_text ltx_ref_title">Overview</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self">
+<span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Physiology (theoretical)</span></span>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="S1.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (theoretical) ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="216" height="216" alt="">
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../index.html" title="Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title">Abstract Neuron Dynamics  Version <em class="ltx_emph ltx_font_italic">0.8.6</em></span></a><a href="../ch_overview/Sx1.html" title="Why another neuron(al) theory and simulator ‣ Overview ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title">Why another neuron(al) theory and simulator</span></a><a href="S1.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (theoretical) ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_chapter ltx_authors_1line">
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">Chapter 1 </span>Physiology (theoretical)</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Without having charge, the particles in a solution follow the laws
+of thermodynamics. Having charge affects their mass distribution and
+leads to measurable effects in the solution’s local electric distribution:
+the change of one gradient generates the change of the other. However,
+the corresponding “laws of motion” are still missing. We must
+introduce (at least) two interaction speeds (at least ’fast’ and ’slow’
+currents) and derive physics-based mathematical approximation to describe
+the experiences. We generally show a way of handling interactions
+with speeds differing by orders of magnitude. It is a pre-requisite
+of attempting to describe life by laws of science: life is based on
+electrodiffusion processes in biological matters. We derive a method
+and the mathematical form of calculating the Nernst-Planck equation’s
+
+
+time derivatives, showing how that time course can describe processes
+with the participation of the (neuronal) membrane. <em class="ltx_emph ltx_font_italic">The derived
+equations are the Maxwell equations for electrodiffusion and also
+the laws of motion for biology.</em>
+
+
+We show that a semipermeable membrane
+introduces a new interface (a layer of atomic width) between the electrolyte
+and the membrane that can be described only using microscopic and
+macroscopic terms simultaneously. We also discuss the operation of
+gated ion channels in semipermeable membrane, furthermore, that ions
+change their speed from <em class="ltx_emph ltx_font_italic">drift </em>speed to <em class="ltx_emph ltx_font_italic">potential-assisted</em>
+speed or even <em class="ltx_emph ltx_font_italic">potential-accelerated</em> speed. The case studies
+also include how and why action potential is evoked due to finite
+size of the neurons and finite speed of their charge processing. The
+time-aware computing procedure (considering the finite speed of charge
+carriers) naturally describes the biophysically plausible abstract
+model of electric charge processing in biological neurons.</p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry"><a href="S1.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (theoretical) ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction</span></a></li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../ch_overview/Sx1.html" title="Why another neuron(al) theory and simulator ‣ Overview ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title">Why another neuron(al) theory and simulator</span></a><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="S1.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (theoretical) ‣ Abstract Neuron Dynamics Version 0.8.6" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Mon Oct 28 22:02:54 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.4.2 Axon ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Tue Oct 29 14:11:32 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on October 29, 2024.-->
+
+<link rel="shortcut icon" href="../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../latexmldoc.css" type="text/css">
+<script src="../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="index.html" title="§ 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="up up up" href="../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="SS1.html" title="§ 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="next" href="SS3.html" title="§ 1.4.3 Membrane ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="SS1.html" title="§ 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="SS3.html" title="§ 1.4.3 Membrane ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../S1/index.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../S2/index.html" title="§ 1.2 Simultaneous interactions ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../sec_Physiology-Electrodiffusion/index.html" title="§ 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="index.html" title="§ 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../sec_Physiology-AP/index.html" title="§ 1.5 Action Potential ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="216" height="122" alt="">
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Overview</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Physiology (abstract)</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../S1/index.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../S2/index.html" title="§ 1.2 Simultaneous interactions ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Simultaneous interactions</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../sec_Physiology-Electrodiffusion/index.html" title="§ 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3 </span>Electrodiffusion</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="index.html" title="§ 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4 </span>Calculating ion’s speed</span></a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="SS1.html" title="§ 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.1 </span>General</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection ltx_ref_self">
+<span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.2 </span>Axon</span></span>
+<ul class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#SSSx1" title="Artificial mode ‣ § 1.4.2 Axon ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Artificial mode</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#SSSx2" title="Native mode ‣ § 1.4.2 Axon ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Native mode</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="SS3.html" title="§ 1.4.3 Membrane ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.3 </span>Membrane</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../sec_Physiology-AP/index.html" title="§ 1.5 Action Potential ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.5 </span>Action Potential</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">Hi guy
+<br class="ltx_break"><a href="../../index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.8.6</em>
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="216" height="216" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="index.html" title="§ 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4 </span>Calculating ion’s speed</span></a><a href="SS1.html" title="§ 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.1 </span>General</span></a><a href="SS3.html" title="§ 1.4.3 Membrane ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.3 </span>Membrane</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_subsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">§ 1.4.2 </span>Axon </h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Notice that our equations also work in a reversed way. If we combine
+Eqs. (<a href="SS1.html#eq:StokesSpeed" title="(1.23) ‣ § 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.23</span></a>), (<a href="../sec_Physiology-Electrodiffusion/SS1.html#eq:Nernst-0" title="(1.1) ‣ Steady state ‣ § 1.3.1 Nernst-Planck equation ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.1</span></a>), and (<a href="../sec_Physiology-Electrodiffusion/SS1.html#eq:Nernst-dCdt" title="(1.7) ‣ Calculating time derivatives ‣ § 1.3.1 Nernst-Planck equation ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.7</span></a>),
+we can express how the potential changes in the function of time.
+If we know the macroscopic current speed and the current’s time course
+(directly proportional to the concentration gradient) we can calculate
+how the concentration gradient, and, consequently the potential gradient
+generate each other. We must not forget that <em class="ltx_emph ltx_font_italic">we are speaking
+about the skin instead of the bulk of the solution in the tube</em>.</p>
+</div>
+<section id="SSSx1" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Artificial mode</h2>
+
+<div id="SSSx1.p1" class="ltx_para">
+<p class="ltx_p">Initially, the membrane, the clamping point on the axon, and the intracellular
+fluid have the resting potential (the axon is galvanically connected
+to the membrane). When the clamping potential suddenly appears, an
+electric field <math id="SSSx1.p1.m1" class="ltx_Math" alttext="\frac{dV}{dx}\propto(V_{membrane}-V_{clamp})" display="inline"><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>V</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac><mo>∝</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>V</mi><mrow><mi>m</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></msub><mo>-</mo><msub><mi>V</mi><mrow><mi>c</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>p</mi></mrow></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></math> appears
+outside and inside the axon. The extracellular space with its high
+ion concentration <math id="SSSx1.p1.m2" class="ltx_Math" alttext="C_{k}^{ext}" display="inline"><msubsup><mi>C</mi><mi>k</mi><mrow><mi>e</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>t</mi></mrow></msubsup></math> represents an “ion cloud”: when
+the clamping voltage is switched on, a “fast” current instantly
+delivers the potential along the <em class="ltx_emph ltx_font_italic">outer</em> surface of the axon.
+However, this is not the case on the <em class="ltx_emph ltx_font_italic">inner</em> surface: there is
+no charge on it that could change the potential.</p>
+</div>
+<div id="SSSx1.p2" class="ltx_para">
+<p class="ltx_p">The commonly used physical picture behind the process is that the
+membrane, as if it were metal, is equipotential, and the “fast”
+axonal current flows directly to the membrane. The case of biology
+is reversed compared to the classic electricity. The unusual physical
+situation here is that prompt <math id="SSSx1.p2.m1" class="ltx_Math" alttext="\frac{dV}{dx}" display="inline"><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>V</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></math> changes are interpreted
+only for the case of instant interaction. Here, <math id="SSSx1.p2.m2" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math> remains the same:
+there is no charge around to produce a potential. Given that the charge
+carriers’ speed is low, the propagation of the field has a finite
+speed (other than the propagation speed of the electromagnetic waves
+and that of the electrostatic field). The charges increase the potential
+locally (see Eq. (<a href="../sec_Physiology-Electrodiffusion/SS1.html#eq:Nernst-0" title="(1.1) ‣ Steady state ‣ § 1.3.1 Nernst-Planck equation ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.1</span></a>)) until the clamping potential
+reaches the axon’s end at the membrane. At that point, the driving
+force disappears: the potential at the two ends of the axon becomes
+the same.</p>
+</div>
+<div id="SSSx1.p3" class="ltx_para">
+<p class="ltx_p">As experimental evidence <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib23" title="" class="ltx_ref">23</a>, <a href="../../bib.html#bib24" title="" class="ltx_ref">24</a>]</cite>
+shows, the current arriving at the membrane initially exponentially
+increases and, in a millisecond time, saturates; this is misinterpreted
+as “delayed rectifying current” and leads to the fake conclusion
+that “the membrane’s conductance changes”. (The macroscopic streaming
+of ions inside the tube only slightly complicates the process: the
+local internal concentration can saturate only later, given that the
+stream delivers part of the inflowing ions to another place within
+the axon.) Given that we can calculate and measure the clamping current
+using Eq. (<a href="SS1.html#eq:CurrentOnSpeed" title="(1.18) ‣ § 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.18</span></a>), we can describe the potential
+along the axonal tube.</p>
+</div>
+<div id="SSSx1.p4" class="ltx_para">
+<p class="ltx_p">Axons do not passively follow the potential’s time course but mediate
+the changes in their internal volume by using the ion pool available
+in their extracellular volume. Even though they are tubes and deliver
+charge, <em class="ltx_emph ltx_font_italic">we must not describe that process using the telegrapher’s
+equation because of fundamental differences</em>. The electric telegraph
+cable continuously loses charge (current is leaking due to the specific
+resistance of the cable). In contrast, the biological cable keeps
+the current constant by pumping ions in and out. The relevant physical
+entities are potential and concentration gradients, as described by
+the Nernst-Planck equation, instead of the electric and magnetic gradients,
+as described by the Maxwell equations. In a biological cable, no potential
+is switched to the end of the cable and no leaking current is present.
+The lack of leaking is because the potential and concentration gradients
+mutually excite each other.</p>
+</div>
+<div id="SSSx1.p5" class="ltx_para">
+<p class="ltx_p">The applied potential opens ion channels in the axon’s wall, but pumping
+ions in and out needs enormous energy. A “longitudinal current”
+(forwarding charged particles in the direction of the apparent current)
+decays exponentially, so biology uses different methods for transferring
+information using charged particle carriers. Using “transversal
+current” (perpendicular to the apparent charge transfer on the surface
+of a membrane or inside an axon tube) or “circular current” (repolarization
+inside the Ranvier cells) enables transferring charge to large distances.
+However, using those tricks is not for free: according to Levy’s measurements <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib25" title="" class="ltx_ref">25</a>]</cite>,
+forwarding spikes needs about 35 times more energy than producing
+them. The charge moves autonomously (although the membrane uses “servo”
+ions when pumping). Considering transient changes in the membrane’s
+potential and discussing the charge diffusion through the axon’s wall
+would not result in a deeper understanding of the neuronal operation
+in the process considered, so we omit them.</p>
+</div>
+<div id="SSSx1.p6" class="ltx_para">
+<p class="ltx_p">Several factors regulate the time course of the process. A physically
+plausible assumption is that when an external potential (such as clamping)
+is applied to some point of the axon, it immediately opens the ion
+channels in the wall of the axon, and ions start to enter the axon.
+”The intracellular concentration at rest is around
+five orders of magnitude less than that in the extracellular space” <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib5" title="" class="ltx_ref">5</a>]</cite>,
+and it continuously increases towards the extracellular concentration,
+thanks to the newly opened ion channels. A continuous inflow through
+the axon’s wall from the extracellular space along
+the axon into the intracellular space increases their concentration
+inside the tube as a “fast current”. The ions move towards the
+membrane as a “slow” current with a macroscopic speed. We consider
+the external concentration constant: the extracellular space is infinitely
+large, and its concentration is higher by orders of magnitude than
+the internal one.
+</p>
+</div>
+<div id="SSSx1.p7" class="ltx_para">
+<p class="ltx_p">The concentration also means charge density. The ions entering the
+intracellular space remain inside the axon (as discussed in section
+11.4 of <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib5" title="" class="ltx_ref">5</a>]</cite>, “once calcium enters the intracellular
+cytoplasm it is not free to diffuse”). Experience shows that they
+experience the electric field, and (after a while) the ion’s speed
+is constant in time but depends on the actual electric field. The
+<em class="ltx_emph ltx_font_italic">ions will slowly move </em>along the axon <em class="ltx_emph ltx_font_italic">with a field-dependent
+constant speed in the electric space</em> in a viscous solution. “In
+axon fibers the effective diffusion constant was estimated to be about
+one-tenth of the diffusion coefficient in aqueous solution” <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib5" title="" class="ltx_ref">5</a>]</cite>;
+they form a “slow current”. This is the reason why Hodgkin and
+Huxley hypothesized <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib23" title="" class="ltx_ref">23</a>]</cite>
+that <em class="ltx_emph ltx_font_italic">“some</em> (otherwise invisible) <em class="ltx_emph ltx_font_italic">charged component
+of the membrane is slowly moving</em> and affects the ionic permeability”
+(the second half of the sentence intends to explain why membrane’s
+conductance changes). They were thinking in the Newtonian way, assuming
+that the transport speed of electrodiffusion in the axon and the propagation
+of the electromagnetic field were the same, so the moving object could
+not be a current. This is why they expected the current to appear
+instantly as they switched the clamping voltage. The fake analogy
+with electricity was misleading in their case, too.</p>
+</div>
+</section>
+<section id="SSSx2" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Native mode</h2>
+
+<div id="SSSx2.p1" class="ltx_para">
+<p class="ltx_p">Another particular case is when a spike travels along the axon. It
+is essentially ’propagation in a free space’
+(apart from the geometry of the axon limiting the ’free
+space’ to the inner volume of a tube). Initially, electrical
+charge and chemical mass enter the axon through the
+AIS. Given
+that the amount of current does not change during its transmission,
+a significant output current was HH <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib23" title="" class="ltx_ref">23</a>]</cite> already
+measured. The axon, however, actively participates in transferring
+the charge.</p>
+</div>
+<div id="SSSx2.p2" class="ltx_para">
+<p class="ltx_p">Notice that the case of switching clamping voltage is somewhat analogous
+to the arrival of a spike. Initially, the axon contains no ions. The
+spikes (at least their front side) arriving at a synapse can be reasonably
+approximated by a step function (although actually, they are a steep
+exponential): the ions delivered in the rising edge are stalled (until
+the voltage can open the voltage-controlled ion channels), so, at
+the price of some delay, their front size can be approximated with
+a step function. Actually, their <em class="ltx_emph ltx_font_italic">time derivative</em> is what excites
+the neuron, i.e., their contribution is similar to that of the rush-in
+current, see Figure <span class="ltx_ref ltx_missing_label ltx_ref_self">LABEL:fig:Physical-processes-membrane</span>.
+The spikes do not approach their corresponding saturation value (it
+would result in a slow operation), mainly because the negative voltage
+gradient (and, correspondingly, the current in the opposite direction)
+is slightly similar to a square-wave current input.</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="SS1.html" title="§ 1.4.1 General ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.1 </span>General</span></a><a href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="SS3.html" title="§ 1.4.3 Membrane ‣ § 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4.3 </span>Membrane</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Oct 29 14:11:32 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

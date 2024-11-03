@@ -1,0 +1,306 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.3.5 Current handling‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Tue Oct 29 14:11:32 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on October 29, 2024.-->
+
+<link rel="shortcut icon" href="../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../latexmldoc.css" type="text/css">
+<script src="../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="index.html" title="§ 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="up up up" href="../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="subsec_Demon-in-the-membrane.html" title="§ 1.3.4 Demon in the membrane ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="next" href="sec_physiology_consequences.html" title="§ 1.3.6 Consequences ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="SS1.html" title="§ 1.3.1 Nernst-Planck equation ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="SS2.html" title="§ 1.3.2 One segment ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="SS3.html" title="§ 1.3.3 Two segments ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="subsec_Demon-in-the-membrane.html" title="§ 1.3.4 Demon in the membrane ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="subsection" href="sec_physiology_consequences.html" title="§ 1.3.6 Consequences ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../S1/index.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../S2/index.html" title="§ 1.2 Simultaneous interactions ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="index.html" title="§ 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../sec_Physiology-AP/index.html" title="§ 1.5 Action Potential ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+<meta name="keywords" lang="en" content="Markovian, ion channel">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="216" height="122" alt="">
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../ch_overview/index.html" title="Overview ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Overview</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../index.html" title="Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Physiology (abstract)</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../S1/index.html" title="§ 1.1 Introduction ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../S2/index.html" title="§ 1.2 Simultaneous interactions ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Simultaneous interactions</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="index.html" title="§ 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3 </span>Electrodiffusion</span></a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="SS1.html" title="§ 1.3.1 Nernst-Planck equation ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.1 </span>Nernst-Planck equation</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="SS2.html" title="§ 1.3.2 One segment ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.2 </span>One segment</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="SS3.html" title="§ 1.3.3 Two segments ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.3 </span>Two segments</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="subsec_Demon-in-the-membrane.html" title="§ 1.3.4 Demon in the membrane ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.4 </span>Demon in the membrane</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection ltx_ref_self">
+<span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.5 </span>Current handling</span></span>
+<ul class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#SSSx1" title="Current drain in the layer ‣ § 1.3.5 Current handling ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Current drain in the layer</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#SSSx2" title="Current source in the layer ‣ § 1.3.5 Current handling ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Current source in the layer</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#SSSx3" title="Current without external potential ‣ § 1.3.5 Current handling ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Current without external potential</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="sec_physiology_consequences.html" title="§ 1.3.6 Consequences ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.6 </span>Consequences</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../sec_Calculating-ion's-speed/index.html" title="§ 1.4 Calculating ion’s speed ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.4 </span>Calculating ion’s speed</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../sec_Physiology-AP/index.html" title="§ 1.5 Action Potential ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.5 </span>Action Potential</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">Hi guy
+<br class="ltx_break"><a href="../../index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.8.6</em>
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="216" height="216" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="index.html" title="§ 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3 </span>Electrodiffusion</span></a><a href="subsec_Demon-in-the-membrane.html" title="§ 1.3.4 Demon in the membrane ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.4 </span>Demon in the membrane</span></a><a href="sec_physiology_consequences.html" title="§ 1.3.6 Consequences ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.6 </span>Consequences</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_subsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">§ 1.3.5 </span>Current handling</h1>
+
+<section id="SSSx1" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Current drain in the layer</h2>
+
+<div id="SSSx1.p1" class="ltx_para">
+<p class="ltx_p">The ions (from any source) entering the layer with a high ion concentration
+in the segment with the lower bulk concentration will reside in the
+layer near the separating membrane; they are in thermal and electric
+equilibrium. They cannot diffuse inside their segment due to the attraction
+of the ions in the segment, so the mass current is zero. They cannot
+pass into another layer: the electric driving force is missing, so
+the charge current is zero. However, they induce the corresponding
+changes on the opposite side. As Eq.(<a href="SS1.html#eq:Nernst-0" title="(1.1) ‣ Steady state ‣ § 1.3.1 Nernst-Planck equation ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.1</span></a>) describes,
+nothing changes.</p>
+</div>
+<div id="SSSx1.p2" class="ltx_para">
+<p class="ltx_p">The case fundamentally changes when a current drain appears in the
+layer. It decreases the local charge and potential, and the rest of
+the charge tends to be equipotentially distributed in the respective
+layer; a <em class="ltx_emph ltx_font_italic">potential-assisted</em> (slow) current will start. Given
+that the total charge in the layer decreases, its effect on the opposite
+side decreases, and the total amount of charge in the opposite layer
+also decreases, manifesting in bulk potential change. This charge
+“redistributes itself” on the two sides of the membrane <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib5" title="" class="ltx_ref">5</a>]</cite>.
+However, the circuit is closed through the drain and the extracellular
+space but not directly across the capacitor—consequently,
+slow currents flow inside the two adjacent layers. In the high-potential
+layer, parallel to the membrane’s surface, and in the low-potential
+layer perpendicularly to the membrane, towards the bulk part of the
+segment. They are simple discharge-type currents (we consider only
+the one flowing in layer in the segment with low concentration)</p>
+<table id="eq:I_Drain" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch1.E15.m1" class="ltx_Math" alttext="I_{Drain}=I_{o}*\exp(-\frac{1}{\beta}*t)" display="block"><mrow><msub><mi>I</mi><mrow><mi>D</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>n</mi></mrow></msub><mo>=</mo><mrow><msub><mi>I</mi><mi>o</mi></msub><mo>*</mo><mrow><mi>exp</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mi>β</mi></mfrac><mo>*</mo><mi>t</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1.15)</span></td>
+</tr>
+</table>
+</div>
+<div id="SSSx1.p3" class="ltx_para">
+<p class="ltx_p">Given that the slow current, due to its finite speed, has a limited
+charge-delivering ability, unlike in electronics, no limiting resistance
+is needed in the circuit. The current generates voltage either on
+a capacitor, see axonal arbor <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib16" title="" class="ltx_ref">16</a>, <a href="../../bib.html#bib17" title="" class="ltx_ref">17</a>]</cite>
+in the case of axons (later on the membrane), or on a resistor, see
+the AIS <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib18" title="" class="ltx_ref">18</a>]</cite>. If the delivered
+current can deliver more charge than that can flow away through the
+current drain, the effect of ’ram current’ (’impact current’) can
+be observed. Finally, as discussed in section <span class="ltx_ref ltx_missing_label ltx_ref_self">LABEL:subsec:Action-Potential</span>,
+the
+AP is a direct consequence of the ’ram current’ due to
+the rushed-in ions.</p>
+</div>
+<div id="SSSx1.p4" class="ltx_para">
+<p class="ltx_p">Our equations call attention to the neglected aspects that the current
+evoking an AP on the
+AIS <em class="ltx_emph ltx_font_italic">requires ions to be present
+in the electrolyte layer near the membrane</em>; furthermore, that the
+rushed-in ions must propagate from the exits of the ion channels (and
+similarly, from the synaptic terminals) in the layer on the surface
+of the membrane to the
+AIS, which needs time. The potential
+changes observed at different membrane locations manifest the slow
+currents in the membrane. Recall the sizes of the measuring tip and
+that of the layer: the presence of the charged layer likely cannot
+be directly noticed. However, its effects were noticed indirectly <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib19" title="" class="ltx_ref">19</a>]</cite>.</p>
+</div>
+</section>
+<section id="SSSx2" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Current source in the layer</h2>
+
+<div id="SSSx2.p1" class="ltx_para">
+<p class="ltx_p">In the segment, external currents can also appear. Examples include
+synaptic inputs through the neuron’s synaptic terminals (with a time
+course of a
+PSP, the current from the
+AIS to the beginning
+of the axon (with a time course of an
+AP, and artificial currents
+with various time courses). In those cases, the external current delivers
+ions, generating the concentration’s and potential’s time course.
+As discussed, in our approximation the current increases the charge
+carriers on the arrival side and decreases it on the departure side.
+If the source is a potential-less current, a simple discharge function
+describes it</p>
+</div>
+<div id="SSSx2.p2" class="ltx_para">
+<table id="eq:I_Source" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch1.E16.m1" class="ltx_Math" alttext="I_{source}=I_{o}*(1-\exp(-\frac{1}{\alpha}*t))" display="block"><mrow><msub><mi>I</mi><mrow><mi>s</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>e</mi></mrow></msub><mo>=</mo><mrow><msub><mi>I</mi><mi>o</mi></msub><mo>*</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mrow><mi>exp</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mi>α</mi></mfrac><mo>*</mo><mi>t</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1.16)</span></td>
+</tr>
+</table>
+</div>
+<div id="SSSx2.p3" class="ltx_para">
+<p class="ltx_p">As evidence shows, the current provided by a population of ion channels
+depends only on their number and surface density, and the ion channels
+are distributed evenly over the surface. The charges appear everywhere
+on the surface, including near the drain. That means that the drain
+current starts immediately (the repulsion of the appeared charge creates
+the driving force), and an exponentially increasing current will flow
+in the layer with a potential-assisted speed. Its intensity will change
+due to the changing intensity of the source current and the changed
+potential drop in the drain. The two currents flow simultaneously,
+and its intensity is the product of the source current and drain current
+(this form, with different coefficients, seems to be valid for several
+biological systems comprising ion channels)</p>
+</div>
+<div id="SSSx2.p4" class="ltx_para">
+<table id="eq:I_Out" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch1.E17.m1" class="ltx_Math" alttext="I_{out}=I_{o}*(1-\exp(-\frac{1}{\alpha}*t))*exp(-\frac{1}{\beta}*t)" display="block"><mrow><msub><mi>I</mi><mrow><mi>o</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>t</mi></mrow></msub><mo>=</mo><mrow><mrow><msub><mi>I</mi><mi>o</mi></msub><mo>*</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mrow><mi>exp</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mi>α</mi></mfrac><mo>*</mo><mi>t</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>*</mo><mi>e</mi></mrow><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mi>β</mi></mfrac><mo>*</mo><mi>t</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1.17)</span></td>
+</tr>
+</table>
+</div>
+<div id="SSSx2.p5" class="ltx_para">
+<p class="ltx_p">The channels in the membrane’s wall open quickly and the ions appear
+instantly; i.e., they produce a steep voltage gradient in the layer
+on the membrane (see Fig. <span class="ltx_ref ltx_missing_label ltx_ref_self">LABEL:fig:VoltageTimeDerivative</span>). As discussed,
+because of the size of the measuring tip, this gradient is attributed
+to the membrane even though it has no charge carriers. As the local
+potential in the layer increases on one side, and decreases on the
+other, the driving force across the membrane in the ion channels decreases,
+and the rush-in current slows down; the ’ram current’ quickly produces
+a negative gradient. (The effect can also be interpreted as the effect
+of storing charge in the neural <math id="SSSx2.p5.m1" class="ltx_Math" alttext="RC" display="inline"><mrow><mi>R</mi><mo>⁢</mo><mi>C</mi></mrow></math> circuit’s condenser.) The effect
+measured in <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib13" title="" class="ltx_ref">13</a>]</cite> is reproduced in our
+Fig. <span class="ltx_ref ltx_missing_label ltx_ref_self">LABEL:fig:VoltageTimeDerivative</span>. Later, the effect of the sudden
+change consolidates, and the gradient disappears (similarly to a damped
+oscillation) in a discharge-like way due to the intense current toward
+the drain. (The classic picture using fast currents would produce
+a simple discharge gradient with no AP-like form.)</p>
+</div>
+<div id="SSSx2.p6" class="ltx_para">
+<p class="ltx_p">As discussed, having charge carriers in the proximal layers of the
+membrane is a non-stationary stage, so the membrane tends to restore
+its steady state. In the classic model, simple equipotential surface
+(infinitely fast current) is assumed to provide only a static picture
+of the neuron. Our model uses slow current which can provide a dynamic
+picture: our equations can describe the time course of concentration
+and potential inside and outside the neuron.</p>
+</div>
+<div id="SSSx2.p7" class="ltx_para">
+<p class="ltx_p">The layers, for their regular operation, have both source and drain.
+In neurons, the source is distributed over the surface of the layers
+and the drain is concentrated at the terminating end of the layer.
+The two currents are flowing simultaneously, i.e., the source of the
+drain current has a time course, so the product of the two currents
+can be measured. (actually, it is a differential equation, and in
+the elementary cross-section, Kirchoff’s Junction Law is valid). Generally,
+it takes time until the source current reaches the drain’s position.</p>
+</div>
+</section>
+<section id="SSSx3" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Current without external potential</h2>
+
+<div id="SSSx3.p1" class="ltx_para">
+<p class="ltx_p">Notice that our interpretation and equations excellently and naturally
+describe also the axonal current propagating without an external voltage.
+The
+AP arrives at the beginning of the axon in the form of
+an ion packet delivering ions. Recall that the ions move in the “skin”
+layer on the membrane, and they continue their way in the axon’s internal
+surface, creating a similar skin on the internal surface of the tube.
+There is really no ion current in the volume of the axon, as the classic
+physiology observed. The current is delivered in the atomic “skin”
+on the internal volume of the axonal tube.</p>
+</div>
+<div id="SSSx3.p2" class="ltx_para">
+<p class="ltx_p">The mechanism of the current transmission is the one we described
+above. The mutual repulsion is unbalanced at the edge of the spike
+(and recall that the rising edge of the current is exponential). However,
+so the ions can move toward the end of the axon (the membrane) and
+the ions notice (with the speed of the electric interaction) the potential
+gradient created by the lack of those ions. Given that the potential-assisted
+speed is by orders of magnitude lower than the speed of the electric
+interaction, <em class="ltx_emph ltx_font_italic">the axonal current propagate in the tube at the
+potential-assisted speed</em>. The charges can be observed as the potential
+they generate propagates along the axon. One can quantitatively model
+the transmission along the axon using the equations and a three-state
+ion model <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../bib.html#bib20" title="" class="ltx_ref">20</a>]</cite>.
+
+(The classic modell assumes
+a periodically changing in- and outflow of ions in connection with
+propagating a <math id="SSSx3.p2.m1" class="ltx_Math" alttext="10\ ms" display="inline"><mrow><mpadded width="+5pt"><mn>10</mn></mpadded><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>s</mi></mrow></math> long spike at <math id="SSSx3.p2.m2" class="ltx_Math" alttext="10\ m/s" display="inline"><mrow><mrow><mpadded width="+5pt"><mn>10</mn></mpadded><mo>⁢</mo><mi>m</mi></mrow><mo>/</mo><mi>s</mi></mrow></math> speed requires the
+ion channels at distance of <math id="SSSx3.p2.m3" class="ltx_Math" alttext="1\ mm" display="inline"><mrow><mpadded width="+5pt"><mn>1</mn></mpadded><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>m</mi></mrow></math> to concert the actions: at what
+rate to pump ions in at the beginning and and the beginning to properly
+adjust the pumping intensity to accomodate to the spike’s current
+intensity at the places of the channels; given that the total charge
+delivered by the spike remains the same during the axonal delivery.
+)</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="subsec_Demon-in-the-membrane.html" title="§ 1.3.4 Demon in the membrane ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.4 </span>Demon in the membrane</span></a><a href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="sec_physiology_consequences.html" title="§ 1.3.6 Consequences ‣ § 1.3 Electrodiffusion ‣ Chapter 1 Physiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.3.6 </span>Consequences</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Oct 29 14:11:32 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.2 Action Potential‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Wed Nov  6 19:00:55 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 6, 2024.-->
+
+<link rel="shortcut icon" href="../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../latexmldoc.css" type="text/css">
+<script src="../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="../SINGLE_ABSTRACT_NEURON/sec_Single-AbstractPotentialInside/index.html" title="§ 1.1.1 Neuron’s potential ‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="next" href="../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../SINGLE_ABSTRACT_NEURON/index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+<meta name="keywords" lang="en" content="current, leaking, leaking current">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break">@November 6, 2024</p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../SINGLE_ABSTRACT_NEURON/index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Abstract modeling</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Action Potential</span></span></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Abstract neurophysiology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Neural computing</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a><a href="../SINGLE_ABSTRACT_NEURON/sec_Single-AbstractPotentialInside/index.html" title="§ 1.1.1 Neuron’s potential ‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1.1 </span>Neuron’s potential</span></a><a href="../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Abstract neurophysiology</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">§ 1.2 </span>Action Potential</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">In this section we discuss the concept of <a name="SINGLE_AP_CONCEPTUAL" id="SINGLE_AP_CONCEPTUAL" class="ltx_anchor">action potential</a>.
+Our approach here is hybrid: we know that the events are connected
+to ion movements and that the components’ cooperation forms the action potential. The <a href="../../ch_Physiology/sec_Physiology-Physical/sec_Physiology-AP/index.html#PHYSIOLOGY_AP" title="action potential ‣ § 2.2.3 Action Potential ‣ § 2.2 The physical model ‣ Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref">physiological</a> and <a href="../../ch_Physics/sec_Physics-Electricity/sec_PHYSICS_AP/index.html#PHYSICS_AP" title="§ 3.4.5 Action potential ‣ § 3.4 Electricity in biology ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref">physical</a> details are discussed in the respective chapters <a href="../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a> and <a href="../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">We assume that the neuron is state ”Relaxing”. The membrane’s voltage is at the resting value, so the membrane and the
+AIS
+are at the same potential, so no current is present.
+When input charge (through the synapses or directly though the mebrane)
+arrives to the membrane, its potential increases. The increased membrane potential means s potential difference between the membrane and the axon, so it drives a current through the AIS.
+The current
+(not identical with the leaking current)
+
+
+decreases the membrane’ potential between adjacent synaptic inputs.
+For simplicity, we assume that the axonal inputs cause a step-like change in the membrane’s voltage. Between the inputs the current through the AIS
+decreases the membrane’s potential. As we discuss, the neuronal computation actually measures the time between the arrival of the first synaptic input and exceeding the threshold; it is in the order of tenths of a millissecond.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">When the resulting potential exceeds a threshold value, for a very short time (in the order of tenth of picoseconds) the ion channels in the membrane’s wall open and a large amount of ions suddenly (in a step-like way) increase the membrane’s potential in its surface layer.
+The current due to the rushed-in ions creates a local potential gradient and the ions (with a potential-assisted speed) saturate the layer (the mechanism is described in section <a href="../../ch_Physics/sec_Physiology-Electrodiffusion/index.html" title="§ 3.5 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.5</span></a>),
+open all ion channels. The rushed-in ions feel the potential gradient toward the AIS, but they can move in the layer on the surface
+with a finite speed, so the current from the different points of the membrane need different times to reach the AIS.
+Correspondingly, the current (due to the current ”created” by the nearby ion channels) reaches the AIS
+instantly, while the current from the farthest point needs tenths of a millisecond to get to the AIS.
+After that, given that the current cannot flow out ”instantly”,
+the current produces a kind of ”damped oscillation”: drops below
+the resting potential and then asymptotically approaches it, without exceeding it. It is the effect of the neuronal oscillator, marked as ”RC-effect”. In some sense, the ionic current ”disappears” get stored in the neuronal condenser while it travels on the surface of the membrane.</p>
+</div>
+<figure id="fig:ActualPotentialConceptual" class="ltx_figure"><object type="image/svg+xml" data="fig/HH_AP_schematic.svg" id="Ch1.F3.g1" class="ltx_graphics" width="541" height="386" aria-label="The conceptual graph of the action potential "><p>The conceptual graph of the action potential </p></object>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 1.3: </span>The conceptual graph of the action potential </figcaption>
+</figure>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">During this process, the membrane’s voltage controls the synaptic inputs. Given that the ions can reach the membrane using a ”downhill” method, the current stops when the membrane’s potential rises
+above that of the axonal arbor,
+and will not flow until the membrane’s potential drops again below the threshold: the synapses will be disabled and re-enabled.</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Biology observed the ”absolute refractory” period, which is interpreted
+that the synapses are disabled for a period, and it is a correct observation. Different is the case for the ”relative refractory” period. Actually, the synaptic inputs arrive at the junction of the axon, and the current must travel to the AIS
+that needs time (in the order of tenth of a millisecond). Given that
+the AP
+is measured at the AIS,
+the main contributor’ current in the meantime proceeds toward the ”hyperpolarized” state, and so the synaptic inputs apparently contribute
+outside of the ”absolute refractory” period, so this extension is called ”relative refractory”. Actually, the origin of both periods is the same, only the effect’s time scale is shifted by the ionic current’s travel time.</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">As discussed, after that the membrane’s voltage drops below the threshold potential, the neuron can start a new computing. The signal ”ComputingBegin” is defined as the signal arriving first after then the neuron membrane’s potential crossed the threshold value from the higher voltage direction.
+At that point, the membrane’s voltage can be above or below the resting potential, and, correspondingly, the charge integration starts from a value higher or lower than the resting potential.
+Effectively, the value of the potential (more precisely, <span class="ltx_text ltx_font_italic">when</span> the first
+synaptic input arrives at the AIS) represents a memory with initially a negative, later positive, time-dependent content.
+</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">Our stages slightly deviatefrom the one commonly used in physiology.
+We define the stage ”Computing” as the period between the arrival from the first synaptic input to exceeding the threshold.
+The stage ”Delivering” is defined as the period while the membrane’s voltage stays above the threshold. The stage ”Relaxing” begins when the ”Delivering” ends, and may be interrupted by a synaptic input. Notice that because of the spatiotemporal nature, the time values have a definite meaning only if the place of the measurent is also provided: it is one coordinate of a space-time point.</p>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">The computer representation (actually a state machnine) is shown in Figure <a href="../../ch_Computing/index.html#fig:NeuronStateMachine" title="Figure 4.1 ‣ Chapter 4 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a>.</p>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p"><a name="MODELING_SINGLE" id="MODELING_SINGLE" class="ltx_anchor"></a></p>
+</div>
+<div id="p10" class="ltx_para">
+<p class="ltx_p"><a name="MODELING_MULTIPLE_NEURONS" id="MODELING_MULTIPLE_NEURONS" class="ltx_anchor"></a>
+<a name="NeuronPhysical" id="NeuronPhysical" class="ltx_anchor"></a></p>
+</div>
+<div id="p11" class="ltx_para">
+<p class="ltx_p"><a name="MODELING_SINGLE_LAYERS" id="MODELING_SINGLE_LAYERS" class="ltx_anchor">layer</a>
+<a name="MODELING_SINGLE_ION_CHANNEL" id="MODELING_SINGLE_ION_CHANNEL" class="ltx_anchor">ion channels</a>
+<a name="AXONAL_CHARGE_DELIVERY" id="AXONAL_CHARGE_DELIVERY" class="ltx_anchor"></a></p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../SINGLE_ABSTRACT_NEURON/sec_Single-AbstractPotentialInside/index.html" title="§ 1.1.1 Neuron’s potential ‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1.1 </span>Neuron’s potential</span></a><a href="../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Abstract neurophysiology</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Wed Nov  6 19:00:55 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

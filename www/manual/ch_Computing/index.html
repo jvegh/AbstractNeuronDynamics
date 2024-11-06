@@ -2,8 +2,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>4 Neural computing‣ Abstract Neuron Dynamics</title>
-<!--Generated on Sun Nov  3 14:45:06 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
-<!--Document created on November 3, 2024.-->
+<!--Generated on Wed Nov  6 19:00:55 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 6, 2024.-->
 
 <link rel="shortcut icon" href="../../favicon.ico" type="image/png">
 <link rel="stylesheet" href="../../LaTeXML.css" type="text/css">
@@ -17,7 +17,7 @@
 <link rel="prev" href="../ch_Physics/sec_Physiology-Electrodiffusion/sec_PhysiologyCurrentHandling/sec_Physiology-Current-Without.html" title="Current without external potential ‣ § 3.5.5 Current handling ‣ § 3.5 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
 <link rel="next" href="../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
 <link rel="chapter" href="../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
-<link rel="chapter" href="../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics">
 <link rel="chapter" href="../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
 <link rel="chapter" href="../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
 <link rel="bibliography" href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
@@ -29,12 +29,12 @@
 <img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
 <p class="ltx_p">Abstract Neural Dynamics
 <br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
-<br class="ltx_break"></p>
+<br class="ltx_break">@November 6, 2024</p>
 </div>
 <div class="ltx_TOC">
 <ul class="ltx_toclist">
 <li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Single/index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a></li>
-<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Physiology/index.html" title="Chapter 2 Neurophysiology (abstract) ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Neurophysiology (abstract)</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Abstract neurophysiology</span></a></li>
 <li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a></li>
 <li class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Neural computing</span></span></li>
 <li class="ltx_tocentry ltx_tocentry_chapter"><a href="../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a></li>
@@ -69,13 +69,16 @@
 <div id="p2" class="ltx_para">
 <p class="ltx_p">Computing</p>
 </div>
+<figure id="fig:NeuronStateMachine" class="ltx_figure"><object type="image/svg+xml" data="fig/NeuronStateMachine.svg" id="F1.g1" class="ltx_graphics" width="541" height="631" aria-label="The neuronal state machine for event-driven simulation "><p>The neuronal state machine for event-driven simulation </p></object>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 4.1: </span>The neuronal state machine for event-driven simulation </figcaption>
+</figure>
 </section>
 </div>
 <footer class="ltx_page_footer">
 <div>
 <a href="../ch_Physics/sec_Physiology-Electrodiffusion/sec_PhysiologyCurrentHandling/sec_Physiology-Current-Without.html" title="Current without external potential ‣ § 3.5.5 Current handling ‣ § 3.5 Electrodiffusion ‣ Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title">Current without external potential</span></a><a href="../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a>
 </div>
-<div class="ltx_page_logo">Generated  on Sun Nov  3 14:45:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Wed Nov  6 19:00:55 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 </body>

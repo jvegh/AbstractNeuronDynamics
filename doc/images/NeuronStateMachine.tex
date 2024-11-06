@@ -13,7 +13,7 @@
 	% Initially, the neurer is ready, but sleeping
 	\node[state, initial] (Sleep) {$Sleep$};
 	% The major state is 
-	\node[state, accepting, below right of=Sleep,yshift=1.2cm,xshift=.5cm] (Acquire) {$\quad Relax\quad$};
+	\node[state, accepting, below right of=Sleep,yshift=1.2cm,xshift=.5cm] (Acquire) {$\quad Relaxing\quad$};
 	\draw (Sleep) edge[bend left,yshift=.5cm] node{$Any~input$} (Acquire) ;
 	\draw (Acquire) edge[bend left] node{$Inactivity$} (Sleep) ;
 	\draw   (Acquire) edge[loop right] node[above]{$Any~input$} (Acquire);	

@@ -1,0 +1,207 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.1.1 Neuron’s potential‣ § 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics</title>
+<!--Generated on Wed Nov  6 19:00:55 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 6, 2024.-->
+
+<link rel="shortcut icon" href="../../../../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../../../../LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-book.css" type="text/css">
+<link rel="stylesheet" href="../../../../ltx-listings.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../../../../latexmldoc.css" type="text/css">
+<script src="../../../../LaTeXML-maybeMathjax.js" type="text/javascript"></script>
+<link rel="up" href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="up up" href="../../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="up up up" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="start" href="../../../index.html" title="Abstract Neuron Dynamics">
+<link rel="prev" href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="next" href="../../sec_Single-ActionPotential/index.html" title="§ 1.2 Action Potential ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="section" href="../../sec_Single-ActionPotential/index.html" title="§ 1.2 Action Potential ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics">
+<link rel="chapter" href="../../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics">
+<link rel="bibliography" href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics">
+<link rel="index" href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics">
+<meta name="keywords" lang="en" content="arbor, axon, cardiatic, refractory, relative, slow current">
+</head>
+<body>
+<nav class="ltx_page_navbar">
+<div class="ltx_para">
+<img src="../graphics/BrainElectronics.png" class="ltx_graphics" width="227" height="128" alt="">
+<p class="ltx_p">Abstract Neural Dynamics
+<br class="ltx_break">Version <em class="ltx_emph ltx_font_italic">0.0.7</em>
+<br class="ltx_break">@November 6, 2024</p>
+</div>
+<div class="ltx_TOC">
+<ul class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_chapter">
+<a href="../../index.html" title="Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Abstract single neurons</span></a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Abstract modeling</span></a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection ltx_ref_self"><span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1.1 </span>Neuron’s potential</span></span></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="../../sec_Single-ActionPotential/index.html" title="§ 1.2 Action Potential ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Action Potential</span></a></li>
+</ul>
+</li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Physiology/index.html" title="Chapter 2 Abstract neurophysiology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Abstract neurophysiology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Physics/index.html" title="Chapter 3 Physics for biology ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Physics for biology</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Computing/index.html" title="Chapter 4 Neural computing ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Neural computing</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_chapter"><a href="../../../ch_Information/index.html" title="Chapter 5 Neural information ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Neural information</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Bibliography</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_index"><a href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref"><span class="ltx_text ltx_ref_title">Index</span></a></li>
+</ul>
+</div>
+<div class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><a href="../../manual.pdf" title="" class="ltx_ref ltx_href">Manual in .PDF form</a>
+<a href="../../docs/index.html" title="" class="ltx_ref ltx_href">Simulator</a>
+
+<br class="ltx_break"><img src="../graphics/NeuronAndBrain.jpg" class="ltx_graphics" width="227" height="227" alt="">
+</p>
+</div></nav>
+<div class="ltx_page_main">
+<header class="ltx_page_header">
+<div>
+<a href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Abstract modeling</span></a><a href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Abstract modeling</span></a><a href="../../sec_Single-ActionPotential/index.html" title="§ 1.2 Action Potential ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Action Potential</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_subsection ltx_authors_1line">
+<h1 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">§ 1.1.1 </span>Neuron’s potential</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Experimental evidence shows that the electric signals
+have a finite speed in axons, dendrites and cell body; furthermore, that <span class="ltx_text ltx_font_italic">within the cell,
+the overwhelming majority of propagation time is spent in the dendrites</span>.
+The mathematical handling of finite speeds is not simple, especially
+within a biological cell, so we separate the cell into two regions
+and make the approximation that within the cell body the interaction is instant
+(that is, the Laws of electricity are valid), but outside the cell, in the dendrites
+the finite interaction speed leads to observable effects that significantly
+influence cell’s operation (we need different approximation; we must not apply
+automatically the equations borrowed from electricity).
+<span class="ltx_text ltx_font_italic">We set up a hybrid model: the cell body is equipotential
+(aka: can be described by a ’fast current’), but the dendrites
+(and they contribute the overwhelming majority of the signal path within the cell)
+are non-equipotential and they must be described by approximations
+based on the notion of a ’slow current’.</span>
+With that model, we explain the up to now not understood features of neuronal
+charge processing, furthermore, why is that ’the interplay
+between the synaptic and neuronal dynamics, when the network is near
+a critical point, both recurrent spontaneous and stimulated phase
+transitions enable the phase-dependent processes to replace each other’
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib7" title="" class="ltx_ref">7</a>]</cite>.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The commonly used physical picture (see, for example, <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib11" title="" class="ltx_ref">11</a>]</cite>, page 9)
+is only half of the truth:
+”there is never any actual movement of charge across the insulating membrane …
+the charge merely redistributes itself across the two sides by the way of the rest of the circuit.”
+On the one side, redistribution of charge <span class="ltx_text ltx_font_italic">per definitionem</span> means a current, on the other,
+that picture contradicts also the notion of ’specific conductance’:
+the rest of the circuit cannot participate in a ’leaking current’ through a distributed resistor.
+The cell has a resistance (see the
+AIS) and an area, but still, no specific resistance
+can be interpreted.
+The charge moves in the proximal
+layer
+of the electrolytes
+(in the form of a
+’slow current’
+near to dendrites),
+then the circuit closes though the
+AIS and the extracellular segment.
+<span class="ltx_text ltx_font_italic">We explicitly introduce the notion of ’slow current’, and show that we need to divide the membrane’s ionic currents roughly into two categories,
+whether they flow directly between the intracellular and the extracellular
+space or within the layer on the surface of the membrane</span>.
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The physical difference is whether the movement of ions is assisted
+by the enormous potential gradient between the extra- and intracellular regions
+when passing the ion channels (’fast’ current)
+or they move in the electrolyte layer proximal to isolating membrane
+assisted by the electrostatic repulsion of ions in the same layer
+(’slow’ speed of a macroscopic current).
+
+Cardiatic slow currents have been discovered <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib27" title="" class="ltx_ref">27</a>]</cite>
+(actually, current pulses of duration in several msecs range).
+It was correctly observed that ”the slow currents appear to
+have been caused by repeated openings of one or more channels”
+and their speed <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib28" title="" class="ltx_ref">28</a>]</cite> was found in the range of <math id="p3.m1" class="ltx_Math" alttext="0.02-5\ m/sec" display="inline"><mrow><mn>0.02</mn><mo>-</mo><mrow><mrow><mrow><mpadded width="+5pt"><mn>5</mn></mpadded><mo>⁢</mo><mi>m</mi></mrow><mo>/</mo><mi>s</mi></mrow><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>c</mi></mrow></mrow></math>.
+In neurophysiology, ion current speeds
+ranging from a few <math id="p3.m2" class="ltx_Math" alttext="mm/s" display="inline"><mrow><mrow><mi>m</mi><mo>⁢</mo><mi>m</mi></mrow><mo>/</mo><mi>s</mi></mrow></math> to dozens of <math id="p3.m3" class="ltx_Math" alttext="m/s" display="inline"><mrow><mi>m</mi><mo>/</mo><mi>s</mi></mrow></math> has been observed.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">The size of presynaptic terminals <a href="https://www.ncbi.nlm.nih.gov/books/NBK26910/bin/ch11f38.jpg" title="" class="ltx_ref ltx_href">(reproduced here as Fig. <span class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.2</span></span>)</a>
+is about two orders of magnitude smaller
+than the cell body and its dendrites <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib29" title="" class="ltx_ref">29</a>]</cite>, chapter 11.
+In other words, the
+”dendritic trees can be quite large, containing up to 98% of the
+entire neuronal surface area” <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib7" title="" class="ltx_ref">7</a>]</cite>.
+”Because the cell body is small compared with the dendritic tree,
+its membrane potential is roughly uniform” <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib29" title="" class="ltx_ref">29</a>]</cite>. We pinpoint that
+since the ionic currents spend most of their travel time in the dendritic tree, we assume that the
+overwhelming portion of the travel time derives from the dendrites;
+so the contribution from the travel on the body is omitted.
+In this sense it is unimportant whether <span class="ltx_text ltx_font_italic">the membrane itself is equipotential</span>.
+However, it is crucial that <span class="ltx_text ltx_font_italic">the dendrites are not equipotential while delivering signals</span>.
+Their potential ”is a composite of the effects of all the signals impinging on the cell,
+weighted according to the distances of the synapses from the cell body”.
+”Each incoming signal is reflected in a local
+PSP
+of graded magnitude,
+which decreases with distance from the site of the synapse.”
+”Temporal and spatial summation together provide the means by which …
+many presynaptic neurons jointly control the membrane potential.” <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib29" title="" class="ltx_ref">29</a>]</cite>.
+This former sentence should read that <span class="ltx_text ltx_font_italic">its measurable effect (their potential)
+decreases</span>, compared to the
+one at the presynaptic terminals. As the surface, over which it propagates
+during its journey through the dendrites, extends, the charge density decreases,
+but the total charge conserves until the cell body reached.
+The latter sentence should read that the presynaptic <span class="ltx_text ltx_font_italic">terminals</span>
+and the <span class="ltx_text ltx_font_italic">membrane potential</span> mutually control each other. Given that the ions can reach the presynaptic terminal passively by using a ”downhill” potential between the axonal arbor and the membrane, once, they cannot enter the mebrane until the membrane’s potential is higher than that in the axonal arbor and twice, whwn they can enter, the current depends on the potential difference between the membrane and the arbor.
+</p>
+</div>
+<figure id="fig_SizeOfPresynapticTerminals" class="ltx_figure"><img src="fig/ch11f38.jpg" id="Ch1.F2.g1" class="ltx_graphics" width="541" height="305" alt="The size of presynaptic terminals. ©">
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 1.2: </span>The size of presynaptic terminals. ©<a href="https://www.ncbi.nlm.nih.gov/books/NBK26910/bin/ch11f38.jpg" title="" class="ltx_ref ltx_href">Original</a>
+</figcaption>
+</figure>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">These statements mean (assuming that those signals travel with
+the same speed in the dendrites) that the <span class="ltx_text ltx_font_italic">presence of
+a ’slow current’ of ions
+in neurons is
+experimentally underpinned</span>, although the notion is not introduced
+(mainly because its mathematical handling is not solved).
+Assuming that the dendrites’ size is about <math id="p5.m1" class="ltx_Math" alttext="0.1\ mm" display="inline"><mrow><mpadded width="+5pt"><mn>0.1</mn></mpadded><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>m</mi></mrow></math> and the synaptic signals appear
+at the
+AIS
+<math id="p5.m2" class="ltx_Math" alttext="0.2\ ms" display="inline"><mrow><mpadded width="+5pt"><mn>0.2</mn></mpadded><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>s</mi></mrow></math> after their arrival to their presynaptic terminals,
+we can estimate the speed of ’slow current’ as <math id="p5.m3" class="ltx_Math" alttext="0.5\ m/s" display="inline"><mrow><mrow><mpadded width="+5pt"><mn>0.5</mn></mpadded><mo>⁢</mo><mi>m</mi></mrow><mo>/</mo><mi>s</mi></mrow></math>
+(see our discussion on the signals appearing in the ’relative refractory’
+period).
+
+This result is in line with our result derived
+the speed value <math id="p5.m4" class="ltx_Math" alttext="1\ cm/s" display="inline"><mrow><mrow><mpadded width="+5pt"><mn>1</mn></mpadded><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>m</mi></mrow><mo>/</mo><mi>s</mi></mrow></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib2" title="" class="ltx_ref">2</a>]</cite>
+measured within a cell body and the axonal speed <math id="p5.m5" class="ltx_Math" alttext="20\ m/s" display="inline"><mrow><mrow><mpadded width="+5pt"><mn>20</mn></mpadded><mo>⁢</mo><mi>m</mi></mrow><mo>/</mo><mi>s</mi></mrow></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="../../../bib.html#bib3" title="" class="ltx_ref">3</a>]</cite>.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="../index.html" title="§ 1.1 Abstract modeling ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.1 </span>Abstract modeling</span></a><a href="../../../bib.html" title="Bibliography ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="bibliography"><span class="ltx_text ltx_ref_title">Bibliography</span></a><a href="../../../idx.html" title="Index ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="index"><span class="ltx_text ltx_ref_title">Index</span></a><a href="../../sec_Single-ActionPotential/index.html" title="§ 1.2 Action Potential ‣ Chapter 1 Abstract single neurons ‣ Abstract Neuron Dynamics" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1.2 </span>Action Potential</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Wed Nov  6 19:00:55 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>
